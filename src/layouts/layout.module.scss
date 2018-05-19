@@ -1,0 +1,27 @@
+
+// Breakpoints
+$sm: 42em;
+
+:root {
+  --gutter: 1rem;
+}
+
+.postsGrid {
+  max-width: 32em;
+  margin: 3em auto;
+  padding: 1em;
+
+  @supports (display: grid) {
+    max-width: none;
+    margin: unset;
+    padding: unset;
+  }
+
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(10em, 21em));
+  grid-gap: var(--gutter);
+
+  @media (min-width: $sm) {
+    --gutter: 3rem;
+  }
+}
