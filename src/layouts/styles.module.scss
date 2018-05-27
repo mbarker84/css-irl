@@ -12,17 +12,30 @@ $sm: 42em;
   @media (min-width: 42em) {
     display: grid;
     grid-template-columns: [start] minmax(1em, 1fr) [wrapper-start] minmax(0, auto) minmax(auto, 1fr) [header-end] minmax(auto, 1fr) [content-start] repeat(6, minmax(auto, 1fr)) [wrapper-end] minmax(1em, 1fr) [end];
-    grid-template-rows: minmax(auto, 3rem) minmax(auto, 80vh) minmax(auto, 3rem);
+    grid-template-rows: minmax(auto, 3rem);
     grid-gap: 1rem;
 
-    &::after {
-      grid-column: start / header-end;
-      grid-row: 2;
+    // &::after {
+    //   grid-column: start / header-end;
+    //   grid-row: 2;
+    //   content: '';
+    //   display: block;
+    //   width: 100%;
+    //   z-index: -1;
+    //   border-right: 2px dashed $bg-light;
+    // }
+
+    &::before {
       content: '';
       display: block;
-      width: 100%;
+      width: 100vw;
+      height: 45vw;
+      transform: rotate(-45deg);
+      background-color: $bg-light;
+      position: absolute;
+      top: -20vw;
+      left: -30vw;
       z-index: -1;
-      border-right: 2px dashed $bg-light;
     }
   }
 }
@@ -42,20 +55,28 @@ $sm: 42em;
 
 .content {
   grid-column: content-start / wrapper-end;
-  grid-row: 2 / 5;
+  grid-row: 2 / 4;
   padding: 1em;
 
   @media (min-width: 42em) {
     padding: unset;
+  }
+
+  @media (min-width: 60em) {
+    grid-row-start: 3;
   }
 }
 
 .siteTitle {
   margin-top: 0;
   text-align: center;
+  transition: color 200ms ease-in-out;
+  justify-content: center;
+  margin-bottom: 0;
 
   @media (min-width: 42em) {
     text-align: left;
+    margin-bottom: 3rem;
   }
 
   > span {
@@ -63,9 +84,13 @@ $sm: 42em;
   }
 }
 
-a:hover .siteTitle {
-  > span:first-child {
-    text-shadow: 0.03em -0.04em $secondary, -0.03em 0.04em #f9f32f;
+a:hover {
+  .mainTitle {
+    text-shadow: 0 0 transparent;
+  }
+
+  .siteTitle {
+    color: rgba($black, 0.5);
   }
 }
 
@@ -73,16 +98,58 @@ a:hover .siteTitle {
   font-size: 0.6em;
 
   @media (min-width: 42em) {
-    font-size: unset;
+    font-size: 5vmin;
   }
 }
 
 .mainTitle {
   font-size: 1.8em;
-  text-shadow: -0.04em 0.04em transparent, 0.06em -0.06em transparent;
+  transform: translate3d(-0.3rem, 0, 0);
+  text-shadow: 0.03em -0.04em $secondary, -0.03em 0.04em #f9f32f;
   transition: text-shadow 200ms ease-in-out;
 
   @media (min-width: 42em) {
-    font-size: 3.5em;
+    font-size: 18vmin;
   }
+}
+
+.menu {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 1em;
+
+  @media (min-width: 42em) {
+    grid-column: wrapper-start / header-end;
+    grid-row: 3;
+    align-self: flex-start;
+    padding: unset;
+  }
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  font-size: 0.8rem;
+
+  @media (min-width: 42em) {
+    font-size: 1rem;
+  }
+}
+
+.linkWithIcon {
+  composes: link;
+
+  span {
+    padding-left: 1.8rem;
+  }
+}
+
+.linkIcon {
+  width: 1.4rem;
+  height: 1.4rem;
+  display: block;
+  position: relative;
+  left: 1.2rem;
+  z-index: 1;
+  fill: $black;
 }

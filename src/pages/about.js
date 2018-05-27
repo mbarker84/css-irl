@@ -1,13 +1,17 @@
 import React from 'react'
+import layout from '../layouts/layout.module.scss'
 
 export default ({ data }) => (
-	<div>
-		<h1>
-			About {data.site.siteMetadata.title} {data.site.siteMetadata.subheading}
-		</h1>
+	<div className={layout.postContent}>
+		<h1>About</h1>
 		<p>
-			We're the only site running on your computer dedicated to showing the best
-			photos and videos of pandas eating lots of food.
+			CSS In Real Life is a blog covering CSS topics and useful snippets on the
+			web’s most beautiful language.
+		</p>
+		<p>
+			Published by <a href="https://twitter.com/mbarker_84">Michelle Barker</a>,
+			front end developer at <a href="http://ournameismud.co.uk">Mud</a> and CSS
+			superfan.
 		</p>
 	</div>
 )
