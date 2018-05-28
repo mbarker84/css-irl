@@ -3,6 +3,8 @@ title: "CSS Grid: More flexibility with minmax()"
 date: "2018-04-29"
 ---
 
+<em>First published on [Codepen](https://codepen.io/michellebarker/post/css-grid-more-flexibility-with-minmax)</em>
+
 One of the things that can put people off trying out CSS Grid is there’s so much choice when it comes to defining your grid layout and placing your content, so it can be hard to know until you’ve been using it a while which is going to to be the best option for a particular layout. It’s only recently that I got around to fully appreciating the power of [`minmax()`](https://developer.mozilla.org/en-US/docs/Web/CSS/minmax) and how it can be such a huge helper when coding many of the layouts I’m required to build, so I’d like to share one way in which it’s been beneficial to me.
 
 `minmax()` is a function that can be used in your `grid-template-columns` or `grid-template-rows` property to size your grid tracks. It takes (you guessed it) a minimum value and a maximum value, which can be a length (pixels, ems, etc.), a percentage, a flexible `fr` unit or a keyword. [Here’s a good article explaining it in depth](http://bitsofco.de/how-the-minmax-function-works/). Jen Simmons also discusses `minmax()` and the future of layout in [an episode of her Layout Land](https://www.youtube.com/watch?v=mVQiNpqXov8) channel.

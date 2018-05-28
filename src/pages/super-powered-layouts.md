@@ -3,6 +3,8 @@ title: "Super-powered layouts with CSS Variables + CSS Grid"
 date: "2018-03-29"
 ---
 
+<em>First published on [Codepen](https://codepen.io/michellebarker/post/super-powered-layouts-with-css-variables-css-gr)</em>
+
 We’ve been using CSS Grid in production at [Mud](http://ournameismud.co.uk/) for a few months now and I absolutely love the flexibility it’s giving me when coding layout. For so long we've got along without a true layout solution for the web - hacking it with floats and flexbox was just how we did things. But now, I honestly cannot imagine life without Grid!
 
 One thing that’s only come to my full attention more recently is [CSS Variables](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_variables) (or Custom Properties). CSS Variables work a bit like variables in Sass and other preprocessors. The main difference is they’re compiled in the browser, unlike preprocessor variables, which are compiled into fixed CSS values before they hit the browser. CSS Variables are true dynamic variables that can be updated on the fly, either in your stylesheet or with JavaScript, which makes them super versatile. If you’re familiar with Javascript, I like to think of the difference between preprocessor variables and CSS Variables as similar to the difference between `const` and `let` - they both serve different purposes.

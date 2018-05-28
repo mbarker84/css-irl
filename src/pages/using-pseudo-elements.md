@@ -3,6 +3,8 @@ title: "Using pseudo-elements with CSS Grid"
 date: "2018-04-19"
 ---
 
+<em>First published on [Codepen](https://codepen.io/michellebarker/post/using-pseudo-elements-with-css-grid)</em>
+
 This week I’ve had a couple of scenarios where I’ve needed to build a hero section with a full-width image, a large heading and a translucent sidebar overlaying the image – where the sidebar bleeds to the edge of the viewport but (crucially) the _content_ of the sidebar aligns to what I like to call the “wrapper” grid columns – i.e. the columns of the grid where we actually want to place our content. (I have a whole other post almost written on this!)
 
 This seems to be a fairly common occurrence with the designs that are coming my way these days, and it seems like a prime case for using pseudo-elements (`::before` or `::after`) as child items of the grid.

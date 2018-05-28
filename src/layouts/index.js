@@ -39,6 +39,7 @@ export default ({ children, data }) => (
 			</a>
 		</nav>
 		<div className={styles.content}>{children()}</div>
+		<footer className={styles.footer}>&copy; Michelle Barker 2018</footer>
 	</div>
 )
 

@@ -59,12 +59,20 @@ $sm: 42em;
   padding: 1em;
 
   @media (min-width: 42em) {
-    padding: unset;
+    padding: 0 0 3rem 0;
   }
 
   @media (min-width: 60em) {
     grid-row-start: 3;
   }
+}
+
+.footer {
+  grid-row: 4;
+  grid-column: start / end;
+  padding: 1rem;
+  font-size: 0.7rem;
+  color: lighten($black, 40%);
 }
 
 .siteTitle {

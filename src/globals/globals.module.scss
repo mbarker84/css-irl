@@ -23,7 +23,7 @@ a {
   }
 }
 
-p > a {
+p a {
   box-shadow: 0 -0.5em 0 inset $primary;
   transition: box-shadow 200ms ease-in-out;
 
@@ -31,6 +31,13 @@ p > a {
   &:focus{
     box-shadow: 0 -1.2em 0 inset $secondary;
   }
+}
+
+pre {
+  overflow: scroll;
+  background-color: $black;
+  color: $white;
+  padding: 1rem;
 }
 
 .hl {
