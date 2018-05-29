@@ -1,9 +1,9 @@
 ---
 title: "Aspect Ratio Cells with CSS Grid Layout"
 date: "2018-05-27"
+source: "Originally published on Codepen"
+srcUrl: "https://codepen.io/michellebarker/post/building-an-aspect-ratio-css-grid-layout"
 ---
-
-<em>First published on [Codepen](https://codepen.io/michellebarker/post/building-an-aspect-ratio-css-grid-layout)</em>
 
 I found myself recently building a layout in CSS Grid that would have previously needed JavaScript in order to work. It’s a layout based on equal sized square grid cells, where grid items could span one or two cells on the row and/or column axis. In other words, the grid <em>cells</em> needed to maintain an aspect ratio (1:1 in this case), but the actual grid <em>items</em> did not necessarily, something like this:
 
