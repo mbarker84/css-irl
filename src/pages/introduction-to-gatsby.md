@@ -3,7 +3,7 @@ title: "Introduction to Gatsby"
 date: "2018-05-29"
 ---
 
-In case you haven’t heard about it, Gatsby is the latest hot thing in static site generators. While many static site generators (SSGs) use templating languages like Handlebars or Mustache, Gatsby uses React, helping contribute to its “blazingly fast” claim.
+In case you haven’t heard about it, [Gatsby](https://www.gatsbyjs.org/) is the latest hot thing in static site generators. While many static site generators (SSGs) use templating languages like Handlebars or Mustache, Gatsby uses React, helping contribute to its “blazing fast” claim.
 
 Having never used an SSG before (although I’ve read about them), and with very limited experience with React, what better way to dip my toe into the water than using Gatsby to publish my brand new blog (this very one, in fact!)?
 
@@ -33,8 +33,8 @@ I write my blog posts in markdown files, but you could configure Gatsby to work 
 
 ### Deployment
 
-After you’ve run the build command, Gatsby allows near-instantaneous deployment through Surge. Run gatsby deploy, set up a Netlify account and you’re good to go. You can then set up Netlify to auto-deploy whenever you push to a repository. Netlify provides a simpler and more helpful experience than other hosting providers I’ve used, with helpful documentation, taking all the stress away from launching a site!
+After you’ve run the build command, Gatsby allows near-instantaneous deployment through [Surge](https://surge.sh/), [Netlify](https://www.netlify.com/) and others. I set up my hosting with Netlify – run `gatsby deploy`, set up a Netlify account and you’re good to go. You can then configure Netlify to auto-deploy whenever you push to a repository. Netlify provides a simpler and more helpful experience than other hosting providers I’ve used, with helpful documentation, taking all the stress away from launching a site!
 
 ### In conclusion
 
-I thoroughly recommend giving Gatsby a go if you’re on the fence about trying a static site generator. The amount of thought that’s gone into every aspect of the onboarding process and the developer experience is absolutely fantastic. And, have just received a shed load of seed money to launch as a startup, it’s only going to get better.
+I thoroughly recommend giving Gatsby a go if you’re on the fence about trying a static site generator and want to get a simple site up and running quickly and easily. The amount of thought that’s gone into every aspect of the onboarding process and the developer experience is absolutely fantastic. And, have just received a shed load of seed money to [launch as a startup](https://www.gatsbyjs.org/blog/2018-05-24-launching-new-gatsby-company/), it’s only going to get better.
