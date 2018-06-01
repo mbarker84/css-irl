@@ -2,6 +2,7 @@ import React from 'react'
 import Link from 'gatsby-link'
 import styles from './blog-post.module.scss'
 import layout from '../layouts/layout.module.scss'
+import { SourceDetails } from '../components/post-source/post-source'
 
 export default ({ data }) => {
 	const post = data.markdownRemark
@@ -11,9 +12,10 @@ export default ({ data }) => {
 			<time className={styles.src} dateTime={post.frontmatter.date}>
 				{post.frontmatter.date}
 			</time>
-			<p className={styles.src}>
-				<a href={post.frontmatter.srcUrl}>{post.frontmatter.source}</a>
-			</p>
+			<SourceDetails
+				url={post.frontmatter.srcUrl}
+				text={post.frontmatter.source}
+			/>
 			<div dangerouslySetInnerHTML={{ __html: post.html }} />
 		</div>
 	)

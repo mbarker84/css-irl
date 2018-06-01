@@ -40,6 +40,12 @@ pre {
   padding: 1rem;
 }
 
+:global {
+  .textPrimary {
+    color: $primary;
+  }
+}
+
 .hl {
   position: relative;
   box-shadow: 0 -0.5em 0 inset $primary;
