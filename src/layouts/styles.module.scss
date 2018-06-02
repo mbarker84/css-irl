@@ -12,18 +12,8 @@ $sm: 42em;
   @media (min-width: 42em) {
     display: grid;
     grid-template-columns: [start] minmax(1em, 1fr) [wrapper-start] minmax(0, auto) minmax(auto, 1fr) [header-end] minmax(auto, 1fr) [content-start] repeat(6, minmax(auto, 1fr)) [wrapper-end] minmax(1em, 1fr) [end];
-    grid-template-rows: minmax(auto, 3rem);
+    grid-template-rows: minmax(auto, 3rem) auto minmax(50vh, auto) auto;
     grid-gap: 1rem;
-
-    // &::after {
-    //   grid-column: start / header-end;
-    //   grid-row: 2;
-    //   content: '';
-    //   display: block;
-    //   width: 100%;
-    //   z-index: -1;
-    //   border-right: 2px dashed $bg-light;
-    // }
 
     &::before {
       content: '';

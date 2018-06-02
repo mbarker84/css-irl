@@ -6,6 +6,7 @@ $white: #fcfdff;
 
 // Breakpoints
 $sm: 42em;
+$md: 56em;
 
 body {
   min-height: 100vh;
@@ -50,19 +51,6 @@ pre {
   position: relative;
   box-shadow: 0 -0.5em 0 inset $primary;
   transition: box-shadow 200ms ease-in-out;
-
-  // &::after {
-  //   content: '';
-  //   box-shadow: 0 -0.5em 0 inset $primary;
-  //   transition: box-shadow 200ms ease-in-out;
-  //   width: 100%;
-  //   height: 100%;
-  //   display: inline-block;
-  //   position: absolute;
-  //   bottom: 0;
-  //   left: 0;
-  //   z-index: -1;
-  // }
 }
 
 .postsCount {
