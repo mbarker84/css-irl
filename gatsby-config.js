@@ -11,9 +11,22 @@ module.exports = {
 				path: `${__dirname}/src/`
 			}
 		},
+		{
+			resolve: `gatsby-plugin-manifest`,
+			options: {
+				name: 'CSS {In Real Life}',
+				short_name: 'CSS',
+				start_url: '/',
+				background_color: '#fcfdff',
+				theme_color: '#95e8ed',
+				display: 'browser',
+				icon: 'src/images/icon_512.png'
+			}
+		},
 		`gatsby-plugin-glamor`,
 		`gatsby-transformer-remark`,
 		`gatsby-plugin-sass`,
+		`gatsby-plugin-offline`,
 		{
 			resolve: `gatsby-plugin-typography`,
 			options: {
