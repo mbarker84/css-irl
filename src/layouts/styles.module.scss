@@ -117,10 +117,18 @@ a:hover {
   padding: 1em;
 
   @media (min-width: 42em) {
+    grid-column: wrapper-start / wrapper-end;
+    grid-row: 1;
+    align-self: center;
+    justify-content: flex-end;
+    padding: unset;
+  }
+
+  @media (min-width: 60em) {
     grid-column: wrapper-start / header-end;
     grid-row: 3;
     align-self: flex-start;
-    padding: unset;
+    justify-content: flex-start;
   }
 }
 

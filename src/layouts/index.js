@@ -3,11 +3,28 @@ import variables from '../globals/variables.scss'
 import globals from '../globals/globals.module.scss'
 import styles from './styles.module.scss'
 import Link from 'gatsby-link'
+import Helmet from 'react-helmet'
 
 // import { rhythm } from "../utils/typography";
 
 export default ({ children, data }) => (
 	<div className={styles.body}>
+		<Helmet
+			title="CSS {In Real Life}"
+			meta={[
+				{
+					name: 'description',
+					content:
+						'CSS In Real Life is a blog covering CSS topics and useful snippets on the web’s most beautiful language. Published by Michelle Barker, front end developer at Mud and CSS superfan.'
+				},
+				{
+					name: 'keywords',
+					content: 'css, front end, web development, web design'
+				}
+			]}
+		>
+			<html lang="en" />
+		</Helmet>
 		<header className={styles.header} data-header>
 			<Link className={styles.link} to={`/`}>
 				<h1 className={styles.siteTitle}>
