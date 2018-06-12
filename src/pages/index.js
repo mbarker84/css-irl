@@ -3,6 +3,7 @@ import Link from 'gatsby-link'
 
 import globals from '../globals/globals.module.scss'
 import layout from '../layouts/layout.module.scss'
+import styles from '../layouts/styles.module.scss'
 
 // import { rhythm } from '../utils/typography'
 import { PostPreview } from '../components/post-preview/post-preview'

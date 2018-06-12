@@ -1,3 +1,25 @@
 .src {
   font-size: 0.8rem;
 }
+
+.richtext {
+  h2 {
+    margin-bottom: 1.5rem;
+  }
+
+  h3,
+  h4,
+  h5 {
+    margin-bottom: 1.2rem;
+  }
+
+  * + h2 {
+    margin-top: 2.5rem;
+  }
+
+  * + h3,
+  * + h4,
+  * + h5 {
+    margin-top: 2rem;
+  }
+}

@@ -24,6 +24,8 @@ a {
   }
 }
 
+h2 > a,
+h3 > a,
 p a {
   box-shadow: 0 -0.5em 0 inset $primary;
   transition: box-shadow 200ms ease-in-out;

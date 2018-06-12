@@ -1,5 +1,5 @@
 import React from 'react'
-import Link from 'gatsby-link'
+// import Link from 'gatsby-link'
 import styles from './blog-post.module.scss'
 import layout from '../layouts/layout.module.scss'
 import { SourceDetails } from '../components/post-source/post-source'
@@ -16,7 +16,10 @@ export default ({ data }) => {
 				url={post.frontmatter.srcUrl}
 				text={post.frontmatter.source}
 			/>
-			<div dangerouslySetInnerHTML={{ __html: post.html }} />
+			<div
+				dangerouslySetInnerHTML={{ __html: post.html }}
+				className={styles.richtext}
+			/>
 		</div>
 	)
 }
