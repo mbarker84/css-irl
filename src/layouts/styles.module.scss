@@ -6,10 +6,12 @@ $white: #fcfdff;
 
 // Breakpoints
 $sm: 42em;
+$md: 50em;
+$lg: 60em;
 
 .body {
   
-  @media (min-width: 42em) {
+  @media (min-width: $sm) {
     display: grid;
     grid-template-columns: [start] minmax(1em, 1fr) [wrapper-start] minmax(0, auto) minmax(auto, 1fr) [header-end] minmax(auto, 1fr) [content-start] repeat(6, minmax(auto, 1fr)) [wrapper-end] minmax(1em, 1fr) [end];
     grid-template-rows: minmax(auto, 3rem) auto minmax(50vh, auto) auto;
@@ -36,7 +38,7 @@ $sm: 42em;
   padding: 1em;
   border-bottom: 2px dashed $bg-light;
 
-  @media (min-width: 42em) {
+  @media (min-width: $sm) {
     padding: unset;
     background: unset;
     border-bottom: none;
@@ -44,16 +46,22 @@ $sm: 42em;
 }
 
 .content {
-  grid-column: content-start / wrapper-end;
-  grid-row: 2 / 4;
+  grid-column: wrapper-start / wrapper-end;
+  grid-row: 3 / 4;
   padding: 1em;
 
-  @media (min-width: 42em) {
+  @media (min-width: $sm) {
     padding: 0 0 3rem 0;
   }
 
-  @media (min-width: 60em) {
-    grid-row-start: 3;
+  @media (min-width: $md) {
+    
+  }
+
+  @media (min-width: $lg) {
+    grid-column: content-start / wrapper-end;
+    // grid-row: 2 / 4;
+    // grid-row-start: 3;
   }
 }
 
@@ -72,7 +80,7 @@ $sm: 42em;
   justify-content: center;
   margin-bottom: 0;
 
-  @media (min-width: 42em) {
+  @media (min-width: $sm) {
     text-align: left;
     margin-bottom: 3rem;
   }
