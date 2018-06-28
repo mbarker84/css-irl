@@ -19,11 +19,10 @@ module.exports = {
 				start_url: '/',
 				background_color: '#fcfdff',
 				theme_color: '#95e8ed',
-				display: 'browser',
+				display: 'minimal-ui',
 				icon: 'src/images/icon_512.png'
 			}
 		},
-		`gatsby-plugin-glamor`,
 		`gatsby-transformer-remark`,
 		`gatsby-plugin-sass`,
 		`gatsby-plugin-offline`,

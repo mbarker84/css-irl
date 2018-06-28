@@ -1,36 +1,37 @@
 import React from 'react'
-import Link from 'gatsby-link'
+import { Link } from 'gatsby'
 
+import Layout from '../components/layout'
 import globals from '../globals/globals.module.scss'
 import layout from '../layouts/layout.module.scss'
-import styles from '../layouts/styles.module.scss'
 
-// import { rhythm } from '../utils/typography'
 import { PostPreview } from '../components/post-preview/post-preview'
 
 export default ({ data }) => {
 	return (
-		<div>
-			<h4 className={globals.postsCount}>
-				{data.allMarkdownRemark.totalCount} Posts
-			</h4>
-			<div className={layout.postsGrid}>
-				{data.allMarkdownRemark.edges.map(({ node }) => (
-					<div key={node.id}>
-						<Link
-							to={node.fields.slug}
-							css={{ textDecoration: `none`, color: `inherit` }}
-						>
-							<PostPreview
-								title={node.frontmatter.title}
-								excerpt={node.excerpt}
-								date={node.frontmatter.date}
-							/>
-						</Link>
-					</div>
-				))}
+		<Layout>
+			<div>
+				<h4 className={globals.postsCount}>
+					{data.allMarkdownRemark.totalCount} Posts
+				</h4>
+				<div className={layout.postsGrid}>
+					{data.allMarkdownRemark.edges.map(({ node }) => (
+						<div key={node.id}>
+							<Link
+								to={node.fields.slug}
+								css={{ textDecoration: `none`, color: `inherit` }}
+							>
+								<PostPreview
+									title={node.frontmatter.title}
+									excerpt={node.excerpt}
+									date={node.frontmatter.date}
+								/>
+							</Link>
+						</div>
+					))}
+				</div>
 			</div>
-		</div>
+		</Layout>
 	)
 }
 
