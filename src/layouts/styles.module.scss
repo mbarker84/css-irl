@@ -1,19 +1,10 @@
-$primary: #95e8ed;
-$secondary: #ed65e8;
-$black: #0e0f0f;
-$bg-light: #e1f1f2;
-$white: #fcfdff;
-
-// Breakpoints
-$sm: 42em;
-$md: 50em;
-$lg: 60em;
+@import '../globals/variables.scss';
 
 .body {
   
   @media (min-width: $sm) {
     display: grid;
-    grid-template-columns: [start] minmax(1em, 1fr) [wrapper-start] minmax(0, auto) minmax(auto, 1fr) [header-end] minmax(auto, 1fr) [content-start] repeat(6, minmax(auto, 1fr)) [wrapper-end] minmax(1em, 1fr) [end];
+    grid-template-columns: [start] minmax(1em, 1fr) [wrapper-start header-start] minmax(0, auto) [header-end] minmax(auto, 1fr) [content-start] repeat(7, minmax(auto, 1fr)) [wrapper-end] minmax(1em, 1fr) [end];
     grid-template-rows: minmax(auto, 3rem) auto minmax(50vh, auto) auto;
     grid-gap: 1rem;
 
@@ -54,11 +45,7 @@ $lg: 60em;
     padding: 0 0 3rem 0;
   }
 
-  @media (min-width: $md) {
-    
-  }
-
-  @media (min-width: $lg) {
+  @media (min-width: $xl) {
     grid-column: content-start / wrapper-end;
     // grid-row: 2 / 4;
     // grid-row-start: 3;
@@ -103,8 +90,12 @@ a:hover {
 .subheading {
   font-size: 0.6em;
 
-  @media (min-width: 42em) {
+  @media (min-width: $sm) {
     font-size: 5vmin;
+  }
+
+  @media (min-width: $xl) {
+    font-size: 4vmin;
   }
 }
 
@@ -114,8 +105,12 @@ a:hover {
   text-shadow: 0.03em -0.04em $secondary, -0.03em 0.04em #f9f32f;
   transition: text-shadow 200ms ease-in-out;
 
-  @media (min-width: 42em) {
+  @media (min-width: $sm) {
     font-size: 18vmin;
+  }
+
+  @media (min-width: $xl) {
+    font-size: 14vmin;
   }
 }
 
@@ -124,7 +119,7 @@ a:hover {
   flex-wrap: wrap;
   padding: 1em;
 
-  @media (min-width: 42em) {
+  @media (min-width: $sm) {
     grid-column: wrapper-start / wrapper-end;
     grid-row: 1;
     align-self: center;
@@ -132,7 +127,7 @@ a:hover {
     padding: unset;
   }
 
-  @media (min-width: 60em) {
+  @media (min-width: $xl) {
     grid-column: wrapper-start / header-end;
     grid-row: 3;
     align-self: flex-start;
@@ -145,7 +140,7 @@ a:hover {
   align-items: center;
   font-size: 0.8rem;
 
-  @media (min-width: 42em) {
+  @media (min-width: $sm) {
     font-size: 1rem;
   }
 }

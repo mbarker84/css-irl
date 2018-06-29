@@ -1,12 +1,4 @@
-$primary: #95e8ed;
-$secondary: #ed65e8;
-$black: #0e0f0f;
-$bg-light: #e1f1f2;
-$white: #fcfdff;
-
-// Breakpoints
-$sm: 42em;
-$md: 56em;
+@import 'variables.scss';
 
 body {
   min-height: 100vh;
@@ -95,4 +87,8 @@ h3 {
   @media (min-width: 50em) {
     font-size: 1.4rem;
   }
+}
+
+li > h3 {
+  margin-top: 1.5rem;
 }
