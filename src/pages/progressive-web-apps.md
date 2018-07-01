@@ -27,17 +27,21 @@ Google is heavily invested in this technology, providing a whole host of resourc
 
 ## Offline first
 
-Application increasingly need to perform in shaky network conditions. When a browser is offline, a service worker allows you to serve a custom offline page, or assets from the cache, to ensure users still get a basic (if limited) experience. The Washington Post, for example, caches the top stories, enable the user to access these when offline.
+Applications increasingly need to perform in shaky network conditions. When a browser is offline, a service worker allows you to serve a custom offline page, or assets from the cache, to ensure users still get a basic (if limited) experience. The Washington Post, for example, caches the top stories, enable the user to access these when offline.
 
 ## Do you need a PWA?
 
 You might want to sit down and consider whether you absolutely need your site to be a PWA. Ask yourself these questions:
 
-*Does the content update regularly?
-*Are users likely to want to browse offline?
-*Do they need real-time updates and push notifications?
-*Are they likely to be using a browser that [supports service workers](https://jakearchibald.github.io/isserviceworkerready/)? (We’ll come back to this shortly.)
-\*If the answer is “yes” to all (or most of these), then a PWA may be worthwhile. (As a side note regarding point four, users of non-supporting browsers won’t have their experience hindered by the presence of a service worker (the browser will just ignore it) – but it’s worth taking into account before you spend considerable time and energy on a PWA.)
+- Does the content update regularly?
+
+- Are users likely to want to browse offline?
+
+- Do they need real-time updates and push notifications?
+
+- Are they likely to be using a browser that [supports service workers](https://jakearchibald.github.io/isserviceworkerready/)? (We’ll come back to this shortly.)
+
+- If the answer is “yes” to all (or most of these), then a PWA may be worthwhile. (As a side note regarding point four, users of non-supporting browsers won’t have their experience hindered by the presence of a service worker (the browser will just ignore it) – but it’s worth taking into account before you spend considerable time and energy on a PWA.)
 
 It’s worth mentioning though, that a PWA is not a quick fix for your performance problems. You’ll probably want to make sure you’ve already taken all other steps to optimise your site – that is to say, mobile-first responsive design, HTML5 standards, responsive and lazyloaded images, compressing and minifying assets, and inlining critical CSS. Once all criteria are satisfied, making your site a PWA has plenty of benefits.
 
