@@ -22,19 +22,10 @@ export default ({ children }) => (
 			<div className={styles.body}>
 				<Helmet
 					title="CSS {In Real Life}"
-					meta={[
-						{
-							name: 'description',
-							content:
-								'CSS In Real Life is a blog covering CSS topics and useful snippets on the web’s most beautiful language. Published by Michelle Barker, front end developer at Mud and CSS superfan.'
-						},
-						{
-							name: 'keywords',
-							content: 'css, front end, web development, web design'
-						}
-					]}
 				>
-					<html lang="en" />
+					<html lang="en-gb" />
+					<meta name="description" content="CSS In Real Life is a blog covering CSS topics and useful snippets on the web’s most beautiful language. Published by Michelle Barker, front end developer at Mud and CSS superfan."/>
+					<meta name="keywords" content="css, front end, web development, web design"/>
 					<link
 						rel="apple-touch-icon"
 						sizes="57x57"
@@ -96,6 +87,7 @@ export default ({ children }) => (
 					<meta name="msapplication-TileColor" content="#ffffff" />
 					<meta name="msapplication-TileImage" content="/icon-144x144.png" />
 					<meta name="theme-color" content="#ffffff" />
+					
 				</Helmet>
 				<header className={styles.header} data-header>
 					<Link className={styles.link} to={`/`}>
