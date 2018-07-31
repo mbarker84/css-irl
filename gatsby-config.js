@@ -1,7 +1,8 @@
 module.exports = {
 	siteMetadata: {
 		title: `CSS`,
-		subheading: `{ In Real Life }`
+		subheading: `{ In Real Life }`,
+		siteUrl: `https://css-irl.info`
 	},
 	plugins: [
 		{
@@ -32,6 +33,9 @@ module.exports = {
 			options: {
 				pathToConfigModule: `src/utils/typography`
 			}
+		},
+		{
+			resolve: `gatsby-plugin-feed`
 		}
 	]
 }

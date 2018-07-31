@@ -16,6 +16,9 @@ export default ({ data }) => (
 				developer at <a href="http://ournameismud.co.uk">Mud</a> and CSS
 				superfan.
 			</p>
+			<p>
+				<a href="mailto:michelle@css-irl.info">michelle@css-irl.info</a>
+			</p>
 		</div>
 	</Layout>
 )
