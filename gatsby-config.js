@@ -1,6 +1,6 @@
 module.exports = {
 	siteMetadata: {
-		title: `CSS`,
+		title: `CSS { In Real Life }`,
 		subheading: `{ In Real Life }`,
 		description: `CSS In Real Life is a blog covering CSS topics and useful snippets on the web’s most beautiful language. Published by Michelle Barker, front end developer at Mud and CSS superfan.`,
 		siteUrl: `https://css-irl.info`

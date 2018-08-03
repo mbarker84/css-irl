@@ -13,15 +13,15 @@ export default ({ children }) => (
 				site {
 					siteMetadata {
 						title
-						subheading
 						description
+						subheading
 					}
 				}
 			}
 		`}
 		render={data => (
 			<div className={styles.body}>
-				<Helmet title="CSS {In Real Life}">
+				<Helmet title={data.site.siteMetadata.title}>
 					<html lang="en-gb" />
 					<meta
 						name="description"
@@ -96,9 +96,7 @@ export default ({ children }) => (
 				<header className={styles.header} data-header>
 					<Link className={styles.link} to={`/`}>
 						<h1 className={styles.siteTitle}>
-							<span className={styles.mainTitle}>
-								{data.site.siteMetadata.title}
-							</span>
+							<span className={styles.mainTitle}>CSS</span>
 							<span className={styles.subheading}>
 								{data.site.siteMetadata.subheading}
 							</span>
