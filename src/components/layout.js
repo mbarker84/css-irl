@@ -3,8 +3,7 @@ import globals from '../globals/globals.module.scss'
 import styles from '../layouts/styles.module.scss'
 import { StaticQuery, graphql, Link } from 'gatsby'
 import Helmet from 'react-helmet'
-
-// import { rhythm } from "../utils/typography";
+import { StickyHeader } from '../components/sticky-header/sticky-header'
 
 export default ({ children }) => (
 	<StaticQuery
@@ -93,16 +92,9 @@ export default ({ children }) => (
 					<meta name="msapplication-TileImage" content="/icon-144x144.png" />
 					<meta name="theme-color" content="#ffffff" />
 				</Helmet>
-				<header className={styles.header} data-header>
-					<Link className={styles.link} to={`/`}>
-						<h1 className={styles.siteTitle}>
-							<span className={styles.mainTitle}>CSS</span>
-							<span className={styles.subheading}>
-								{data.site.siteMetadata.subheading}
-							</span>
-						</h1>
-					</Link>
-				</header>
+
+				<StickyHeader styles={styles} />
+
 				<nav className={styles.menu}>
 					<Link className={styles.link} to={`/about/`}>
 						<span className={globals.hl}>About</span>

@@ -25,7 +25,20 @@ module.exports = {
 				icon: 'src/images/icon_512.png'
 			}
 		},
-		`gatsby-transformer-remark`,
+		`gatsby-plugin-sharp`,
+		{
+			resolve: `gatsby-transformer-remark`,
+			options: {
+				plugins: [
+					{
+						resolve: `gatsby-remark-images`,
+						options: {
+							maxWidth: 800
+						}
+					}
+				]
+			}
+		},
 		`gatsby-plugin-sass`,
 		`gatsby-plugin-offline`,
 		`gatsby-plugin-react-helmet`,
