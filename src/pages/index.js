@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'gatsby'
+// import { Link } from 'gatsby'
 
 import Layout from '../components/layout'
 import globals from '../globals/globals.module.scss'
@@ -17,16 +17,13 @@ export default ({ data }) => {
 				<div className={layout.postsGrid}>
 					{data.allMarkdownRemark.edges.map(({ node }) => (
 						<div key={node.id}>
-							<Link
+							<PostPreview
 								to={node.fields.slug}
-								css={{ textDecoration: `none`, color: `inherit` }}
-							>
-								<PostPreview
-									title={node.frontmatter.title}
-									excerpt={node.excerpt}
-									date={node.frontmatter.date}
-								/>
-							</Link>
+								title={node.frontmatter.title}
+								excerpt={node.excerpt}
+								date={node.frontmatter.date}
+								externalLink={node.frontmatter.externalLink}
+							/>
 						</div>
 					))}
 				</div>
@@ -50,6 +47,7 @@ export const query = graphql`
 					frontmatter {
 						title
 						date(formatString: "DD MMMM, YYYY")
+						externalLink
 					}
 					fields {
 						slug
