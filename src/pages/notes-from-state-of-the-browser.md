@@ -3,7 +3,10 @@ title: 'Notes from State of the Browser'
 date: '2018-09-11'
 ---
 
-![Charlie Owen at State of the Browser](sotb01.jpg)
+<figure>
+  <img src="sotb01.jpg" alt="Charlie Owen on stage with slide: You don’t work for Facebook">
+  <figcaption>Charlie Owen at State of the Browser</figcaption>
+</figure>
 
 I recently had the pleasure of speaking at [State of the Browser](https://2018.stateofthebrowser.com/), a community-run web conference in London. I gave my first technical talk on a large stage, speaking about CSS Grid and CSS Variables – some of which I’ve covered in my blog posts over the past few months. My slides can be found [here](https://noti.st/mbarker84/GzviRt/super-powered-layouts-with-css-grid-and-css-variables).
 

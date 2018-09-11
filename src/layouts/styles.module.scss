@@ -1,5 +1,11 @@
 @import '../globals/variables.scss';
 
+figcaption  {
+  font-weight: 200;
+  font-size: 0.8rem;
+  margin-top: 0.5rem;
+}
+
 .body {
   
   @media (min-width: $sm) {
