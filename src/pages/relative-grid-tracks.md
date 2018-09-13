@@ -58,4 +58,6 @@ We don’t need to stick to just two items either – in theory, we could have m
 <iframe height='365' scrolling='no' title='Relative grid items with CSS variables' src='//codepen.io/michellebarker/embed/PdaBvj/?height=265&theme-id=0&default-tab=result&embed-version=2' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/michellebarker/pen/PdaBvj/'>Relative grid items with CSS variables</a> by Michelle Barker (<a href='https://codepen.io/michellebarker'>@michellebarker</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-There are definitely some possibilities here, even though I haven’t worked on any real-world use cases yet!
+It’s possibly to do a similar thing with Sass variables, but the advantage with CSS variables is the reusability of our code for different variants of the same component. If we had multiple variants then we’d only need to update a few variables, rather than writing out the grid declaration all over again.
+
+There are definitely some possibilities here, even though I haven’t worked on any real-world use cases yet where this approach would be preferable to manually placing items at different grid lines. I’d be interested to see if this method of placement works out for anyone, so if you try it out do let me know!
