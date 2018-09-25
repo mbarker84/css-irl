@@ -9,7 +9,7 @@ date: '2018-09-25'
 
 To the author’s credit, he does suggest two women who should have made the cut. It’s hard to imagine such a male-heavy list being published now, not least because of the sheer number of incredible women at the forefront of web design and development. But it’s a reminder of how hard it must have been to those starting their careers all those years ago, with very few visible role models to look up to and to lean on.
 
-But to further redress the balance, here in no particular order are 20 (in my opinion) current web design (and development) legends who happen to identify as female. I’m forever grateful to them for blazing a trail and inspiring me in my work. I look forward to reflecting on their incredible careers in 15 years time!
+To further redress the balance, here in no particular order are 20 (in my opinion) current web design (and development) legends who happen to identify as female. I’m forever grateful to them for blazing a trail and inspiring me in my work. I look forward to reflecting on their incredible careers in 15 years time!
 
 1. ###[Sarah Drasner](https://sarahdrasnerdesign.com/)
    Incredibly skilled developer, writer and speaker on SVG, Vue, web animation and much more
