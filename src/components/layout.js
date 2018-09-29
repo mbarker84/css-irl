@@ -94,7 +94,7 @@ export default ({ children }) => (
 					<meta property="og:title" content={data.site.siteMetadata.title} />
 					<meta
 						property="og:description"
-						content={data.site.siteMetadata.description}
+						content={data.site.siteMetadata.title}
 					/>
 					<meta property="og:image" content="social_1200x630.png" />
 
@@ -103,7 +103,7 @@ export default ({ children }) => (
 						property="og:site_name"
 						content={data.site.siteMetadata.title}
 					/>
-					<meta name="twitter:card" content="css_in_real_life" />
+					<meta name="twitter:card" content="summary_large_image" />
 				</Helmet>
 
 				<StickyHeader styles={styles} />
