@@ -96,10 +96,7 @@ export default ({ children }) => (
 						property="og:description"
 						content={data.site.siteMetadata.description}
 					/>
-					<meta
-						property="og:image"
-						content="https://css-irl.info/social_1200x630.png"
-					/>
+					<meta property="og:image" content="social_1200x630.png" />
 
 					<meta property="og:url" content="https://css-irl.info" />
 					<meta
