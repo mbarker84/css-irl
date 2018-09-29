@@ -87,10 +87,23 @@ export default ({ children }) => (
 						sizes="96x96"
 						href="icons/icon-96x96.png"
 					/>
-					<link rel="manifest" href="/manifest.json" />>
+					<link rel="manifest" href="/manifest.json" />
 					<meta name="msapplication-TileColor" content="#ffffff" />
 					<meta name="msapplication-TileImage" content="/icon-144x144.png" />
 					<meta name="theme-color" content="#ffffff" />
+					<meta property="og:title" content={data.site.siteMetadata.title} />
+					<meta
+						property="og:description"
+						content={data.site.siteMetadata.title}
+					/>
+					<meta property="og:image" content="social_1200x630.png" />
+
+					<meta property="og:url" content="https://css-irl.info" />
+					<meta
+						property="og:site_name"
+						content={data.site.siteMetadata.title}
+					/>
+					<meta name="twitter:card" content="summary_large_image" />
 				</Helmet>
 
 				<StickyHeader styles={styles} />
