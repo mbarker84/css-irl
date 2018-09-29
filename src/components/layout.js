@@ -103,7 +103,7 @@ export default ({ children }) => (
 						property="og:site_name"
 						content={data.site.siteMetadata.title}
 					/>
-					<meta name="twitter:card" content="CSS {In Real Life}" />
+					<meta name="twitter:card" content="css_in_real_life" />
 				</Helmet>
 
 				<StickyHeader styles={styles} />
