@@ -1,5 +1,5 @@
 import React from 'react'
-
+import Helmet from 'react-helmet'
 import Layout from '../components/layout'
 import styles from './blog-post.module.scss'
 import layout from '../layouts/layout.module.scss'
@@ -9,6 +9,10 @@ export default ({ data }) => {
 	const post = data.markdownRemark
 	return (
 		<Layout>
+			<Helmet>
+				<meta property="og:title" content={post.frontmatter.title} />
+				<meta property="og:description" content={post.excerpt} />
+			</Helmet>
 			<div className={layout.postContent}>
 				<h1>{post.frontmatter.title}</h1>
 				<time className={styles.src} dateTime={post.frontmatter.date}>
@@ -38,6 +42,7 @@ export const query = graphql`
 				srcUrl
 				externalLink
 			}
+			excerpt
 		}
 	}
 `
