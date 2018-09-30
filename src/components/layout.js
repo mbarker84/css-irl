@@ -4,6 +4,7 @@ import styles from '../layouts/styles.module.scss'
 import { StaticQuery, graphql, Link } from 'gatsby'
 import Helmet from 'react-helmet'
 import { StickyHeader } from '../components/sticky-header/sticky-header'
+import metaImg from '../images/social_1200X630.png'
 
 export default ({ children }) => (
 	<StaticQuery
@@ -96,7 +97,7 @@ export default ({ children }) => (
 						property="og:description"
 						content={data.site.siteMetadata.description}
 					/>
-					<meta property="og:image" content="social_1200x630.png" />
+					<meta property="og:image" content={metaImg} />
 
 					<meta property="og:url" content="https://css-irl.info" />
 					<meta
