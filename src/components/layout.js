@@ -4,7 +4,9 @@ import styles from '../layouts/styles.module.scss'
 import { StaticQuery, graphql, Link } from 'gatsby'
 import Helmet from 'react-helmet'
 import { StickyHeader } from '../components/sticky-header/sticky-header'
-import metaImg from '../images/social_1200X630.png'
+import metaImg from '../images/social_1200x630.png'
+
+console.log(metaImg)
 
 export default ({ children }) => (
 	<StaticQuery
