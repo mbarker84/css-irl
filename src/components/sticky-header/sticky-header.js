@@ -1,19 +1,23 @@
 import React from 'react'
+import Headroom from 'react-headroom'
 import { Link } from 'gatsby'
+import styles from './sticky-header.module.scss'
 
-export const StickyHeader = ({ props, styles }) => {
+export const StickyHeader = () => {
 	return (
-		<header className={styles.header} data-header>
-			<Link className={styles.link} to={`/`} data-header-link>
-				<h1 className={styles.siteTitle}>
-					<span className={styles.mainTitle}>CSS</span>
-					<span className={styles.subheading}>
-						{`{`}
-						In Real Life
-						{`}`}
-					</span>
-				</h1>
-			</Link>
-		</header>
+		<Headroom className={styles.header} disableInlineStyles>
+			<header>
+				<Link className={styles.link} to={`/`}>
+					<h1 className={styles.siteTitle}>
+						<span className={styles.mainTitle}>CSS</span>
+						<span className={styles.subheading}>
+							{`{`}
+							In Real Life
+							{`}`}
+						</span>
+					</h1>
+				</Link>
+			</header>
+		</Headroom>
 	)
 }

@@ -29,18 +29,7 @@ figcaption  {
   }
 }
 
-.header {
-  grid-column: wrapper-start / span 1;
-  grid-row: 2;
-  padding: 1em;
-  border-bottom: 2px dashed $bg-light;
 
-  @media (min-width: $sm) {
-    padding: unset;
-    background: unset;
-    border-bottom: none;
-  }
-}
 
 .content {
   grid-column: wrapper-start / wrapper-end;
@@ -66,59 +55,7 @@ figcaption  {
   color: lighten($black, 40%);
 }
 
-.siteTitle {
-  margin-top: 0;
-  text-align: center;
-  transition: color 200ms ease-in-out;
-  justify-content: center;
-  margin-bottom: 0;
 
-  @media (min-width: $sm) {
-    text-align: left;
-    margin-bottom: 3rem;
-  }
-
-  > span {
-    display: block;
-  }
-}
-
-a:hover {
-  .mainTitle {
-    text-shadow: 0 0 transparent;
-  }
-
-  .siteTitle {
-    color: darken($primary, 40%);
-  }
-}
-
-.subheading {
-  font-size: 0.6em;
-
-  @media (min-width: $sm) {
-    font-size: 5vmin;
-  }
-
-  @media (min-width: $xl) {
-    font-size: 4vmin;
-  }
-}
-
-.mainTitle {
-  font-size: 1.8em;
-  transform: translate3d(-0.3rem, 0, 0);
-  text-shadow: 0.03em -0.04em $secondary, -0.03em 0.04em #f9f32f;
-  transition: text-shadow 200ms ease-in-out;
-
-  @media (min-width: $sm) {
-    font-size: 18vmin;
-  }
-
-  @media (min-width: $xl) {
-    font-size: 14vmin;
-  }
-}
 
 .menu {
   display: flex;

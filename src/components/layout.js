@@ -1,8 +1,9 @@
 import React from 'react'
+// import Headroom from 'react-headroom'
+import Helmet from 'react-helmet'
 import globals from '../globals/globals.module.scss'
 import styles from '../layouts/styles.module.scss'
 import { StaticQuery, graphql, Link } from 'gatsby'
-import Helmet from 'react-helmet'
 import { StickyHeader } from '../components/sticky-header/sticky-header'
 import metaImg from '../images/social_1200x630.png'
 
