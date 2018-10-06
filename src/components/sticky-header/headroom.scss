@@ -1,0 +1,49 @@
+@import '../../globals/variables.scss';
+
+@media (min-width: $xl) {
+  .headroom {
+    top: 0;
+    left: 0;
+    right: 0;
+    z-Index: 1;
+    transform: opacity 0ms ease-in-out;
+  }
+
+  .headroom--unfixed {
+    position: relative;
+    transform: translateY(0);
+  }
+
+  .headroom--scrolled {
+    transition: transform 200ms ease-in-out, opacity 0ms ease-in-out;
+    padding: 0.5rem 1rem;
+    opacity: 0;
+
+    &::before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 5rem;
+      content: '';
+      display: block;
+      background-color: $white;
+      border-bottom: 1px solid lightgrey;
+    }
+
+    > * {
+      transform: scale(0.45);
+    }
+  }
+
+  .headroom--unpinned {
+    position: fixed;
+    transform: translateY(-100%);
+  }
+
+  .headroom--pinned {
+    position: fixed;
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

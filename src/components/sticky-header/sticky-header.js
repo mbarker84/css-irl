@@ -2,11 +2,16 @@ import React from 'react'
 import Headroom from 'react-headroom'
 import { Link } from 'gatsby'
 import styles from './sticky-header.module.scss'
+import headroom from './headroom.scss'
 
 export const StickyHeader = () => {
 	return (
-		<Headroom className={styles.header} disableInlineStyles>
-			<header>
+		<header className={styles.header}>
+			<Headroom
+				className={headroom.headroom}
+				pinStart={100}
+				disableInlineStyles
+			>
 				<Link className={styles.link} to={`/`}>
 					<h1 className={styles.siteTitle}>
 						<span className={styles.mainTitle}>CSS</span>
@@ -17,7 +22,7 @@ export const StickyHeader = () => {
 						</span>
 					</h1>
 				</Link>
-			</header>
-		</Headroom>
+			</Headroom>
+		</header>
 	)
 }
