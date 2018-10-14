@@ -3,7 +3,7 @@ title: 'Negative Grid Lines'
 date: '2018-10-14'
 ---
 
-Did you know you can use negative line numbers to position grid items with CSS Grid? I didn’t until recently - or rather, I hadn’t given it any thought, as the situation had never come up for me.
+Did you know you can use negative line numbers to position grid items with CSS Grid? I didn’t until recently – or rather, I hadn’t given it any thought, as I never felt like I needed to before.
 
 But it stuck me recently, after writing [this article on relative positioning of grid items](/relative-grid-tracks), that negative lines could be advantageous here.
 
@@ -59,8 +59,6 @@ This grid has four tracks, so five grid lines if we ignore any implicit tracks. 
 
 Note, as we’re creating implicit tracks to the left, the first grid item is now placed at the first implicit track, rather than on the explicit grid. This is because I haven’t explicitly placed the other grid items, so they are being auto-placed into the first available cells.
 
-[Demo here](https://codepen.io/michellebarker/pen/rqGGbJ)
-
 ### Why is this useful?
 
 Using negative grid lines allows us to place items relative to the end of the grid. This is especially useful if we have a large grid – it means we don’t have to work out the exact line number from the start, we could simply place it from the end. In a 24 column grid, for example, we might place an item using an end line like this:
@@ -78,3 +76,48 @@ This requires us to remember that the 24th line is one line away from the end. B
 	grid-column: span 8 / -2;
 }
 ```
+
+This could be especially useful when it comes to centering items on a grid. If we know that an item needs to be an equal number of tracks from the start and the end of the grid, then we only need to set the end line as the negative equivalent of the start line:
+
+```
+.item {
+	grid-column: span 2 / -2;
+}
+```
+
+If we need to increase the size of our grid at different breakpoints but our grid item still needs to be centered, placing it with negative lines means we don’t necessarily need to place the item again. For example, in this 12-column grid, which becomes a 16-column grid at larger breakpoints, the item I’m placing on the grid still starts and end the same number of tracks from the grid edges, no matter how many columns there are:
+
+```
+.grid {
+	grid-template-columns: repeat(12, 1fr);
+}
+
+.item {
+	grid-column: span 2 / -2;
+}
+
+@media (min-width: 60em) {
+	.grid {
+		grid-template-columns: repeat(16, 1fr);
+	}
+}
+```
+
+Here’s a full demo where several items are placed using negative line numbers:
+
+<iframe height='365' scrolling='no' title='Layout with negative grid line numbers' src='//codepen.io/michellebarker/embed/ReLYwp/?height=265&theme-id=0&default-tab=result' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/michellebarker/pen/ReLYwp/'>Layout with negative grid line numbers</a> by Michelle Barker (<a href='https://codepen.io/michellebarker'>@michellebarker</a>) on <a href='https://codepen.io'>CodePen</a>.
+</iframe>
+
+### Bonus
+
+This technique for centering items also lends itself well to working with CSS variables. We can set the start line as a variable and the end line is calculated as it’s equivalent negative value:
+
+```
+.item {
+	--start: 4;
+	--end: calc(var(--start) * -1);
+	grid-column: var(--start) / var(--end);
+}
+```
+
+If we do need to change the start line and end line at certain breakpoints, all we need to do is update one value. Nice!
