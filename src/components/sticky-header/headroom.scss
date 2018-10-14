@@ -1,7 +1,12 @@
 @import '../../globals/variables.scss';
 
+.headroom {
+  display: none;
+}
+
 @media (min-width: $xl) {
   .headroom {
+    display: block;
     top: 0;
     left: 0;
     right: 0;
