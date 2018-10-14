@@ -1,8 +1,8 @@
 ---
-title: "How to be a good co-worker"
-date: "2017-04-17"
-source: "Originally published on ournameismud.co.uk"
-srcUrl: "https://ournameismud.co.uk/journal/how-to-be-a-good-coworker"
+title: 'How to be a good co-worker'
+date: '2016-04-17'
+source: 'Originally published on ournameismud.co.uk'
+srcUrl: 'https://ournameismud.co.uk/journal/how-to-be-a-good-coworker'
 ---
 
 Transitioning to a new team inevitably involves learning new methods and processes – as well as getting used to the personalities of your co-workers, and where you fit in the pecking order! My first two weeks as a Junior Front-end Developer at Mud have been fun, interesting and very challenging at times. So I thought I’d share some of my observations, as well as lessons learnt from some of the previous teams I’ve been involved with.
