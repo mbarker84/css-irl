@@ -8,6 +8,7 @@ import { StickyHeader } from '../components/sticky-header/sticky-header'
 import metaImg from '../images/social_1200x630.png'
 
 console.log(metaImg)
+const img = `https://css-irl.info${metaImg}`
 
 export default ({ children }) => (
 	<StaticQuery
@@ -100,7 +101,7 @@ export default ({ children }) => (
 						property="og:description"
 						content={data.site.siteMetadata.description}
 					/>
-					<meta property="og:image" content={metaImg} />
+					<meta property="og:image" content={img} />
 
 					<meta property="og:url" content="https://css-irl.info" />
 					<meta
