@@ -8,7 +8,7 @@ If you’re writing CSS regularly there’s a good chance you will have come acr
 <!-- https://blog.logrocket.com/advanced-effects-with-css-background-blend-modes-4b750198522a
 http://bennettfeely.com/filters-gallery/ -->
 
-CSS blend modes have pretty good browser support (excluding IE11 and below), so are an excellent enhancement where they suit the design. However, sometimes they’re not quite enough on their own. Sometimes we might want a bit more control over things like blur, contrast and colour manipulation, which aren’t possible with blend modes alone. CSS filters can help us with this, and there’s a [great introduction on CSS Tricks](https://css-tricks.com/almanac/properties/f/filter/), which explains some of their capabilities. However, there are some limits to what CSS filters can do. CSS filters, while incredibly useful and a great tool to have in CSS, are a simplified implementation of what SVG filters can do – and knowing about SVG filters can give us superpowers when it comes to image manipulation! Even better, support for SVG filters is excellent, going right back to IE10.
+CSS blend modes have pretty good browser support (excluding IE11 and below), so are an excellent enhancement where they suit the design. However, sometimes they’re not quite enough on their own. Sometimes we might want a bit more control over things like blur, contrast and colour manipulation, which aren’t possible with blend modes alone. CSS filters can help us with this, and there’s a [great introduction on CSS Tricks](https://css-tricks.com/almanac/properties/f/filter/), which explains some of their capabilities. However, there are some limits to what CSS filters can do. CSS filters, while incredibly useful and a great tool to have in CSS, are a simplified implementation of SVG filterd – and knowing about SVG filters can give us superpowers when it comes to image manipulation! Even better, support for SVG filters goes right back to IE10.
 
 ## FeColorMatrix
 
@@ -17,6 +17,16 @@ SVG filters open up a whole new world of image effects, but the one I want to fo
 ### Syntax
 
 SVG filters can be written inline in your HTML like this:
+
+```
+<svg viewBox="0 0 600 400" width="0" height="0" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+    <filter id="myFilter">
+      <!--the rest of the code for the filter goes here-->
+    </filter>
+  </defs>
+</svg>
+```
 
 The filter needs an `id`, which we can reference in our CSS to apply a filter, like this:
 
@@ -28,25 +38,66 @@ The filter needs an `id`, which we can reference in our CSS to apply a filter, l
 
 Here’s an example of an `feColorMatrix` filter:
 
+```
+<filter id="myFilter">
+  <feColorMatrix in="SourceGraphic"
+    type="matrix"
+    values="1 1 0 0 0
+            1 1 0 0 0
+            1 1 0 0 0
+            0 0 0 1 0" />
+</filter>
+```
+
 The syntax looks quite complicated at first glance, but it’s helpful if we visualise it like this:
+
+![]()
 
 The y axis shows the colour values we can manipulate, and the x axis represents the channels of our original image. The final value on the x axis is the multiplication factor.
 
-For the original image the matrix will look like this:
+The default matrix values ook like this:
+
+```
+<filter id="myFilter">
+  <feColorMatrix in="SourceGraphic"
+    type="matrix"
+    values="1 0 0 0 0
+            0 1 0 0 0
+            0 0 1 0 0
+            0 0 0 1 0" />
+</filter>
+```
 
 This is because the red, green, blue and alpha values are all in their original channels - so the red pixels will be red, the green pixels will be green, and so on.
 
-To colourise images we can introduce different amounts of red, green or blue into other channels. For example, we can add blue to each channel like this:
+To colourize images we can introduce different amounts of red, green or blue into other channels. For example, we can add blue to each channel tp create a blue colorized image:
 
 We can turn a colour image greyscale by removing red, green and blue from all channels except one:
 
-I won’t got into all the maths behind `feColorMatrix` as these two articles do a great job of explaining far better than I could:
+```
+<filter id="greyscale">
+  <feColorMatrix in="SourceGraphic"
+    type="matrix"
+    values="1 0 0 0 0
+            1 0 0 0 0
+            1 0 0 0 0
+            0 0 0 1 0" />
+</filter>
+```
+
+This demo shows a number of different combinations we could use to get a greyscale image. Adjusting the values in the alpha channel can give us greater degrees of contrast, darkening or lightening the image.
+
+<iframe height='365' scrolling='no' title='SVG filter greyscale' src='//codepen.io/michellebarker/embed/RqZqQJ/?height=265&theme-id=0&default-tab=result' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/michellebarker/pen/RqZqQJ/'>SVG filter greyscale</a> by Michelle Barker (<a href='https://codepen.io/michellebarker'>@michellebarker</a>) on <a href='https://codepen.io'>CodePen</a>.
+</iframe>
+
+To learn more about how `feColorMatrix` works I thoroughly recomment these two articles:
+
+- [Finessing `feColorMatrix`](https://alistapart.com/article/finessing-fecolormatrix) by Una Kravets
+- [CSS Filters Can Turn Your Gray Skies Blue](https://css-tricks.com/color-filters-can-turn-your-gray-skies-blue/) by Amelia Bellamy-Royds
 
 The best way to really understand `feColorMatrix` is to play around with the values yourself. Here’s a demo with just a few examples of the creative possibilities:
 
-There is a tool made by ... to help you experiment with `feColorMatrix` too:
-
-[Filter playground](https://kazzkiq.github.io/svg-color-filter/)
+[Filter playground](https://kazzkiq.github.io/svg-color-filter/) is a tool made by Claudio Holanda to help you experiment with `feColorMatrix`.
 
 ### Colorising parts of an image with masking
 
