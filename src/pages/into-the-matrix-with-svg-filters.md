@@ -1,20 +1,25 @@
 ---
 title: 'Into the Matrix with SVG Filters'
-date: '2018-11-18'
+date: '2018-11-20'
 ---
 
-If you’re writing CSS regularly there’s a good chance you will have come across [blend modes](https://developer.mozilla.org/en-US/docs/Web/CSS/blend-mode). The `background-blend-mode` and `mix-blend-mode` properties allow us to blend a background and a foreground element together, and when used on images can help create some interesting effects, similar to the way image editing programs like Photoshop do. You can get really creative and even replicate Instagram’s filters, [like Una Kravets has done here](https://una.im/CSSgram/). You can even create [duotone images](https://jmperezperez.com/duotone-using-css-blend-modes/) using `mix-blend-mode` on pseudo-elements (another trick from Una!);
+In this article we’ll explore how to use SVG filters for advanced colour manipulation on images.
 
-<!-- https://blog.logrocket.com/advanced-effects-with-css-background-blend-modes-4b750198522a
-http://bennettfeely.com/filters-gallery/ -->
+## Blend modes and beyond
 
-CSS blend modes have pretty good browser support (excluding IE11 and below), so are an excellent enhancement where they suit the design. However, sometimes they’re not quite enough on their own. Sometimes we might want a bit more control over things like blur, contrast and colour manipulation, which aren’t possible with blend modes alone. CSS filters can help us with this, and there’s a [great introduction on CSS Tricks](https://css-tricks.com/almanac/properties/f/filter/), which explains some of their capabilities. However, there are some limits to what CSS filters can do. CSS filters, while incredibly useful and a great tool to have in CSS, are a simplified implementation of SVG filterd – and knowing about SVG filters can give us superpowers when it comes to image manipulation! Even better, support for SVG filters goes right back to IE10.
+If you’re writing CSS regularly there’s a good chance you will have come across [blend modes](https://developer.mozilla.org/en-US/docs/Web/CSS/blend-mode). The `background-blend-mode` and `mix-blend-mode` properties allow us to blend a background and a foreground element together, and when used on images can help create some interesting effects, similar to the way image editing programs like Photoshop do. You can get really creative and even replicate Instagram’s filters, [like Una Kravets has done here](https://una.im/CSSgram/). You can even create [duotone images](https://jmperezperez.com/duotone-using-css-blend-modes/) using `mix-blend-mode` on pseudo-elements (another trick from Una!).
+
+CSS blend modes are not currently supported in Edge and IE11, so they’re best treated as an enhancement rather than something that should be relied upon for your site. However, sometimes they’re not quite enough on their own. Sometimes we might want a bit more control over things like blur, contrast and colour manipulation.
+
+## CSS filters
+
+CSS filters give us a few more capabilites where blend modes don’t fully satisfy our needs. While blend modes rely on a second colour or image to blend with the original (whether a background image, another element of a pseudo-element), CSS filters work on the image directly. We can blur images, convert them to greyscale, add a drop-shadow, or rotate the hue, for example. There’s a [great introduction on CSS Tricks](https://css-tricks.com/almanac/properties/f/filter/), which explains some of their capabilities. However, for full control over our images we can reach for SVG filters. CSS filters, while incredibly useful and a great tool to have in CSS, are a simplified implementation of SVG filters – and knowing about SVG filters can give us superpowers when it comes to image manipulation! Even better, support for SVG filters goes right back to IE10, giving them a clear advantage over CSS filters in many situations.
 
 ## FeColorMatrix
 
 SVG filters open up a whole new world of image effects, but the one I want to focus on in this article is the `feColorMatrix` filter, which allows us to manipulate the red, green, blue and alpha channels of an image by adding different amounts of red, green, blue or alpha into them. Still with me? `feColorMatrix` (`fe` stands for “Filter Effect” in SVG filters) allows for highly nuanced colour adjustment.
 
-### Syntax
+### Writing an SVG filter
 
 SVG filters can be written inline in your HTML like this:
 
@@ -27,6 +32,8 @@ SVG filters can be written inline in your HTML like this:
   </defs>
 </svg>
 ```
+
+Notice we’re wrapping the filter in a `<defs>` tag so it becomes a symbol we can reuse. I’ve giving the SVG a width and height of `0` so it doesn’t show up on the page – it’s purely for defining the filter.
 
 The filter needs an `id`, which we can reference in our CSS to apply a filter, like this:
 
@@ -49,62 +56,64 @@ Here’s an example of an `feColorMatrix` filter:
 </filter>
 ```
 
-The syntax looks quite complicated at first glance, but it’s helpful if we visualise it like this:
+The syntax looks quite complicated at first glance, but it can be helpful to visualise it like this:
 
-![]()
+<figure>
+  <img src="svg-filters_01b-01.png" alt="Colour matrix grid">
+</figure>
 
-The y axis shows the colour values we can manipulate, and the x axis represents the channels of our original image. The final value on the x axis is the multiplication factor.
+The _x_ axis represents the channels of our original image (red, green, blue and alpha), and the _y_ axis represent the colours we can add or remove from those channels. The final value on the _x_ axis is the multiplication factor, whihc we won’t worry too much about for now.
 
-The default matrix values ook like this:
-
-```
-<filter id="myFilter">
-  <feColorMatrix in="SourceGraphic"
-    type="matrix"
-    values="1 0 0 0 0
-            0 1 0 0 0
-            0 0 1 0 0
-            0 0 0 1 0" />
-</filter>
-```
-
-This is because the red, green, blue and alpha values are all in their original channels - so the red pixels will be red, the green pixels will be green, and so on.
+The matrix for a regular (unedited) image looks like the one above. The red, green, blue and alpha values are all in their original channels - so the red pixels will be red, the green pixels will be green, and so on.
 
 To colourize images we can introduce different amounts of red, green or blue into other channels. For example, we can add blue to each channel tp create a blue colorized image:
 
 We can turn a colour image greyscale by removing red, green and blue from all channels except one:
 
-```
-<filter id="greyscale">
-  <feColorMatrix in="SourceGraphic"
-    type="matrix"
-    values="1 0 0 0 0
-            1 0 0 0 0
-            1 0 0 0 0
-            0 0 0 1 0" />
-</filter>
-```
+<figure>
+  <img src="svg-filter_02-01.png" alt="Colour matrix grid with values only in red channel">
+</figure>
 
 This demo shows a number of different combinations we could use to get a greyscale image. Adjusting the values in the alpha channel can give us greater degrees of contrast, darkening or lightening the image.
 
 <iframe height='365' scrolling='no' title='SVG filter greyscale' src='//codepen.io/michellebarker/embed/RqZqQJ/?height=265&theme-id=0&default-tab=result' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/michellebarker/pen/RqZqQJ/'>SVG filter greyscale</a> by Michelle Barker (<a href='https://codepen.io/michellebarker'>@michellebarker</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-To learn more about how `feColorMatrix` works I thoroughly recomment these two articles:
+In the following matrix we’re setting all the values in the red channel to 100% (giving us a greyscale image), then adding blue into the blue channel – so the image has a blue-ish tinge:
+
+<figure>
+  <img src="svg-filters_03-01.png" alt="Colour matrix grid with all values in the red channel at 1, and the blue value in the blue channel at 1">
+</figure>
+
+To create a duotone effect (with better browser support than blend modes!) we need to apply values to the alpha channel. The alpha channel can darken and lighten the image. To darken parts of the image we can use negative values, while positive values will lighten it. (Setting all values in the alpha channel to `1` will make the image completely white.)
+
+```
+<filter id="myFilter">
+  <feColorMatrix in="SourceGraphic"
+    type="matrix"
+    values="1 1 1 0 0
+		    0 0 0 -0.5 0
+		    0 0 0 0.2 0
+		    0 0 0 1 0" />
+</filter>
+```
+
+This gives us a duotone effect like this:
+
+<figure>
+  <img src="svg-filters_duotone.jpg" alt="Duotone image">
+</figure>
+
+It can be a little trickier to find the perfect mix of colours using the alpha channel, but playing around with the values will give you a feel for it. Hopefully this introduction has given you a taste of what’s possible.
+
+To learn more about how `feColorMatrix` works here are two articles that explain it really well:
 
 - [Finessing `feColorMatrix`](https://alistapart.com/article/finessing-fecolormatrix) by Una Kravets
 - [CSS Filters Can Turn Your Gray Skies Blue](https://css-tricks.com/color-filters-can-turn-your-gray-skies-blue/) by Amelia Bellamy-Royds
 
-The best way to really understand `feColorMatrix` is to play around with the values yourself. Here’s a demo with just a few examples of the creative possibilities:
+The best way to really understand `feColorMatrix` is to play around with the values yourself.
 
-[Filter playground](https://kazzkiq.github.io/svg-color-filter/) is a tool made by Claudio Holanda to help you experiment with `feColorMatrix`.
+Here is a demo showing a few of the creative possibilities:
 
-### Colorising parts of an image with masking
-
-`feColorMatrix` works great for colourising an entire image, but what about if we just want to colourise a section of it? We could clip out a section with `clip-path` and overlay it on the original image, but that means loading the image twice - not great for performance.
-
-A better solution is to use an image element within the SVG itself, which allows us to mask parts of the image to apply the filter. This article from Sitepoint demonstrates how.
-
-As Ana Tudor enquired recently on Twitter, image loading within SVGs when using `<image>` is not detectable with JavaScript, so if you want your images lazyloaded you’re probably out of luck. Like everything on the web, it’s a trade off!
-
-I hope you’ll now feel a bit more confident applying SVG filters for creative image effects.
+<iframe height='365' scrolling='no' title='SVG filter feColorMatrix' src='//codepen.io/michellebarker/embed/mQBRRX/?height=265&theme-id=0&default-tab=result' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/michellebarker/pen/mQBRRX/'>SVG filter feColorMatrix</a> by Michelle Barker (<a href='https://codepen.io/michellebarker'>@michellebarker</a>) on <a href='https://codepen.io'>CodePen</a>.
+</iframe>
