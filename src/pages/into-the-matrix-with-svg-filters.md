@@ -62,11 +62,11 @@ The syntax looks quite complicated at first glance, but it can be helpful to vis
   <img src="svg-filters_01b-01.png" alt="Colour matrix grid">
 </figure>
 
-The _x_ axis represents the channels of our original image (red, green, blue and alpha), and the _y_ axis represent the colours we can add or remove from those channels. The final value on the _x_ axis is the multiplication factor, whihc we won’t worry too much about for now.
+The _x_ axis represents the channels of our original image (red, green, blue and alpha), and the _y_ axis represent the colours we can add or remove from those channels. The final value on the _x_ axis is the multiplication factor, which we won’t worry too much about for now.
 
 The matrix for a regular (unedited) image looks like the one above. The red, green, blue and alpha values are all in their original channels - so the red pixels will be red, the green pixels will be green, and so on.
 
-To colourize images we can introduce different amounts of red, green or blue into other channels. For example, we can add blue to each channel tp create a blue colorized image:
+To colourize images we can introduce different amounts of red, green or blue into other channels. For example, we can add blue to each channel to create a blue colorized image:
 
 We can turn a colour image greyscale by removing red, green and blue from all channels except one:
 
