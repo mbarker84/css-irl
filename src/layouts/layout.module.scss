@@ -16,7 +16,7 @@
   }
 
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(10em, 21em));
+  grid-template-columns: repeat(auto-fit, minmax(10em, 19em));
   grid-gap: var(--gutter);
 
   @media (min-width: $sm) {
