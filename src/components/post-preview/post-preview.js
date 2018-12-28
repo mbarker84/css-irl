@@ -9,7 +9,7 @@ export const PostPreview = props => {
 		return (
 			<a
 				href={props.externalLink}
-				css={{ textDecoration: `none`, color: `inherit` }}
+				css={{ textDecoration: `none`, color: `#0e0f0f` }}
 				target="_blank"
 				rel="noopener noreferrer"
 			>

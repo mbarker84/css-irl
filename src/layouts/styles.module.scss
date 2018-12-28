@@ -42,8 +42,6 @@ figcaption  {
 
   @media (min-width: $xl) {
     grid-column: content-start / wrapper-end;
-    // grid-row: 2 / 4;
-    // grid-row-start: 3;
   }
 }
 
@@ -54,8 +52,6 @@ figcaption  {
   font-size: 0.7rem;
   color: lighten($black, 40%);
 }
-
-
 
 .menu {
   display: flex;

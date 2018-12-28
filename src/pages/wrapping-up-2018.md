@@ -31,6 +31,10 @@ I switched to Firefox as my default browser around October this year. The dev to
 
 With the recent news that Microsoft Edge will use the Chromium rendering engine in future, there’s all the more reason to support a truly independent browser and resist a monopoly. Jeremy Keith urges us all to [get behind Firefox](https://adactio.com/journal/14608).
 
+### Tailwind
+
+Earlier this year the Mud team decided to adopt utility-first CSS – specifically the framework [Tailwind](https://tailwindcss.com). After six months or so of using it, I can definitely see the benefits, and on the whole it was the right approach for us to adopt as a team. That’s not to say I’m an advocate for a utility-first approach in every situation, and there are certain drawbacks to counteract the positives. I’ll share my thoughts in a post in the next few weeks. In the meantime, here’s a [great article by Sarah Dayan](https://frontstuff.io/in-defense-of-utility-first-css) that breaks down why utility-first CSS is worth considering.
+
 ### Personal achievements in 2018
 
 It’s been an exciting year for me personally. I spoke at four events, and published 20 articles, including two articles for [CSS Tricks](https://css-tricks.com/) – a major life goal! In November the writing took a bit of a dip as I spent the month learning React. (I took Wes Bos’s [React for Beginners](https://reactforbeginners.com/) course, which I thoroughly recommend.) In December I started a new job at [Ordoo](https://ordoo.co.uk/). I’m really excited to have the chance to work on a product and have a lot of creative input, as well as putting my new found React knowledge into practice!
@@ -57,7 +61,9 @@ In a nutshell, CSS environment variables are like global variables. Ire Aderinok
 
 ## Goals for this blog
 
-In 2019 I want to keep consistently writing on this blog, hopefully publishing fortnightly at a minimum. However, this was always meant to be an enjoyable thing for me, so I don’t want to stress about it if life sometimes gets in the way. Hopefully I’ll keep writing and people will keep reading :)
+In 2019 I want to keep consistently writing on this blog, hopefully publishing fortnightly at a minimum. One of the things I had always intended to do with this blog is to share shorter and more frequent posts and code snippets from the projects I’m working on in everyday life. That didn’t end up happening, as every time I started writing an article I ended up going down a rabbit hole and writing several hundred more words than I planned to!
+
+Blogging was always meant to be an enjoyable thing for me, so I don’t want to stress about it if life sometimes gets in the way. Hopefully I’ll keep writing and people will keep reading :)
 
 I do want to make some improvements: Adding pagination, tagging and search functionality all feel pretty vital as the number of posts grows. So look out for some enhancements over the next few months.
 
@@ -77,6 +83,6 @@ This one doesn’t need much explaining, but it’s something I want to make tim
 
 ### Spend more time with my family and less time stressing
 
-I’ve worked really hard in 2018, and while I certainly won’t be resting on my laurels, I want to give myself a break in 2019 to be healthy, and spend less time in front of the screen.
+I’ve worked really hard in 2018, and while I certainly won’t be resting on my laurels, I want to give myself a bit of a break in 2019 to be healthy, and spend less time in front of the screen.
 
 Happy New Year, and best wishes for a successful 2019 – whatever that looks like to you!
