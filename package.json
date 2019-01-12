@@ -10,7 +10,6 @@
 	"dependencies": {
 		"gatsby": "next",
 		"gatsby-plugin-feed": "^2.0.0-beta.4",
-		"gatsby-plugin-glamor": "next",
 		"gatsby-plugin-manifest": "next",
 		"gatsby-plugin-offline": "next",
 		"gatsby-plugin-postcss-sass": "next",
