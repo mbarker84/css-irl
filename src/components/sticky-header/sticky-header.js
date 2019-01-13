@@ -18,7 +18,11 @@ export const StickyHeader = () => {
 					</h3>
 				</Link>
 			</Headroom>
-			<Link className={styles.link} to={`/`}>
+			<Link
+				className={styles.link}
+				to={`/`}
+				style={{ textDecoration: `none`, color: `inherit` }}
+			>
 				<h1 className={styles.siteTitle}>
 					<span className={styles.mainTitle}>CSS</span>
 					<span className={styles.subheading}>

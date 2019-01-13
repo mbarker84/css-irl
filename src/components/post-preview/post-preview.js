@@ -9,7 +9,7 @@ export const PostPreview = props => {
 		return (
 			<a
 				href={props.externalLink}
-				css={{ textDecoration: `none`, color: `#0e0f0f` }}
+				style={{ textDecoration: `none`, color: `inherit` }}
 				target="_blank"
 				rel="noopener noreferrer"
 			>
@@ -31,7 +31,7 @@ export const PostPreview = props => {
 		)
 	} else {
 		return (
-			<Link to={props.to} css={{ textDecoration: `none`, color: `inherit` }}>
+			<Link to={props.to} style={{ textDecoration: `none`, color: `inherit` }}>
 				<div className={styles.postPreview}>
 					<h2 className={styles.title}>
 						<span className={globals.hl}>{props.title}</span>

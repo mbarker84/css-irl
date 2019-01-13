@@ -114,11 +114,16 @@ export default ({ children }) => (
 				<StickyHeader styles={styles} />
 
 				<nav className={styles.menu}>
-					<Link className={styles.link} to={`/about/`}>
+					<Link
+						className={styles.link}
+						to={`/about/`}
+						style={{ textDecoration: `none`, color: `inherit` }}
+					>
 						<span className={globals.hl}>About</span>
 					</Link>
 					<a
 						className={styles.linkWithIcon}
+						style={{ textDecoration: `none`, color: `inherit` }}
 						href="https://twitter.com/CSSInRealLife"
 					>
 						<svg

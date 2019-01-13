@@ -53,11 +53,11 @@ a:hover {
   font-size: 0.6em;
 
   @media (min-width: $sm) {
-    font-size: 5vmin;
+    font-size: 3vw;
   }
 
   @media (min-width: $xl) {
-    font-size: 4vmin;
+    font-size: 2.5vw;
   }
 }
 
@@ -68,11 +68,11 @@ a:hover {
   transition: text-shadow 200ms ease-in-out;
 
   @media (min-width: $sm) {
-    font-size: 18vmin;
+    font-size: 10vw;
   }
 
   @media (min-width: $xl) {
-    font-size: 14vmin;
+    font-size: 8vw;
   }
 }
 
