@@ -22,12 +22,12 @@
   }
 
   .headroom--scrolled {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+
+  .headroom--pinned {
     transform: translateY(0);
     opacity: 1;
   }
-
-  // .headroom--pinned {
-  //   transform: translateY(0);
-  //   opacity: 1;
-  // }
 }
