@@ -202,4 +202,22 @@ When we add a longer paragraph of text into the text block, however, we can see 
 
 Hopefully it’s more obvious now why we needed to set the `row-gap` to `0` and instead use extra tracks as our gutters: if we had 40px `row-gap`, this would be visible at the top of the grid even when the text content was shorter and therefore the first track had collapsed completely. Unfortunately we can’t set different values for the `gap` properties on a single axis, otherwise we wouldn’t need those extra rows.
 
+For a different component variant – where the text block is below the heading instead of above – we can just change the `grid-template-rows` property to include the hidden row and the end instead of the start.
+
+```css
+.grid--text-bottom {
+	grid-template-rows:
+		[media-start] auto 40px
+		[heading-start] auto [heading-end]
+		40px [text-start] auto [media-end]
+		1fr [text-end];
+	gap: 0 20px;
+}
+```
+
+Here’s the full demo:
+
+<iframe height='474' scrolling='no' title='CSS Grid Complex Component' src='//codepen.io/michellebarker/embed/yGzWme/?height=474&theme-id=0&default-tab=result' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/michellebarker/pen/yGzWme/'>CSS Grid Complex Component</a> by Michelle Barker (<a href='https://codepen.io/michellebarker'>@michellebarker</a>) on <a href='https://codepen.io'>CodePen</a>.
+</iframe>
+
 This solution was not actually implemented in production – it was only much later that I figured this out! Although it’s not a common layout problem to have, I hope this demonstrates some of the tricks and methods that can be employed with Grid to produce unusual layouts.
