@@ -3,7 +3,8 @@ import oceanBeachTheme from 'typography-theme-ocean-beach'
 oceanBeachTheme.overrideThemeStyles = ({ rhythm }, options) => ({
   'a': {
     textShadow: `none`,
-    textDecoration: `none`
+    textDecoration: `none`,
+    color: `black`
   }
 })
 

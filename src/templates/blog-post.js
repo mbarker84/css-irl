@@ -9,7 +9,9 @@ export default ({ data }) => {
 	const post = data.markdownRemark
 	return (
 		<Layout>
-			<Helmet>
+			<Helmet
+				title={`${data.site.siteMetadata.title} | ${post.frontmatter.title}`}
+			>
 				<meta property="og:title" content={post.frontmatter.title} />
 				<meta property="og:description" content={post.excerpt} />
 			</Helmet>
@@ -43,6 +45,13 @@ export const query = graphql`
 				externalLink
 			}
 			excerpt
+		}
+		site {
+			siteMetadata {
+				title
+				description
+				subheading
+			}
 		}
 	}
 `
