@@ -3,7 +3,7 @@ title: 'Solving a Tricky Layout Problem with CSS Grid'
 date: '2019-01-12'
 ---
 
-Last year, while working at [Mud](https://ournameismud.co.uk/), I worked on the CSS on a site for [Warner Brothers Leavesden Park studios](https://wbsl.com). A large part of my contribution involved using CSS Grid to build a variety of component layouts, and the ayouts I built for that site have become the subject of some of my talks and articles.
+Last year, while working at [Mud](https://ournameismud.co.uk/), I worked on the CSS on a site for [Warner Brothers Leavesden Park studios](https://wbsl.com). A large part of my contribution involved using CSS Grid to build a variety of component layouts, and the layouts I built for that site have become the subject of some of my talks and articles.
 
 This article is a case study on a particular component with a unique layout and a set of constraints. Building a layout that worked for the large number of requirements, as well as unknown content, required applying lateral thinking and a great deal of problem solving to find the right solution.
 
@@ -157,7 +157,7 @@ The row we’ve added is effectively a hidden row – it’s going to collapse t
   <img src="solving-a-tricky-layout-problem_05.png" alt="Hidden row at the top of the grid">
 </figure>
 
-There are a couple more things we need to do to our grid container before we look at item placement. We’re going to set the `row-gap` to `0` and add tracks of `40px` between the heading row and its adjacent rows. We can also remove `align-items: center`, as we won’t need it anymore.
+There are a couple more things we need to do to our grid container before we look at item placement. We’re going to set the `row-gap` to 0 and add tracks of 40px between the heading row and its adjacent rows. We can also remove `align-items: center`, as we won’t need it anymore.
 
 ```css
 .grid {
@@ -193,14 +193,14 @@ Now that our grid has six rows, it’s not so easy to visualise where to place o
 
 Eagle-eyed readers might notice that our text block now spans two tracks (starting at grid line 1), and our image no longer starts at grid line 1 but at line 2 instead. However, visually nothing has changed.
 
-When we add a longer paragraph of text into the text block, however, we can see the benefit of these changes. The hidden row that we added expands, while the image and heading remain centrally aligned with one another – crucially, _without_ extra space being added at the bottom of the grid!
+When we add a longer paragraph of text into the text block, it’s then that we can see the benefit of these changes. The hidden row that we added expands, while the image and heading remain centrally aligned with one another – crucially, _without_ extra space being added at the bottom of the grid!
 
 <figure>
   <img src="solving-a-tricky-layout-problem_06.png" alt="Hidden row expanding when text block is longer">
   <figcaption>The top row of the grid expands as the text content grows longer</figcaption>
 </figure>
 
-Hopefully it’s more obvious now why we needed to set the `row-gap` to `0` and instead use extra tracks as our gutters: if we had 40px `row-gap`, this would be visible at the top of the grid even when the text content was shorter and therefore the first track had collapsed completely. Unfortunately we can’t set different values for the `gap` properties on a single axis, otherwise we wouldn’t need those extra rows.
+Hopefully it’s more obvious now why we needed to set the `row-gap` to 0 and instead use extra tracks as our gutters: if we had 40px `row-gap`, this would be visible at the top of the grid even when the text content was shorter and therefore the first track had collapsed completely. Unfortunately we can’t set different values for the `gap` properties on a single axis, otherwise we wouldn’t need those extra rows.
 
 For a different component variant – where the text block is below the heading instead of above – we can just change the `grid-template-rows` property to include the hidden row and the end instead of the start.
 
