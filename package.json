@@ -18,6 +18,8 @@
 		"gatsby-plugin-sharp": "^1.6.48",
 		"gatsby-plugin-typography": "next",
 		"gatsby-remark-copy-images": "^0.2.1",
+		"gatsby-remark-copy-linked-files": "^2.0.8",
+		"gatsby-remark-embed-video": "^1.7.0",
 		"gatsby-remark-images": "^1.5.67",
 		"gatsby-remark-prismjs": "^3.2.0",
 		"gatsby-source-filesystem": "next",
