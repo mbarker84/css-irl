@@ -13,8 +13,7 @@ export default ({ data }) => (
 			<p>
 				Published by{' '}
 				<a href="https://twitter.com/mbarker_84">Michelle Barker</a>, front end
-				developer at <a href="http://ournameismud.co.uk">Mud</a> and CSS
-				superfan.
+				developer at <a href="http://ordoo.co.uk">Ordoo</a> and CSS superfan.
 			</p>
 			<p>
 				<a href="mailto:michelle@css-irl.info">michelle@css-irl.info</a>
