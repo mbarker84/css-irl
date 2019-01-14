@@ -5,6 +5,7 @@ import globals from '../globals/globals.module.scss'
 import styles from '../layouts/styles.module.scss'
 import { StaticQuery, graphql, Link } from 'gatsby'
 import { StickyHeader } from '../components/sticky-header/sticky-header'
+import { Navigation } from '../components/navigation/navigation'
 import metaImg from '../images/social_1200x630.png'
 
 console.log(metaImg)
@@ -112,6 +113,7 @@ export default ({ children }) => (
 				</Helmet>
 
 				<StickyHeader styles={styles} />
+				<Navigation />
 
 				<nav className={styles.menu}>
 					<Link

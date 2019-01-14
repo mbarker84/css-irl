@@ -1,0 +1,52 @@
+@import '../../globals/variables.scss';
+
+.menu {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 1em;
+
+  @media (min-width: $sm) {
+    grid-column: wrapper-start / wrapper-end;
+    grid-row: 1;
+    align-self: center;
+    justify-content: flex-end;
+    padding: unset;
+  }
+
+  @media (min-width: $xl) {
+    grid-column: wrapper-start / header-end;
+    grid-row: 3;
+    align-self: flex-start;
+    justify-content: flex-start;
+  }
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  font-size: 0.8rem;
+  transition: transform 200ms ease-in-out;
+  transform-origin: top left;
+
+  @media (min-width: $sm) {
+    font-size: 1rem;
+  }
+}
+
+.linkWithIcon {
+  composes: link;
+
+  span {
+    padding-left: 1.8rem;
+  }
+}
+
+.linkIcon {
+  width: 1.4rem;
+  height: 1.4rem;
+  display: block;
+  position: relative;
+  left: 1.2rem;
+  z-index: 1;
+  fill: $black;
+}

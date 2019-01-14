@@ -7,7 +7,11 @@ import headroom from './headroom.scss'
 export const StickyHeader = () => {
 	return (
 		<header className={styles.header}>
-			<Headroom className={headroom.headroom} pinStart={300}>
+			<Headroom
+				className={headroom.headroom}
+				pinStart={200}
+				disableInlineStyles
+			>
 				<Link className={styles.homeLink} to={`/`}>
 					<h3>
 						CSS {`{`} IRL {`}`}
