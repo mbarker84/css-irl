@@ -1,6 +1,7 @@
 ---
 title: 'A Year of Utility Classes'
-date: '2019-01-27'
+date: '2019-01-28'
+heroImage: 'a-year-of-utilities-01.svg'
 ---
 
 <figure>

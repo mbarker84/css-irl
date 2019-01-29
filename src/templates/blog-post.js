@@ -7,6 +7,7 @@ import { SourceDetails } from '../components/post-source/post-source'
 
 export default ({ data }) => {
 	const post = data.markdownRemark
+
 	return (
 		<Layout>
 			<Helmet
