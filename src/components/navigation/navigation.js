@@ -9,7 +9,7 @@ export const Navigation = props => {
 			<Link
 				className={styles.headerLink}
 				to={`/about/`}
-				style={{ textDecoration: `none`, color: `black` }}
+				style={{ textDecoration: `none` }}
 			>
 				<span className={globals.hl}>About</span>
 			</Link>
