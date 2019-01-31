@@ -9,13 +9,13 @@ export const Navigation = props => {
 			<Link
 				className={styles.headerLink}
 				to={`/about/`}
-				style={{ textDecoration: `none` }}
+				style={{ textDecoration: `none`, backgroundImage: `none` }}
 			>
 				<span className={globals.hl}>About</span>
 			</Link>
 			<a
 				className={styles.headerLink}
-				style={{ textDecoration: `none`, color: `black` }}
+				style={{ textDecoration: `none`, backgroundImage: `none` }}
 				href="https://twitter.com/CSSInRealLife"
 			>
 				<svg

@@ -29,6 +29,7 @@
   transform-origin: top left;
   text-decoration: none;
   color: $black;
+  background-image: none;
 
   @media (min-width: $sm) {
     font-size: 1rem;
