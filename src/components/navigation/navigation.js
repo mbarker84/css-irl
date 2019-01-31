@@ -7,15 +7,15 @@ export const Navigation = props => {
 	return (
 		<nav className={styles.menu}>
 			<Link
-				className={styles.link}
+				className={styles.headerLink}
 				to={`/about/`}
-				style={{ textDecoration: `none`, color: `inherit` }}
+				style={{ textDecoration: `none`, color: `black` }}
 			>
 				<span className={globals.hl}>About</span>
 			</Link>
 			<a
-				className={styles.linkWithIcon}
-				style={{ textDecoration: `none`, color: `inherit` }}
+				className={styles.headerLink}
+				style={{ textDecoration: `none`, color: `black` }}
 				href="https://twitter.com/CSSInRealLife"
 			>
 				<svg
