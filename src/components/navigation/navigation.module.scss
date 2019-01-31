@@ -27,9 +27,15 @@
   font-size: 0.8rem;
   transition: transform 200ms ease-in-out;
   transform-origin: top left;
+  text-decoration: none;
+  color: $black;
 
   @media (min-width: $sm) {
     font-size: 1rem;
+  }
+
+  &:visited {
+    color: $black;
   }
 }
 
