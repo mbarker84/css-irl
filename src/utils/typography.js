@@ -4,7 +4,8 @@ oceanBeachTheme.overrideThemeStyles = ({ rhythm }, options) => ({
 	a: {
 		textShadow: `none`,
 		textDecoration: `none`,
-		color: `black`
+		color: `black`,
+		backgroundImage: `none`
 	}
 })
 
