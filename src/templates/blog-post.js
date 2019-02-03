@@ -4,8 +4,9 @@ import Layout from '../components/layout'
 import styles from './blog-post.module.scss'
 import layout from '../layouts/layout.module.scss'
 import { SourceDetails } from '../components/post-source/post-source'
+import { Location } from '@reach/router'
 
-export default ({ data }) => {
+export default ({ data, location }) => {
 	const post = data.markdownRemark
 
 	return (
@@ -15,6 +16,10 @@ export default ({ data }) => {
 			>
 				<meta property="og:title" content={post.frontmatter.title} />
 				<meta property="og:description" content={post.excerpt} />
+				<meta
+					property="og:url"
+					content={`${data.site.siteMetadata.siteUrl}${location.pathname}`}
+				/>
 			</Helmet>
 			<div className={layout.postContent}>
 				<h1>{post.frontmatter.title}</h1>
@@ -52,6 +57,7 @@ export const query = graphql`
 				title
 				description
 				subheading
+				siteUrl
 			}
 		}
 	}

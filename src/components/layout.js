@@ -20,6 +20,7 @@ export default ({ children }) => (
 						title
 						description
 						subheading
+						siteUrl
 					}
 				}
 			}
@@ -104,7 +105,7 @@ export default ({ children }) => (
 					/>
 					<meta property="og:image" content={img} />
 
-					<meta property="og:url" content="https://css-irl.info" />
+					<meta property="og:url" content={data.site.siteMetadata.siteUrl} />
 					<meta
 						property="og:site_name"
 						content={data.site.siteMetadata.title}
@@ -114,7 +115,6 @@ export default ({ children }) => (
 
 				<StickyHeader styles={styles} />
 				<Navigation />
-
 
 				<div className={styles.content}>{children}</div>
 				<footer className={styles.footer}>&copy; Michelle Barker 2018</footer>
