@@ -8,7 +8,7 @@ heroImage: 'a-year-of-utilities-01.svg'
   <img src="a-year-of-utilities-01.svg" alt="Utility classes surrounding a shapeless <div>">
 </figure>
 
-Last year at [Mud](https://ournameismud.co.uk) we adopted a utility-first approach to CSS (also known as atomic CSS). Specifically we decided to use [TailwindCSS](https://tailwindcss.com), a utlitity class framework, which provides a bunch of classes you can apply to your projects to rapidly build a UI.
+Last year at [Mud](https://ournameismud.co.uk) we adopted a utility-first approach to CSS (also known as atomic CSS). Specifically we decided to use [TailwindCSS](https://tailwindcss.com), a utility class framework, which provides a bunch of classes you can apply to your projects to rapidly build a UI.
 
 Sarah Dayan published a great article last year about the [benefits of utility-first CSS](https://frontstuff.io/in-defense-of-utility-first-css), and I recommend reading that to get a good overview of some advantages to the approach on the whole. In this article I’ll summarise what I’ve learnt from adopting atomic CSS in an agency context over the past year, and where it might or might not be appropriate to apply it.
 
