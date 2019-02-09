@@ -36,6 +36,10 @@ pre {
   padding: 1rem;
 }
 
+blockquote {
+  border-left: 8px solid lightGrey;
+}
+
 :global {
   .textPrimary {
     color: $primary;

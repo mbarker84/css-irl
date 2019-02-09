@@ -6,6 +6,10 @@ oceanBeachTheme.overrideThemeStyles = ({ rhythm }, options) => ({
 		textDecoration: `none`,
 		color: `black`,
 		backgroundImage: `none`
+	},
+	blockquote: {
+		borderLeftWidth: `6px`,
+		borderColor: `lightGray`
 	}
 })
 
