@@ -10,7 +10,7 @@ A recent [Twitter thread](https://twitter.com/chriscoyier/status/108882720146881
 
 Naturally some of the most insightful replies came from Rachel Andrew and Jen Simmons:
 
-<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">Grid makes actual columns and rows. Content will line up from one to the other, as you ask it to. Flexbox doesn’t. Not only in the second dimension (which is easiest to talk about), but also in the first dimension. Flexbox isn’t for most of the things we’ve been using it for.</p>&mdash; Jen Simmons (@jensimmons) <a href="https://twitter.com/jensimmons/status/1089181330133450752?ref_src=twsrc%5Etfw">January 26, 2019</a></blockquote>
+<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">Flexbox is for one dimensional layout. A row OR a column. Grid is for two dimensional layout. Rows AND columns.</p>&mdash; Rachel Andrew (@rachelandrew) <a href="https://twitter.com/rachelandrew/status/1088827732874747910?ref_src=twsrc%5Etfw">January 25, 2019</a></blockquote>
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 <blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">Grid makes actual columns and rows. Content will line up from one to the other, as you ask it to. Flexbox doesn’t. Not only in the second dimension (which is easiest to talk about), but also in the first dimension. Flexbox isn’t for most of the things we’ve been using it for.</p>&mdash; Jen Simmons (@jensimmons) <a href="https://twitter.com/jensimmons/status/1089181330133450752?ref_src=twsrc%5Etfw">January 26, 2019</a></blockquote>
