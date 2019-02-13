@@ -89,7 +89,7 @@ We need negative margins on the grid container to counteract the fact that the t
   (<a href='https://codepen.io/michellebarker'>@michellebarker</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-There are a few different ways to acheive this same layout with flexbox, but they all feel a bit hacky – and that’s because they are. We’re using flexbox for something it wasn’t really designed for – but that doesn’t mean it’s always the wrong choice.
+There are a few different ways to achieve this same layout with flexbox, but they all feel a bit hacky – and that’s because they are. We’re using flexbox for something it wasn’t really designed for – but that doesn’t mean it’s always the wrong choice.
 
 Many modern CSS frameworks use some variation on this method for layouts. As a side note, if you do need to go down this route, I’m a big fan of [Susy](https://oddbird.net/susy/), which handles the maths for you.
 
