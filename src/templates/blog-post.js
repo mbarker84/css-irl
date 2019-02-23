@@ -22,7 +22,7 @@ export default ({ data, location }) => {
 				/>
 			</Helmet>
 			<div className={layout.postContent}>
-				<h1>{post.frontmatter.title}</h1>
+				<h1 className={styles.postHeading}>{post.frontmatter.title}</h1>
 				<time className={styles.src} dateTime={post.frontmatter.date}>
 					{post.frontmatter.date}
 				</time>

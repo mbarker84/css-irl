@@ -2,6 +2,12 @@
   font-size: 0.8rem;
 }
 
+.postHeading {
+  @media (min-width: 60em) {
+    font-size: 3rem;
+  }
+}
+
 .richtext {
   h2 {
     margin-bottom: 1.5rem;
