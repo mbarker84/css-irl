@@ -11,6 +11,9 @@ import metaImg from '../images/social_1200x630.png'
 console.log(metaImg)
 const img = `https://css-irl.info${metaImg}`
 
+const d = new Date()
+const currentYear = d.getFullYear()
+
 export default ({ children }) => (
 	<StaticQuery
 		query={graphql`
@@ -117,7 +120,9 @@ export default ({ children }) => (
 				<Navigation />
 
 				<div className={styles.content}>{children}</div>
-				<footer className={styles.footer}>&copy; Michelle Barker 2018</footer>
+				<footer className={styles.footer}>
+					&copy; Michelle Barker {currentYear}
+				</footer>
 			</div>
 		)}
 	/>
