@@ -16,7 +16,7 @@ export default ({ data }) => (
 				developer at <a href="http://ordoo.co.uk">Ordoo</a> and CSS superfan.
 			</p>
 			<p>
-				<a href="mailto:michelle@css-irl.info">michelle@css-irl.info</a>
+				<a href="mailto:contact@michellebarker.co.uk">contact@michellebarker.co.uk</a>
 			</p>
 		</div>
 	</Layout>
