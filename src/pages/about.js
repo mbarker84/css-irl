@@ -11,7 +11,7 @@ export default ({ data }) => (
 				the web’s most beautiful language.
 			</p>
 			<p>
-				Published by &nbsp;{' '}
+				Published by{' '}
 				<a href="http://www.michellebarker.co.uk">Michelle Barker</a>, front end
 				developer at <a href="http://ordoo.co.uk">Ordoo</a> and CSS superfan.
 			</p>
