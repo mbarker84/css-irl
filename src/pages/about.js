@@ -12,11 +12,13 @@ export default ({ data }) => (
 			</p>
 			<p>
 				Published by{' '}
-				<a href="https://twitter.com/mbarker_84">Michelle Barker</a>, front end
+				<a href="http://www.michellebarker.co.uk">Michelle Barker</a>, front end
 				developer at <a href="http://ordoo.co.uk">Ordoo</a> and CSS superfan.
 			</p>
 			<p>
-				<a href="mailto:contact@michellebarker.co.uk">contact@michellebarker.co.uk</a>
+				<a href="mailto:contact@michellebarker.co.uk">
+					contact@michellebarker.co.uk
+				</a>
 			</p>
 		</div>
 	</Layout>
