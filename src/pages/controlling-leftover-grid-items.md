@@ -1,6 +1,6 @@
 ---
 title: 'Controlling leftover Grid items with pseudo-selectors'
-date: '2019-04-11'
+date: '2019-04-13'
 ---
 
 I recently wrote about [some of the cases where you might want to use Grid instead of flexbox](/to-grid-or-to-flex), and vice-versa. One of the scenarios I pointed out _might_ be a better case for using flexbox is when you want to control the behaviour of any leftover grid items that don’t fill an entire row.
