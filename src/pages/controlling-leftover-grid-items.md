@@ -3,11 +3,14 @@ title: 'Controlling leftover Grid items with pseudo-selectors'
 date: '2019-04-11'
 ---
 
-I recently wrote about [some of the cases where you might want to use Grid instead of flexbox](), and vice-versa. One of the scenarios I pointed out _might_ be a better case for using flexbox is when you want to control the behaviour of any leftover grid items that don’t fill an entire row.
+I recently wrote about [some of the cases where you might want to use Grid instead of flexbox](/to-grid-or-to-flex), and vice-versa. One of the scenarios I pointed out _might_ be a better case for using flexbox is when you want to control the behaviour of any leftover grid items that don’t fill an entire row.
 
-[Illustration]()
+<figure>
+  <img src="controlling-leftover-grid-items-01.svg" alt="10 items on a 4x4 grid">
+	<figcaption>As there are only 10 items in this grid rather than 12, we may want to control how those last two items are displayed.</figcaption>
+</figure>
 
-In the typographic world, words at the end of a paragraph that don’t take up a full line are called [widows](). These grid items behave in a similar way, so that’s how I’m referring to them here. (Side note: The CSS properties `widows` and `orphans` deal with these typographic behaviours in paged media and multi-column layout.)
+In the typographic world, words at the end of a paragraph that don’t take up a full line are called [widows](https://www.fonts.com/content/learning/fontology/level-2/text-typography/rags-widows-orphans). These grid items behave in a similar way, so that’s how I’m referring to them here. (Side note: The CSS properties `widows` and `orphans` deal with these typographic behaviours in paged media and multi-column layout.)
 
 ## Why would we want to use Grid here?
 
@@ -21,21 +24,26 @@ To my mind, using grid is often the better choice when it comes to defining a fi
 }
 ```
 
-This will give us three equal width columns that utilise all the space available. Doing this with Grid is a lot cleaner than the flexbox solution, which would require `calc()` and negative margins to get the same effect.
+This will give us three equal width columns that utilise all the space available. Doing this with Grid is a lot cleaner than the flexbox solution, which would require `calc()` and negative margins to get the same effect. In this demo, the first example uses flexbox and the second uses Grid to achieve the same layout:
 
-[Demo]()
+<iframe height="352" style="width: 100%;" scrolling="no" title="Flexbox vs Grid layout examples" src="//codepen.io/michellebarker/embed/VgXwRJ/?height=352&theme-id=0&default-tab=result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+  See the Pen <a href='https://codepen.io/michellebarker/pen/VgXwRJ/'>Flexbox vs Grid layout examples</a> by Michelle Barker
+  (<a href='https://codepen.io/michellebarker'>@michellebarker</a>) on <a href='https://codepen.io'>CodePen</a>.
+</iframe>
 
-We don’t need to explicitly place each item, they will all be placed into the next available cell using Grid’s default auto-placement, which is helpful if we don’t know the number of items in our Grid.
+In this case, our Grid items don’t require us to place them explicitly. They will all be placed into the next available cell using Grid’s default auto-placement, which is helpful if we don’t know the number of items in our Grid.
 
-The problem arises if we want to control the behaviour of any widow items. If there is just one widow, perhaps we want it to fill the entire row, or maybe we’d prefer to align it to the right instead of the left. Or if there are two items, maybe we want to center them:
+The problem arises if we want to control the behaviour of any leftover items. If there is just one widow, perhaps we want it to fill the entire row, or maybe we’d prefer to align it to the right instead of the left. Or if there are two items, maybe we want to center them:
 
-[Illustration]()
+<figure>
+  <img src="to-grid-or-to-flex-01.svg" alt="Two flexbox layout examples">
+</figure>
 
 We can’t achieve this by relying solely on auto-placement, but we _can_ still get the behaviours we want using with only a little bit of extra code.
 
 ## nth-child concatenation
 
-By combining `:nth-child()` and `:last-child` pseudo-selectors, we can detect whether an item is a widow or not and adjust our styles accordingly. [Heydon Pickering](http://www.heydonworks.com/) demonstrated a similar technique, which he refers to as _quantity queries_, in [this A List Apart article](https://alistapart.com/article/quantity-queries-for-css/). We’re going to use it slightly differently here, because we’re not querying _how many_ items there are. We’re going to detect whether an item is both a last-child _and_ comes immediately after a child that is a multiple of three (i.e. it’s the first item in a row). (We can’t use `:last-child` alone, as this would select the last item regardless of whether it’s a widow or not.)
+By combining `:nth-child()` and `:last-child` pseudo-selectors, we can detect whether an item is a widow or not and adjust our styles accordingly. [Heydon Pickering](http://www.heydonworks.com/) demonstrated a similar technique, which he refers to as _quantity queries_, in [this A List Apart article](https://alistapart.com/article/quantity-queries-for-css/). We’re going to use it slightly differently here, because we’re not querying _how many_ items there are. We want to detect whether an item is both a last-child _and_ comes immediately after a child that is a multiple of three (i.e. it’s the first item in a row). (We can’t use `:last-child` alone, as this would select the last item regardless of whether it’s a widow or not.)
 
 Then we can target that item with our styles, e.g. setting it to span three grid tracks:
 
@@ -66,13 +74,17 @@ li:last-child:nth-child(3n - 2) {
 }
 ```
 
+### Centering the items
+
 Using flexbox for this layout would allow us to center our items easily by using `justify-content: center` on the container, which would allow the one or two remaining grid items to be centered instead of spanning multiple columns:
 
-[Illustration]()
+<figure>
+  <img src="controlling-leftover-grid-items-01.svg" alt="A grid with the two leftover items centred">
+</figure>
 
 This might be a nicer option in some cases, as making a grid item wider can draw more attention to it and make it seem more important, when perhaps this is not the intention.
 
-We can achieve this with grid too – we just need a couple more small steps in our process. First we’re going to make a 6-column grid, instead of three columns:
+We can achieve this with grid too – we just need a couple more small steps in our process. First we’re going to give our grid six columns instead of three:
 
 ```css
 .grid {
