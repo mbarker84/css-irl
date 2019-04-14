@@ -26,8 +26,8 @@ To my mind, using grid is often the better choice when it comes to defining a fi
 
 This will give us three equal width columns that utilise all the space available. Doing this with Grid is a lot cleaner than the flexbox solution, which would require `calc()` and negative margins to get the same effect. In this demo, the first example uses flexbox and the second uses Grid to achieve the same layout:
 
-<iframe height="352" style="width: 100%;" scrolling="no" title="Flexbox vs Grid layout examples" src="//codepen.io/michellebarker/embed/VgXwRJ/?height=352&theme-id=0&default-tab=result" frameborder="no" allowtransparency="true" allowfullscreen="true">
-  See the Pen <a href='https://codepen.io/michellebarker/pen/VgXwRJ/'>Flexbox vs Grid layout examples</a> by Michelle Barker
+<iframe height="374" style="width: 100%;" scrolling="no" title="Flexbox vs Grid layout examples" src="//codepen.io/michellebarker/embed/xeXgqy/?height=374&theme-id=0&default-tab=result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+  See the Pen <a href='https://codepen.io/michellebarker/pen/xeXgqy/'>Flexbox vs Grid layout examples</a> by Michelle Barker
   (<a href='https://codepen.io/michellebarker'>@michellebarker</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
