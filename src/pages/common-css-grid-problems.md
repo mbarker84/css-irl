@@ -81,12 +81,12 @@ If, on the other hand, we use the _span_ keyword in place of a start or end line
 
 Here we’re using `span` in place of the `grid-row-end` line. Placing the item at line 3 with a span of 4 means the item is taking up more tracks than we’ve defined in our grid – and whoops! We’ve created an implicit track!
 
-In another scenario, our items might disappear entirely. A friend of mine was using Grid to position two elements, one on top of the other, but offset by one row:
+This problem is especially common in situations that require grid items to be placed on top of one another. This is because Grid places items in the next available grid cell, unless you tell it not to. This behaviour is very useful as it means we don’t always need to explicitly place items, but this is one case where it’s not particularly helpful to us! A friend of mine was using Grid to position two elements, one on top of the other, but offset by one row:
 
 ```css
 .item-1 {
-	/* grid-row-start / grid-column-start / grid-row-end / grid-column-end */
-	grid-area: 3 / 1 / 5 / 4;
+	grid-column: 1 / 4;
+	grid-row: 3;
 }
 
 .item-2 {
