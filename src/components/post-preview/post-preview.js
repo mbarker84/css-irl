@@ -5,6 +5,12 @@ import styles from './post-preview.module.scss'
 
 export const PostPreview = props => {
 	const externalLink = props.externalLink
+	const seriesTitle = () => {
+		if (props.series) {
+			return <h4 className={styles.seriesTitle}>{props.series}</h4>
+		}
+	}
+
 	if (externalLink) {
 		return (
 			<a
@@ -14,6 +20,7 @@ export const PostPreview = props => {
 				rel="noopener noreferrer"
 			>
 				<div className={styles.postPreview}>
+					{seriesTitle()}
 					<h2 className={styles.title}>
 						<span className={globals.hl}>{props.title}</span>
 						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12.2 12.2">
@@ -33,6 +40,7 @@ export const PostPreview = props => {
 		return (
 			<Link to={props.to} style={{ textDecoration: `none`, color: `inherit` }}>
 				<div className={styles.postPreview}>
+					{seriesTitle()}
 					<h2 className={styles.title}>
 						<span className={globals.hl}>{props.title}</span>
 					</h2>

@@ -8,11 +8,16 @@ import { Location } from '@reach/router'
 
 export default ({ data, location }) => {
 	const post = data.markdownRemark
+	const seriesTitle = post.frontmatter.series
+		? `${post.frontmatter.series} – `
+		: null
 
 	return (
 		<Layout>
 			<Helmet
-				title={`${data.site.siteMetadata.title} | ${post.frontmatter.title}`}
+				title={`${data.site.siteMetadata.title} | ${seriesTitle}${
+					post.frontmatter.title
+				}`}
 			>
 				<meta property="og:title" content={post.frontmatter.title} />
 				<meta property="og:description" content={post.excerpt} />
@@ -22,14 +27,17 @@ export default ({ data, location }) => {
 				/>
 			</Helmet>
 			<div className={layout.postContent}>
-				<h1 className={styles.postHeading}>{post.frontmatter.title}</h1>
-				<time className={styles.src} dateTime={post.frontmatter.date}>
-					{post.frontmatter.date}
-				</time>
-				<SourceDetails
-					url={post.frontmatter.srcUrl}
-					text={post.frontmatter.source}
-				/>
+				<header>
+					<h4 className={styles.seriesTitle}>{post.frontmatter.series}</h4>
+					<h1 className={styles.postHeading}>{post.frontmatter.title}</h1>
+					<time className={styles.src} dateTime={post.frontmatter.date}>
+						{post.frontmatter.date}
+					</time>
+					<SourceDetails
+						url={post.frontmatter.srcUrl}
+						text={post.frontmatter.source}
+					/>
+				</header>
 				<div
 					dangerouslySetInnerHTML={{ __html: post.html }}
 					className={styles.richtext}
@@ -49,6 +57,7 @@ export const query = graphql`
 				source
 				srcUrl
 				externalLink
+				series
 			}
 			excerpt
 		}

@@ -3,8 +3,18 @@
 }
 
 .postHeading {
+  margin-top: 0;
+
   @media (min-width: 60em) {
     font-size: 3rem;
+  }
+}
+
+.seriesTitle {
+  margin-bottom: 1rem;
+
+  @media (min-width: 60em) {
+    font-size: 1.3rem;
   }
 }
 
