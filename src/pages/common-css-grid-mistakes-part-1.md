@@ -1,10 +1,10 @@
 ---
-title: 'Part 1: Implicit Tracks'
-series: 'Common CSS Grid problems (and how to solve them)'
+title: 'Part 1: Understanding implicit tracks'
+series: 'Common CSS Grid mistakes (and how to avoid them)'
 date: '2019-04-28'
 ---
 
-When observing people getting to grips with CSS Grid, I’ve noticed a few issues that seem to come up regularly. This short series of articles will delve into these common problems and look at how best to prevent them.
+When observing people getting to grips with CSS Grid, I’ve noticed a few issues that catch people out more often than others, or present more of a challenge when it comes to building a layout. This short series of articles will delve into these common problems and aim to provide a better understanding of Grid so that you can anticipate layout problems, and debug them more easily when they occur.
 
 ## Accidental implicit tracks
 
@@ -28,7 +28,14 @@ If we used `repeat(4, auto)` for the `grid-template-rows` property, our grid row
 
 ### What are implicit tracks?
 
-Implicit tracks are tracks that are only created by placing items. They can be very useful. If you have a grid with four columns that we want to fill with an indeterminate number of items (e.g. a news feed), then we won’t know how many rows we need. By default, grid items are placed into the next available grid cell. We can simply omit the `grid-template-rows` property and allow Grid’s auto-placement to create the right number of rows for our content.
+Implicit tracks are tracks that are only created by placing items. They can be very useful. If you have a grid with four columns that we want to fill with an indeterminate number of items (e.g. a news feed), then we won’t know how many rows we need. By default, grid items are placed into the next available grid cell. We can simply omit the `grid-template-rows` property and allow Grid’s auto-placement to create the right number of rows for our content. (Side note: I’m assuming here that the grid is using the default `grid-auto-flow: row`. If you change this to `grid-auto-flow: column` then implicit tracks will be created on the row axis instead.)
+
+```css
+.grid {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+}
+```
 
 <figure>
   <img src="common-grid-problems-1_03.png" alt="Seven grid items laid out over two rows">
@@ -61,7 +68,9 @@ To place an item on the grid we’ve just created, we could do something like th
 
 We’re using start and end lines to place the grid item at the bottom left of our grid.
 
-[Illustration]()
+<figure>
+  <img src="common-grid-problems-1_06.png" alt="Orange grid item placed at the bottom left of the grid">
+</figure>
 
 This is not going to cause any problems because we are explicitly placing items by grid line number. We know that our grid has four rows and four columns (therefore five grid lines in either direction), so we’re unlikely to accidentally to unintentionally use a higher line number and accidentally create implicit tracks.
 
@@ -78,7 +87,9 @@ I like using `span` for grid placement – it’s often helpful when you know an
 
 Here we’re using `span` in place of the `grid-row-end` line. If we change the _span_ value to 4 instead of 3, this would cause the item span more row tracks than there are available – and whoops! We’ve created an implicit track!
 
-[Illustration]()
+<figure>
+  <img src="common-grid-problems-1_04.png" alt="Orange grid item placed at the bottom left of the grid">
+</figure>
 
 I see this problem occur quite frequently in situations that require grid items to overlap each other. This is because Grid places items in the next available grid cell, and if there isn’t a grid cell available then it will create implicit tracks rather than stack items on top of each other. This behaviour is very useful as it means we don’t always need to explicitly place items, but this is one case where it’s not particularly helpful to us!
 
