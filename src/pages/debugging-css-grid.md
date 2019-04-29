@@ -1,6 +1,6 @@
 ---
 title: 'Part 1: Understanding implicit tracks'
-series: 'Common CSS Grid mistakes (and how to avoid them)'
+series: 'Debugging CSS Grid'
 date: '2019-04-28'
 ---
 
