@@ -1,7 +1,7 @@
 ---
 title: 'Part 1: Understanding implicit tracks'
 series: 'Debugging CSS Grid'
-date: '2019-04-28'
+date: '2019-04-30'
 ---
 
 When observing people getting to grips with CSS Grid, I’ve noticed a few issues that catch people out more often than others, or present more of a challenge when it comes to building a layout. This short series of articles will delve into these common problems and aim to provide a better understanding of Grid so that you can anticipate layout problems, and debug them more easily when they occur.
@@ -28,7 +28,9 @@ If we used `repeat(4, auto)` for the `grid-template-rows` property, our grid row
 
 ### What are implicit tracks?
 
-Implicit tracks are tracks that are only created by placing items. They can be very useful. If you have a grid with four columns that we want to fill with an indeterminate number of items (e.g. a news feed), then we won’t know how many rows we need. By default, grid items are placed into the next available grid cell. We can simply omit the `grid-template-rows` property and allow Grid’s auto-placement to create the right number of rows for our content. (Side note: I’m assuming here that the grid is using the default `grid-auto-flow: row`. If you change this to `grid-auto-flow: column` then implicit tracks will be created on the row axis instead.)
+Implicit tracks are tracks that are only created by placing items. This behaviour in Grid is intentional, and very useful. An example is if you have a grid with four columns that we want to fill with an indeterminate number of items (e.g. a news feed. If we don’t know the number of items, we won’t know how many rows we need for the grid. By default, grid items are placed into the next available grid cell. We can simply omit the `grid-template-rows` property and allow Grid’s auto-placement to create the right number of rows for our content.
+
+(Side note: I’m assuming here that the grid is using the default `grid-auto-flow: row`. If you change this to `grid-auto-flow: column` then implicit tracks will be created on the row axis instead.)
 
 ```css
 .grid {
@@ -38,7 +40,7 @@ Implicit tracks are tracks that are only created by placing items. They can be v
 ```
 
 <figure>
-  <img src="common-grid-problems-1_03.png" alt="Seven grid items laid out over two rows">
+  <img src="debugging-css-grid-1_03.png" alt="Seven grid items laid out over two rows">
 	<figcaption>Our grid has four columns. The items fill the first row, then a new one is created.</figcaption>
 </figure>
 
@@ -69,7 +71,7 @@ To place an item on the grid we’ve just created, we could do something like th
 We’re using start and end lines to place the grid item at the bottom left of our grid.
 
 <figure>
-  <img src="common-grid-problems-1_06.png" alt="Orange grid item placed at the bottom left of the grid">
+  <img src="debugging-css-grid-1_06.png" alt="Orange grid item placed at the bottom left of the grid">
 </figure>
 
 This is not going to cause any problems because we are explicitly placing items by grid line number. We know that our grid has four rows and four columns (therefore five grid lines in either direction), so we’re unlikely to accidentally to unintentionally use a higher line number and accidentally create implicit tracks.
@@ -88,15 +90,15 @@ I like using `span` for grid placement – it’s often helpful when you know an
 Here we’re using `span` in place of the `grid-row-end` line. If we change the _span_ value to 4 instead of 3, this would cause the item span more row tracks than there are available – and whoops! We’ve created an implicit track!
 
 <figure>
-  <img src="common-grid-problems-1_04.png" alt="Orange grid item placed at the bottom left of the grid">
+  <img src="debugging-css-grid-1_04.png" alt="Orange grid item placed at the bottom left of the grid">
 </figure>
 
-I see this problem occur quite frequently in situations that require grid items to overlap each other. This is because Grid places items in the next available grid cell, and if there isn’t a grid cell available then it will create implicit tracks rather than stack items on top of each other. This behaviour is very useful as it means we don’t always need to explicitly place items, but this is one case where it’s not particularly helpful to us!
+I see this problem occur quite frequently in situations that require grid items to overlap each other. This is because Grid places items that aren’t explicitly placed in the next available grid cell, and if there isn’t a grid cell available then it will create implicit tracks rather than stack items on top of each other. This behaviour is very useful as it means we don’t always need to explicitly place items, but this is one case where it’s not particularly helpful to us!
 
 A friend of mine was using Grid to position two elements, one on top of the other, but offset by one row:
 
 <figure>
-  <img src="common-grid-problems-1_01.png" alt="A grid layout with two overlapping items">
+  <img src="debugging-css-grid-1_01.png" alt="A grid layout with two overlapping items">
 </figure>
 
 This is the code that was used to create the layout:
@@ -107,12 +109,12 @@ This is the code that was used to create the layout:
 }
 
 .item:first-child {
-	grid-column: span 4;
+	grid-column: span 3;
 	grid-row: 1 / span 2;
 }
 
 .item:nth-child(2) {
-	grid-column: span 4;
+	grid-column: span 3;
 	grid-row: 2 / span 2;
 }
 ```
@@ -120,12 +122,21 @@ This is the code that was used to create the layout:
 Instead of the desired layout, we get this:
 
 <figure>
-  <img src="common-grid-problems-1_02.png" alt="A grid layout with the second item pushed to the right">
+  <img src="debugging-css-grid-1_02.png" alt="A grid layout with the second item pushed to the right">
 </figure>
 
-What has happened to the second item? Can you spot the problem here? Both items are using the _span_ keyword instead of a start and end line. The first item will be positioned correctly because it will be auto-placed in the first available cell. The second line doesn’t have a start or end line, so Grid needs to resolve this. If the grid had four rows then the item would wrap to the next line (which wouldn’t be the layout we want, but would perhaps be less baffling!), but as their aren’t enough rows available then Grid resolves this by placing the item starting at line 5 on the column axis and generating four implicit tracks. Unfortunately, because we’re not using `grid-auto-columns` to define a size for our implicit tracks, these will have a default size of `auto`. And if the grid item has no content (as in this case, it was a purely decorative background), then those tracks will collapse down to a width of `0`.
+What has happened to the second item? Can you spot the problem here? Both items are using the _span_ keyword for the `grid-column` value. The first item will be positioned correctly because it will be auto-placed in the first available cell with a span of 3. The second item doesn’t have a start or end line, so Grid needs to resolve this, which it does by generating implicit column tracks.
 
-If we had a `column-gap` value of, say, `20px`, we would see our grid item take up the width of four column gaps, although the tracks themselves would be zero.
+If the grid had four explicit rows then the item would wrap to the next line (which wouldn’t be the layout we want, but would perhaps be less baffling!), but as their aren’t enough rows available then Grid resolves this by placing the item starting at line 5 on the column axis and generating four implicit tracks. Because we’re not using `grid-auto-columns` to define a size for our implicit tracks, these will have a default size of `auto`. And if the grid item has no content, then those tracks will collapse down to a width of 0, rendering our item invisible. Our grid item contains a heading, so these implicit tracks will be auto-sized to accommodate this.
+
+If we had a `column-gap` value of, say, `20px`, we would see the width of two column gaps be added to our grid, although the tracks themselves would be zero.
+
+Play with the demo below to explore different ways of “breaking” the layout:
+
+<iframe height="413" style="width: 100%;" scrolling="no" title="Grid placement example" src="//codepen.io/michellebarker/embed/yrwjpb/?height=413&theme-id=0&default-tab=result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+  See the Pen <a href='https://codepen.io/michellebarker/pen/yrwjpb/'>Grid placement example</a> by Michelle Barker
+  (<a href='https://codepen.io/michellebarker'>@michellebarker</a>) on <a href='https://codepen.io'>CodePen</a>.
+</iframe>
 
 ## Preventing our layouts breaking
 
@@ -173,16 +184,18 @@ Sometimes placing by end line number (as opposed to start line number) can help 
 }
 ```
 
-This can be helpful if we have a very large grid. Imaging our grid has 20 columns instead of just four, we might know that it needs to be placed one line away from the end, but we don’t want to have to calculate what the start line should be each time – that would be annoying and prone to error!
+This can be helpful if we have a very large grid. Imagine our grid has 20 columns instead of just four, we might know that it needs to be placed one line away from the end, but we don’t want to have to calculate what the start line should be each time – that would be annoying and prone to error!
 
 ### Negative grid lines
 
-A technique I find very useful (and something I’ve [written about before]()), which ties in with the last tip, is using negative line numbers to place grid items. Negative line number represent the lines of your grid in reverse. So in a grid of four tracks (which would have five grid lines), line -1 is the equivalent to line 5, line -2 is the equivalent to line 4, and so on.
-
-[Illustration]()
+A technique I find very useful (and something I’ve [written about before](/negative-grid-lines/)), is using negative line numbers to place grid items. Negative line number represent the lines of your grid in reverse. So in a grid of four tracks (which would have five grid lines), line -1 is the equivalent to line 5, line -2 is the equivalent to line 4, and so on.
 
 Again, this can come in very handy when working with a large grid. If we know and item needs to align to the end of the grid then we can simply use grid line -1, instead of having to remember that the last line is line 21, for example.
 
 ### Debugging with dev tools
 
-I thoroughly recommend the Firefox dev tools for inspecting and debugging problems with CSS Grid. The grid inspector allows you to switch on line numbers, so even if the sizes of your implicit tracks have collapsed right down to zero you will still be able to see that they have been created.
+I thoroughly recommend the Firefox dev tools for inspecting and debugging problems with CSS Grid. The [grid inspector](https://developer.mozilla.org/en-US/docs/Tools/Page_Inspector/How_to/Examine_grid_layouts) allows you to switch on line numbers, so even if the sizes of your implicit tracks have collapsed right down to zero you will still be able to see that they have been created. (The inspector also shows you the negative line numbers – very handy!)
+
+## Conclusion
+
+I hope this article goes some way towards demystifying exmplicit versus explicit tracks when working with CSS Grid and equips you with some valuable knowledge to help you debug broken layouts. Look out for more articles in the _Debugging CSS Grid_ series coming soon.
