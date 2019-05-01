@@ -10,7 +10,7 @@ export default ({ data, location }) => {
 	const post = data.markdownRemark
 	const seriesTitle = post.frontmatter.series
 		? `${post.frontmatter.series} – `
-		: null
+		: ''
 
 	return (
 		<Layout>
