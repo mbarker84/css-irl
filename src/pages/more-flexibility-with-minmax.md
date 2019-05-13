@@ -1,8 +1,8 @@
 ---
-title: "CSS Grid: More flexibility with minmax()"
-date: "2018-04-29"
-source: "Originally published on Codepen"
-srcUrl: "https://codepen.io/michellebarker/post/css-grid-more-flexibility-with-minmax"
+title: 'CSS Grid: More Flexibility with Minmax()'
+date: '2018-04-29'
+source: 'Originally published on Codepen'
+srcUrl: 'https://codepen.io/michellebarker/post/css-grid-more-flexibility-with-minmax'
 ---
 
 One of the things that can put people off trying out CSS Grid is there’s so much choice when it comes to defining your grid layout and placing your content, so it can be hard to know until you’ve been using it a while which is going to to be the best option for a particular layout. It’s only recently that I got around to fully appreciating the power of [`minmax()`](https://developer.mozilla.org/en-US/docs/Web/CSS/minmax) and how it can be such a huge helper when coding many of the layouts I’m required to build, so I’d like to share one way in which it’s been beneficial to me.
@@ -13,8 +13,8 @@ There are lots of ways that `minmax()` can be useful, but I want to demonstrate 
 
 In terms of building a grid, what we need is:
 
-* 12 equal-width columns that take up a percentage of the available space, up to a maximum value (1200px (minus any gutters) divided by 12 (the number of columns)).
-* One flexible “padding” column either side with a minimum value of 20px, which after our arbitrary breakpoint will expand to fill the remaining space.
+- 12 equal-width columns that take up a percentage of the available space, up to a maximum value (1200px (minus any gutters) divided by 12 (the number of columns)).
+- One flexible “padding” column either side with a minimum value of 20px, which after our arbitrary breakpoint will expand to fill the remaining space.
 
 Up until recently the way I’ve been coding these layouts is to set a breakpoint of just slightly over the wrapper width (plus padding columns) at which I change the values in my layout:
 

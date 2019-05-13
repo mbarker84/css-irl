@@ -1,5 +1,5 @@
 ---
-title: 'Amending your past commits with Git'
+title: 'Amending Your Past Commits with Git'
 date: '2019-04-08'
 ---
 

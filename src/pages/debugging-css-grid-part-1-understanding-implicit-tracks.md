@@ -1,5 +1,5 @@
 ---
-title: 'Part 1: Understanding implicit tracks'
+title: 'Part 1: Understanding Implicit Tracks'
 series: 'Debugging CSS Grid'
 date: '2019-04-30'
 ---

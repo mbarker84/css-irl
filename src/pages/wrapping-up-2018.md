@@ -1,5 +1,5 @@
 ---
-title: 'Wrapping up 2018'
+title: 'Wrapping Up 2018'
 date: '2018-12-27'
 ---
 

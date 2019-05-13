@@ -1,5 +1,5 @@
 ---
-title: 'Controlling leftover Grid items with pseudo-selectors'
+title: 'Controlling Leftover Grid Items with Pseudo-selectors'
 date: '2019-04-13'
 ---
 

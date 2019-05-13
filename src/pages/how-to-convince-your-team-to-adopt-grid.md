@@ -1,5 +1,5 @@
 ---
-title: 'How to convince your team to adopt CSS Grid'
+title: 'How to Convince Your Team to Adopt CSS Grid'
 date: '2019-03-09'
 ---
 

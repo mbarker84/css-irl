@@ -1,8 +1,8 @@
 ---
-title: "Using pseudo-elements with CSS Grid"
-date: "2018-04-19"
-source: "Originally published on Codepen"
-srcUrl: "https://codepen.io/michellebarker/post/using-pseudo-elements-with-css-grid"
+title: 'Using Pseudo-elements with CSS Grid'
+date: '2018-04-19'
+source: 'Originally published on Codepen'
+srcUrl: 'https://codepen.io/michellebarker/post/using-pseudo-elements-with-css-grid'
 ---
 
 This week I’ve had a couple of scenarios where I’ve needed to build a hero section with a full-width image, a large heading and a translucent sidebar overlaying the image – where the sidebar bleeds to the edge of the viewport but (crucially) the _content_ of the sidebar aligns to what I like to call the “wrapper” grid columns – i.e. the columns of the grid where we actually want to place our content. (I have a whole other post almost written on this!)
@@ -96,5 +96,5 @@ Here’s the end result (a homage to the magnificent [CSS Layout News](http://cs
 
 As always, there are super smart people who have written about this stuff in-depth:
 
-* [Faux Grid Tracks](http://alistapart.com/article/faux-grid-tracks) by Eric Meyer
-* [Styling Empty Cells with Generated Content](http://www.smashingmagazine.com/2018/02/generated-content-grid-layout/) by Rachel Andrew
+- [Faux Grid Tracks](http://alistapart.com/article/faux-grid-tracks) by Eric Meyer
+- [Styling Empty Cells with Generated Content](http://www.smashingmagazine.com/2018/02/generated-content-grid-layout/) by Rachel Andrew

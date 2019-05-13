@@ -1,6 +1,6 @@
 ---
-title: "Great front end writers to follow"
-date: "2018-06-12"
+title: 'Great Front End Writers to Follow'
+date: '2018-06-12'
 ---
 
 As this is a brand new blog, I want to highlight some of the people in web development who have inspired me and whose articles (and writing style) I love.
