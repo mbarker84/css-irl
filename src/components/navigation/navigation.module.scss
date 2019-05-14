@@ -8,16 +8,27 @@
   @media (min-width: $sm) {
     grid-column: wrapper-start / wrapper-end;
     grid-row: 1;
-    align-self: center;
-    justify-content: flex-end;
     padding: unset;
   }
 
   @media (min-width: $xl) {
     grid-column: wrapper-start / header-end;
     grid-row: 3;
-    align-self: flex-start;
+  }
+}
+
+.menuList {
+  list-style: none;
+  margin: 1rem 0 0 0;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 100%;
+
+  @media (min-width: $xl) {
+    flex-direction: column;
     justify-content: flex-start;
+    margin: 0;
   }
 }
 
@@ -25,7 +36,7 @@
   display: flex;
   align-items: center;
   font-size: 0.8rem;
-  transition: transform 200ms ease-in-out;
+  transition: transform 200ms ease-in-out, box-shadow 200ms ease-in-out;
   transform-origin: top left;
   text-decoration: none;
   color: $black;
@@ -35,23 +46,28 @@
     font-size: 1rem;
   }
 
+  span {
+    box-shadow: none;
+  }
+
   &:visited {
     color: $black;
   }
-}
 
-.headerLink:nth-child(2) {
-  span {
-    padding-left: 1.8rem;
+  &:hover,
+  &:focus {
+    span {
+      box-shadow: none;
+    }
   }
 }
 
 .linkIcon {
-  width: 1.4rem;
-  height: 1.4rem;
+  width: 1.2rem;
+  height: 1.2rem;
   display: block;
   position: relative;
-  left: 1.2rem;
   z-index: 1;
   fill: $black;
+  margin: 0 1rem 0 0;
 }
