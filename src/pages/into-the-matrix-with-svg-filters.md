@@ -15,6 +15,11 @@ CSS blend modes are not currently supported in Edge and IE11, so they’re best 
 
 CSS filters give us a few more capabilites where blend modes don’t fully satisfy our needs. While blend modes depend on a second colour or image to blend with the original (whether a background image, another element of a pseudo-element), CSS filters work on the image directly. We can blur images, convert them to greyscale, add a drop-shadow, or rotate the hue, for example. There’s a [great introduction on CSS Tricks](https://css-tricks.com/almanac/properties/f/filter/), which explains some of their capabilities. However, for full control over our images we have SVG filters. CSS filters, while incredibly useful and a great tool to have in CSS, are a simplified implementation of SVG filters – and knowing about SVG filters can give us superpowers when it comes to image manipulation! Even better, support for SVG filters goes right back to IE10, giving them a clear advantage over CSS filters in many situations.
 
+<aside>
+  <h4>Edit: <time datetime="2019-05-14">14 May 2019</time></h4>
+  <p>At present, to support SVG filters in IE and Edge you need to use <code><image></code> <a href="https://stackoverflow.com/questions/22003865/svg-filter-on-html-img-in-ie10">inside the SVG</a>. Applying a filter to an external image with CSS, as in the examples here, will not work in those browsers. More information at <a href="https://caniuse.com/#search=svg%20filter">caniuse.com</a>.</p>
+</aside>
+
 ## FeColorMatrix
 
 SVG filters open up a whole new world of image effects, but the one I want to focus on in this article is the `feColorMatrix` filter, which allows us to manipulate the red, green, blue and alpha channels of an image by adding different amounts of red, green, blue or alpha into them. Still with me? `feColorMatrix` (`fe` stands for “Filter Effect” in SVG filters) allows for highly nuanced colour adjustment.
