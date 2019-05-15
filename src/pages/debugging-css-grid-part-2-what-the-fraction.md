@@ -4,7 +4,7 @@ series: 'Debugging CSS Grid'
 date: '2019-06-05'
 ---
 
-In the second part of the _Debugging CSS Grid_ series, we’ll take a look at _fr_ (or _fraction_) units. _fr_ units are very useful for sizing grid tracks, but there are a few ways they can trip you up if you don’t understand how they work.
+In the second part of the _Debugging CSS Grid_ series, we’ll take a look at _fr_ (or _fraction_) units. _Fr_ units are very useful for sizing grid tracks, and vastly simplify the process of building responsive layout. But there are one or two unexpected behaviours you may run into if you don’t understand how they work.
 
 ## Introduction
 
@@ -61,14 +61,33 @@ We have three columns sized with `minmax()` (with a maximum size of 300px), plus
 
 ## Fractions of fractions
 
-It might be useful to know that you don’t need to distribute _all_ of the available space in a grid. We can also size tracks using values of less than 1fr. If we have three grid tracks at 0.5fr each, they will only take up half the width of the available space – a fraction of a fraction!
+You don’t need to distribute _all_ of the available space in a grid. We can also size tracks using values of less than 1fr.
 
-```css
-.grid {
-	display: grid;
-	grid-template-columns: repeat(3, 0.5fr);
-}
+If we have three grid tracks at 0.5fr each, we might expect that they take up half the width of the available space – a fraction of a fraction. But this demo shows what actually happens here.
+
+<iframe height="397" style="width: 100%;" scrolling="no" title="Fractions of fractions" src="//codepen.io/michellebarker/embed/mYWyjR/?height=397&theme-id=0&default-tab=result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+  See the Pen <a href='https://codepen.io/michellebarker/pen/mYWyjR/'>Fractions of fractions</a> by Michelle Barker
+  (<a href='https://codepen.io/michellebarker'>@michellebarker</a>) on <a href='https://codepen.io'>CodePen</a>.
+</iframe>
+
+The tracks with a size of 0.5fr actually behave as if they were 1fr! This might be somewhat surprising if we think of _fr_ tracks in the same way as length-based units (like percentages) but becomes clearer if we think of these as flex items instead.
+
+The value of the fr unit in the CSS Grid specification is referred to as the [flex factor](https://www.w3.org/TR/css-grid-1/#grid-template-columns-flex-factor). The value of any _fr_ tracks is computed by this formula:
+
 ```
+<flex factor of the track> * <leftover space> / <sum of all flex factors>
+```
+
+The specification explains what happens when a track’s flex factor is less than 1:
+
+> If the sum of the flex factors is less than 1, they’ll take up only a corresponding fraction of the leftover space, rather than expanding to fill the entire thing.
+
+Because each of our tracks is 0.5fr, the sum of all our flex factors is more than 1 – 1.5 to be exact. So our column tracks expand to fill all the available space. However, if we sized each track at 0.2fr, say, then the sum of the flex factors will be 0.6. If we try this out then we can see that each item will take up the equivalent proportion of the available space.
+
+<iframe height="372" style="width: 100%;" scrolling="no" title="Fractions of fractions" src="//codepen.io/michellebarker/embed/BeWNQP/?height=372&theme-id=0&default-tab=result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+  See the Pen <a href='https://codepen.io/michellebarker/pen/BeWNQP/'>Fractions of fractions</a> by Michelle Barker
+  (<a href='https://codepen.io/michellebarker'>@michellebarker</a>) on <a href='https://codepen.io'>CodePen</a>.
+</iframe>
 
 ## Intrinsic and extrinsic sizing
 
@@ -89,3 +108,7 @@ This is a sensible behaviour and prevents our content from being cut off, or ove
   See the Pen <a href='https://codepen.io/michellebarker/pen/ZNBeQw/'>Fr units with minmax()</a> by Michelle Barker
   (<a href='https://codepen.io/michellebarker'>@michellebarker</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
+
+## Conclusion
+
+Fr units are actually the simplest units to work with in Grid, and for the most part cause much less pain than using percentages and _calc()_ for your grid tracks! Don’t be put of using them! I hope this article can serve as a handy reference if you ever get caught out in some more unusual scenarios.
