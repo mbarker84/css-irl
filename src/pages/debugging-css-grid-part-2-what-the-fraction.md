@@ -18,6 +18,11 @@ The _fr_ unit is a new unit, exclusive to Grid. It allows you to size your grid 
 }
 ```
 
+<figure>
+  <img src="debugging-css-grid-2-03.png" alt="Three grid items of 200px and one grid item of 1fr">
+	<figcaption><em>Fig 01</em> Four equal width tracks (each sized at 1fr)</figcaption>
+</figure>
+
 The grid takes into account the 20px gap between each column track and distributes the remaining space equally. You can also use it alongside fixed tracks:
 
 ```css
@@ -30,7 +35,7 @@ The grid takes into account the 20px gap between each column track and distribut
 
 <figure>
   <img src="debugging-css-grid-2-02.png" alt="Three grid items of 200px and one grid item of 1fr">
-	<figcaption>The 1fr column on the right expands to fill all of the remaining space, once the fixed tracks are taken into account.</figcaption>
+	<figcaption><em>Fig 02</em> The 1fr column on the right expands to fill all of the remaining space, once the fixed tracks are taken into account.</figcaption>
 </figure>
 
 This will give us three fixed columns of 200px and a fourth column, sized with the _fr_ unit, which will take up the remaining space.
@@ -47,11 +52,12 @@ We can use multiples of the _fr_ unit to create tracks that are proportionally l
 
 <figure>
   <img src="debugging-css-grid-2-01.png" alt="Four grid items of differing widths">
+  <figcaption><em>Fig 02</em></figcaption>
 </figure>
 
 ## All fr units are not created equal
 
-A common mistake is to assume that all tracks sized with the same number of _fr_ units will be the same size. This is certainly what you would expect if you were using percentages for track sizing, for example. But if we compare the first and last examples above, we can quite clearly see that the _1fr_ columns in the last example are _not_ the same size as those in the first example, despite using the same value! The reason for this is that _fr_ units are _flexible_ units. They do not behave as lengths, like pixels, rems, ems and others, which is why they cannot be used in `calc()` functions. To quote directly from the spec:
+A common mistake is to assume that all tracks sized with the same number of _fr_ units will be the same size. This is certainly what you would expect if you were using percentages for track sizing, for example. But if we compare the first and last examples above, we can quite clearly see that the _1fr_ columns in the last example (_Fig 03_) are _not_ the same size as those in the first example (_Fig 01_), despite using the same value! The reason for this is that _fr_ units are _flexible_ units. They do not behave as lengths, like pixels, rems, ems and others, which is why they cannot be used in `calc()` functions. To quote directly from the spec:
 
 > Tracks sized with fr units are called “flexible tracks”, as they flex in response to leftover space similar to how flex items fill space in a flex container.
 
