@@ -4,7 +4,7 @@ series: 'Debugging CSS Grid'
 date: '2019-06-05'
 ---
 
-In the second part of the _Debugging CSS Grid_ series, we’ll take a look at _fr_ (or _fraction_) units. _Fr_ units are very useful for sizing grid tracks, and vastly simplify the process of building responsive layout. But there are one or two unexpected behaviours you may run into if you don’t understand how they work. This article will aim to demystify these.
+In the second part of the _Debugging CSS Grid_ series, we’ll take a look at _fr_ (or _fraction_) units. _Fr_ units are very useful for sizing grid tracks, and vastly simplify the process of building responsive layouts. But there are one or two unexpected behaviours you may run into if you don’t understand how they work. This article will aim to demystify these.
 
 ## Introduction
 
