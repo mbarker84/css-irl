@@ -1,5 +1,5 @@
 ---
-title: 'How to be a good co-worker'
+title: 'How to be a Good Co-worker'
 date: '2016-04-17'
 source: 'Originally published on ournameismud.co.uk'
 srcUrl: 'https://ournameismud.co.uk/journal/how-to-be-a-good-coworker'
