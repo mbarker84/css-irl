@@ -4,11 +4,11 @@ series: 'Debugging CSS Grid'
 date: '2019-06-05'
 ---
 
-In the second part of the _Debugging CSS Grid_ series, we’ll take a look at _fr_ (or _fraction_) units. _Fr_ units are very useful for sizing grid tracks, and vastly simplify the process of building responsive layout. But there are one or two unexpected behaviours you may run into if you don’t understand how they work.
+In the second part of the _Debugging CSS Grid_ series, we’ll take a look at _fr_ (or _fraction_) units. _Fr_ units are very useful for sizing grid tracks, and vastly simplify the process of building responsive layout. But there are one or two unexpected behaviours you may run into if you don’t understand how they work. This article will aim to demystify these.
 
 ## Introduction
 
-The _fr_ unit is a new unit, exclusive to Grid. It allows you to size your grid tracks according to a proportion of the available space in the grid container. By using _fr_ units instead of percentages (or other fixed units), we can avoid messy and complicated _calc()_ functions to size our grid tracks. As a simple example, we can create four equal-width columns:
+The _fr_ unit is a new unit, exclusive to Grid. It allows you to size your grid tracks according to a proportion of the available space in the grid container. By using _fr_ units instead of percentages for a flexible layout, we can avoid messy and complicated _calc()_ functions to size our grid tracks. As a simple example, we can create four equal-width columns:
 
 ```css
 .grid {
@@ -28,6 +28,11 @@ The grid takes into account the 20px gap between each column track and distribut
 }
 ```
 
+<figure>
+  <img src="debugging-css-grid-2-02.png" alt="Three grid items of 200px and one grid item of 1fr">
+	<figcaption>The 1fr column on the right expands to fill all of the remaining space, once the fixed tracks are taken into account.</figcaption>
+</figure>
+
 This will give us three fixed columns of 200px and a fourth column, sized with the _fr_ unit, which will take up the remaining space.
 
 We can use multiples of the _fr_ unit to create tracks that are proportionally larger or smaller. In this example, the second track will be twice the width, and the fourth track will be three times the width of the first and third tracks.
@@ -39,6 +44,10 @@ We can use multiples of the _fr_ unit to create tracks that are proportionally l
 	column-gap: 20px;
 }
 ```
+
+<figure>
+  <img src="debugging-css-grid-2-01.png" alt="Four grid items of differing widths">
+</figure>
 
 ## All fr units are not created equal
 
@@ -70,7 +79,9 @@ If we have three grid tracks at 0.5fr each, we might expect that they take up ha
   (<a href='https://codepen.io/michellebarker'>@michellebarker</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-The tracks with a size of 0.5fr actually behave as if they were 1fr! This might be somewhat surprising if we think of _fr_ tracks in the same way as length-based units (like percentages) but becomes clearer if we think of these as flex items instead.
+The tracks with a size of 0.5fr actually behave as if they were 1fr! This might be somewhat surprising if we think of _fr_ tracks in the same way as length-based units (like percentages), but becomes clearer if we think of these as flex items instead.
+
+### Understanding the flex factor
 
 The value of the fr unit in the CSS Grid specification is referred to as the [flex factor](https://www.w3.org/TR/css-grid-1/#grid-template-columns-flex-factor). The value of any _fr_ tracks is computed by this formula:
 
@@ -82,7 +93,7 @@ The specification explains what happens when a track’s flex factor is less tha
 
 > If the sum of the flex factors is less than 1, they’ll take up only a corresponding fraction of the leftover space, rather than expanding to fill the entire thing.
 
-Because each of our tracks is 0.5fr, the sum of all our flex factors is more than 1 – 1.5 to be exact. So our column tracks expand to fill all the available space. However, if we sized each track at 0.2fr, say, then the sum of the flex factors will be 0.6. If we try this out then we can see that each item will take up the equivalent proportion of the available space.
+Because each of our tracks is 0.5fr, the sum of all our flex factors is greater than 1 – 1.5 to be exact. So our column tracks expand to fill all the available space. However, if we sized each track at 0.2fr, say, then the sum of the flex factors will be 0.6. If we try this out then we can see that each item will take up the equivalent proportion of the available space.
 
 <iframe height="372" style="width: 100%;" scrolling="no" title="Fractions of fractions" src="//codepen.io/michellebarker/embed/BeWNQP/?height=372&theme-id=0&default-tab=result" frameborder="no" allowtransparency="true" allowfullscreen="true">
   See the Pen <a href='https://codepen.io/michellebarker/pen/BeWNQP/'>Fractions of fractions</a> by Michelle Barker
@@ -112,3 +123,9 @@ This is a sensible behaviour and prevents our content from being cut off, or ove
 ## Conclusion
 
 Fr units are actually the simplest units to work with in Grid, and for the most part cause much less pain than using percentages and _calc()_ for your grid tracks! Don’t be put of using them! I hope this article can serve as a handy reference if you ever get caught out in some more unusual scenarios.
+
+## Further reading
+
+[Best Practices with Grid Layout](https://www.smashingmagazine.com/2018/04/best-practices-grid-layout/) by Rachel Andrew
+
+[Understanding Sizing in CSS Layout](https://www.smashingmagazine.com/2018/01/understanding-sizing-css-layout/) by Rachel Andrew
