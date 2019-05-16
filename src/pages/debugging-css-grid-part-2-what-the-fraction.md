@@ -66,7 +66,12 @@ Consider the following example:
 }
 ```
 
-We have three columns sized with `minmax()` (with a maximum size of 300px), plus one column of _1fr_. If the width of the grid container is less than the sum of the three columns (900px) then the last row will have a resolved width of 0 – so it will be invisible. It’s only when our grid container is larger than 900px (e.g. for larger viewports) that we will see that _1fr_ column, which will fill the remaining space in the grid.
+We have three columns sized with `minmax()` (with a maximum size of 300px), plus one column of _1fr_. If the width of the grid container is less than the sum of the three columns (900px) then the last column’s maximum size will depend on the content. If the track contains no grid item (or the grid item has no content, and nothing else affecting its size, like padding or borders) then it will have a resolved width of 0 – so it will be invisible. It’s only when our grid container is larger than 900px (e.g. for larger viewports) that we will see that _1fr_ column, which will fill the remaining space in the grid.
+
+<iframe height="419" style="width: 100%;" scrolling="no" title="minmax() and fr" src="//codepen.io/michellebarker/embed/MdpBME/?height=419&theme-id=0&default-tab=result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+  See the Pen <a href='https://codepen.io/michellebarker/pen/MdpBME/'>minmax() and fr</a> by Michelle Barker
+  (<a href='https://codepen.io/michellebarker'>@michellebarker</a>) on <a href='https://codepen.io'>CodePen</a>.
+</iframe>
 
 ## Fractions of fractions
 
