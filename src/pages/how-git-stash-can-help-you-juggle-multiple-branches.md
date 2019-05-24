@@ -7,7 +7,7 @@ When juggling multiple branches in Git, it’s easy to accidentally start workin
 
 ## Creating and applying a stash entry
 
-Stashing allows us to save a copy of our uncommited changes on the current working branch.
+Stashing allows us to save a copy of our uncommitted changes on the current working branch.
 
 <figure>
   <img src="how-git-stash-01.svg" alt="A stash entry added to the stash list">

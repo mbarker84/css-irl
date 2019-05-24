@@ -44,6 +44,10 @@
   img {
     margin-bottom: 0;
   }
+
+  * + p {
+    margin-top: 1rem;
+  }
 }
 
 blockquote {
@@ -63,6 +67,8 @@ aside {
     margin: 0 0 0.8rem;
   }
 }
+
+
 
 
 
