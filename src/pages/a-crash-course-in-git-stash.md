@@ -9,21 +9,45 @@ When juggling with multiple branches in Git, it’s easy to accidentally start w
 
 Stashing allows us to save a copy of our uncommited changes on the current working branch. In its simplest form, the `git stash` command does this – it creates a stash! To reapply our stashed changes at a later point, we can use `git stash apply`.
 
+Create a stash:
+
+```
+git stash
+```
+
+Apply a stash to your current working branch:
+
+```
+git stash apply
+```
+
 We can apply the stash to a different branch – it doesn’t have to be the branch that we created the stash from.
 
 ### Stashing untracked files
 
-By default, `git stash` will only stash the _tracked_ files. If we want to stage _untracked_ files (that have not yet been staged, or files that are ignored), we should use `git stash -u`. To apply a stash including untracked files, use <!--**CHECK** --> `git apply -u`.
+By default, `git stash` will only stash the _tracked_ files. If we want to create or apply a stash including _untracked_ files (e.g. files that are in our _.gitignore_), we can add the `-u` (untracked) flag to our command:
+
+Create a stash including untracked files:
+
+```
+git stash -u
+```
+
+To apply a stash including untracked files:
+
+```
+git apply -u
+```
 
 ## Multiple stashes
 
-`git stash apply` will apply the last stash you created to your current working branch. But it’s possible to have multiple stashes at the same time, and to apply them individually. To list all the stashes, use `git stash list`. This will bring up a list that looks something like this:
+`git stash apply` will apply the last stash you created to your current working branch. But it’s possible to store multiple stashes at the same time, and to apply them individually. To list all the stashes, use `git stash list`. This will bring up a list that looks something like this:
 
 ```
-$git stash list
+git stash list
 ```
 
-By default, stashes are named WIP (Work in Progress), followed by the branch and commit the stash was created from. This might not be very useful if we have multiple stashes – it’s not very easy to see what changes we’ll be applying! Instead, we could give our stash a custom message, so it’s easier to see what it relates to:
+By default, stashes are named WIP (Work in Progress), followed by the branch and commit the stash was created from. This might not be very useful if we have multiple stashes – it’s not very easy to see what changes we’ll be applying! Instead, we could save our stash with a custom message, so it’s easier to see what it relates to:
 
 ```
 git stash save 'my brand new stash'
@@ -31,13 +55,41 @@ git stash save 'my brand new stash'
 
 Now, when we list our stashes, we’ll see our custom message instead of the generic one.
 
-To apply a particular stash from our list, we can use `git stash apply stash@{2}` (replacing the last part with whichever stash reference we wish to use).
+To apply a particular stash from our list, we can reference the particular stash with the _apply_ command:
+
+```
+git stash apply stash@{2}
+```
+
+(Replace the last part with whichever stash reference we wish to use.)
 
 ## Applying vs. popping
 
-Applying a stash will keep a copy in the stash list – so we could apply the same stash to multiple branches. If we run `git stash list` after applying the stash, we’ll see the stash we applied is still there. If we want to remove it from the list when we apply it, we could use `git stash pop` instead. This works in a similar way to `apply`, where it will pop the last stash by default, or we could instead pop an individual stash (using `git pop stash@{2}`, for example). Popping is probably a good idea if you know you don’t need to apply your stash on any other branches, and you want to keep your stash list nice and clean.
+Applying a stash will keep a copy in the stash list – so we could apply the same stash to multiple branches. If we run `git stash list` after applying the stash, we’ll see the stash we applied is still there.
 
-## Removing stashes
+List all our current stashes:
+
+```
+git stash list
+```
+
+If we want to remove a stash from the list when we apply it, we could use `pop` instead of `apply:
+
+```
+git stash pop
+```
+
+This works similarly to `apply`, where it will pop the last stash by default Or we could instead pop an individual stash:
+
+```
+git pop stash@{2}
+```
+
+Popping is probably a good idea if you know you don’t need to apply your stash on any other branches, and you want to keep your stash list nice and clean.
+
+## Removing and clearing stashes
+
+It’s a good idea to keep a clean store and remove the stashes we don’t need anymore, especially when moving between branches. Life will be much simpler if we only have a handful of stashes to pick from, rather than hundreds! Plus once our changes are commited, we don’t really need those stashes anyway.
 
 We can remove individual stashes from the stash list by using the `drop` command and passing it the stash reference:
 
@@ -45,4 +97,8 @@ We can remove individual stashes from the stash list by using the `drop` command
 git stash drop stash@{2}
 ```
 
-Alternatively we can clear all our stashes at once using `git stash clear`.
+Alternatively we can clear all our stashes at once:
+
+```
+git stash clear
+```
