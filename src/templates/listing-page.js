@@ -38,12 +38,16 @@ export default props => {
 			</div>
 			<nav className={styles.pagination}>
 				{!isFirst && (
-					<Link to={prevPage} rel="prev">
+					<Link
+						to={prevPage}
+						rel="prev"
+						className={styles.paginationLinkPrevious}
+					>
 						← Previous Page
 					</Link>
 				)}
 				{!isLast && (
-					<Link to={nextPage} rel="next">
+					<Link to={nextPage} rel="next" className={styles.paginationLinkNext}>
 						Next Page →
 					</Link>
 				)}
