@@ -1,6 +1,11 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import { Link, graphql } from 'gatsby'
+import Layout from '../components/layout'
+import { PostPreview } from '../components/post-preview/post-preview'
+
+import globals from '../globals/globals.module.scss'
+import styles from './listing-page.module.scss'
+import layout from '../layouts/layout.module.scss'
 
 const Tags = ({ pageContext, data }) => {
 	const { tag } = pageContext
@@ -10,49 +15,35 @@ const Tags = ({ pageContext, data }) => {
 	} tagged with "${tag}"`
 
 	return (
-		<div>
-			<h1>{tagHeader}</h1>
-			<ul>
+		<Layout>
+			<header className={styles.header}>
+				<h2>{tagHeader}</h2>
+				<div className={styles.searchTags}>
+					<Link to="/tags" className={globals.link}>
+						Search by tag →
+					</Link>
+				</div>
+			</header>
+			<ul className={layout.postsGrid}>
 				{edges.map(({ node }) => {
 					const { slug } = node.fields
-					const { title } = node.frontmatter
+					const { title, date, externalLink, series } = node.frontmatter
 					return (
-						<li key={slug}>
-							<Link to={slug}>{title}</Link>
+						<li key={slug} className={styles.listItem}>
+							<PostPreview
+								to={slug}
+								title={title}
+								excerpt={node.excerpt}
+								date={date}
+								externalLink={externalLink}
+								series={series}
+							/>
 						</li>
 					)
 				})}
 			</ul>
-			{/*
-              This links to a page that does not yet exist.
-              We'll come back to it!
-            */}
-			<Link to="/tags">All tags</Link>
-		</div>
+		</Layout>
 	)
-}
-
-Tags.propTypes = {
-	pageContext: PropTypes.shape({
-		tag: PropTypes.string.isRequired
-	}),
-	data: PropTypes.shape({
-		allMarkdownRemark: PropTypes.shape({
-			totalCount: PropTypes.number.isRequired,
-			edges: PropTypes.arrayOf(
-				PropTypes.shape({
-					node: PropTypes.shape({
-						frontmatter: PropTypes.shape({
-							title: PropTypes.string.isRequired
-						}),
-						fields: PropTypes.shape({
-							slug: PropTypes.string.isRequired
-						})
-					})
-				}).isRequired
-			)
-		})
-	})
 }
 
 export default Tags
@@ -67,11 +58,16 @@ export const pageQuery = graphql`
 			totalCount
 			edges {
 				node {
+					excerpt
 					fields {
 						slug
 					}
+					html
 					frontmatter {
 						title
+						date(formatString: "DD MMMM, YYYY")
+						series
+						externalLink
 					}
 				}
 			}

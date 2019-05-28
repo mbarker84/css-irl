@@ -1,10 +1,10 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import Layout from '../components/layout'
+import { PostPreview } from '../components/post-preview/post-preview'
+
 import globals from '../globals/globals.module.scss'
 import layout from '../layouts/layout.module.scss'
-
-import { PostPreview } from '../components/post-preview/post-preview'
 import styles from './listing-page.module.scss'
 
 export default props => {
@@ -18,9 +18,16 @@ export default props => {
 	return (
 		<Layout>
 			<div>
-				<h4 className={globals.postsCount}>
-					{data.allMarkdownRemark.totalCount} Posts
-				</h4>
+				<header className={styles.header}>
+					<h4 className={styles.postsCount}>
+						{data.allMarkdownRemark.totalCount} Posts
+					</h4>
+					<div className={styles.searchTags}>
+						<Link to="/tags" className={globals.link}>
+							Search by tag →
+						</Link>
+					</div>
+				</header>
 				<ul className={layout.postsGrid}>
 					{data.allMarkdownRemark.edges.map(({ node }) => (
 						<li key={node.id}>

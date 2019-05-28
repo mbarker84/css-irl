@@ -5,7 +5,8 @@ body {
   background: $white;
 }
 
-a {
+a,
+link {
   color: $black;
   text-decoration: none;
   background-image: none;
@@ -53,14 +54,6 @@ blockquote {
   transition: box-shadow 200ms ease-in-out;
 }
 
-.postsCount {
-  font-size: 0.8rem;
-  margin-top: 1rem;
-
-  @media (min-width: 42em) {
-    margin-top: 0;
-  }
-}
 
 h1 {
   margin-top: 0;
@@ -96,4 +89,10 @@ h3 {
 
 li > h3 {
   margin-top: 1.5rem;
+}
+
+
+.searchTags a {
+  font-size: 0.9rem;
+  border-bottom: 2px dashed $primary;
 }

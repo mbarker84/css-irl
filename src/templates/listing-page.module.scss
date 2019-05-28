@@ -22,7 +22,8 @@
 }
 
 .paginationLinkNext,
-.paginationLinkPrevious {
+.paginationLinkPrevious,
+.searchTags a {
   transition: color 200ms, border 200ms;
   border-bottom: 2px solid transparent;
 
@@ -30,5 +31,36 @@
   &:focus {
     color: lighten($black, 40%);
     border-bottom: 2px solid $primary;
+  }
+}
+
+.searchTags a {
+  font-size: 0.9rem;
+  border-bottom: 2px dashed $primary;
+}
+
+
+.header {
+  border-bottom: 1px solid lighten($black, 80%);
+  padding-bottom: 1rem;
+
+  @media (min-width: $md) {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 1rem;
+  }
+
+  @media (min-width: $xl) {
+    margin-bottom: 2rem;
+  }
+}
+
+.postsCount {
+  font-size: 0.9rem;
+  margin-top: 1rem;
+
+  @media (min-width: $md) {
+    margin: 0;
   }
 }
