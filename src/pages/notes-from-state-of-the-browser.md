@@ -1,6 +1,7 @@
 ---
 title: 'Notes from State of the Browser'
 date: '2018-09-11'
+tags: ['events']
 ---
 
 <figure>

@@ -1,6 +1,7 @@
 ---
 title: 'My CSS Grid Wishlist'
 date: '2019-02-03'
+tags: ['css grid']
 ---
 
 If you follow this blog you’ll know I’m a big fan of CSS Grid, and without a doubt it’s given us developers more power than ever before when it comes to tackling layout on the web. But there are a few of my CSS layout needs that Grid hasn’t quite managed to fulfill just yet – here’s hoping some of these get implemented down the road!

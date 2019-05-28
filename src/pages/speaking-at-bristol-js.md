@@ -1,8 +1,7 @@
 ---
-title: "Speaking at Bristol JS on Super-powered Layouts"
-date: "2018-07-02"
-source: 
-srcUrl:
+title: 'Speaking at Bristol JS on Super-powered Layouts'
+date: '2018-07-02'
+tags: ['events']
 ---
 
 Last Wednesday I had the honour of presenting a new talk at [Bristol JS](https://www.meetup.com/BristolJS/) meetup group, alongside veteran speaker, JS whizz and web audio pioneer (also a friend of mine!) [Ruth John](https://ruthjohn.com/). Ruth gave a amazing talk on Web Workers and Worklets – complete with lemmings and [lots of demos](https://codepen.io/Rumyra/full/PaBXdX/), which made me excited to learn more about [CSS Houdini](https://developers.google.com/web/updates/2016/05/houdini) and the CSS Paint API.

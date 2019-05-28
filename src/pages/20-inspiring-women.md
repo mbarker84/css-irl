@@ -1,6 +1,7 @@
 ---
 title: '20 Inspiring Women in Tech'
 date: '2018-09-25'
+tags: ['inspiration']
 ---
 
 [Marko Bijelic](https://medium.com/@markobijelic), designer at [Hipinspire](https://hipinspire.com), recently published [this article on Medium](https://medium.com/hipinspire/web-design-legends-where-are-they-now-becfa4f481ff) title _Web design legends: where are they now?_. The article was a look back at [Cameron Moll](https://cameronmoll.carrd.co/)’s who’s who of web design in 2004, exploring the 20 individuals’ influence on the web today. While it was interesting to read Marko’s post and reflect on the undeniable influence of many of these leading figures, it was impossibly to notice the distinct absence of women from the original list. In fact, only one woman ([Donna Driscoll](https://twitter.com/dahnahdee)) gets a mention, and in Marko’s article she is only referred to with a footnote in her ex-husband’s entry:

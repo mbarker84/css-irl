@@ -3,6 +3,7 @@ title: 'CSS Grid: More Flexibility with Minmax()'
 date: '2018-04-29'
 source: 'Originally published on Codepen'
 srcUrl: 'https://codepen.io/michellebarker/post/css-grid-more-flexibility-with-minmax'
+tags: ['css grid']
 ---
 
 One of the things that can put people off trying out CSS Grid is there’s so much choice when it comes to defining your grid layout and placing your content, so it can be hard to know until you’ve been using it a while which is going to to be the best option for a particular layout. It’s only recently that I got around to fully appreciating the power of [`minmax()`](https://developer.mozilla.org/en-US/docs/Web/CSS/minmax) and how it can be such a huge helper when coding many of the layouts I’m required to build, so I’d like to share one way in which it’s been beneficial to me.

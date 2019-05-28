@@ -2,6 +2,7 @@
 title: 'Part 1: Understanding Implicit Tracks'
 series: 'Debugging CSS Grid'
 date: '2019-04-30'
+tags: ['css grid']
 ---
 
 When observing people getting to grips with CSS Grid, I’ve noticed a few issues that catch people out more often than others, or present more of a challenge when it comes to building a layout. This short series of articles will delve into these common problems and aim to provide a better understanding of Grid so that you can anticipate layout problems, and debug them more easily when they occur.

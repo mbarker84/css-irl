@@ -3,6 +3,7 @@ title: 'Experimental Layouts with CSS Shapes and Clip-path'
 date: '2018-08-14'
 source: 'Originally published on Codepen'
 srcUrl: 'https://codepen.io/michellebarker/post/experimental-layouts-with-css-shapes-and-clip-path'
+tags: ['css shapes', 'clip-path']
 ---
 
 ​Recently there has been a proliferation of demos using the CSS property `shape-outside` to create interesting and unusual text and layout effects. ([Here’s one example](https://codepen.io/mandymichael/pen/xzyrGa) by Mandy Michael)

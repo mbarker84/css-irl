@@ -1,6 +1,7 @@
 ---
 title: 'Into the Matrix with SVG Filters'
 date: '2018-11-20'
+tags: ['svg', 'css']
 ---
 
 In this article we’ll explore how to use SVG filters for advanced colour manipulation on images.

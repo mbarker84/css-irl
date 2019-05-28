@@ -1,6 +1,7 @@
 ---
 title: 'In Defence of Bad Code'
 date: '2018-06-14'
+tags: ['workflow']
 ---
 
 I saw a tweet the other day from [Christian Heilmann](https://twitter.com/codepo8) of Microsoft (formerly of Mozilla), a big name in the web industry and tech conference circuit:

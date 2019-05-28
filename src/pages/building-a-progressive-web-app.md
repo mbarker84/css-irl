@@ -1,8 +1,9 @@
 ---
-title: "Building a Progressive Web App with Gatsby"
-date: "2018-07-31"
-source: "Originally published on ournameismud.co.uk"
-srcUrl: "https://ournameismud.co.uk/journal/building-a-progressive-web-app-with-gatsby"
+title: 'Building a Progressive Web App with Gatsby'
+date: '2018-07-31'
+source: 'Originally published on ournameismud.co.uk'
+srcUrl: 'https://ournameismud.co.uk/journal/building-a-progressive-web-app-with-gatsby'
+tags: ['workflow', 'gatsby', 'pwa']
 ---
 
 ​In my previous article, Progressive Web Apps: An Introduction, I wrote about the key technologies involved with building a PWA and how to get started with them. In this post I’m going to tell you about my experience of building a PWA with Gatsby, a static site generator.​

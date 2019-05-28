@@ -1,6 +1,7 @@
 ---
 title: 'How Git Stash Can Help You Juggle Multiple Branches'
 date: '2019-05-25'
+tags: ['workflow', 'git']
 ---
 
 When juggling multiple branches in Git, it’s easy to accidentally start working on the wrong branch, before realising you need to switch to another. Or sometimes you might be working on a feature and you’re not ready to commit your changes yet, when someone asks you to fix an urgent bug and you need to jump onto another branch. This is where Git’s `stash` command comes in useful.

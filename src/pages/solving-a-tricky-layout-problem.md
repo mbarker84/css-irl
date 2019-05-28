@@ -1,6 +1,7 @@
 ---
 title: 'Solving a Tricky Layout Problem with CSS Grid'
 date: '2019-01-12'
+tags: ['css grid']
 ---
 
 Last year, while working at [Mud](https://ournameismud.co.uk/), I worked on the CSS on a site for [Warner Brothers Leavesden Park studios](https://wbsl.com). A large part of my contribution involved using CSS Grid to build a variety of component layouts, and the layouts I built for that site have become the subject of some of my talks and articles.

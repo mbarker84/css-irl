@@ -1,6 +1,7 @@
 ---
 title: 'Animating CSS Grid'
 date: '2019-01-14'
+tags: ['css grid']
 ---
 
 <figure>

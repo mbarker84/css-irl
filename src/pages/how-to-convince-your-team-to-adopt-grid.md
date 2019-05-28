@@ -1,6 +1,7 @@
 ---
 title: 'How to Convince Your Team to Adopt CSS Grid'
 date: '2019-03-09'
+tags: ['css grid', 'workflow']
 ---
 
 <figure>

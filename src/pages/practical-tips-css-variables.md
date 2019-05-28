@@ -3,6 +3,7 @@ title: 'Practical Tips for Working with CSS Variables'
 date: '2018-06-01'
 source: 'Originally published on Codepen'
 srcUrl: 'https://codepen.io/michellebarker/post/practical-tips-for-working-with-css-variables'
+tags: ['custom properties']
 ---
 
 I’ve been playing around with [CSS variables](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_variables) (or custom properties) quite a lot recently and thought I’d share a few tips as I develop a practical strategy for integrating them into my workflow.

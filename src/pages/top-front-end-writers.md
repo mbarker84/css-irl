@@ -1,6 +1,7 @@
 ---
 title: 'Great Front End Writers to Follow'
 date: '2018-06-12'
+tags: ['inspiration']
 ---
 
 As this is a brand new blog, I want to highlight some of the people in web development who have inspired me and whose articles (and writing style) I love.

@@ -1,6 +1,7 @@
 ---
 title: 'Amending Your Past Commits with Git'
 date: '2019-04-08'
+tags: ['workflow', 'git']
 ---
 
 Have you ever pushed some code with a bad commit message and wished you could go back in time and edit it? Perhaps you got two different commits mixed up, or maybe your commit message was insufficiently descriptive. Either way, bad commit messages are no good to anyone – you never know when you might need to check out a commit, and hunting through past commits for an elusive chunk of code can be a nightmare. Your future self won’t thank you for it!

@@ -1,8 +1,9 @@
 ---
-title: "Progressive Web Apps: An Introduction"
-date: "2018-06-29"
-source: "Originally published on ournameismud.co.uk"
-srcUrl: "https://ournameismud.co.uk/journal/progressive-web-apps-an-introduction"
+title: 'Progressive Web Apps: An Introduction'
+date: '2018-06-29'
+source: 'Originally published on ournameismud.co.uk'
+srcUrl: 'https://ournameismud.co.uk/journal/progressive-web-apps-an-introduction'
+tags: ['pwa']
 ---
 
 If you’re in the business of building websites, you may have increasingly heard people talking about [Progressive Web Apps](http://developers.google.com/web/progressive-web-apps/) (PWAs). Developed by Google, PWAs have all the advantages of the web when it comes to user engagement, coupled with the speed and reliability users can expect from a native app.

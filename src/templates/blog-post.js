@@ -58,6 +58,7 @@ export const query = graphql`
 				srcUrl
 				externalLink
 				series
+				tags
 			}
 			excerpt
 		}

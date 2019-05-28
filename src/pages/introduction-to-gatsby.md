@@ -1,8 +1,9 @@
 ---
-title: "Introduction to Gatsby"
-date: "2018-05-29"
-source: 
+title: 'Introduction to Gatsby'
+date: '2018-05-29'
+source:
 srcUrl:
+tags: ['gatsby', 'workflow']
 ---
 
 In case you haven’t heard about it, [Gatsby](https://www.gatsbyjs.org/) is the latest hot thing in static site generators. While many static site generators (SSGs) use templating languages like Handlebars or Mustache, Gatsby uses React, helping contribute to its “blazing fast” claim.

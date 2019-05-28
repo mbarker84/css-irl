@@ -1,6 +1,7 @@
 ---
 title: 'Becoming a Tech Speaker'
 date: '2019-02-23'
+tags: ['inspiration', 'career']
 ---
 
 In this post I’m taking a brief diversion from my usual CSS topics to discuss how becoming a tech speaker has helped me develop my career and my confidence in myself as a developer, and if you’re on the fence about it, to encourage you to give it a try!

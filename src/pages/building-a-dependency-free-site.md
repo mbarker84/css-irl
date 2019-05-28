@@ -1,6 +1,7 @@
 ---
 title: 'Building a Dependency-free Site in 2019'
 date: '2019-03-22'
+tags: ['workflow']
 ---
 
 <figure>

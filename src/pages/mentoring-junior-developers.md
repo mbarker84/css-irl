@@ -1,6 +1,7 @@
 ---
 title: 'Mentoring Junior Developers'
 date: '2018-10-28'
+tags: ['workflow', 'careers']
 ---
 
 Last week I gave a talk at [Bath Digital Festival](https://bathdigitalfestival.co.uk/) about [CSS Grid and CSS Variables](https://noti.st/mbarker84/YhiZtb/super-powered-layouts-with-css-grid-and-css-variables). I was lucky enough to be able to attend a full day of talks and saw some really interesting sessions on topics ranging from developing with components (Jack Franklin), to using data as a creative material (Mike Brondbjerg), to machine learning (Simona Cotin). But one talk really stood out for me, as it’s a subject that’s close to my heart, and that’s [Tara Ojo](https://twitter.com/tara_ojo)’s talk on mentoring junior developers.

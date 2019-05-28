@@ -71,12 +71,11 @@ export const pageQuery = graphql`
 						slug
 					}
 					frontmatter {
-						date(formatString: "DD MMMM, YYYY")
-						title
 						title
 						date(formatString: "DD MMMM, YYYY")
 						externalLink
 						series
+						tags
 					}
 				}
 			}

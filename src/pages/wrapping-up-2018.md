@@ -1,6 +1,7 @@
 ---
 title: 'Wrapping Up 2018'
 date: '2018-12-27'
+tags: ['workflow', 'inspiration']
 ---
 
 The past few days I’ve been reading a lot of people’s end-of-year reviews, where they share their personal and professional accomplishments, and their hopes and goals for the year ahead. I wasn’t going to do one of these, but reading all the others got me feeling inspired, so here we are!

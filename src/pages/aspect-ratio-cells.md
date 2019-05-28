@@ -1,8 +1,9 @@
 ---
-title: "Aspect Ratio Cells with CSS Grid Layout"
-date: "2018-05-27"
-source: "Originally published on Codepen"
-srcUrl: "https://codepen.io/michellebarker/post/building-an-aspect-ratio-css-grid-layout"
+title: 'Aspect Ratio Cells with CSS Grid Layout'
+date: '2018-05-27'
+source: 'Originally published on Codepen'
+srcUrl: 'https://codepen.io/michellebarker/post/building-an-aspect-ratio-css-grid-layout'
+tags: ['css grid']
 ---
 
 I found myself recently building a layout in CSS Grid that would have previously needed JavaScript in order to work. It’s a layout based on equal sized square grid cells, where grid items could span one or two cells on the row and/or column axis. In other words, the grid <em>cells</em> needed to maintain an aspect ratio (1:1 in this case), but the actual grid <em>items</em> did not necessarily, something like this:
@@ -19,10 +20,10 @@ The solution I came up with might not work for everyone in all situations, as it
 
 First we need a few values:
 
-* Wrapper width
-* Grid gutter width
-* Number of columns
-* The aspect ratio we want to achieve for our grid cells
+- Wrapper width
+- Grid gutter width
+- Number of columns
+- The aspect ratio we want to achieve for our grid cells
 
 I’m going to save these values as variables, which will be useful when it comes to doing the calculations for the grid:
 

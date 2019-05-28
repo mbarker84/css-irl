@@ -1,6 +1,7 @@
 ---
 title: 'To Grid or to Flex?'
 date: '2019-02-10'
+tags: ['css grid', 'flexbox']
 ---
 
 A recent [Twitter thread](https://twitter.com/chriscoyier/status/1088827201468813312) started by Chris Coyier got me thinking about how people in general interpret the use cases for CSS Grid Layout versus flexbox:
