@@ -36,6 +36,10 @@ Too often, both starting salary and subsequent pay rises are opaque and bound up
 
 ## Hire juniors
 
+<figure>
+  <img src="top-tips-for-hiring-diverse-teams-02.png" alt="A seeding growing into a large flower">
+</figure>
+
 More and more new developers are coming to the field via coding bootcamps, and the great news is they’re bringing more diversity to the industry. But the reality is, when they’re ready to unleash their skills on the world, the number of jobs out there for junior developers is relatively small. If you’re only looking to hire candidates with 5+ years of using the hottest Javascript frameworks, you are going to have a less diverse pool of candidates to draw from.
 
 A great way to hire a diverse workforce is to bring in juniors, invest in their skills and train them up to be great developers.
