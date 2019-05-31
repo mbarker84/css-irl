@@ -24,7 +24,6 @@
 		"gatsby-source-filesystem": "2.0.19",
 		"gatsby-transformer-remark": "2.2.2",
 		"graphql": "^0.13.2",
-		"node-sass": "^4.12.0",
 		"prismjs": "^1.15.0",
 		"react": "^16.7.0",
 		"react-dom": "^16.7.0",
@@ -34,5 +33,8 @@
 		"typography": "^0.16.18",
 		"typography-theme-ocean-beach": "^0.16.18",
 		"webpack": "^4.29.0"
+	},
+	"devDependencies": {
+		"node-sass": "^4.12.0"
 	}
 }
