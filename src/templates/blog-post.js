@@ -4,7 +4,6 @@ import Layout from '../components/layout'
 import styles from './blog-post.module.scss'
 import layout from '../layouts/layout.module.scss'
 import { SourceDetails } from '../components/post-source/post-source'
-import { Location } from '@reach/router'
 
 export default ({ data, location }) => {
 	const post = data.markdownRemark
