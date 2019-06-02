@@ -1,0 +1,29 @@
+@import '../../globals/variables.scss';
+
+.tagList {
+  list-style: none;
+  margin: 0;
+
+  @media (min-width: $md) {
+    columns: 2;
+  }
+}
+
+.tagItem {
+  padding: 0;
+  display: inline-block;
+  width: 100%;
+}
+
+.tagName {
+  font-weight: 700;
+
+  @media (min-width: $md) {
+    font-size: 1.1rem;
+  }
+}
+
+.numberOfPosts {
+  font-size: 0.8rem;
+  margin-left: 0.5rem;
+}
