@@ -4,12 +4,19 @@ import Layout from '../components/layout'
 import styles from './blog-post.module.scss'
 import layout from '../layouts/layout.module.scss'
 import { SourceDetails } from '../components/post-source/post-source'
+import { Tags } from '../components/tags/tags'
 
 export default ({ data, location }) => {
 	const post = data.markdownRemark
-	const seriesTitle = post.frontmatter.series
-		? `${post.frontmatter.series} – `
-		: ''
+	const { series } = data.markdownRemark.frontmatter
+	const seriesTitle = series ? `${series.title} – ` : ''
+	const tags = post.frontmatter.tags
+
+	const renderSeriesTitle = () => {
+		if (series) {
+			return <h4 className={styles.seriesTitle}>{post.frontmatter.series}</h4>
+		}
+	}
 
 	return (
 		<Layout>
@@ -27,7 +34,8 @@ export default ({ data, location }) => {
 			</Helmet>
 			<div className={layout.postContent}>
 				<header>
-					<h4 className={styles.seriesTitle}>{post.frontmatter.series}</h4>
+					<Tags group={tags} className={styles.tagList} />
+					{renderSeriesTitle()}
 					<h1 className={styles.postHeading}>{post.frontmatter.title}</h1>
 					<time className={styles.src} dateTime={post.frontmatter.date}>
 						{post.frontmatter.date}

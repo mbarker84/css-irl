@@ -1,0 +1,24 @@
+@import '../../globals/variables.scss';
+
+.tagList {
+  list-style: none;
+  margin: 0;
+  display: flex;
+}
+
+.tagItem {
+  font-size: 0.9rem;
+}
+
+.tagItem:not(:last-child) {
+  margin-right: 0.75rem;
+
+  @media (min-width: $md) {
+    margin-right: 1rem;
+  }
+}
+
+.tagName {
+  color: lighten($black, 20%);
+}
+
