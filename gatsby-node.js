@@ -39,8 +39,8 @@ exports.createPages = ({ graphql, actions }) => {
 					context: {
 						slug: post.node.fields.slug,
 						previous,
-						next
-					}
+						next,
+					},
 				})
 
 				const postsPerPage = 6
@@ -55,8 +55,8 @@ exports.createPages = ({ graphql, actions }) => {
 							limit: postsPerPage,
 							skip: i * postsPerPage,
 							numPages,
-							currentPage: i + 1
-						}
+							currentPage: i + 1,
+						},
 					})
 				})
 
@@ -74,8 +74,8 @@ exports.createPages = ({ graphql, actions }) => {
 						path: `/tags/${_.kebabCase(tag)}/`,
 						component: tagTemplate,
 						context: {
-							tag
-						}
+							tag,
+						},
 					})
 				})
 			})
@@ -91,7 +91,7 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
 		createNodeField({
 			node,
 			name: `slug`,
-			value: slug
+			value: slug,
 		})
 	}
 }
