@@ -33,13 +33,13 @@ export const Navigation = props => {
 					</a>
 				</li>
 				<li className={styles.menuItem}>
-					<Link
+					<a
 						className={styles.headerLink}
-						to={`/rss.xml`}
+						href={`/rss.xml`}
 						style={{ textDecoration: `none`, backgroundImage: `none` }}
 					>
 						<span className={globals.hl}>RSS</span>
-					</Link>
+					</a>
 				</li>
 			</ul>
 		</nav>
