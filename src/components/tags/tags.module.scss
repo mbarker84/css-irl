@@ -19,6 +19,15 @@
 }
 
 .tagName {
-  color: lighten($black, 20%);
+  color: lighten($black, 25%);
+  background-color: lighten($secondary, 25%);
+  transition: background-color 200ms, color 200ms;
+  padding: 0 0.125rem;
+
+  &:hover,
+  &:focus{
+    background-color: lighten($secondary, 10%);
+    color: lighten($black, 10%);
+  }
 }
 

@@ -8,8 +8,11 @@ export const TagList = props => {
 		<ul className={styles.tagList}>
 			{props.group.map(tag => (
 				<li key={tag.fieldValue} className={styles.tagItem}>
-					<Link to={`/tags/${kebabCase(tag.fieldValue)}/`}>
-						<span className={styles.tagName}>{tag.fieldValue}</span>
+					<Link
+						to={`/tags/${kebabCase(tag.fieldValue)}/`}
+						className={styles.tagName}
+					>
+						{tag.fieldValue}
 					</Link>
 					<span className={styles.numberOfPosts}>({tag.totalCount} posts)</span>
 				</li>
