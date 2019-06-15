@@ -68,9 +68,10 @@ Now, when we list our stash entries, we’ll see our custom message instead of t
 
 ```
 git stash list
-stash@{0}: On my-branch: Adding step 3
-stash@{1}: On my-branch: Adding step 2
-stash@{2}: On my-branch: Adding step 1
+stash@{0}: On my-branch: my brand new stash
+stash@{1}: WIP on my-branch: ca96af0 Commit message 3
+stash@{2}: WIP on my-branch: 03af20c Commit message 2
+stash@{3}: WIP on my-branch: 216b662 Commit message 1
 ```
 
 To apply a particular stash entry from our list, we can reference it with the _apply_ command:
