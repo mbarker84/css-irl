@@ -16,6 +16,8 @@ Browsers sometimes hide new features behind flags – meaning they’re not turn
 
 While behind a flag, the browser’s implementation of a particular feature may be buggy, and subject to change, but you can still try it out. In fact, if it’s a feature you’re keen to use, the earlier you try it out the better – and if you can give feedback then it’s even more valuable.
 
+Right now, one experimental feature you can try out is subgrid – part of the CSS Grid Level 2 specification. It’s only available in Firefox Nightly, and you’ll need to enable it.
+
 ## How to turn on experimental features
 
 ### Firefox
