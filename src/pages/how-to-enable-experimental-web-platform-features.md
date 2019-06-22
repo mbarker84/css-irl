@@ -14,6 +14,10 @@ Want to experiment with the latest bleeding-edge web technologies? One way is to
 
 Browsers sometimes hide new features behind flags – meaning they’re not turned on by default for the majority of users. One example is the CSS Grid Layout Level 1 specification, which (when it was first implemented) was behind a flag in Firefox and Chrome. If we look for this in [caniuse.com](https://caniuse.com/#search=grid), we can see that this feature literally has a little flag in earlier versions of these browsers, to denote that it was experimental feature.
 
+<figure>
+  <img src="how-to-enable-experimental-features-05.png" alt="Screenshot from caniuse.com showing Grid implementation state in different browsers">
+</figure>
+
 While behind a flag, the browser’s implementation of a particular feature may be buggy, and subject to change, but you can still try it out. In fact, if it’s a feature you’re keen to use, the earlier you try it out the better – and if you can give feedback then it’s even more valuable.
 
 Right now, one experimental feature you can try out is subgrid – part of the CSS Grid Level 2 specification. It’s only available in Firefox Nightly, and you’ll need to enable it.
