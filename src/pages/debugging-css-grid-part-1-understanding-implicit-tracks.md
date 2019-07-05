@@ -145,7 +145,7 @@ So, how can we best avoid running into problems with implicit tracks? One way is
 
 ### Understanding the Grid Item Placement Algorithm
 
-This sounds scarier than it really is! The [Grid Item Placement Algorithm](https://www.w3.org/TR/css-grid-1/#auto-placement-algo) is the order in which the placement of grid items is resolved. Grid items that are explicitly positioned first, followed by the items with a definite row position, then determines the columns in the implicit grid and places any auto-placed items (items without an explicit position) accordingly. This is assuming the `grid-auto-flow` property value is `row` (the default). Keeping this in mind can help you to understand why you might have implicit tracks being created on one axis and not the other, if this is contrary to your expectations.
+This sounds scarier than it really is! The [Grid Item Placement Algorithm](https://www.w3.org/TR/css-grid-1/#auto-placement-algo) is the order in which the placement of grid items is resolved. Grid items that are explicitly positioned first, followed by the items with a definite row position, then the browser determines the columns in the implicit grid and places any auto-placed items (items without an explicit position) accordingly. This is assuming the `grid-auto-flow` property value is `row` (the default). Keeping this in mind can help you to understand why you might have implicit tracks being created on one axis and not the other, if this is contrary to your expectations.
 
 I also have a few tips for ways you to place items than can help avoid accidentally pushing items off the explicit grid...
 
