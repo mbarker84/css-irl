@@ -57,32 +57,61 @@ If we don’t explicity place items on our grid, they will be auto-placed. By de
 
 ![Image]()
 
-But it’s not always clear where the next available grid cell is. If we have some items that are explicitly placed, and others that we want to be auto placed, how do we identify the cells they will be placed into?
+## Common problems
 
-## Knowing when to use each method
+Just what _is_ the next available grid cell? If we have some items that are explicitly placed, and others that we want to be auto placed, how do we identify the cells they will be placed into?
 
-It’s when using a mixture of explicit and implicit (auto) placement that I most commonly see confusion around this. That’s usually a result of not fully understanding the rules of auto placement. In [Part 1]() of this series we touched upon the grid placment algorithm, which tells the browser where to place grid items, and the order in which to do so. [This post]() by [Hui-Jing Chen]() explains the grid placment algorithm really well.
+If I place an item on my grid using `grid-column: 2 / span 2` I might expect that any auto placed items succeeding that one will be placed _after_ the one I’m placing:
+
+![Image]()
+
+In fact, this _does_ happens if we place an item only on the column axis:
+
+![Image]()
+
+What _actually_ happens with the above code is the succeeding items are placed _before_ the placed item. They are placed into the first available cells, which happen to be the first two in our grid.
+
+![Image]()
+
+So _why_ is the placement different? If we understand the rules of auto placement, things become clearer.
+
+## Understanding flow
 
 A good way to think about this is to think of your grid as a flowing river. Any explicitly placed items are boats anchored in the river. Auto placed items flow around these.
 
 ![Image]()
 
-Grid items than are only semi-explicitly placed – either placed on a single axis, or using the span keyword instead of definite lines – are more loosly anchored. Items that use only `span` will still flow like the others, but they’ll be restricted by their own explicit size. An item with a span of 2 will flow onto the next row if there are less than 2 grid columns available.
+Grid items that are only explicitly placed on one axis are more loosly anchored. They participate in the grid flow on the remaining axis.
+
+Items using a single `span` value will still flow like the others, but they’ll be restricted by their own explicit size. An item with a span of 2 will flow onto the next row if there are less than 2 grid columns available.
 
 ![Image]()
 
-Conversely, if the same item is explicitly placed by grid line, it will be firmly anchored, even if the grid row does not contain enough columns. It will create implicit tracks instead, and other items will flow around it.
+In the previous example (Fig. xx?) we placed an item explicitly on the column and row axis, and instead of being placed _after_ the item, succeeding items were placed before it. If we only place the item on the column axis, something different happens: The succeeding items _are_ placed after it. In this example, we have enough items to fill the grid exactly – but rather than filling the first grid cell, the eighth item creates an implicit track.
 
 ![Image]()
+
+However, if we only place the item on the row axis only, the items will behave as before – they will fill all the available grid cells, including the ones preceeding the item we are placing.
+
+![Image]()
+
+Why is this?
+
+In [part 1]() of this series we touched upon the [grid placement algorithm](https://www.w3.org/TR/css-grid-1/#auto-placement-algo). According to the algorithm, the browser will process items locked to a given row, then determine the columns in the implicit grid, followed by placing any remaining items. This gives us a clue that items explicitly placed on the row axis will be treated differently from those placed on only the column axis.
 
 ## Changing the flow of your grid
 
-### Auto flow
+We can use the `grid-auto-flow` property to change the direction of flow, and therefore how items will be auto placed. Possible values are `row` (default), `column`, `row dense` and `column dense`.
+
+By changing the value from `row` to `column`, we can see in the second section in this demo that the behaviour has now reversed: Items placed on the column axis are now resolved ahead of those on the row axis. Placing an item on the column axis no longer generates an implicit grid track, as items are packed into every cell, but placing an item on the row axis _does_.
+
+<iframe height="397" style="width: 100%;" scrolling="no" title="Auto flow and distribution" src="//codepen.io/michellebarker/embed/MMqLdK/?height=397&theme-id=0&default-tab=result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+  See the Pen <a href='https://codepen.io/michellebarker/pen/MMqLdK/'>Auto flow and distribution</a> by Michelle Barker
+  (<a href='https://codepen.io/michellebarker'>@michellebarker</a>) on <a href='https://codepen.io'>CodePen</a>.
+</iframe>
 
 ### Order
 
 ### Writing modes / direction
-
-### Anonymous grid items
 
 ### Overlapping cells
