@@ -82,13 +82,13 @@ Alternatively, we could use the _span_ keyword in place of a start or end line:
 ```css
 .item {
 	grid-column: 1 / 4;
-	grid-row: 3 / span 3;
+	grid-row: 3 / span 2;
 }
 ```
 
 I like using `span` for grid placement – it’s often helpful when you know an item needs to span a set number of grid tracks, rather than end at a specific line – but it means you can sometimes lose track of which grid line you’re placing an item on.
 
-Here we’re using `span` in place of the `grid-row-end` line. If we change the _span_ value to 4 instead of 3, this would cause the item span more row tracks than there are available – and whoops! We’ve created an implicit track!
+Here we’re using `span` in place of the `grid-row-end` line. If we change the _span_ value to 3 instead of 2, this would cause the item span more row tracks than there are available – and whoops! We’ve created an implicit track!
 
 <figure>
   <img src="debugging-css-grid-1_04.png" alt="Orange grid item placed at the bottom left of the grid">
