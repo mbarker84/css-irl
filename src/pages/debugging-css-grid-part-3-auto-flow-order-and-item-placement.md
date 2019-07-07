@@ -76,7 +76,7 @@ Using `grid-template-areas` we could place every item explicitly, and avoid the 
 
 <figure>
   <img src="debugging-css-grid-3-01.png" alt="A grid with three items">
-	<figcaption><em>Fig 01</em></figcaption>
+	<figcaption><em>Fig 01</em><span>Items 2 and 3 overlap, so only one can have its area defined by `grid-template-areas`.</span></figcaption>
 </figure>
 
 However, we _could_ use `grid-template-areas` _in addition_ to placing items by line name or area.
@@ -101,50 +101,66 @@ If we don’t explicity place items on our grid, they will be auto-placed. By de
 
 <figure>
   <img src="debugging-css-grid-3-02.png" alt="Auto placement">
-	<figcaption><em>Fig 02</em></figcaption>
+	<figcaption><em>Fig 02</em><span>No items are explicity placed, therefore they are all auto placed.</span></figcaption>
 </figure>
 
-## Common problems
+## Predicting auto placement
 
-Just what _is_ the next available grid cell? If we have some items that are explicitly placed, and others that we want to be auto placed, how do we identify the cells they will be placed into?
+In the above example the rules of auto placement are fairly intuitive: Items are placed along the row (or inline) axis until they fill up the row, and then they’ll wrap onto the next row (creating a new row if there isn’t one defined).
+
+But if we have some items that are explicity placed, and others that are not, them how can we identify the cells the auto placed be placed into?
 
 If I place an item on my grid using `grid-column: 2 / span 2` I might expect that any auto placed items succeeding that one will be placed _after_ the one I’m placing:
 
-![Image]()
-
-In fact, this _does_ happens if we place an item only on the column axis:
-
-![Image]()
+<figure>
+  <img src="debugging-css-grid-3-03.png" alt="Three grid items with a mixture of explicit and auto placement">
+	<figcaption><em>Fig 03</em><span>The blue item is explicitly placed on the row and column axis (using `grid-template-columns` and grid-template-columns`).</span></figcaption>
+</figure>
 
 What _actually_ happens with the above code is the succeeding items are placed _before_ the placed item. They are placed into the first available cells, which happen to be the first two in our grid.
 
-![Image]()
+<figure>
+  <img src="debugging-css-grid-3-04.png" alt="Three grid items with a mixture of explicit and auto placement">
+	<figcaption><em>Fig 04</em><span>The blue item is explicitly placed only on the column axis (using grid-template-columns`).</span></figcaption>
+</figure>
 
-So _why_ is the placement different? If we understand the rules of auto placement, things become clearer.
+But if we place an item only on the column axis, the items _are_ placed after the first one:
+
+<figure>
+  <img src="debugging-css-grid-3-05.png" alt="Three grid items with a mixture of explicit and auto placement">
+	<figcaption><em>Fig 05</em></figcaption>
+</figure>
+
+So _why_ is the placement behaviour different? If we understand the rules of auto placement, things become clearer.
 
 ## Understanding flow
 
 A good way to think about this is to think of your grid as a flowing river. Any explicitly placed items are boats anchored in the river. Auto placed items flow around these.
 
-![Image]()
+<figure>
+  <img src="debugging-css-grid-3-06.png" alt="Grid items with a mixture of explicit and auto placement">
+	<figcaption><em>Fig 06</em></figcaption>
+</figure>
 
 Grid items that are only explicitly placed on one axis are more loosly anchored. They participate in the grid flow on the remaining axis.
 
-Items using a single `span` value will still flow like the others, but they’ll be restricted by their own explicit size. An item with a span of 2 will flow onto the next row if there are less than 2 grid columns available.
+Items placed using a single value (either `grid-column-start` _or_ `grid-column-end`) will still flow like the others, but they’ll be restricted by their own explicit size. An item with a span of 2 will flow onto the next row if there are less than 2 grid columns available.
 
-![Image]()
+<figure>
+  <img src="debugging-css-grid-3-07.png" alt="Grid items with a mixture of explicit and auto placement">
+	<figcaption><em>Fig 07</em> Item 2 has a column span of 3, so will wrap onto the next line.</figcaption>
+</figure>
 
-In the previous example (Fig. xx?) we placed an item explicitly on the column and row axis, and instead of being placed _after_ the item, succeeding items were placed before it. If we only place the item on the column axis, something different happens: The succeeding items _are_ placed after it. In this example, we have enough items to fill the grid exactly – but rather than filling the first grid cell, the eighth item creates an implicit track.
+Here we’re only placing the item on the column axis again (using `span`), so succeeding items are placed after it. In _Fig 06_, we have enough items to fill the grid exactly – but rather than filling earlier grid cell, the sixth item creates an implicit track. This _doesn’t_ happen if we only place it explicitly on the row axis.
 
-![Image]()
+<figure>
+  <img src="debugging-css-grid-3-08.png" alt="Auto placed items filling up the explicit grid">
+	<figcaption><em>Fig 08</em> Item 2 has a row span of 3</figcaption>
+</figure>
 
-However, if we only place the item on the row axis only, the items will behave as before – they will fill all the available grid cells, including the ones preceeding the item we are placing.
+### The grid placement algorithm
 
-![Image]()
-
-Why is this?
-
-In [part 1]() of this series we touched upon the [grid placement algorithm](https://www.w3.org/TR/css-grid-1/#auto-placement-algo). According to the algorithm, the browser will process items locked to a given row, then determine the columns in the implicit grid, followed by placing any remaining items. This gives us a clue that items explicitly placed on the row axis will be treated differently from those placed on only the column axis.
+In [part 1](/debugging-css-grid-part-1-understanding-implicit-tracks/) of this series we touched upon the [grid placement algorithm](https://www.w3.org/TR/css-grid-1/#auto-placement-algo). According to the algorithm, the browser will process items locked to a given row, then determine the columns in the implicit grid, followed by positioning any remaining items. This gives us a clue that items explicitly placed on the row axis will be treated differently from those placed on only the column axis.
 
 ## Changing the flow of your grid
 
