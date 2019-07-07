@@ -28,9 +28,21 @@ The properties that allow us to explicitly place items on a grid are:
 - `grid-row` (shorthand for `grid-row-start` / `grid-row-end`)
 - `grid-area` (shorthand for `grid-row-start` / `grid-column-start` / `grid-row-end` / `grid-column-end`)
 
-The above properties that are defined on the _items_ themselves, and possible values could be a grid line number, line name, span value or area name.
+The above properties that are defined on the _items_ themselves, and possible values could be a grid line number, line name, span value or area name. There are rule for which you should and shouldn’t use, and you can mix and match as you like. For example:
 
 ```css
+.item--a {
+	grid-area: a;
+}
+
+.item--b {
+	grid-area: 2 / 2 / 4 / 4;
+}
+
+.item--c {
+	grid-row: span 2 / 5;
+	grid-column: 1 / 3;
+}
 ```
 
 ### grid-template-areas
@@ -38,24 +50,59 @@ The above properties that are defined on the _items_ themselves, and possible va
 Additionally, we have `grid-template-areas`. This property it is defined on the _grid container_. It allows us to define grid area, then reference those grid areas on the items themselves:
 
 ```css
+.grid {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-template-rows: repeat(4, 120px);
+	grid-template-areas:
+		'a a a'
+		'. b b'
+		'. b b'
+		'. . .';
+}
+
+.a {
+	grid-area: a;
+}
+
+.b {
+	grid-area: b;
+}
 ```
 
-This is pretty cool, as it means we could change the layout significantly by only altering this property value. We don’t need to add or change any properties on the items themselves. Potentially a big win for responsive design!
+This is pretty cool, as it means we could change the layout significantly by only altering this property value. We don’t need to add or change any properties on the items themselves. A big win for responsive design!
 
-Using `grid-template-areas` we could place every item explicitly, and avoid the problem of unexpected item placement. But one disadvantage, is you can’t define overlapping areas. Creating a layout like the one below could not be done with `grid-template-areas` alone.
+Using `grid-template-areas` we could place every item explicitly, and avoid the problem of unexpected item placement. But there’s one drawback: You can’t define overlapping areas. Creating a layout like the one below could not be done with `grid-template-areas` alone.
 
-![Image]()
+<figure>
+  <img src="debugging-css-grid-3-01.png" alt="A grid with three items">
+	<figcaption><em>Fig 01</em></figcaption>
+</figure>
 
 However, we _could_ use `grid-template-areas` _in addition_ to placing items by line name or area.
 
 ```css
+.a {
+	grid-area: a;
+}
+
+.b {
+	grid-area: b;
+}
+
+.c {
+	grid-area: 3 / 1 / 5 / 3;
+}
 ```
 
 ### Auto placement
 
 If we don’t explicity place items on our grid, they will be auto-placed. By default each grid items have a span of 1 on both the row and the column axis, so they will each be placed into the next available grid cell. We can use this to our advantage: If we have something like a news feed, we don’t want to have to place each item explicitly, especially if we don’t know how many items there will be.
 
-![Image]()
+<figure>
+  <img src="debugging-css-grid-3-02.png" alt="Auto placement">
+	<figcaption><em>Fig 02</em></figcaption>
+</figure>
 
 ## Common problems
 
