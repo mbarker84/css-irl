@@ -9,19 +9,18 @@ import { Tags } from '../components/tags/tags'
 export default ({ data, location }) => {
 	const post = data.markdownRemark
 	const { series } = data.markdownRemark.frontmatter
-	const seriesTitle = series ? `${series.title} – ` : ''
 	const tags = post.frontmatter.tags
 
 	const renderSeriesTitle = () => {
 		if (series) {
-			return <h4 className={styles.seriesTitle}>{post.frontmatter.series}</h4>
+			return <h4 className={styles.seriesTitle}>{series}</h4>
 		}
 	}
 
 	return (
 		<Layout>
 			<Helmet
-				title={`${data.site.siteMetadata.title} | ${seriesTitle}${
+				title={`${data.site.siteMetadata.title} | ${series} ${
 					post.frontmatter.title
 				}`}
 			>

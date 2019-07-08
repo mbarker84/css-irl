@@ -47,7 +47,7 @@ The above properties are defined on the _items_ themselves. Possible values incl
 
 ### grid-template-areas
 
-Additionally, we have `grid-template-areas`. This property it is defined on the _grid container_. It allows us to define grid area, then reference those grid areas on the items themselves:
+Additionally, we have `grid-template-areas`. This property it is defined on the _grid container_. It allows us to define grid areas with names, then reference those areas to place the items:
 
 ```css
 .grid {
@@ -72,7 +72,7 @@ Additionally, we have `grid-template-areas`. This property it is defined on the 
 
 This is pretty cool, as it means we could change the layout significantly by only altering the `grid-template-areas` value. We don’t need to add or change any properties on the items themselves. A big win for responsive design!
 
-Using `grid-template-areas` we could place every item explicitly, and avoid the problem of unexpected item placement. But there’s one drawback: You can’t define overlapping areas. Creating a layout like the one below could not be done with `grid-template-areas` alone.
+We might be tempted to place every item explicitly using `grid-template-areas`. But there’s one drawback: You can’t define overlapping areas. Creating a layout like _Fig 01_ could not be done with `grid-template-areas` alone.
 
 <figure>
   <img src="debugging-css-grid-3-01.png" alt="A grid with three items">
@@ -110,7 +110,7 @@ In the above example the rules of auto placement are fairly intuitive: Items are
 
 But if we have some items that are explicity placed, and others that are not, them how can we identify the cells the auto placed be placed into?
 
-If I place an item on my grid using `grid-column: 2 / span 2` I might expect that any auto placed items succeeding that one will be placed _after_ the one I’m placing:
+If I place an item on my grid using `grid-column: 2 / span 2` I might expect that any auto placed items succeeding that one will be placed _after_ the one I’m placing (_Fig 03_):
 
 <figure>
   <img src="debugging-css-grid-3-03.png" alt="Three grid items with a mixture of explicit and auto placement">
@@ -124,18 +124,18 @@ What _actually_ happens with the above code is the succeeding items are placed _
 	<figcaption><em>Fig 04</em><span>The blue item is explicitly placed only on the column axis (using grid-template-columns`).</span></figcaption>
 </figure>
 
-But if we place an item only on the column axis, the items _are_ placed after the first one:
+But if we place the blue item only on the column axis, the items _are_ placed after the first one:
 
 <figure>
   <img src="debugging-css-grid-3-05.png" alt="Three grid items with a mixture of explicit and auto placement">
-	<figcaption><em>Fig 05</em></figcaption>
+	<figcaption><em>Fig 05</em><span>The blue item is placed on the column axis with `grid-column: 2 / 4`.</span></figcaption>
 </figure>
 
 So why is the placement behaviour different? If we understand the rules of auto placement, things become clearer.
 
 ## Understanding flow
 
-A good way to think about this is to think of our grid as a flowing river. Any explicitly placed items are boats anchored in the river. Auto placed items flow around these.
+A good way to think about this is to think of our grid as a flowing river. Any explicitly placed items are boats anchored in the river. Auto placed items flow around these, from left to right (_Fig 06_).
 
 <figure>
   <img src="debugging-css-grid-3-06.png" alt="Grid items with a mixture of explicit and auto placement">
@@ -144,17 +144,17 @@ A good way to think about this is to think of our grid as a flowing river. Any e
 
 Grid items that are only explicitly placed on one axis are more loosly anchored. They participate in the grid flow on the remaining axis.
 
-Items placed using a span value alone will still flow like the others, but they’ll be restricted by their own explicit size. An item with a span of 2 will flow onto the next row if there are less than 2 grid columns available. We can think of these as being semi-auto placed.
+Items placed using a span value alone will still flow like the others, but they’ll be restricted by their own explicit size. An item with a span of 2 will flow onto the next row if there are less than 2 grid columns available. We can think of these as being semi-auto placed (_Fig 07_).
 
 <figure>
-  <img src="debugging-css-grid-3-07.png" alt="Grid items with a mixture of explicit and auto placement">
+  <img src="debugging-css-grid-3-07a.png" alt="Grid items with a mixture of explicit and auto placement">
 	<figcaption><em>Fig 07</em> Item 2 has a column span of 3, so will wrap onto the next line.</figcaption>
 </figure>
 
-In _Fig 07_ we’re only placing the item on the column axis again (using `span`), so successive items are placed after it. We have enough items to fill the grid exactly – but rather than filling earlier grid cell, the sixth item creates an implicit track. This _doesn’t_ happen if we only place it explicitly on the row axis (_Fig 08_).
+In _Fig 07_ we’re only placing the item on the column axis again (using `span`), so successive items are placed after it. We have enough items to fill the grid exactly – but rather than filling earlier grid cell, the sixth and seventh items create an implicit track. This _doesn’t_ happen if we only place it explicitly on the row axis (_Fig 08_).
 
 <figure>
-  <img src="debugging-css-grid-3-08.png" alt="Auto placed items filling up the explicit grid">
+  <img src="debugging-css-grid-3-08a.png" alt="Auto placed items filling up the explicit grid">
 	<figcaption><em>Fig 08</em><span>Item 2 has a row span of 3</span></figcaption>
 </figure>
 
@@ -176,7 +176,7 @@ By changing the value from `row` to `column`, we can see in the second section i
 ### grid-auto-flow: dense
 
 Using the `dense` keyword in addition to `row` or `column` (`row` is the default), we can
-specify that auto placed items should pack themselves into any available grid cells (including ones preceeding any explicitly placed items). This will ensire there are no gaps, even if a placed item has a single value. In the above demo you can see how each of the values for `grid-auto-flow` alter the behaviour of the grid.
+specify that auto placed items should pack themselves into any available grid cells (including ones preceeding any explicitly placed items). This will ensure there are no gaps, even if an item is placed on only one axis. In the above demo you can see how each of the values for `grid-auto-flow` alter the behaviour of the grid.
 
 ### Order
 
