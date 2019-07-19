@@ -201,7 +201,7 @@ You might have noticed, `grid-auto-flow` allows us to change the direction of fl
 
 ### ⚠️ Use with caution ⚠️
 
-Properties that affect the visual order of grid items should be used with the utmost caution, as the do no change the source order and can therefore adversely affect accessibility. Rachel Andrew has written extensively about it in her article, [Grid, content re-ordering and accessibility](https://rachelandrew.co.uk/archives/2019/06/04/grid-content-re-ordering-and-accessibility).
+Properties that affect the visual order of grid items should be used with the utmost caution, as the do not change the source order, and can therefore adversely affect accessibility. Rachel Andrew has written extensively about it in her article, [Grid, content re-ordering and accessibility](https://rachelandrew.co.uk/archives/2019/06/04/grid-content-re-ordering-and-accessibility).
 
 I believe there are _some_ cases where visual re-ordering makes sense, but in my experience they most often involve explicit item placement.
 
