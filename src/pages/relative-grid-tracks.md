@@ -4,7 +4,7 @@ date: '2018-09-13'
 tags: ['css grid', 'custom properties']
 ---
 
-I was helping my colleague get started with a CSS Grid layout recently and he asked me if there was a way off offsetting grid items relative to one another, e.g “If column 1 ends at line _x_, make column 2 start at line _x + n_”. There isn’t exactly a way of doing this natively with Grid, you would need to explicitly position the items in this case. But it occurred to me that this could be a use case for CSS variables, or custom properties.
+I was helping my colleague get started with a CSS Grid layout recently and he asked me if there was a way of offsetting grid items relative to one another, e.g “If column 1 ends at line _x_, make column 2 start at line _x + n_”. There isn’t exactly a way of doing this natively with Grid, you would need to explicitly position the items in this case. But it occurred to me that this could be a use case for CSS variables, or custom properties.
 
 Previously I have compared the difference between CSS variables and Sass (or other preprocessor) variables as similar to the difference between `const` and `let` in JavaScript. CSS variables are more like `let` as they are dynamic, not static. But that analogy is a little misleading, as there is a crucial difference: With CSS variables there is no way of accessing a locally scoped variable outside of its scope.
 
