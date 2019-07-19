@@ -20,7 +20,7 @@ export default ({ data, location }) => {
 	return (
 		<Layout>
 			<Helmet
-				title={`${data.site.siteMetadata.title} | ${series} ${
+				title={`${data.site.siteMetadata.title} | ${series || ''} ${
 					post.frontmatter.title
 				}`}
 			>
