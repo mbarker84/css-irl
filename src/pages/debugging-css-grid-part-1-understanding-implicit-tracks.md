@@ -64,7 +64,7 @@ To place an item on the grid we’ve just created, we could do something like th
 
 ```css
 .item {
-	grid-column: 1;
+	grid-column: 1 / 2;
 	grid-row: 3 / 5;
 }
 ```
@@ -81,7 +81,7 @@ Alternatively, we could use the _span_ keyword in place of a start or end line:
 
 ```css
 .item {
-	grid-column: 1;
+	grid-column: 1 / 2;
 	grid-row: 3 / span 2;
 }
 ```
