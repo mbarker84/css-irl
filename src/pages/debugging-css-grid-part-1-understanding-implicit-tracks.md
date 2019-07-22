@@ -5,6 +5,10 @@ date: '2019-04-30'
 tags: ['css grid']
 ---
 
+<aside>
+  <p>This post was edited on <time datetime="2019-07-22">22 July 2019</time> to better describe item placement in the example of overlapping grid items.</p>
+</aside>
+
 When observing people getting to grips with CSS Grid, I’ve noticed a few issues that catch people out more often than others, or present more of a challenge when it comes to building a layout. This short series of articles will delve into these common problems and aim to provide a better understanding of Grid so that you can anticipate layout problems, and debug them more easily when they occur.
 
 ## Accidental implicit tracks
@@ -94,7 +98,7 @@ Here we’re using `span` in place of the `grid-row-end` line. If we change the 
   <img src="debugging-css-grid-1_04.png" alt="Orange grid item placed at the bottom left of the grid">
 </figure>
 
-I see this problem occur quite frequently in situations that require grid items to overlap each other. This is because Grid places items that aren’t explicitly placed in the next available grid cell, and if there isn’t a grid cell available then it will create implicit tracks rather than stack items on top of each other. This behaviour is very useful as it means we don’t always need to explicitly place items, but this is one case where it’s not particularly helpful to us!
+One place this problem sometimes occurs is when you want grid items to overlap each other. Items that aren’t explicitly placed are placed into the next available grid cell, and if there isn’t a grid cell available then implicit tracks will be created, rather than items being stacked on top of each other. This behaviour is very useful as it means we don’t always need to explicitly place items, but this is one case where it’s not particularly helpful to us!
 
 A friend of mine was using Grid to position two elements, one on top of the other, but offset by one row:
 
@@ -128,11 +132,27 @@ Instead of the desired layout, we get this:
   <img src="debugging-css-grid-1_02.png" alt="A grid layout with the second item pushed to the right">
 </figure>
 
-What has happened to the second item? Can you spot the problem here? Both items are using the _span_ keyword for the `grid-column` value. The first item will be positioned correctly because it will be auto-placed in the first available cell with a span of 4. The second item doesn’t have a start or end line, so Grid needs to resolve this, which it does by generating implicit column tracks.
+What has happened to the second item? Can you spot the problem here? Both items are using the _span_ keyword for the `grid-column` value. The first item will be positioned correctly because it will be auto-placed in the first available cell with a span of 4. The second item doesn’t have a start or end line, so the browser needs to resolve this, which it does by generating implicit column tracks.
 
-If the grid had four explicit rows then the item would wrap to the next line (which wouldn’t be the layout we want, but would perhaps be less baffling!), but as their aren’t enough rows available then Grid resolves this by placing the item starting at line 5 on the column axis and generating four implicit tracks. Because we’re not using `grid-auto-columns` to define a size for our implicit tracks, these will have a default size of `auto`. And if the grid item has no content, then those tracks will collapse down to a width of 0, rendering our item invisible. Our grid item contains some text, so these implicit tracks will be auto-sized to accommodate this.
+If the second item only had a _span_ value and no start line on the row axis, then it would wrap onto the next row because the item would still be participating in the flow of the grid. This wouldn’t be the layout we want, but would perhaps be less baffling! But in the code above the browser doesn’t know which column we want to place the item in. It resolves this by placing the item starting at line 5 on the column axis and generating four implicit tracks.
+
+Because we’re not using `grid-auto-columns` to define a size for our implicit tracks, these will have a default size of `auto`. And if the grid item has no content, then those tracks will collapse down to a width of 0, rendering our item invisible. Our grid item contains some text, so these implicit tracks will be auto-sized to accommodate this.
 
 If we had a `column-gap` value of, say, `20px`, we would see the width of two column gaps be added to our grid, although the tracks themselves would have a width of 0.
+
+The solution here is to place both items explicitly with a start and end value:
+
+```css
+.item:first-child {
+	grid-column: 1 / span 4;
+	grid-row: 1 / span 2;
+}
+
+.item:nth-child(2) {
+	grid-column: 1 / span 4;
+	grid-row: 2 / span 2;
+}
+```
 
 Play with the demo below to explore different ways of “breaking” the layout:
 
