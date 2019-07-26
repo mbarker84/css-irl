@@ -23,6 +23,7 @@
 		"gatsby-remark-images": "^3.0.2",
 		"gatsby-remark-prismjs": "^3.2.3",
 		"gatsby-remark-responsive-iframe": "^2.1.1",
+		"gatsby-remark-video": "^1.2.1",
 		"gatsby-source-filesystem": "2.1.5",
 		"gatsby-transformer-remark": "2.6.8",
 		"graphql": "^14.3.1",
