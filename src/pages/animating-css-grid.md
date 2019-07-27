@@ -5,7 +5,7 @@ tags: ['css grid']
 ---
 
 <figure>
-  <video width="100%" controls>
+  <video width="100%" controls playsinline>
     <source src="animating-css-grid.mp4" type="video/mp4">
   </video>
   <figcaption>Animated CSS Grid properties in action (Firefox Nightly)</figcaption>
