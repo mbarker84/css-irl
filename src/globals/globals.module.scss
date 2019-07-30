@@ -1,104 +1,123 @@
 @import 'variables.scss';
 
 body {
-  min-height: 100vh;
-  background: $white;
+	min-height: 100vh;
+	background: $white;
 }
 
 a,
 link {
-  color: $black;
-  text-decoration: none;
-  background-image: none;
+	color: $black;
+	text-decoration: none;
+	background-image: none;
 
-  &:hover .hl,
-  &:focus .hl {
-    box-shadow: 0 -1.2em 0 inset $secondary;
-  }
+	&:hover .hl,
+	&:focus .hl {
+		box-shadow: 0 -1.2em 0 inset $secondary;
+	}
 }
 
 h2 > a,
 h3 > a,
 li a,
 p a {
-  box-shadow: 0 -0.5em 0 inset $primary;
-  transition: box-shadow 200ms ease-in-out;
+	box-shadow: 0 -0.5em 0 inset $primary;
+	transition: box-shadow 200ms ease-in-out;
 
-  &:hover,
-  &:focus{
-    box-shadow: 0 -1.2em 0 inset $secondary;
-  }
+	&:hover,
+	&:focus {
+		box-shadow: 0 -1.2em 0 inset $secondary;
+	}
 }
 
 pre {
-  overflow: scroll;
-  background-color: $black;
-  color: $white;
-  padding: 1rem;
+	overflow: scroll;
+	background-color: $black;
+	color: $white;
+	padding: 1rem;
 }
 
 blockquote {
-  border-left: 8px solid lightGrey;
+	border-left: 8px solid lightGrey;
 }
 
 code {
-  background: linear-gradient(90deg, lighten($secondary, 25%), lighten($primary, 5%));
-  padding: 0.125rem 0.25rem;
-  border-radius: 0.2em;
+	background: linear-gradient(
+		90deg,
+		lighten($secondary, 25%),
+		lighten($primary, 5%)
+	);
+	padding: 0.125rem 0.25rem;
+	border-radius: 0.2em;
 }
 
 :global {
-  .textPrimary {
-    color: $primary;
-  }
+	.textPrimary {
+		color: $primary;
+	}
 }
 
 .hl {
-  line-height: 1.2;
-  position: relative;
-  box-shadow: 0 -0.5em 0 inset $primary;
-  transition: box-shadow 200ms ease-in-out;
+	line-height: 1.2;
+	position: relative;
+	box-shadow: 0 -0.5em 0 inset $primary;
+	transition: box-shadow 200ms ease-in-out;
 }
 
-
 h1 {
-  margin-top: 0;
+	margin-top: 0;
 
-  @media (min-width: 50em) {
-    font-size: 3em;
-  }
+	@media (min-width: 50em) {
+		font-size: 3em;
+	}
 }
 
 h2 {
-  font-size: 1.2rem;
+	font-size: 1.2rem;
 
-  @media (min-width: 42em) {
-    font-size: 1.4rem;
-  }
+	@media (min-width: 42em) {
+		font-size: 1.4rem;
+	}
 
-  @media (min-width: 50em) {
-    font-size: 1.6rem;
-  }
+	@media (min-width: 50em) {
+		font-size: 1.6rem;
+	}
 }
 
 h3 {
-  font-size: 1rem;
+	font-size: 1rem;
 
-  @media (min-width: 42em) {
-    font-size: 1.2rem;
-  }
+	@media (min-width: 42em) {
+		font-size: 1.2rem;
+	}
 
-  @media (min-width: 50em) {
-    font-size: 1.4rem;
-  }
+	@media (min-width: 50em) {
+		font-size: 1.4rem;
+	}
 }
 
 li > h3 {
-  margin-top: 1.5rem;
+	margin-top: 1.5rem;
 }
 
-
 .searchTags a {
-  font-size: 0.9rem;
-  border-bottom: 2px dashed $primary;
+	font-size: 0.9rem;
+	border-bottom: 2px dashed $primary;
+}
+
+/* Utils */
+.show-lg {
+	display: none;
+
+	@media (min-width: $lg) {
+		display: block;
+	}
+}
+
+.hide-lg {
+	display: block;
+
+	@media (min-width: $lg) {
+		display: none;
+	}
 }
