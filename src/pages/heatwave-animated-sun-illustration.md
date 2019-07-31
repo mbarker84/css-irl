@@ -5,8 +5,10 @@ tags: ['css', 'animation']
 ---
 
 <figure>
-	<img src="heatwave-animated-sun-illustration-02.png" alt="Sun illustration in CSS" />
-  <figcaption><span>Fig 01</span> Animated sun illustration</figcaption>
+  <video width="100%" controls playsinline>
+    <source src="heatwave-animated-sun-illustration.mp4" type="video/mp4">
+  </video>
+  <figcaption>Animated sun illustration</figcaption>
 </figure>
 
 We’re right in the middle of a heatwave here in the UK, and things have been a little quiet on this blog while I’ve been very busy with various other projects. So I’d thought I’d take a little break today and try something a little bit fun – an animated CSS sun illustration, to capture the summer spirit (and the relentless heat)!
