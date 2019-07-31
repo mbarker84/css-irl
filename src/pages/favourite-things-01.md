@@ -30,6 +30,10 @@ by [Hooked on Code](http://hookedoncode.com)
 
 Live blogging An Event Apart DC
 
+### [The Real Dark Web](https://www.sonniesedge.net/posts/real-dark-web/)
+
+by [Charlie Owen]()
+
 ## Projects
 
 ### [Survival of the Best Fit](https://medium.com/read-write-participate/would-an-algorithm-hire-you-or-ignore-your-resume-db315a873c91)
