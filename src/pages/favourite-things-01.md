@@ -4,7 +4,7 @@ date: '2019-07-29'
 tags: ['css', 'inspiration']
 ---
 
-The web today feels quite polarised. Web standards advocates seem to be at perpetual loggerheads with framework developers, and new arguments errupt on Twitter almost daily. But plugging away amongst all the noise are many, many incredibly talented developers, simply building wonderful things that make my heart soar. There are so many people sharing demos, articles and talks that provide a dopamine hit of inspiration and blow away any grey clouds.
+The web today feels quite polarised. Web standards advocates seem to be at perpetual loggerheads with framework developers, and new arguments erupt on Twitter almost daily. But plugging away amongst all the noise are many, many incredibly talented developers, simply building wonderful things that make my heart soar. There are so many people sharing demos, articles and talks that provide a dopamine hit of inspiration and blow away any grey clouds.
 
 I’d like to share some of the things that have been inspiring me, in what I hope will be a semi-regular collection here on the blog. I hope they’ll inspire you too!
 
@@ -14,9 +14,13 @@ I’d like to share some of the things that have been inspiring me, in what I ho
 
 by [Chris Gannon]()
 
+A pair of fun, typographic animations using SVG and [Greensock]().
+
 ### [CSS Grid Pac-Man](https://codepen.io/oliviale/full/MNJwBM)
 
 by [Olivia Ng]()
+
+A clever experiment using CSS Grid to create a Pac-Man layout!
 
 ## Articles
 
@@ -36,15 +40,23 @@ Cassie is a very talented CSS and SVG animator who creates stunning demos [on Co
 
 by [Torre Capistran](http://hookedoncode.com)
 
-Every [An Event Apart]() always looks like the best conference I’ve never been to. Helpfully, Torre Capistran of [Hooked on Code](https://hookedoncode.com) has been blogging about _every_ talk from this year’s AEADC! These are among the best and most thorough conference notes I’ve read. [Animation on the Bleeding Edge](https://hookedoncode.com/2019/07/animation-on-the-bleeding-edge-by-sarah-drasner/) by [Sarah Drasner](https://twitter.com/sarah_edo) is one of those giving me an inspiration hit right now!
+Every [An Event Apart](https://aneventapart.com/) always looks like the best conference I’ve never been to. Helpfully, Torre Capistran of [Hooked on Code](https://hookedoncode.com) has been blogging about _every_ talk from this year’s AEADC! These are among the best and most thorough conference notes I’ve read. [Animation on the Bleeding Edge](https://hookedoncode.com/2019/07/animation-on-the-bleeding-edge-by-sarah-drasner/) by [Sarah Drasner](https://twitter.com/sarah_edo) is one of those giving me an inspiration hit right now!
 
 ### [The Real Dark Web](https://www.sonniesedge.net/posts/real-dark-web/)
 
-by [Charlie Owen]()
+by [Charlie Owen](https://twitter.com/sonniesedge)
+
+A timely reminder that the 1% of the most vocal developers don’t necessarily speak for the 99% who quietly go about their work. Innovation is important, but not at the cost of stable, robust solutions that fit users’ needs.
+
+> I want to innovate. I love learning new things. It's what attracted so many of us to this industry. But let's take time to think about what we build, and how appropriate it is for any given situation.
 
 ### [The Web Without the Web](https://dev.to/walaura/the-web-without-the-web-aeo)
 
 by [Laura Buns](https://twitter.com/freezydorito)
+
+A well-written, balanced, yet passionate article that encapsulates both the positives and the negatives of the state of front end development today, and the influence of frameworks like React, from a starting point of personal experience. If nothing else, read it for the most perfect metaphor for web development ever:
+
+> We are building toilets with world-class plumbing that people can't then sit on. And the people who know how to fix the toilets have no clue how to fit a toilet into our plumbing.
 
 ## Projects
 
