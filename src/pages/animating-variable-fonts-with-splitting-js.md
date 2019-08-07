@@ -1,6 +1,6 @@
 ---
 title: 'Animating Variable Fonts with Splitting JS'
-date: '2018-07-20'
+date: '2018-08-08'
 tags: ['css', 'animation', 'typography', 'javascript']
 ---
 

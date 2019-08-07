@@ -1,6 +1,6 @@
 ---
 title: 'Favourite Things #1'
-date: '2019-07-29'
+date: '2019-08-08'
 tags: ['css', 'inspiration']
 ---
 
@@ -14,11 +14,19 @@ I’d like to share some of the things that have been inspiring me, in what I ho
 
 by [Chris Gannon]()
 
+<figure>
+  <img src="favourite-things-01.png" alt="Play Hard – demo with rainbox-coloured animated text">
+</figure>
+
 A pair of fun, typographic animations using SVG and [Greensock]().
 
 ### [CSS Grid Pac-Man](https://codepen.io/oliviale/full/MNJwBM)
 
-by [Olivia Ng]()
+by [Olivia Ng](https://twitter.com/meowlivia_)
+
+<figure>
+  <img src="favourite-things-02.png" alt="CSS Grid Pac-Man">
+</figure>
 
 A clever experiment using CSS Grid to create a Pac-Man layout!
 
@@ -33,6 +41,10 @@ Chen Hui Jing is one of my favourite writers on CSS. This article takes a look a
 ### [Creating my logo animation](https://www.cassie.codes/posts/creating-my-logo-animation/)
 
 by [Cassie Evans](https://twitter.com/cassiecodes)
+
+<figure>
+  <img src="favourite-things-03.png" alt="Screenshot of Cassie’s new blog">
+</figure>
 
 Cassie is a very talented CSS and SVG animator who creates stunning demos [on Codepen](). She has a (typically beautiful) brand new blog, and a great article containing some nifty tricks on how she created her logo animation.
 
@@ -58,13 +70,23 @@ A well-written, balanced, yet passionate article that encapsulates both the posi
 
 > We are building toilets with world-class plumbing that people can't then sit on. And the people who know how to fix the toilets have no clue how to fit a toilet into our plumbing.
 
+### [Writing Modes and CSS Layout](https://www.smashingmagazine.com/2019/08/writing-modes-layout/)
+
+by [Rachel Andrew](https://twitter.com/rachelandrew)
+
+I always learnt a lot from Rachel’s articles, and this in-depth article on CSS Writing Modes is no exception. She covers what they are for, why you might use them, and how they affect your layout in different ways.
+
 ## Projects
 
 ### [Survival of the Best Fit](https://medium.com/read-write-participate/would-an-algorithm-hire-you-or-ignore-your-resume-db315a873c91)
 
-### [Every Layout](https://every-layout.dev/checkout/)
+### [Every Layout](https://every-layout.dev)
 
-by [Andy Bell]() and [Heydon Pickering]()
+by [Andy Bell](https://twitter.com/andybelldesign) and [Heydon Pickering](https://twitter.com/heydonworks)
+
+<figure>
+  <img src="favourite-things-04.png" alt="Screenshot of Every Layout website">
+</figure>
 
 ### [Portfolio](https://t.co/xhEbWJhhSp?amp=1)
 
