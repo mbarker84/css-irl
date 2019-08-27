@@ -1,104 +1,175 @@
 @import 'variables.scss';
 
 body {
-  min-height: 100vh;
-  background: $white;
+	min-height: 100vh;
+	background: $white;
 }
 
 a,
 link {
-  color: $black;
-  text-decoration: none;
-  background-image: none;
+	color: $black;
+	text-decoration: none;
+	background-image: none;
 
-  &:hover .hl,
-  &:focus .hl {
-    box-shadow: 0 -1.2em 0 inset $secondary;
-  }
+	&:hover .hl,
+	&:focus .hl {
+		box-shadow: 0 -1.2em 0 inset $secondary;
+	}
 }
 
 h2 > a,
 h3 > a,
 li a,
 p a {
-  box-shadow: 0 -0.5em 0 inset $primary;
-  transition: box-shadow 200ms ease-in-out;
+	box-shadow: 0 -0.5em 0 inset $primary;
+	transition: box-shadow 200ms ease-in-out;
 
-  &:hover,
-  &:focus{
-    box-shadow: 0 -1.2em 0 inset $secondary;
-  }
+	&:hover,
+	&:focus {
+		box-shadow: 0 -1.2em 0 inset $secondary;
+	}
 }
 
 pre {
-  overflow: scroll;
-  background-color: $black;
-  color: $white;
-  padding: 1rem;
+	overflow: scroll;
+	background-color: $black;
+	color: $white;
+	padding: 1rem;
 }
 
 blockquote {
-  border-left: 8px solid lightGrey;
+	border-left: 8px solid lightGrey;
 }
 
 code {
-  background: linear-gradient(90deg, lighten($secondary, 25%), lighten($primary, 5%));
-  padding: 0.125rem 0.25rem;
-  border-radius: 0.2em;
+	background: linear-gradient(
+		90deg,
+		lighten($secondary, 25%),
+		lighten($primary, 5%)
+	);
+	padding: 0.125rem 0.25rem;
+	border-radius: 0.2em;
 }
 
 :global {
-  .textPrimary {
-    color: $primary;
-  }
+	.textPrimary {
+		color: $primary;
+	}
 }
 
 .hl {
-  line-height: 1.2;
-  position: relative;
-  box-shadow: 0 -0.5em 0 inset $primary;
-  transition: box-shadow 200ms ease-in-out;
+	line-height: 1.2;
+	position: relative;
+	box-shadow: 0 -0.5em 0 inset $primary;
+	transition: box-shadow 200ms ease-in-out;
 }
 
-
 h1 {
-  margin-top: 0;
+	margin-top: 0;
 
-  @media (min-width: 50em) {
-    font-size: 3em;
-  }
+	@media (min-width: 50em) {
+		font-size: 3em;
+	}
 }
 
 h2 {
-  font-size: 1.2rem;
+	font-size: 1.2rem;
 
-  @media (min-width: 42em) {
-    font-size: 1.4rem;
-  }
+	@media (min-width: 42em) {
+		font-size: 1.4rem;
+	}
 
-  @media (min-width: 50em) {
-    font-size: 1.6rem;
-  }
+	@media (min-width: 50em) {
+		font-size: 1.6rem;
+	}
 }
 
 h3 {
-  font-size: 1rem;
+	font-size: 1rem;
 
-  @media (min-width: 42em) {
-    font-size: 1.2rem;
-  }
+	@media (min-width: 42em) {
+		font-size: 1.2rem;
+	}
 
-  @media (min-width: 50em) {
-    font-size: 1.4rem;
-  }
+	@media (min-width: 50em) {
+		font-size: 1.4rem;
+	}
 }
 
 li > h3 {
-  margin-top: 1.5rem;
+	margin-top: 1.5rem;
 }
 
-
 .searchTags a {
-  font-size: 0.9rem;
-  border-bottom: 2px dashed $primary;
+	font-size: 0.9rem;
+	border-bottom: 2px dashed $primary;
+}
+
+/* Carbon Ads */
+#carbonads {
+	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+		Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', Helvetica, Arial,
+		sans-serif;
+}
+
+#carbonads {
+	display: flex;
+	max-width: 330px;
+	background-color: hsl(0, 0%, 98%);
+	box-shadow: 0 1px 4px 1px hsla(0, 0%, 0%, 0.1);
+}
+
+#carbonads a {
+	color: inherit;
+	text-decoration: none;
+}
+
+#carbonads a:hover {
+	color: inherit;
+}
+
+#carbonads span {
+	position: relative;
+	display: block;
+	overflow: hidden;
+}
+
+#carbonads .carbon-wrap {
+	display: flex;
+}
+
+.carbon-img {
+	display: block;
+	margin: 0;
+	line-height: 1;
+}
+
+.carbon-img img {
+	display: block;
+}
+
+.carbon-text {
+	font-size: 13px;
+	padding: 10px;
+	line-height: 1.5;
+	text-align: left;
+}
+
+.carbon-poweredby {
+	display: block;
+	padding: 8px 10px;
+	background: repeating-linear-gradient(
+			-45deg,
+			transparent,
+			transparent 5px,
+			hsla(0, 0%, 0%, 0.025) 5px,
+			hsla(0, 0%, 0%, 0.025) 10px
+		)
+		hsla(203, 11%, 95%, 0.4);
+	text-align: center;
+	text-transform: uppercase;
+	letter-spacing: 0.5px;
+	font-weight: 600;
+	font-size: 9px;
+	line-height: 1;
 }
