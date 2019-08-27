@@ -28,14 +28,14 @@
 		"gatsby-transformer-remark": "2.6.8",
 		"graphql": "^14.3.1",
 		"prismjs": "^1.15.0",
-		"react": "^16.8.6",
-		"react-dom": "^16.8.6",
+		"react": "^16.9.0",
+		"react-dom": "^16.9.0",
 		"react-headroom": "^2.2.4",
 		"react-helmet": "^5.2.0",
 		"react-typography": "^0.16.18",
 		"typography": "^0.16.18",
 		"typography-theme-ocean-beach": "^0.16.18",
-		"webpack": "^4.29.0"
+		"webpack": "^4.39.3"
 	},
 	"devDependencies": {
 		"node-sass": "^4.12.0"
