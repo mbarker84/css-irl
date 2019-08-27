@@ -21,6 +21,8 @@ The following Codepen demo contains an example of _Splitting.js_ in action, usin
 
 Some people who are blind, partially-sighted, or find reading on the web difficult or problematic for different reasons might use screen reader software to assist them in navigating and exploring a website. Screen readers announce the content of the webpage aurally to a user. To better understand the experience of a person using a screen reader, I recommend watching [How A Screen Reader User Accesses The Web](https://www.smashingmagazine.com/2019/02/accessibility-webinar/), an accessibility webinar from Smashing Magazine.
 
+<script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?serve=CE7D62J7&placement=css-irlinfo" id="_carbonads_js"></script>
+
 This is one reason why semantic HTML is especially important: not everyone accesses our webpages visually, so using the right HTML elements for the right purpose makes navigating the page and finding relevant content much easier.
 
 We might want to split a string of text for presentation purposes, but changing the markup within (for example) a heading can affect how screenreaders interpret the text and read it back to the user. Consider the following markup – a simple `<h1>` heading tag:
