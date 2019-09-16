@@ -26,3 +26,7 @@ There doesn’t need to be this divide.
 I would never discourage someone entering the industry from learning a JS framework because, for better or worse, it’s a skill that _might get you a job_. It’s all very well for established and well-connected people in the industry to denigrate frameworks, but there’s no getting around the fact that companies _do_ want those skills. I worry that some well-meaning advice could cause newer developers to exclude themselves from the talent pool by eschewing frameworks, and never get onto the career ladder. But above anything else, State of the Browser reminded me how necessary it is to keep banging the drum for a better and more inclusive web, as we can’t afford to let the message get lost. I hope the developers entering this brave new JavaScript world attend conferences like this, listen to the advice, and in turn become advocates of a web for everyone.
 
 <script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?serve=CE7D62J7&placement=css-irlinfo" id="_carbonads_js"></script>
+
+## Further reading
+
+This article by [Bryan Robinson](https://bryanlrobinson.com/) is worth reading: [What the Rule of Least Power means for modern developers](https://blog.logrocket.com/what-the-rule-of-least-power-means-for-modern-developers-b846010a8595/). It refers to [The Rule of Least Power](https://www.w3.org/2001/tag/doc/leastPower.html), a principle drawn up by Sir Tim Berners-Lee and Noah Mendelsohn, which recommends choosing the least powerful language for a given purpose – also referenced in Bruce Lawson’s talk.
