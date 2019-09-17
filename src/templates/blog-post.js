@@ -35,7 +35,7 @@ export default ({ data, location }) => {
 				<header>
 					<Tags group={tags} className={styles.tagList} />
 					{renderSeriesTitle()}
-					<h1 className={styles.postHeading}>{post.frontmatter.title}</h1>
+					<h2 className={styles.postHeading}>{post.frontmatter.title}</h2>
 					<time className={styles.src} dateTime={post.frontmatter.date}>
 						{post.frontmatter.date}
 					</time>
@@ -44,7 +44,7 @@ export default ({ data, location }) => {
 						text={post.frontmatter.source}
 					/>
 				</header>
-				<div
+				<article
 					dangerouslySetInnerHTML={{ __html: post.html }}
 					className={styles.richtext}
 				/>

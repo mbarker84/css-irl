@@ -1,9 +1,7 @@
 import React from 'react'
-// import Headroom from 'react-headroom'
 import Helmet from 'react-helmet'
-import globals from '../globals/globals.module.scss'
 import styles from '../layouts/styles.module.scss'
-import { StaticQuery, graphql, Link } from 'gatsby'
+import { StaticQuery, graphql } from 'gatsby'
 import { StickyHeader } from '../components/sticky-header/sticky-header'
 import { Navigation } from '../components/navigation/navigation'
 import metaImg from '../images/social_1200x630.png'
@@ -118,7 +116,7 @@ export default ({ children }) => (
 				<StickyHeader styles={styles} />
 				<Navigation />
 
-				<div className={styles.content}>{children}</div>
+				<main className={styles.content}>{children}</main>
 				<footer className={styles.footer}>
 					&copy; Michelle Barker {currentYear}
 				</footer>
