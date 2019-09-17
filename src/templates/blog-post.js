@@ -48,6 +48,16 @@ export default ({ data, location }) => {
 					dangerouslySetInnerHTML={{ __html: post.html }}
 					className={styles.richtext}
 				/>
+				<div className={styles.ad}>
+					{
+						<script
+							async
+							type="text/javascript"
+							src="//cdn.carbonads.com/carbon.js?serve=CE7D62J7&placement=css-irlinfo"
+							id="_carbonads_js"
+						></script>
+					}
+				</div>
 			</div>
 		</Layout>
 	)
