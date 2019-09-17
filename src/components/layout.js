@@ -8,7 +8,6 @@ import { StickyHeader } from '../components/sticky-header/sticky-header'
 import { Navigation } from '../components/navigation/navigation'
 import metaImg from '../images/social_1200x630.png'
 
-console.log(metaImg)
 const img = `https://css-irl.info${metaImg}`
 
 const d = new Date()
