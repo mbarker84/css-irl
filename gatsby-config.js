@@ -115,7 +115,8 @@ module.exports = {
 								}
 							}
 						`,
-						output: '/rss.xml'
+						output: '/rss.xml',
+						title: 'CSS { In Real Life } RSS Feed'
 					}
 				]
 			}
