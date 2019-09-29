@@ -198,3 +198,10 @@ All that remains is to reference the area names on the row axis when placing our
 	grid-row: fig3;
 }
 ```
+
+<iframe height="562" style="width: 100%;" scrolling="no" title="Recreating my child’s pre-school scrapbook with CSS Grid" src="https://codepen.io/michellebarker/embed/gOYqmJQ?height=562&theme-id=0&default-tab=result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+  See the Pen <a href='https://codepen.io/michellebarker/pen/gOYqmJQ'>Recreating my child’s pre-school scrapbook with CSS Grid</a> by Michelle Barker
+  (<a href='https://codepen.io/michellebarker'>@michellebarker</a>) on <a href='https://codepen.io'>CodePen</a>.
+</iframe>
+
+Although I haven’t gone to the extra effort of making this layout responsive, it is useable down to smaller tablet-sized screens. Adjusting the layout for small screen sizes would now be relatively straighforward. At smaller screen sizes I would personally opt for a simpler grid, as we would likely lose a lot of the visual nuance the coumpound grid. But once again, there’s no right or wrong – and even those of us who regularly work with CSS Grid are still figuring out as we go along!
