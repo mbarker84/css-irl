@@ -6,17 +6,27 @@ tags: ['css grid', 'design']
 
 My son was recently tasked with the responsibility of looking after his pre-school class teddy bear for the week, which comes with the obligation to take said teddy bear out on adventures and add your memories to a scrapbook. I quite enjoyed creating this scrapbook layout, and it got me thinking about how I would build something like this with CSS Grid!
 
-![]()
+<figure>
+  <img src="building-a-scrapbook-layout_02.jpg" alt="Child’s preschool scrapbook spread titled ‘Hector’s Adventures with George’">
+</figure>
 
 ## Compound grids
 
-[Andy Clarke]() delivered a fantastic talk, _Inspired by CSS Grid_ at this [State of the Browser]() conference, which was really illuminating for someone like me, a developer with design roots. In it he talked about ways in which ideas from print design can be applied to the web to create striking layouts, and how CSS Grid makes it not only possible, but much more straightforward than ever before. One of those principles was using compound grids.
+[Andy Clarke](https://stuffandnonsense.co.uk/) delivered a fantastic talk, _Inspired by CSS Grid_ at this [State of the Browser](https://2019.stateofthebrowser.com/) conference, which was really illuminating for someone like me, a developer with design roots. In it he talked about ways in which ideas from print design can be applied to the web to create striking layouts, and how CSS Grid makes it not only possible, but much more straightforward than ever before. One of those principles was using compound grids.
 
 Most of us are probably familiar with using grids in some way for web design and development. Virtually all website designs I’ve been handed to build have hung on a standard 12-column (or occasionally 24-column!) grid, with all columns an equal width. So far, so predictable.
 
 Compound grids, on the other hand, are created by layering two or more grids. Juxtapositions such as a 5-column grid superimposed onto a 4-column grid produce rhythmic patterns, and open up more dynamic layout possibilities than a regular grid.
 
-![]()
+<figure>
+  <img src="building-a-scrapbook-layout_03.png" alt="A 4-column grid over a 5-column grid">
+	<figcaption><em>Fig 2</em> We start with a 4-column and a 5-column grid</figcaption>
+</figure>
+
+<figure>
+  <img src="building-a-scrapbook-layout_04.png" alt="4-column and 5-column grids superimposed, with the result shown below">
+	<figcaption><em>Fig 3</em> The grids are superimposed, one on top of the other. The result is a compound grid.</figcaption>
+</figure>
 
 This applies from a psychological as well as a technical point-of-view – it’s perfectly possibly to built a very ordinary layout despite using a compound grid, but something about having a more interesting grid to work with encourages the creative juices to flow! Andy has written a detailed article, [Inspired Design Decisions: Pressing Matters](https://www.smashingmagazine.com/2019/07/inspired-design-decisions-pressing-matters/), which explains compound grids (and more) in-depth. [His talk from State of the Browser](https://www.youtube.com/watch?v=eUeoLUjOUHw) is also available to watch.
 
@@ -66,6 +76,8 @@ But we’re not quite done with building our grid yet: I decided to force an asp
 Instead of using fixed values for the overlap and “padding” rows, we can make these tracks flexible by using `minmax()`. This will ensure those row tracks have a minimum size, but they will also expand if the content necessitates it.
 
 ```css
+grid-template-rows:
+	/* Example of padding row */ minmax(var(--padding, auto));
 ```
 
 ## Placing items
