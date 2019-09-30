@@ -1,6 +1,6 @@
 ---
 title: 'Building a Scrapbook Layout with CSS Grid'
-date: '2019-09-27'
+date: '2019-09-30'
 tags: ['css grid', 'design']
 ---
 
@@ -19,12 +19,12 @@ Most of us are probably familiar with using grids in some way for web design and
 Compound grids, on the other hand, are created by layering two or more grids. Juxtapositions such as a 5-column grid superimposed onto a 4-column grid produce rhythmic patterns, and open up more dynamic layout possibilities than a regular grid.
 
 <figure>
-  <img src="building-a-scrapbook-layout_03.png" alt="A 4-column grid over a 5-column grid">
+  <img src="building-a-scrapbook-layout_03a.png" alt="A 4-column grid over a 5-column grid">
 	<figcaption><em>Fig 2</em> We start with a 4-column and a 5-column grid</figcaption>
 </figure>
 
 <figure>
-  <img src="building-a-scrapbook-layout_04.png" alt="4-column and 5-column grids superimposed, with the result shown below">
+  <img src="building-a-scrapbook-layout_04a.png" alt="4-column and 5-column grids superimposed, with the result shown below">
 	<figcaption><em>Fig 3</em> The grids are superimposed, one on top of the other. The result is a compound grid.</figcaption>
 </figure>
 
@@ -56,9 +56,12 @@ A compound grid is ideal for a scrapbook layout, where I wanted the layout to fe
 
 Defining the grid rows was trickier, and required a bit more trial-and-error. Each photo in the grid needs to overlap another. It was helpful to roughly draw the grid out on paper to understand how many rows I would need.
 
-To maintain a sense of vertical rhythm, I decided the photos should each overlap by the same amount. I assigned this amount to a custom property so that it could be used thoughout the page and updated if necessary.
+To maintain a sense of vertical rhythm, I decided the photos should each overlap by the same amount. I assigned this amount to a custom property so that it could be used thoughout the page and updated if necessary (<em>Fig 4</em>).
 
-![Diagram showing overlapping photos and initial row values]()
+<figure>
+  <img src="building-a-scrapbook-layout_05a.png" alt="Grid with items overlapping vertically">
+	<figcaption><em>Fig 4</em> Images overlap vertically</figcaption>
+</figure>
 
 ```css
 .grid {
@@ -67,17 +70,19 @@ To maintain a sense of vertical rhythm, I decided the photos should each overlap
 }
 ```
 
-Each image also has an accompanying paragraph of text. This needs to have sufficient space above and below, so that it doesn’t overlap or crash into the previous photo. This meant adding a grid row above and below the caption, which I think of as a “padding” row. Now each image would need to span five grid rows.
+Each image also has an accompanying paragraph of text. This needs to have sufficient space above and below, so that it doesn’t overlap or crash into the previous photo. This meant adding a grid row above and below the caption, which I think of as a “padding” row. Now each image would need to span at least four grid rows – images that overlap at the top _and_ bottom would need to span five rows.
 
-![Diagram showing overlapping photos and text blocks]()
+<figure>
+  <img src="building-a-scrapbook-layout_06a.png" alt="Grid showing padding rows between images and text blocks">
+	<figcaption><em>Fig 5</em> “Padding” rows allow a minimum space to be maintained between the end of a text block and the start of the next image.</figcaption>
+</figure>
 
 But we’re not quite done with building our grid yet: I decided to force an aspect ratio on the images themselves, just like real photos. Some would be landscape and others portrait. I wanted the grid layout to work regardless of the image aspect ratio or the length of text, so I needed my grid rows to be able to adapt.
 
 Instead of using fixed values for the overlap and “padding” rows, we can make these tracks flexible by using `minmax()`. This will ensure those row tracks have a minimum size, but they will also expand if the content necessitates it.
 
-```css
-grid-template-rows:
-	/* Example of padding row */ minmax(var(--padding, auto));
+```
+minmax(var(--padding, auto));
 ```
 
 ## Placing items
@@ -88,17 +93,28 @@ As long as the layout works, there’s no such thing as “doing it wrong”!
 
 ### Placement by grid line
 
-I often start by placing items using start and end values – usually start and end line numbers, but if I know the exact number of tracks an item needs to span then I’ll use that instead, treating it as a constant. I sometimes name grid lines for important “landmarks” (e.g. `wrapper-start` and `wrapper-end`), but I rarely go so far as to name grid lines or create grid areas for every item in the grid. A strategy that serves me very well is using negative grid lines for when I want to place an item relative to the end of the grid, which I have [written about in a previous article](). I use negative grid lines most frequently on the column axis, as in most cases (for the grids I’m working with) the number of columns in a known, fixed value.
+I often start by placing items using start and end values – usually start and end line numbers, but if I know the exact number of tracks an item needs to span then I’ll use that instead, treating it as a constant. I sometimes name grid lines for important “landmarks” (e.g. `wrapper-start` and `wrapper-end`), but I rarely go so far as to name grid lines or create grid areas for every item in the grid. A strategy that serves me very well is using negative grid lines for when I want to place an item relative to the end of the grid, which I have [written about in a previous article](/negative-grid-lines). I use negative grid lines most frequently on the column axis, as in most cases (for the grids I’m working with) the number of columns in a known, fixed value.
 
-![Item placed relative to the end of the grid using negative lines]()
+Placing an item from line _1_ to line _-1_ with the `grid-column` property, for example, would position that item spanning the entire column axis of our grid, from the first line to the last:
+
+```css
+.item {
+	grid-column: 1 / -1;
+}
+```
 
 Another case where I might be more inclined to name grid lines is for grids with a very large number of tracks. In this case we only have 10 column tracks, so for me placing items by line number on this axis feels manageable.
+
+Using a mixture of positive and negative grid lines, and span values, it’s fairly straightforward to place items on the column axis. Switching on the grid inspector in the Firefox dev tools panel is very helpful, as it allows us to see the line numbers.
 
 ### Placement by grid area
 
 If we take a look at the grid we can see that we have quite a large number of rows to work with.
 
-![Image of grid]
+<figure>
+  <img src="building-a-scrapbook-layout_08.jpg" alt="Screenshot of grid rows">
+	<figcaption><em>Fig 7</em> Screenshot from the Firefox grid inspector in the dev tools layout panel, showing our grid columns and rows</figcaption>
+</figure>
 
 Although I started placing items by line number on the row axis, this quickly became difficult to manage. Items need to overlap each other, and I found it difficult to keep track of where one item should end and another should begin. Additionally, I didn’t want to use negative grid lines because there’s a good chance I might want to add to my layout in the future. If I ended up adding more explicit rows to the grid, then the negative line numbers would no longer be correct, potentially causing a lot of layout bugs!
 
@@ -109,9 +125,12 @@ This was when I decided to create named grid areas on the row axis. Grid areas a
 
 The `grid-template-areas` property doesn’t allow us to define areas for overlapping items, so it doesn’t really help us with this particular layout. Using named grid areas will definitely make life easier, however.
 
-If we name lines on both the row and the column axis, we get a grid area, like this:
+If we name lines on both the row and the column axis, we get a grid area (_fig 8_):
 
-![Show grid area defined by line names]()
+<figure>
+  <img src="building-a-scrapbook-layout_09.png" alt="Names grid area defined by grid lines">
+	<figcaption><em>Fig 8</em> Suffixing line names with -start and -end creates a grid area</figcaption>
+</figure>
 
 It’s then possible to reference that area when placing an item using the `grid-area` property:
 
@@ -147,15 +166,15 @@ grid-template-rows:
 	3rem
 	/* The rest of the grid content starts here */
 	minmax(var(--verticalPadding), auto)
-	var(--overlap)
+	minmax(0, auto)
 	minmax(var(--verticalPadding), auto)
 	var(--overlap)
 	minmax(var(--verticalPadding), auto)
-	var(--overlap)
+	minmax(0, auto)
 	minmax(var(--verticalPadding), auto)
 	var(--overlap)
 	minmax(var(--verticalPadding), auto)
-	var(--overlap)
+	minmax(0, auto)
 	minmax(var(--verticalPadding), auto);
 ```
 
@@ -170,7 +189,7 @@ grid-template-rows:
 	[header-end]
 	minmax(var(--verticalPadding), auto)
 	[p1-start]
-	var(--overlap)
+	minmax(0, auto)
 	[p1-end]
 	minmax(var(--verticalPadding), auto)
 	[fig2-start]
@@ -178,7 +197,7 @@ grid-template-rows:
 	[fig1-end]
 	minmax(var(--verticalPadding), auto)
 	[p2-start]
-	var(--overlap)
+	minmax(0, auto)
 	[p2-end]
 	minmax(var(--verticalPadding), auto)
 	[fig3-start]
@@ -186,7 +205,7 @@ grid-template-rows:
 	[fig2-end]
 	minmax(var(--verticalPadding), auto)
 	[p3-start]
-	var(--overlap)
+	minmax(0, auto)
 	[p3-end]
 	minmax(var(--verticalPadding), auto)
 	[fig3-end];
@@ -211,7 +230,14 @@ All that remains is to reference the area names on the row axis when placing our
 }
 ```
 
-<iframe height="562" style="width: 100%;" scrolling="no" title="Recreating my child’s pre-school scrapbook with CSS Grid" src="https://codepen.io/michellebarker/embed/gOYqmJQ?height=562&theme-id=0&default-tab=result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+The finished result (_fig 10_) is available to explore on [Codepen](https://codepen.io/michellebarker/pen/gOYqmJQ).
+
+<figure>
+  <img src="building-a-scrapbook-layout_10.jpg" alt="Full page screenshot of the finished layout">
+	<figcaption><em>Fig 10</em></figcaption>
+</figure>
+
+<iframe height="407" style="width: 100%;" scrolling="no" title="Recreating my child’s pre-school scrapbook with CSS Grid" src="https://codepen.io/michellebarker/embed/gOYqmJQ?height=407&theme-id=0&default-tab=css" frameborder="no" allowtransparency="true" allowfullscreen="true">
   See the Pen <a href='https://codepen.io/michellebarker/pen/gOYqmJQ'>Recreating my child’s pre-school scrapbook with CSS Grid</a> by Michelle Barker
   (<a href='https://codepen.io/michellebarker'>@michellebarker</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
