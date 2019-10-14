@@ -1,10 +1,11 @@
 ---
-title: 'A Modern Front End Workflow'
+title: 'Setting Up a Front End Project Starter Kit'
+series: 'A Modern Front End Workflow'
 date: '2019-10-13'
 tags: ['workflow', 'tooling']
 ---
 
-When it comes to building a simple front-end project, how do you get started? What are the tools you need? I suspect everyone will have a different answer. Do you start with a (JS or CSS) framework, or off-the-shelf boilerplate starter kit? Perhaps you use a task runner (like [Gulp]() or [Grunt]()) to orchestrate your project’s needs. Maybe you use NPM scripts? Or do you start simple, with just HTML and a CSS file? In this article we’ll walk through setting up and configuring a simple project starter repository, using [Parcel](https://parceljs.org/) – a minimal-config application bundler – which we’ll come to in a moment.
+When it comes to building a simple front-end project, how do you get started? What are the tools you need? I suspect everyone will have a different answer. Do you start with a (JS or CSS) framework, or off-the-shelf boilerplate starter kit? Perhaps you use a task runner (like [Gulp]() or [Grunt]()) to orchestrate your project’s needs. Maybe you use NPM scripts? Or do you start simple, with just HTML and a CSS file? In this article we’ll walk through setting up and configuring a simple project starter repository, using NPM scripts and [Parcel](https://parceljs.org/) – a minimal-config application bundler – which we’ll come to in a moment.
 
 ## Why do we need a project starter repository?
 
@@ -24,7 +25,9 @@ All this takes time to set up and configure, and to do it from scratch every tim
 
 If you’re a regular reader of this blog you’ll know that I love writing HTML and CSS. I’m not a person who loves spending time setting up complex tooling. I want my tools to demand as little time from me as possible, so that I can concentrate on the things I love doing! While I’ve used Gulp in the past, it now seems a less necessary part of the toolchain: virtually all dependencies can be installed via NPM and configuring them with NPM scripts is no more difficult than configuring them with Gulp. So using a task runner seems a bit redundant, and would only add an extra dependency to the project. [This article](https://css-tricks.com/why-npm-scripts/) explains some of the advantages of using NPM scripts, and how to get started – but be warned, one or two or the plugins it recommends are now inactive.
 
-Let’s begin building our project starter, and learn about the tools we’ll be using along the way. Feel free to skip over any parts you’re already familiar with.
+The tools I’ve chosen here are a personal preference, and suit the kind of projects I like to build. They’re not necessarily everyone’s choice, and there are plenty of different ways to do things. But I hope this tutorial will help you get a bit more familiar with some of the tools that have become popular among developers, so that you can make your own choices.
+
+With that in mind, let’s begin building our project starter, and learn about the tools we’ll be using along the way. Feel free to skip over any parts you’re already familiar with.
 
 ## Installing Node.js
 
@@ -36,16 +39,55 @@ The very first thing we need to do to get our project set up to work with NPM sc
 
 NVM is my preferred option, as it allows us to easily upgrade our node version, see which version we’re currently running, list other installed versions or switch to another version using single commands. But it requires additional steps to install depending on your setup, which is beyond the scope of this particular article.
 
-Once you have Node installed (by whichever method suits you), you can check the currently installed version by running `node -v`. (You might want to upgrade to the latest version.)
+Once you have Node installed (by whichever method suits you), you can check the currently installed version by running `node -v`. (You might want to upgrade to the latest version.) If you’re using NVM you could (optionally) create a _.nvmrc_ config file to ensure you always run the correct Node version for your project.
 
 ## NPM
 
 Installing Node also installs [NPM](https://www.npmjs.com/) (Node Package Manager). This is basically a huge library of open source Javascript development tools that anyone can publish to. We have direct access to this library of tools and (for better or worse!) can install any of them in our projects to help us with development tasks.
 
-First, let’s create a new project folder. Open the terminal, and inside that folder run:
+### NPM or Yarn?
+
+[Yarn](https://yarnpkg.com/lang/en/) is an alternative package manager, similar to NPM, and almost as popular. In fact, many people consider it an improvement. It can be used in the same way, to install dependencies. If you prefer to use Yarn over NPM, you can safely substitute the `npm` command with `yarn` anywhere I’m using it in this article.
+
+### Initialising the project
+
+First, let’s create a new project folder, which we’ll call _my-awesome_project_. Open the terminal, and inside that folder run:
 
 ```
 npm init
 ```
 
-Running this command brings up several steps for initialising our project in the command line, such as adding a name and description. You can hit <kbd>Enter</kbd> to skip through each of these if you don’t want to complete them right away – we’ll be able to edit them later on. You’ll then see that a folder called `node_modules` has been created in the project, along with a _package.json_ file. This file is where we’ll configure the scripts that will build and run our project.
+Running this command brings up several steps for initialising our project in the command line, such as adding a name and description. You can hit <kbd>Enter</kbd> to skip through each of these if you don’t want to complete them right away – we’ll be able to edit them later on. You’ll then see that a folder called _node_modules_ has been created in the project, along with a _package.json_ file. This file contains all the information about our project, and is where we can edit the details that we just skipped through.
+
+Any packages that we install from NPM will be automatically listed in the _package.json_ file. It’s also where we’ll configure the scripts that will build and run our project. We’ll install some packages and configure these shortly, but first we’ll need a basic folder architecture and some files to work with.
+
+## Project structure
+
+We’ll start with a folder structure that looks like this:
+
+```
+my-awesome-project
+  src
+    icons
+    images
+    js
+    scss
+    index.html
+  node_modules
+  package.json
+```
+
+We’ve already generated the _node_modules_ directory and _package.json_ in the root of the project. We just need to create a directory called _src_, containing directories for images, JS, SCSS and icons, plus an _index.html_ file.
+
+### Creating our folder structure from the command line
+
+If you want to save time, you could create this structure from the terminal. In the root of the project, you could run:
+
+```
+mkdir src
+cd src
+mkdir js scss images icons && touch index.html
+cd ../
+```
+
+The last command brings us back up to the project root.
