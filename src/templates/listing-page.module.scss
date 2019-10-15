@@ -22,8 +22,7 @@
 }
 
 .paginationLinkNext,
-.paginationLinkPrevious,
-.searchTags a {
+.paginationLinkPrevious {
 	color: lighten($black, 30%);
 	transition: color 200ms, border 200ms;
 	border-bottom: 2px solid transparent;
@@ -37,7 +36,7 @@
 
 .searchTags a {
 	font-size: 0.9rem;
-	border-bottom: 2px dashed $primary;
+	border-bottom: 2px solid $primary;
 }
 
 .header {

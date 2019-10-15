@@ -24,7 +24,7 @@ export default props => {
 					</h4>
 					<div className={styles.searchTags}>
 						<Link to="/tags" className={globals.link}>
-							Search by tag →
+							Search by topic
 						</Link>
 					</div>
 				</header>
