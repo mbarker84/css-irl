@@ -1,15 +1,15 @@
 ---
-title: 'Setting Up a Front End Project Starter Kit'
+title: 'Building a Project Starter'
 series: 'A Modern Front End Workflow'
-date: '2019-10-13'
-tags: ['workflow', 'tooling']
+date: '2019-10-23'
+tags: ['workflow', 'tooling', 'javascript']
 ---
 
 When it comes to building a simple front-end project, how do you get started? What are the tools you need? I suspect everyone will have a different answer. Do you start with a (JS or CSS) framework, or off-the-shelf boilerplate starter kit? Perhaps you use a task runner (like [Gulp]() or [Grunt]()) to orchestrate your project’s needs. Maybe you use NPM scripts? Or do you start simple, with just HTML and a CSS file?
 
 The front-end tooling landscape can be confusing, and at times overwhelming – and when you’re dedicating your time to learning HTML, CSS and Javascript, adding tooling into the mix as yet another thing to learn can be a challenge. That’s why I want to help developers get up and running as easily as possible with building maintainable sites, and understand some of the tooling options available.
 
-In this article we’ll walk through building and configuring a simple project starter repository, using NPM scripts and [Parcel](https://parceljs.org/) – a minimal-config application bundler – which we’ll come to in a moment.
+In this article we’ll walk through building and configuring a simple project starter (or boilerplate) repository, using NPM scripts and [Parcel](https://parceljs.org/) – a minimal-config application bundler – which we’ll come to in a moment.
 
 ## Why do we need a project starter repository?
 
@@ -68,7 +68,7 @@ Running this command brings up several steps for initialising our project in the
 	"name": "project-starter",
 	"version": "1.0.0",
 	"description": "",
-	"main": "index.html",
+	"main": "src/index.html",
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1"
 	},
@@ -183,7 +183,7 @@ Now it’s time to write some scripts to run our project. As previously mentione
 
 ### Sass to CSS
 
-NPM scripts consist of a key (the name of the script, which is what we would type in the terminal in order to run it) and a value – the script itself, which will be executed when we run the command. First we’ll write the script which compiles Sass to CSS. We’ll give it the name “scss” (we could name it anything we like) and add it to our “scripts” section:
+NPM scripts consist of a key (the name of the script, which is what we would type in the terminal in order to run it) and a value – the script itself, which will be executed when we run the command. First we’ll write the script which compiles Sass to CSS. We’ll give it the name **scss** (we could name it anything we like) and add it to our “scripts” section:
 
 ```json
 "scripts": {
@@ -209,7 +209,7 @@ You should then see a new directory called _dist_ has been created, containing y
 
 Our first script is working great, but it’s not very useful yet, as every time we make changes to our code we need to got back to the terminal and run the script again. What we would be much better it to run a local server and see our changes reflected instantaneously in the browser. In order to do that we’ll write a script that uses Browsersync, which we’ve already installed.
 
-First, let’s write the script that runs the server, which we’ll call “serve”:
+First, let’s write the script that runs the server, which we’ll call **serve**:
 
 ```json
 "scripts": {
@@ -220,13 +220,13 @@ First, let’s write the script that runs the server, which we’ll call “serv
 
 In the `--files` option we’re listing the files that Browsersync should monitor. It will reload the page when any of these change. If we run this script now (`npm run serve`), it will start a local server and we can preview our web page by going to [http://localhost:3000](http://localhost:3000) in the browser.
 
-Currently we still need to run our “scss” script when we want to compile our Sass, so let’s automate that. We need to install an NPM package called _onchange_, to watch for changes to the source files and trigger our “scss” command:
+Currently we still need to run our **scss** script when we want to compile our Sass, so let’s automate that. We need to install an NPM package called _onchange_, to watch for changes to the source files:
 
 ```
 npm install onchange --save-dev
 ```
 
-And let’s add the script that watches for changes:
+We can write NPM scripts that run other scripts. Let’s add the script that watches for changes and triggers our **scss** command to run:
 
 ```json
 "scripts": {
@@ -236,14 +236,94 @@ And let’s add the script that watches for changes:
 }
 ```
 
-The script tells the _onChange_ package which files to watch (_src/scss_) and the script to subsequently run (“scss”).
+The **watch:css** script watches for changes using the _onchange_ package (_src/scss_) and runs our **scss** script when changes occur.
 
-Now we need to run two commands concurrently: The “serve” command to run our server, and the “watch:css” command to compile our Sass to CSS, which will trigger the page reload. Using NPM scripts we can easily run commands _consecutively_ using the _&&_ operator:
+### Combining scripts
+
+Now we need to run two commands concurrently: The **serve** command to run our server, and the **watch:css** command to compile our Sass to CSS, which will trigger the page reload. Using NPM scripts we can easily run commands _consecutively_ using the _&&_ operator:
 
 ```json
 "start": "npm run serve && npm run scss"
 ```
 
-However, this won’t achieve what we want, as the script will wait until _after_ the “serve” script has finished running before it begins running the “scss” script.
+However, this won’t achieve what we want, as the script will wait until _after_ the **serve** script has finished running before it begins running the **scss** script. If we go ahead and write this script, then run it in the terminal (`npm start`), then `npm run scss` won’t be triggered until we’ve stopped the server.
+
+To enable us to run consecutive commands, we need to install another package. NPM has several options to choose from. The one I’ve picked is [npm-run-all](https://www.npmjs.com/package/npm-run-all):
+
+```
+npm install npm-run-all --save-dev
+```
+
+The main options in this package (or at least, the ones we care about) are **run-s** and **run-p**. The former is for running sequentially, the latter is for running commands in parallel. Once we have installed this package, we can use it to write the script that runs both our **serve** and **watch:css** commands in parallel. (We’ll call it **start**.)
+
+```json
+"scripts": {
+	"scss": "node-sass --output-style compressed -o dist/css src/scss",
+	"serve": "browser-sync start --server --files 'dist/css/*.css, **/*.html'",
+	"watch:css": "onchange 'src/scss' -- npm run scss",
+	"start": "run-p serve watch:css"
+}
+```
+
+We now have a very basic starter project. We’ve written some scripts that allow us to simply type the command `npm start` to run a server, watch for changes, compile Sass to CSS and reload the page.
+
+We could now go ahead and install some packages and write scripts to automate some of our other tasks, such as optimising images, creating SVG sprites and building JS. [This CSS Tricks article](https://css-tricks.com/why-npm-scripts/) has a great rundown of a few more scripts you might like to add, as well as a [starter repository](https://github.com/damonbauer/npm-build-boilerplate). We might also want to bundle and transpile our JS. We could end up writing many more scripts and installing plenty more dependencies! But to do some of the heavy lifting, we could instead use [Parcel](https://parceljs.org/).
+
+## Module bundling with Parcel
+
+Parcel purports to be a “zero-config” alternative to Webpack, a popular Javascript module bundler. A module bundler takes separate, reusable JS files (or modules) and “bundles” them into a single file to be served to the browser, as well as minifying the output. This can improve website performance, as the browser doesn’t need to load a bunch of files individually. This in itself is very useful, but Parcel also takes care of other tasks for us out of the box, including:
+
+- Running a local server
+- Building and minifying HTML, CSS and assets
+- Transpiling Javascript
+- Hot reloading
+- Code splitting
+
+Using Parcel, we can do everything we already did in the first part of this tutorial (and much more!), while writing fewer scripts! In fact, we only need two scripts to achieve everything we want.
+
+### Creating a Parcel project
+
+Let’s create a new project structure, similar to the one we began with earlier (or you could delete the scripts and dependencies from _package.json_ and use the same project):
+
+```
+mkdir src
+cd src
+mkdir js scss images icons && touch index.html
+cd ../
+```
+
+We’ll start by installing Parcel as a dependency, and we’ll also install _node-sass_ while we’re at it (multiple packages can be listed to install them at the same time):
+
+```
+npm install parcel-bundler node-sass --save-dev
+```
+
+(If you’re creating a new project, don’t forget to run `npm init` first.)
+
+We’ll need to change the file path of our stylesheet in _index.html_. We only need to tell Parcel the relative path of our source file, as the actual path for use in production will be generated by Parcel at buildtime.
+
+```html
+<link rel="stylesheet" href="./scss/styles.scss" />
+```
+
+Now we need to write our two NPM scripts. The first (**start**) will run our project, the second (**build**) will build it for production:
+
+```json
+"scripts": {
+	"start": "parcel src/index.html",
+	"build:parcel": "parcel build src/index.html"
+}
+```
+
+We could also (optionally) tell Parcel which port to use, and instruct it to open our website in a new browser tab whenever we start it up – let’s do that now:
+
+```json
+"scripts": {
+	"start": "parcel src/index.html -p 3000 --open", // Uses port 3000
+	"build:parcel": "parcel build src/index.html"
+}
+```
+
+## SCSS architecture
 
 ## Creating a Github repository
