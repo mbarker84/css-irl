@@ -5,7 +5,11 @@ date: '2019-10-13'
 tags: ['workflow', 'tooling']
 ---
 
-When it comes to building a simple front-end project, how do you get started? What are the tools you need? I suspect everyone will have a different answer. Do you start with a (JS or CSS) framework, or off-the-shelf boilerplate starter kit? Perhaps you use a task runner (like [Gulp]() or [Grunt]()) to orchestrate your project’s needs. Maybe you use NPM scripts? Or do you start simple, with just HTML and a CSS file? In this article we’ll walk through setting up and configuring a simple project starter repository, using NPM scripts and [Parcel](https://parceljs.org/) – a minimal-config application bundler – which we’ll come to in a moment.
+When it comes to building a simple front-end project, how do you get started? What are the tools you need? I suspect everyone will have a different answer. Do you start with a (JS or CSS) framework, or off-the-shelf boilerplate starter kit? Perhaps you use a task runner (like [Gulp]() or [Grunt]()) to orchestrate your project’s needs. Maybe you use NPM scripts? Or do you start simple, with just HTML and a CSS file?
+
+The front-end tooling landscape can be confusing, and at times overwhelming – and when you’re dedicating your time to learning HTML, CSS and Javascript, adding tooling into the mix as yet another thing to learn can be a challenge. That’s why I want to help developers get up and running as easily as possible with building maintainable sites, and understand some of the tooling options available.
+
+In this article we’ll walk through building and configuring a simple project starter repository, using NPM scripts and [Parcel](https://parceljs.org/) – a minimal-config application bundler – which we’ll come to in a moment.
 
 ## Why do we need a project starter repository?
 
@@ -43,7 +47,7 @@ Once you have Node installed (by whichever method suits you), you can check the 
 
 ## NPM
 
-Installing Node also installs [NPM](https://www.npmjs.com/) (Node Package Manager). This is basically a huge library of open source Javascript development tools that anyone can publish to. We have direct access to this library of tools and (for better or worse!) can install any of them in our projects to help us with development tasks.
+Installing Node also installs [NPM](https://www.npmjs.com/) (Node Package Manager). This is basically a huge library of open source Javascript development tools (or packages) that anyone can publish to. We have direct access to this library of tools and (for better or worse!) can install any of them in our projects to help us with development tasks.
 
 ### NPM or Yarn?
 
@@ -57,9 +61,25 @@ First, let’s create a new project folder, which we’ll call _my-awesome_proje
 npm init
 ```
 
-Running this command brings up several steps for initialising our project in the command line, such as adding a name and description. You can hit <kbd>Enter</kbd> to skip through each of these if you don’t want to complete them right away – we’ll be able to edit them later on. You’ll then see that a folder called _node_modules_ has been created in the project, along with a _package.json_ file. This file contains all the information about our project, and is where we can edit the details that we just skipped through.
+Running this command brings up several steps for initialising our project in the command line, such as adding a name and description. You can hit <kbd>Enter</kbd> to skip through each of these if you don’t want to complete them right away – we’ll be able to edit them later on. You’ll then see that a _package.json_ file has been created, which should look something like this:
 
-Any packages that we install from NPM will be automatically listed in the _package.json_ file. It’s also where we’ll configure the scripts that will build and run our project. We’ll install some packages and configure these shortly, but first we’ll need a basic folder architecture and some files to work with.
+```json
+{
+	"name": "project-starter",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.html",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"author": "",
+	"license": "ISC"
+}
+```
+
+This file contains all the information about our project, and is where we can edit the details that we just skipped through.
+
+Any packages that we install from NPM will be automatically listed in the _package.json_ file. It’s also where we’ll configure the scripts that will build and run our project. We’ll install some packages and configure these shortly, but first we’ll need a basic project architecture, and some files to work with.
 
 ## Project structure
 
@@ -81,7 +101,7 @@ We’ve already generated the _node_modules_ directory and _package.json_ in the
 
 ### Creating our folder structure from the command line
 
-If you want to save time, you could create this structure from the terminal. In the root of the project, you could run:
+You could create the above folder structure manually, either in your text editor of choice or in your computer’s file system. But if you want to save time, you could do it from the terminal instead. In the root of the project, you could run:
 
 ```
 mkdir src
@@ -90,4 +110,140 @@ mkdir js scss images icons && touch index.html
 cd ../
 ```
 
-The last command brings us back up to the project root.
+Line by line, this code:
+
+1. Creates a new _src_ directory
+2. Moves us into the newly-created directory
+3. Creates directories inside _src_ called _js_, _scss_, _images_ and _icons_, and a file called _index.html_.
+4. Brings us back up to the project root.
+
+Now let’s add the following to our _index.html_ file so that we can see our site in the browser:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>Project starter</title>
+		<link rel="stylesheet" type="text/css" href="dist/css/styles.css" />
+	</head>
+	<body>
+		<h1>Hello world!</h1>
+	</body>
+</html>
+```
+
+## Installing dependencies
+
+Now that we have our basic folder structure, we can start to install some packages and write some NPM scripts that will let us build and view our website. The scripts we’re going to write will:
+
+1. Run a local server
+2. Compile Sass to CSS
+3. Watch for changes and reload the page whenever we update our HTML or CSS
+
+Let’s install the [node-sass](https://www.npmjs.com/package/node-sass) package from NPM, which compiles _.scss_ files to CSS. In the terminal run:
+
+```
+npm install node-sass --save-dev
+```
+
+Once this command has finished running, you should see a couple of new things:
+
+1. A directory called _node_modules_ has been created
+2. In the _package.json_ file, `node-sass` is now listed in “devDependencies”.
+3. Adds a _package-lock.json_ file. This isn’t something we should ever need to touch.
+
+### Adding a .gitignore
+
+The _node_modules_ directory is where the code for all of our project dependencies will live. The contents of this folder should _not_ be committed to Github, as installing just a few dependencies could result in hundreds of thousands of files! So the next thing we should do is add a _.gitignore_ file in the project root:
+
+```
+touch .gitignore && echo "node_modules" >> .gitignore
+```
+
+This command creates the _.gitignore_ file and adds _node_modules_ to it. Now we are safe in the knowledge that our packages will not be committed.
+
+If we’re not committing these files, then how can we share our dependencies with other users? Well, this is where _package.json_ helps us. It tells us the name and version number of any dependencies we have installed. Anyone who clones or forks the project (including us, when we use it as a project starter!) can simply run `npm install` and all the associated dependencies will be fetched and downloaded from NPM!
+
+### Types of dependencies
+
+When we installed _node-sass_ we ran the install command with the `--save-dev` flag. This installs the project as a “dev dependency”. Other packages may not require this command, and save a package under “dependencies” instead. The difference is that regular dependencies are _runtime_ dependencies, whereas dev dependencies are _buildtime_ dependencies. _node-sass_ is required to build your project, but something like, say, a carousel plugin, or a client-side JS framework like React would need to be a regular dependency.
+
+Now we’ll also install [Browsersync](https://www.npmjs.com/package/browser-sync) as a dev dependency. Browsersync will run a local server and reload the browser when our files change.
+
+```
+npm install browser-sync --save-dev
+```
+
+## Writing NPM scripts
+
+Now it’s time to write some scripts to run our project. As previously mentioned, we’re going to write these in the “scripts” section of our _package.json_.
+
+### Sass to CSS
+
+NPM scripts consist of a key (the name of the script, which is what we would type in the terminal in order to run it) and a value – the script itself, which will be executed when we run the command. First we’ll write the script which compiles Sass to CSS. We’ll give it the name “scss” (we could name it anything we like) and add it to our “scripts” section:
+
+```json
+"scripts": {
+  "scss": "node-sass --output-style compressed -o dist/css src/scss",
+}
+```
+
+The _node-sass_ package contains some [options](https://github.com/sass/node-sass), some of which we’re defining here. We’re specifying the output style (“compressed”), the output directory (_dist/css_) and the source directory (_src/scss_), which is currently empty. Let’s create a source _.scss_ file from the terminal:
+
+```
+touch src/scss/styles.scss
+```
+
+Add a few styles to the newly-created file, then go back to the terminal and run:
+
+```
+npm run scss
+```
+
+You should then see a new directory called _dist_ has been created, containing your compiled CSS. Now, every time you make changes to your _styles.scss_ file, you can run the script and those changes will be compiled.
+
+### Live reload with Browsersync
+
+Our first script is working great, but it’s not very useful yet, as every time we make changes to our code we need to got back to the terminal and run the script again. What we would be much better it to run a local server and see our changes reflected instantaneously in the browser. In order to do that we’ll write a script that uses Browsersync, which we’ve already installed.
+
+First, let’s write the script that runs the server, which we’ll call “serve”:
+
+```json
+"scripts": {
+	"scss": "node-sass --output-style compressed -o dist/css src/scss",
+	"serve": "browser-sync start --server --files 'dist/css/*.css, **/*.html'"
+}
+```
+
+In the `--files` option we’re listing the files that Browsersync should monitor. It will reload the page when any of these change. If we run this script now (`npm run serve`), it will start a local server and we can preview our web page by going to [http://localhost:3000](http://localhost:3000) in the browser.
+
+Currently we still need to run our “scss” script when we want to compile our Sass, so let’s automate that. We need to install an NPM package called _onchange_, to watch for changes to the source files and trigger our “scss” command:
+
+```
+npm install onchange --save-dev
+```
+
+And let’s add the script that watches for changes:
+
+```json
+"scripts": {
+	"scss": "node-sass --output-style compressed -o dist/css src/scss",
+	"serve": "browser-sync start --server --files 'dist/css/*.css, **/*.html'",
+	"watch:css": "onchange 'src/scss' -- npm run scss",
+}
+```
+
+The script tells the _onChange_ package which files to watch (_src/scss_) and the script to subsequently run (“scss”).
+
+Now we need to run two commands concurrently: The “serve” command to run our server, and the “watch:css” command to compile our Sass to CSS, which will trigger the page reload. Using NPM scripts we can easily run commands _consecutively_ using the _&&_ operator:
+
+```json
+"start": "npm run serve && npm run scss"
+```
+
+However, this won’t achieve what we want, as the script will wait until _after_ the “serve” script has finished running before it begins running the “scss” script.
+
+## Creating a Github repository
