@@ -17,7 +17,7 @@ I’ve written previously on this blog about [keeping things simple](/building-a
 
 - Run a local server
 - Compile SCSS to CSS, and minify the output
-- Hot reload (show changes in the browser without the need for manual refresh)
+- Live reload (show changes in the browser without the need for manual refresh)
 - Optimise images
 - Create SVG icon sprites
 
@@ -68,7 +68,7 @@ Running this command brings up several steps for initialising our project in the
 	"name": "project-starter",
 	"version": "1.0.0",
 	"description": "",
-	"main": "src/index.html",
+	"main": "index.js",
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1"
 	},
@@ -135,6 +135,22 @@ Now let’s add the following to our _index.html_ file so that we can see our si
 </html>
 ```
 
+In _package.json_, let’s change the value of `“main”` from `index.js` to `src/index.html`, as that’s where our entry point will be:
+
+```json
+{
+	"name": "project-starter",
+	"version": "1.0.0",
+	"description": "",
+	"main": "src/index.html",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"author": "",
+	"license": "ISC"
+}
+```
+
 ## Installing dependencies
 
 Now that we have our basic folder structure, we can start to install some packages and write some NPM scripts that will let us build and view our website. The scripts we’re going to write will:
@@ -163,7 +179,7 @@ The _node_modules_ directory is where the code for all of our project dependenci
 touch .gitignore && echo "node_modules" >> .gitignore
 ```
 
-This command creates the _.gitignore_ file and adds _node_modules_ to it. Now we are safe in the knowledge that our packages will not be committed.
+This command creates the _.gitignore_ file and adds _node_modules_ to it. (Again, you can do this manually if you prefer.) Now we are safe in the knowledge that our packages will not be committed.
 
 If we’re not committing these files, then how can we share our dependencies with other users? Well, this is where _package.json_ helps us. It tells us the name and version number of any dependencies we have installed. Anyone who clones or forks the project (including us, when we use it as a project starter!) can simply run `npm install` and all the associated dependencies will be fetched and downloaded from NPM!
 
@@ -267,7 +283,9 @@ The main options in this package (or at least, the ones we care about) are **run
 
 We now have a very basic starter project. We’ve written some scripts that allow us to simply type the command `npm start` to run a server, watch for changes, compile Sass to CSS and reload the page.
 
-We could now go ahead and install some packages and write scripts to automate some of our other tasks, such as optimising images, creating SVG sprites and building JS. [This CSS Tricks article](https://css-tricks.com/why-npm-scripts/) has a great rundown of a few more scripts you might like to add, as well as a [starter repository](https://github.com/damonbauer/npm-build-boilerplate). We might also want to bundle and transpile our JS. We could end up writing many more scripts and installing plenty more dependencies! But to do some of the heavy lifting, we could instead use [Parcel](https://parceljs.org/).
+We could now go ahead and install some packages and write scripts to automate some of our other tasks, such as optimising images, creating SVG sprites and building JS. [This CSS Tricks article](https://css-tricks.com/why-npm-scripts/) has a great rundown of a few more scripts you might like to add, as well as a [starter repository](https://github.com/damonbauer/npm-build-boilerplate). (Be aware, one or two of the packages included in the example have since been deprecated. You may need to search NPM for substitutes.)
+
+We might also want to bundle and transpile our JS. We could end up writing many more scripts and installing plenty more dependencies! But to do some of the heavy lifting, we could instead use [Parcel](https://parceljs.org/).
 
 ## Module bundling with Parcel
 
@@ -276,7 +294,7 @@ Parcel purports to be a “zero-config” alternative to Webpack, a popular Java
 - Running a local server
 - Building and minifying HTML, CSS and assets
 - Transpiling Javascript
-- Hot reloading
+- Live reloading
 - Code splitting
 
 Using Parcel, we can do everything we already did in the first part of this tutorial (and much more!), while writing fewer scripts! In fact, we only need two scripts to achieve everything we want.
@@ -311,7 +329,7 @@ Now we need to write our two NPM scripts. The first (**start**) will run our pro
 ```json
 "scripts": {
 	"start": "parcel src/index.html",
-	"build:parcel": "parcel build src/index.html"
+	"build": "parcel build src/index.html"
 }
 ```
 
@@ -320,10 +338,98 @@ We could also (optionally) tell Parcel which port to use, and instruct it to ope
 ```json
 "scripts": {
 	"start": "parcel src/index.html -p 3000 --open", // Uses port 3000
-	"build:parcel": "parcel build src/index.html"
+	"build": "parcel build src/index.html"
 }
 ```
 
-## SCSS architecture
+Now go ahead and run `npm start`. Parcel should open your site in the browser at [https://localhost:3000](https://localhost:3000) and reload the page when you make any changes to your SCSS or HTML. We don’t need Browsersync, and we don’t need to write any additional scripts.
+
+### Adding plugins
+
+We can add plugins (which are themselves NPM packages) to optimise images and create SVG sprites:
+
+```
+npm install parcel-plugin-imagemin parcel-plugin-svg-sprite
+```
+
+For the [parcel-plugin-imagemin]() package to take effect, we need to add a config file. Add the following to a file called _imagemin.config.js_ in the project root:
+
+```js
+module.exports = {
+	gifsicle: { optimizationLevel: 2, interlaced: false, colors: 10 },
+	jpegtran: { progressive: true, arithmetic: false },
+	pngquant: { quality: [0.25, 0.5] },
+	svgo: {
+		plugins: [{ removeViewBox: false }, { cleanupIDs: true }]
+	},
+	webp: { quality: 10 }
+}
+```
+
+You can adjust the options for the desired level optimisation ([see documentation]()). _parcel-plugin-svg-sprite_ should just work out-of-the-box – run the project and try adding some icons to see the result.
+
+## Transpiling
+
+I like to write my JS using ES2015 syntax. [Babel](), a transpiler, converts modern Javascript to a syntax that can be read by older browsers – meaning you can write the latest JS code and have it work everywhere. That’s a pretty useful thing to include in a project starter.
+
+Babel has a lot of different plugins and configuration options, and wading through them can feel a bit daunting. But there’s a handy package called _preset-env_ that takes care of transforming all the features of ES2015 (think arrow functions, destructuring, spread operators), which suits me just fine, so let’s install that.
+
+```
+npm install @babel/core @babel/preset-env --save-dev
+```
+
+You can add other plugins if you want to configure Babel to suit your specific needs.
+
+Now we need to add a config file in the project root:
+
+```
+touch .babelrc
+```
+
+If we’re happy using the [default config options]() then we don’t need to add much at all to our config file. The following will suffice:
+
+```
+{
+	"presets": ["@babel/preset-env"]
+}
+```
+
+Again, the Babel documentation has more information on [config options]() should you need it.
+
+Parcel runs Babel for us automatically, so once we’ve installed it and created our config file we’re good to go – our code will be transpiled whenever we run `npm run build`.
+
+## Sass architecture
+
+I tend to employ more or less the same Sass architecture for every project, so I want my boilerplate to include the SCSS files and folders I need to get started writing code straight away. This is my preferred architecture, loosely based on [Harry Roberts’]() [ITCSS](https://www.hongkiat.com/blog/inverted-triangle-css-web-development/) (Inverted Triangle CSS), and our boilerplate at my previous agency, [Mud]():
+
+1. **Config** This typically contains three files: This is where I define all the Sass variables, mixins and function for use throughout the project. I generally use a single file for my variables, covering breakpoints, colours, spacing and anything else. But there’s no reason the variables file couldn’t be broken up into several files, which might be a good idea for large projects.
+2. **Base** Pretty much everything in here involves writing styles on element selectors, rather than classes. It includes any resets (e.g. `* { box-sizing: border-box; }`), and base styles for typography and form elements, some of which may be over-ridden at the component level later on.
+3. **Objects** Any small, reusable pieces of UI, which could appear in multiple components, belong here. I start with a _buttons.scss_ file because, well, pretty much every project has buttons! But I only tend to add others when I need them.
+4. **Globals** I like to keep any components that will be used on every page, such as the header and footer, in a separate folder from the rest of the components. I also add generic layout classes in here – if I have a grid that I want to use in a lot of places, for example. I prefer to use classes rather than mixins for those, as it’s one fewer level of abstraction.
+5. **Components** This is for the larger chunks of UI, such as hero sections, cards, media objects and more. It’s where the bulk of my CSS will be written, but I leave it empty to begin with so that I can add individual component files as and when I need them.
+6. **Utilities**
+
+So, to finish off our project starter, I’m going to add the following file structure to the _src/scss_ directory:
+
+```
+01-config
+	_variables.scss
+	_functions.scss
+	_mixins.scss
+02-base
+	_resets.scss
+	_typography.scss
+	_forms.scss
+03-objects
+	_buttons.scss
+04-globals
+	_header.scss
+	_footer.scss
+	_layout.scss
+05-components
+05-utilities
+```
+
+You might notice each folder has a numerical prefix – this is so that when viewed in the file system the visual order will reflect the import order. This will make it much quicker and easier to find the file I want, and will help avoid mistakes with the cascade.
 
 ## Creating a Github repository
