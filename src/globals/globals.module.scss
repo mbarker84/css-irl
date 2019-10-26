@@ -42,11 +42,7 @@ blockquote {
 }
 
 code {
-	background: linear-gradient(
-		90deg,
-		lighten($secondary, 25%),
-		lighten($primary, 5%)
-	);
+	background: lighten($primary, 15%);
 	padding: 0.125rem 0.25rem;
 	border-radius: 0.2em;
 }
