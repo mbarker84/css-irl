@@ -1,11 +1,15 @@
 ---
 title: 'Module Bundling with Parcel'
-series: 'A Modern Front End Workflow'
-date: '2019-10-26'
+series: 'Part 2: A Modern Front End Workflow'
+date: '2019-10-28'
 tags: ['workflow', 'tooling', 'javascript']
 ---
 
-Parcel purports to be a “zero-config” alternative to [Webpack](https://webpack.js.org/), a popular Javascript module bundler. A module bundler takes separate, reusable JS files (or modules) and “bundles” them into a single file to be served to the browser, as well as minifying the output. This can improve website performance, as the browser doesn’t need to load a bunch of files individually. This in itself is very useful, but Parcel also takes care of other tasks for us out of the box, including:
+<figure>
+  <img src="a-modern-front-end-workflow-02_01.png" alt="">
+</figure>
+
+[Parcel](https://parceljs.org) purports to be a “zero-config” alternative to [Webpack](https://webpack.js.org/), a popular Javascript module bundler. A module bundler takes separate, reusable JS files (or modules) and “bundles” them into a single file to be served to the browser, as well as minifying the output. This can improve website performance, as the browser doesn’t need to load a bunch of files individually. This in itself is very useful, but Parcel also takes care of other tasks for us out of the box, including:
 
 - Running a local server
 - Building and minifying HTML, CSS and assets
@@ -13,7 +17,7 @@ Parcel purports to be a “zero-config” alternative to [Webpack](https://webpa
 - Live reloading
 - Code splitting
 
-Using Parcel, we can do everything we already did in the [previous tutorial](/a-modern-front-end-workflow-part-1) (and much more!), while writing fewer scripts! In fact, we only need two scripts to achieve everything we want.
+Using Parcel, we can do everything we already did in the [previous tutorial](/a-modern-front-end-workflow-part-1) (and much more!), while writing fewer scripts.
 
 ### Creating a Parcel project
 
@@ -30,6 +34,8 @@ my-awesome-project
   node_modules
   package.json
 ```
+
+(This time I’m including any HTML files in the _src_ directory, because they’ll get compiled too when we build the project.)
 
 We’ll start by installing Parcel as a dependency, and we’ll also install _node-sass_ while we’re at it (multiple packages can be listed to install them at the same time):
 

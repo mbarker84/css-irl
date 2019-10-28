@@ -1,13 +1,17 @@
 ---
 title: 'Building Our Sass Architecture'
-series: 'A Modern Front End Workflow'
-date: '2019-10-26'
+series: 'Part 3: A Modern Front End Workflow'
+date: '2019-10-28'
 tags: ['workflow', 'tooling', 'css', 'sass']
 ---
 
+<figure>
+  <img src="a-modern-front-end-workflow-03_01.png" alt="">
+</figure>
+
 In the previous two articles we went through configuring a project starter repository using NPM scripts and [Parcel](https://parceljs.org/). I tend to employ more or less the same Sass architecture for every project, so I want my boilerplate to include the SCSS files and folders I need to get started writing code straight away. This is my preferred architecture, loosely based on [Harry Roberts’](https://csswizardry.com/) [ITCSS](https://www.hongkiat.com/blog/inverted-triangle-css-web-development/) (Inverted Triangle CSS), and our boilerplate at my previous agency, [Mud](https://ournameismud.co.uk/):
 
-1. **Config** This typically contains three files: This is where I define all the Sass variables, mixins and function for use throughout the project. I generally use a single file for my variables, covering breakpoints, colours, spacing and anything else. But there’s no reason the variables file couldn’t be broken up into several files, which might be a good idea for large projects.
+1. **Config** This typically contains three files: It’s where I define all the Sass variables, mixins and function for use throughout the project. I generally use a single file for my variables, covering breakpoints, colours, spacing and anything else. But there’s no reason the variables file couldn’t be broken up into several files, which might be a good idea for large projects.
 
 2. **Base** Pretty much everything in here involves writing styles on element selectors, rather than classes. It includes any resets (e.g. `* { box-sizing: border-box; }`), and base styles for typography and form elements, some of which may be over-ridden at the component level later on.
 

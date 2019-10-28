@@ -1,17 +1,17 @@
 ---
 title: 'Building a Project Starter with NPM Scripts'
-series: 'A Modern Front End Workflow'
+series: 'Part 1: A Modern Front End Workflow'
 date: '2019-10-28'
 tags: ['workflow', 'tooling', 'javascript']
 ---
 
 <figure>
-  <img src="a-modern-front-end-workflow-01_01.png" alt="">
+  <img src="a-modern-front-end-workflow-01_01.png" alt="NPM logo on blue gradient background">
 </figure>
 
 When it comes to building a simple front-end project, how do you get started? What are the tools you need? I suspect everyone will have a different answer. Do you start with a (JS or CSS) framework, or off-the-shelf boilerplate? Perhaps you use a task runner (like [Gulp](https://gulpjs.com/) to orchestrate your project’s needs. Or do you start simple, with just HTML and a CSS file?
 
-The front-end tooling landscape can be confusing, and at times overwhelming – and when you’re dedicating your time to learning HTML, CSS and Javascript, it feels like yet another thing you need to make time to learn. In this series of articles I want to help developers understand some of the tools and methodologies that have become commonplace for building web projects. Together we’ll build a simple project starter (or boilerplate) over the next three articles. We’ll cover:
+The front-end tooling landscape can be confusing, and at times overwhelming – and when you’re dedicating your time to learning HTML, CSS and Javascript, it feels like yet another thing you need to make time to learn. In this series of articles I want to help developers understand some of the tools and methodologies that have become commonplace for building web projects. Over the next three articles we’ll build a simple project starter (or boilerplate) together. We’ll cover:
 
 1. An introduction to using NPM scripts (this article) for compiling Sass, running a server and live reloading.
 2. Getting up and running with [Parcel](https://parceljs.org/), a minimal-config application bundler.
@@ -37,7 +37,7 @@ All this takes time to set up and configure, and to do it from scratch every tim
 
 ## Choosing our tools
 
-I’m not a person who loves spending time setting up complex tooling. I want my tools to demand as little time from me as possible, so that I can concentrate on the things I love doing! While I’ve used Gulp in the past, it now seems a less necessary part of the toolchain: virtually all dependencies can be installed via NPM and configuring them with NPM scripts is no more difficult than configuring them with Gulp. So using a task runner seems a bit redundant, and would only add an extra dependency to the project.
+I’m not a person who loves spending time setting up complex tooling. I want my tools to demand as little time from me as possible, so that I can concentrate on the things I love doing! Whilst I’ve used Gulp in the past, it now seems a less necessary part of the toolchain: virtually all dependencies can be installed via NPM and configuring them with NPM scripts is no more difficult than configuring them with Gulp. So using a task runner seems a bit redundant, and would only add an extra dependency to the project.
 
 The tools I’ve chosen here are a personal preference, and suit the kind of projects I like to build. They’re not necessarily everyone’s choice, and there are plenty of different ways to do things. But I hope this tutorial will help you get a bit more familiar with some of the tools that have become popular among developers, so that you can make your own choices.
 
@@ -66,11 +66,15 @@ Installing Node also installs [NPM](https://www.npmjs.com/) (Node Package Manage
 
 ### NPM or Yarn?
 
-[Yarn](https://yarnpkg.com/lang/en/) is an alternative package manager, similar to NPM, and almost as popular. In fact, many people consider it an improvement. It can be used in the same way, to install dependencies. If you prefer to use Yarn over NPM, you can safely substitute NPM commands with the Yarn equivalent anywhere they’re used in this article.
+[Yarn](https://yarnpkg.com/lang/en/) is an alternative package manager, similar to NPM, and almost as popular. In fact, many people consider it an improvement. It can be used in a similar way, to install dependencies. If you prefer to use Yarn over NPM, you can safely substitute NPM commands with the Yarn equivalent anywhere they’re used in this article.
+
+<aside>
+	Note, whether we use Yarn or NPM, it’s still NPM packages we’re installing – Yarn is just the CLI tool, there isn’t a rival Yarn package library. Just one of the many confusing things about the Javascript ecosystem!
+</aside>
 
 ### Initialising the project
 
-First, let’s create a new project folder, which we’ll call _my-awesome-project_. Open the terminal, and inside that folder run:
+First, let’s create a new project folder, which we’ll (imaginitively) call _new-project_. Open the terminal, and inside that folder run:
 
 ```
 npm init
@@ -101,34 +105,34 @@ Any packages that we install from NPM will be automatically listed in the _packa
 We’ll start with a folder structure that looks like this:
 
 ```
-my-awesome-project
+new-project
+	index.html
   src
     icons
     images
     js
     scss
-    index.html
   node_modules
   package.json
 ```
 
-We’ve already generated the node_modules directory and \_package.json\* in the root of the project. We just need to create a directory called \_src\*, containing directories for images, JS, SCSS and icons, plus an \_index.html\* file.
+We’ve already generated the `node_modules` directory and _package.json_ in the root of the project. We just need to create a directory called _src_, containing directories for images, JS, SCSS and icons, plus an _index.html_ file.
 
 ### Creating our folder structure from the command line
 
 You could create the above folder structure manually, either in your text editor of choice or in your computer’s file system. But if you want to save time, you could do it from the terminal instead. In the root of the project, you could run:
 
 ```
-mkdir src
-cd src
-mkdir js scss images icons && touch index.html
+touch index.html
+mkdir src && cd src
+mkdir js scss images icons
 cd ../
 ```
 
 Line by line, this code:
 
-1. Creates a new _src_ directory
-2. Moves us into the newly-created directory
+1. Creates a new _index.html_ file
+2. Creates a new _src_ directory and moves us into the newly-created directory
 3. Creates directories inside _src_ called _js_, _scss_, _images_ and _icons_, and a file called _index.html_.
 4. Brings us back up to the project root.
 
@@ -150,22 +154,6 @@ Now let’s add the following to our _index.html_ file so that we can see our si
 </html>
 ```
 
-In _package.json_, let’s change the value of `“main”` from `index.js` to `src/index.html`, as that’s where our entry point will be:
-
-```json
-{
-	"name": "project-starter",
-	"version": "1.0.0",
-	"description": "",
-	"main": "src/index.html",
-	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1"
-	},
-	"author": "",
-	"license": "ISC"
-}
-```
-
 ## Installing dependencies
 
 Now that we have our basic folder structure, we can start to install some packages and write some NPM scripts that will let us build and view our website. The scripts we’re going to write will:
@@ -182,19 +170,19 @@ npm install node-sass --save-dev
 
 Once this command has finished running, you should see a couple of new things:
 
-1. A directory called node_modules has been created
+1. A directory called `node_modules` has been created
 2. In the _package.json_ file, `node-sass` is now listed in “devDependencies”.
 3. Adds a _package-lock.json_ file. This isn’t something we should ever need to touch.
 
 ### Adding a .gitignore
 
-The node_modules directory is where the code for all of our project dependencies will live. The contents of this folder should \_not\* be committed to Github, as installing just a few dependencies could result in hundreds of thousands of files! So the next thing we should do is add a \*.gitignore\_ file in the project root:
+The `node_modules` directory is where the code for all of our project dependencies will live. The contents of this folder should _not_ be committed to Github (or your favourite repository host), as installing just a few dependencies could result in hundreds of thousands of files! So the next thing we should do is add a _.gitignore_ file in the project root:
 
 ```
 touch .gitignore && echo "node_modules" >> .gitignore
 ```
 
-This command creates the _.gitignore_ file and adds node_modules to it. (Again, you can do this manually if you prefer.) Now we are safe in the knowledge that our packages will not be committed.
+This command creates the _.gitignore_ file and adds `node_modules` to it. (Again, you can do this manually if you prefer.) Now we are safe in the knowledge that our packages will not be committed.
 
 If we’re not committing these files, then how can we share our dependencies with other users? Well, this down to the _package.json_ file. It tells us the name and version number of any dependencies we have installed. Anyone who clones or forks the project (including us, when we use it to start a new project) can simply run `npm install` and all the associated dependencies will be fetched and downloaded from NPM.
 
@@ -210,7 +198,7 @@ npm install browser-sync --save-dev
 
 ## Writing NPM scripts
 
-Now it’s time to write some scripts to run our project. As previously mentioned, we’re going to write these in the “scripts” section of our _package.json_.
+Now it’s time to write some scripts to run our project. We’re going to write these in the “scripts” section of our _package.json_.
 
 ### Sass to CSS
 
@@ -307,11 +295,11 @@ The main options in this package (or at least, the ones we care about) are **run
 }
 ```
 
-We now have a basic starter project. We’ve written some scripts that allow us to simply type the command `npm start` to run a server, watch for changes, compile Sass to CSS and reload the page. An example repository can be found [here](https://github.com/mbarker84/project-starter).
+We now have a very basic starter project. We’ve written some scripts that allow us to simply type the command `npm start` to run a server, watch for changes, compile Sass to CSS and reload the page. An example repository can be found [here](https://github.com/mbarker84/project-starter).
 
-We could now go ahead and install some packages and write scripts to automate some of our other tasks, such as optimising images, creating SVG sprites and building JS. [This CSS Tricks article](https://css-tricks.com/why-npm-scripts/) has a great rundown of a few more scripts you might like to add, as well as a [starter repository](https://github.com/damonbauer/npm-build-boilerplate). (Be aware, one or two of the packages included in the example have since been deprecated. You may need to search NPM for substitutes.)
+We could now go ahead and install some packages and write scripts to automate some of our other tasks, such as optimising images, creating SVG sprites and uglifying JS. [This CSS Tricks article](https://css-tricks.com/why-npm-scripts/) has a great rundown of a few more scripts you might like to add, as well as a [starter repository](https://github.com/damonbauer/npm-build-boilerplate). (Be aware, one or two of the packages included in the example have since been deprecated. You may need to search NPM for substitutes.)
 
-The more tasks we want to run, the more scripts we’ll need to write, and orchestrating them all becomes more complex. But in the next article we’ll look at how [Parcel](https://parceljs.org/), an application bundler, can automate a lot of these tasks for us with minimal configuration, and provide the tooling we need in order to build larger projects.
+This may serve us perfectly well for small projects, but the more tasks we want to run, the more scripts we’ll need to write, and orchestrating them all becomes more complex. So, in the next article we’ll look at how [Parcel](https://parceljs.org/), an application bundler, can automate a lot of these tasks for us with minimal configuration, and provide the tooling we need in order to build larger projects.
 
 ## See the next articles in this series
 
