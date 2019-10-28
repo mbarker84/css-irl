@@ -161,6 +161,10 @@ The Babel documentation has more information on [config options](https://babeljs
 
 Parcel runs Babel for us automatically, so once we’ve installed it and created our config file we’re good to go – our code will be transpiled whenever we run `npm run build`.
 
+## Example
+
+I’ve created a [starter respository](https://github.com/mbarker84/parcel-starter) using the same process as in this article – feel free to clone or fork it and use it for your projects.
+
 ## Coming up
 
 So far in this series we’ve seen how to build a starter for very simple project using NPM scripts, and learnt how to use Parcel to handle more complex tasks with minimal configuration. In the third article we’ll add a simple Sass architecture to help us get up and running quickly with writing styles.

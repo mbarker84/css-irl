@@ -1,9 +1,13 @@
 ---
 title: 'Building a Project Starter with NPM Scripts'
 series: 'A Modern Front End Workflow'
-date: '2019-10-26'
+date: '2019-10-28'
 tags: ['workflow', 'tooling', 'javascript']
 ---
+
+<figure>
+  <img src="a-modern-front-end-workflow-01_01.png" alt="">
+</figure>
 
 When it comes to building a simple front-end project, how do you get started? What are the tools you need? I suspect everyone will have a different answer. Do you start with a (JS or CSS) framework, or off-the-shelf boilerplate? Perhaps you use a task runner (like [Gulp](https://gulpjs.com/) to orchestrate your project’s needs. Or do you start simple, with just HTML and a CSS file?
 
