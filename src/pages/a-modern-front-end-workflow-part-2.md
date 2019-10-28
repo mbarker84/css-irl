@@ -45,23 +45,59 @@ We’ll need to change the file path of our stylesheet in _index.html_. We only 
 <link rel="stylesheet" href="./scss/styles.scss" />
 ```
 
-Now we need to write our two NPM scripts. The first (**start**) will run our project, the second (**build**) will build it for production:
+Parcel comes with all the commands we need to run and build our project. Simply running `parcel` plus the path to our _index.html_ file is enough to run the project and watch for changes:
+
+```
+parcel src/index.html
+```
+
+We could also (optionally) tell Parcel which port to use, and instruct it to open our website in a new browser tab whenever we start it up. The following command instructs it to use port 3000, and using the `--open` flag it will open in a new tab:
+
+```
+parcel src/index.html -p 3000 --open
+```
+
+This is a lot to type every time we want to run the project, so I like to write an NPM script for this:
 
 ```json
 "scripts": {
-	"start": "parcel src/index.html",
+	"start": "parcel src/index.html -p 3000 --open",
+}
+```
+
+Now we only need to type `npm start`.
+
+The second of parcel’s commands builds the website for production:
+
+```
+parcel build src/index.html
+```
+
+Again, we can write a script to execute this command too:
+
+```json
+"scripts": {
+	"start": "parcel src/index.html -p 3000 --open",
 	"build": "parcel build src/index.html"
 }
 ```
 
-We could also (optionally) tell Parcel which port to use, and instruct it to open our website in a new browser tab whenever we start it up – let’s do that now:
+Parcel’s `build` command builds all the assets to a _dist_ folder, but it doesn’t clean the folder out each time it’s run, so you can end up with duplicate files. I like to run a clean-up command before running a production build, so that we can be sure the only files built in the _dist_ directory are the ones necessary to our project.
 
 ```json
 "scripts": {
-	"start": "parcel src/index.html -p 3000 --open", // Opens in port 3000
-	"build": "parcel build src/index.html"
+	"start": "parcel src/index.html -p 3000 --open",
+	"clean": "rm -rf dist/*",
+	"build:parcel": "parcel build src/index.html",
+	"build": "npm run clean && npm run build:parcel",
 }
 ```
+
+I’ve made a few small changes to our scripts:
+
+1. The “clean” script removes everything in the _dist_ folder
+2. I’ve renamed the previous “build” script “build:parcel”.
+3. Now the `build` command runs the “clean” script followed by the “build:parcel” script.
 
 Now go ahead and run `npm start`. Parcel should open your site in the browser at [https://localhost:3000](https://localhost:3000) and reload the page when you make any changes to your SCSS or HTML. We don’t need Browsersync, and we don’t need to write any additional scripts.
 
@@ -73,7 +109,7 @@ We can add plugins (which are themselves NPM packages) to optimise images and cr
 npm install parcel-plugin-imagemin parcel-plugin-svg-sprite
 ```
 
-For the [parcel-plugin-imagemin]() package to take effect, we need to add a config file. Add the following to a file called _imagemin.config.js_ in the project root:
+For the [parcel-plugin-imagemin](https://github.com/DeMoorJasper/parcel-plugin-imagemin) package to take effect, we need to add a config file. Add the following to a file called _imagemin.config.js_ in the project root:
 
 ```js
 module.exports = {
@@ -87,11 +123,17 @@ module.exports = {
 }
 ```
 
-You can adjust the options for the desired level optimisation ([see documentation]()). _parcel-plugin-svg-sprite_ should just work out-of-the-box – run the project and try adding some icons to see the result.
+You can adjust the options for the desired level optimisation (see the plugin’s documentation). _parcel-plugin-svg-sprite_ should just work out-of-the-box – run the project and try adding some SVG icons to the _src/icons_ directory. You should then be able to use any of them in your HTML with the SVG `<use>` element:
+
+```html
+<svg>
+	<use href="icons/my-icon.svg">
+</svg>
+```
 
 ## Transpiling
 
-I like to write my JS using ES2015 syntax. [Babel](), a transpiler, converts modern Javascript to a syntax that can be read by older browsers – meaning you can write the latest JS code and have it work everywhere. That’s a pretty useful thing to include in a project starter.
+I like to write my JS using ES2015 syntax. [Babel](https://babeljs.io/), a transpiler, converts modern Javascript to a syntax that can be read by older browsers – meaning you can write the latest JS code and have it work everywhere. That’s a pretty useful thing to include in a project starter.
 
 Babel has a lot of different plugins and configuration options, and wading through them can feel a bit daunting. But there’s a handy package called _preset-env_ that takes care of transforming all the features of ES2015 (think arrow functions, destructuring, spread operators), which suits me just fine, so let’s install that.
 
@@ -99,7 +141,7 @@ Babel has a lot of different plugins and configuration options, and wading throu
 npm install @babel/core @babel/preset-env --save-dev
 ```
 
-You can add other plugins if you want to configure Babel to suit your specific needs.
+You can add other plugins if you want to configure Babel to suit your specific needs (e.g. if you’re using React, Vue or another framework).
 
 Now we need to add a config file in the project root:
 
@@ -107,7 +149,7 @@ Now we need to add a config file in the project root:
 touch .babelrc
 ```
 
-If we’re happy using the [default config options]() then we don’t need to add much at all to our config file. The following will suffice:
+If we’re happy using the default config options then we don’t need to add much at all to our config file. The following will suffice:
 
 ```
 {
@@ -115,11 +157,13 @@ If we’re happy using the [default config options]() then we don’t need to ad
 }
 ```
 
-Again, the Babel documentation has more information on [config options]() should you need it.
+The Babel documentation has more information on [config options](https://babeljs.io/docs/en/babel-preset-env) should you need it.
 
 Parcel runs Babel for us automatically, so once we’ve installed it and created our config file we’re good to go – our code will be transpiled whenever we run `npm run build`.
 
-You can combine Parcel with your own NPM scripts to run tasks that Parcel doesn’t handle itself.
+## Coming up
+
+So far in this series we’ve seen how to build a starter for very simple project using NPM scripts, and learnt how to use Parcel to handle more complex tasks with minimal configuration. In the third article we’ll add a simple Sass architecture to help us get up and running quickly with writing styles.
 
 ## See other articles in this series
 
