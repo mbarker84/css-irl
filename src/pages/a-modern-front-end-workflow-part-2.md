@@ -167,5 +167,5 @@ So far in this series we’ve seen how to build a starter for very simple projec
 
 ## See other articles in this series
 
-- [Building a Project Starter with NPM Scripts](http://localhost:8000/a-modern-front-end-workflow-part-1/)
-- [Building Our Sass Architecture](http://localhost:8000/a-modern-front-end-workflow-part-3/)
+- [Building a Project Starter with NPM Scripts](/a-modern-front-end-workflow-part-1/)
+- [Building Our Sass Architecture](/a-modern-front-end-workflow-part-3/)

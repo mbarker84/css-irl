@@ -59,5 +59,5 @@ This concludes the mini-series on A Modern Front-end Workflow. We’ve learnt ab
 
 ## See other articles in this series
 
-- [Building a Project Starter with NPM Scripts](http://localhost:8000/a-modern-front-end-workflow-part-1/)
-- [Module Bundling with Parcel](http://localhost:8000/a-modern-front-end-workflow-part-2/)
+- [Building a Project Starter with NPM Scripts](/a-modern-front-end-workflow-part-1/)
+- [Module Bundling with Parcel](/a-modern-front-end-workflow-part-2/)

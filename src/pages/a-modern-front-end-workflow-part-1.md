@@ -311,5 +311,5 @@ The more tasks we want to run, the more scripts we’ll need to write, and orche
 
 ## See the next articles in this series
 
-- [Module Bundling with Parcel](http://localhost:8000/a-modern-front-end-workflow-part-2/)
-- [Building Our Sass Architecture](http://localhost:8000/a-modern-front-end-workflow-part-3/)
+- [Module Bundling with Parcel](/a-modern-front-end-workflow-part-2/)
+- [Building Our Sass Architecture](/a-modern-front-end-workflow-part-3/)
