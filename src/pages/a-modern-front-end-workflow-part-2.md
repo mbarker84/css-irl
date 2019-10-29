@@ -1,6 +1,6 @@
 ---
-title: 'Module Bundling with Parcel'
-series: 'Part 2: A Modern Front End Workflow'
+title: 'Part 2: Module Bundling with Parcel'
+series: 'A Modern Front End Workflow'
 date: '2019-10-28'
 tags: ['workflow', 'tooling', 'javascript']
 ---

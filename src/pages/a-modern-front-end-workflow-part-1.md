@@ -1,6 +1,6 @@
 ---
-title: 'Building a Project Starter with NPM Scripts'
-series: 'Part 1: A Modern Front End Workflow'
+title: 'Part 1: Building a Project Starter with NPM Scripts'
+series: 'A Modern Front End Workflow'
 date: '2019-10-28'
 tags: ['workflow', 'tooling', 'javascript']
 ---

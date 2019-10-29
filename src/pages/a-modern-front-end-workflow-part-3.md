@@ -1,6 +1,6 @@
 ---
-title: 'Building Our Sass Architecture'
-series: 'Part 3: A Modern Front End Workflow'
+title: 'Part 3: Building Our Sass Architecture'
+series: 'A Modern Front End Workflow'
 date: '2019-10-28'
 tags: ['workflow', 'tooling', 'css', 'sass']
 ---
