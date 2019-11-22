@@ -43,7 +43,7 @@ exports.createPages = ({ graphql, actions }) => {
 					},
 				})
 
-				const postsPerPage = 6
+				const postsPerPage = 12
 				const numPages = Math.ceil(posts.length / postsPerPage)
 
 				// Listing page (index)
