@@ -35,7 +35,7 @@ If you’re using a shorthand property such as `animation`, and you need to chan
 
 ```css
 .some-element {
-  animation: var(--animationName, pulse) var(--duration 2000ms) ease-in-out
+  animation: var(--animationName, pulse) var(--duration, 2000ms) ease-in-out
     infinite;
 }
 
