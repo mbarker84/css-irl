@@ -14,7 +14,7 @@ Custom properties don’t _just_ represent entire property values – they can b
 
 ```css
 .some-element {
-  background-colour: hsla(
+  background-color: hsla(
     var(--h, 120),
     var(--s, 50),
     var(--l, 50),
