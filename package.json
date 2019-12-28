@@ -27,18 +27,18 @@
     "gatsby-remark-video": "^1.2.5",
     "gatsby-source-filesystem": "2.1.5",
     "gatsby-transformer-remark": "2.6.45",
-    "graphql": "^14.3.1",
-    "prismjs": "^1.15.0",
-    "react": "^16.9.0",
-    "react-dom": "^16.9.0",
+    "graphql": "^14.5.8",
+    "prismjs": "^1.17.1",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
     "react-headroom": "^2.2.4",
-    "react-helmet": "^5.2.0",
+    "react-helmet": "^5.2.1",
     "react-typography": "^0.16.19",
     "typography": "^0.16.19",
     "typography-theme-ocean-beach": "^0.16.19",
-    "webpack": "^4.39.3"
+    "webpack": "^4.41.5"
   },
   "devDependencies": {
-    "node-sass": "^4.12.0"
+    "node-sass": "^4.13.0"
   }
 }
