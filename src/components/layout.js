@@ -2,8 +2,7 @@ import React from "react";
 import Helmet from "react-helmet";
 import styles from "../layouts/styles.module.scss";
 import { StaticQuery, graphql } from "gatsby";
-import { StickyHeader } from "../components/sticky-header/sticky-header";
-import { Navigation } from "../components/navigation/navigation";
+import StickyHeader from "../components/sticky-header/sticky-header";
 import metaImg from "../images/social_1200x630.png";
 
 const img = `https://css-irl.info${metaImg}`;
@@ -113,8 +112,7 @@ export default ({ children }) => (
           <meta name="twitter:card" content="summary_large_image" />
         </Helmet>
 
-        <StickyHeader styles={styles} />
-        <Navigation />
+        <StickyHeader />
 
         <main className={styles.content}>{children}</main>
         <footer className={styles.footer}>

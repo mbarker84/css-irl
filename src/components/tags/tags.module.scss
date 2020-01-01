@@ -3,11 +3,16 @@
 .tagList {
   list-style: none;
   margin: 0;
+  padding: 0;
   display: flex;
+  flex-wrap: wrap;
+  font-family: $heading;
 }
 
 .tagItem {
-  font-size: 0.9rem;
+  &::marker {
+    display: none;
+  }
 }
 
 .tagItem:not(:last-child) {
@@ -19,14 +24,17 @@
 }
 
 .tagName {
-  color: lighten($black, 25%);
-  background-color: lighten($secondary, 25%);
+  display: block;
+  background-color: $primary;
+  color: $white;
   transition: background-color 200ms, color 200ms;
-  padding: 0 0.125rem;
+  padding: 0 rem(5px);
+  text-decoration: none;
+  border-radius: 0.1rem;
 
   &:hover,
   &:focus {
-    background-color: lighten($secondary, 10%);
-    color: lighten($black, 10%);
+    color: $primary;
+    background-color: $black;
   }
 }

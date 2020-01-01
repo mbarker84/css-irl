@@ -1,27 +1,22 @@
 import React from "react";
-import Headroom from "react-headroom";
 import { Link } from "gatsby";
 import styles from "./sticky-header.module.scss";
-import headroom from "./headroom.scss";
 import Logo from "../logo/logo";
+import Navigation from "../navigation/navigation";
 
-export const StickyHeader = () => {
+const StickyHeader = () => {
   return (
     <header className={styles.header}>
-      <Headroom
-        className={headroom.headroom}
-        pinStart={200}
-        disableInlineStyles
-      >
+      <div className={styles.headerLeft}>
         <Link className={styles.homeLink} to={`/`}>
-          <h3>
-            CSS {`{`} IRL {`}`}
-          </h3>
+          <Logo />
         </Link>
-      </Headroom>
-      <Link to={`/`} style={{ textDecoration: `none`, color: `inherit` }}>
-        <Logo />
-      </Link>
+      </div>
+      <div className={styles.headerRight}>
+        <Navigation />
+      </div>
     </header>
   );
 };
+
+export default StickyHeader;

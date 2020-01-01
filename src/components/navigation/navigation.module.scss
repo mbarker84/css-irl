@@ -1,73 +1,34 @@
 @import "../../globals/imports.scss";
 
 .menu {
-  display: flex;
-  flex-wrap: wrap;
-  padding: 1em;
-
-  @media (min-width: $sm) {
-    grid-column: wrapper-start / wrapper-end;
-    grid-row: 1;
-    padding: unset;
-  }
-
-  @media (min-width: $xl) {
-    grid-column: wrapper-start / header-end;
-    grid-row: 3;
-  }
+  padding: 0 rem(20px);
+  font-family: $heading;
 }
 
 .menuList {
   list-style: none;
-  margin: 1rem 0 0 0;
+  margin: 0;
+  padding: 0;
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  width: 100%;
 
-  @media (min-width: $xl) {
-    flex-direction: column;
-    justify-content: flex-start;
-    margin: 0;
+  li {
+    &::marker {
+      display: none;
+    }
+  }
+
+  > * + * {
+    margin-left: rem(10px);
   }
 }
 
 .headerLink {
-  display: flex;
-  align-items: center;
-  font-size: 0.8rem;
-  transition: transform 200ms ease-in-out, box-shadow 200ms ease-in-out;
-  transform-origin: top left;
-  text-decoration: none;
-  color: $black;
-  background-image: none;
-
-  @media (min-width: $sm) {
-    font-size: 1rem;
-  }
-
-  span {
-    box-shadow: none;
-  }
-
-  &:visited {
-    color: $black;
-  }
-
-  &:hover,
-  &:focus {
-    span {
-      box-shadow: none;
-    }
-  }
+  padding: rem(10px);
 }
 
 .linkIcon {
-  width: 1.2rem;
-  height: 1.2rem;
-  display: block;
-  position: relative;
-  z-index: 1;
-  fill: $black;
-  margin: 0 1rem 0 0;
+  max-width: rem(25px);
+  fill: currentColor;
 }

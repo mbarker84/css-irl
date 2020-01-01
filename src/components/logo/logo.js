@@ -7,7 +7,7 @@ const Logo = props => (
     x={0}
     y={0}
     width={300}
-    height={100}
+    height={50}
     viewBox="0 0 4561.1 606.5"
     xmlSpace="preserve"
     {...props}

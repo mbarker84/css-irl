@@ -1,12 +1,14 @@
 @import "../globals/imports.scss";
 
 .pagination {
-  margin-top: 1rem;
+  margin-top: rem(40px);
   padding-top: 1rem;
-  font-size: 0.85rem;
   display: flex;
   justify-content: space-between;
-  border-top: 1px solid lighten($black, 80%);
+  border-top: 1px solid lighten($black, 50%);
+  font-family: $heading;
+  font-weight: $bold;
+  font-size: rem(20px);
 
   @media (min-width: $lg) {
     margin-top: 3rem;
@@ -23,20 +25,35 @@
 
 .paginationLinkNext,
 .paginationLinkPrevious {
-  color: lighten($black, 30%);
+  color: $primary;
   transition: color 200ms, border 200ms;
   border-bottom: 2px solid transparent;
+  text-decoration: none;
 
   &:hover,
   &:focus {
-    color: lighten($black, 40%);
-    border-bottom: 2px solid $primary;
+    color: $black;
+    border-bottom: 2px solid $black;
   }
 }
 
+.searchTags {
+  margin-left: auto;
+}
+
 .searchTags a {
-  font-size: 0.9rem;
+  font-family: $heading;
+  font-weight: $bold;
+  color: $black;
   border-bottom: 2px solid $primary;
+  text-decoration: none;
+  font-size: rem(20px);
+  transition: color 200ms;
+
+  &:hover,
+  &:focus {
+    color: $primary;
+  }
 }
 
 .header {
@@ -56,10 +73,28 @@
 }
 
 .postsCount {
-  font-size: 0.9rem;
   margin-top: 1rem;
+  font-weight: $std;
 
   @media (min-width: $md) {
     margin: 0;
+  }
+}
+
+.postItem {
+  &:first-child {
+    @media (min-width: $md) {
+      grid-column: span 2;
+    }
+
+    @media (min-width: $lg) {
+      grid-column: span 3;
+    }
+  }
+}
+
+.resultTitle {
+  @media (min-width: $md) {
+    font-size: rem(40px);
   }
 }

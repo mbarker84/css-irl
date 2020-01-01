@@ -1,7 +1,7 @@
-$primary: #95e8ed;
+$primary: deepPink;
 $secondary: #ed65e8;
-$yellow: #f9f32f;
 $black: #0e0f0f;
+$bg-dark: #1d1d26;
 $bg-light: #e1f1f2;
 $white: #fcfdff;
 $light-grey: #e8eaed;
@@ -11,6 +11,14 @@ $sm: 42em;
 $md: 50em;
 $lg: 60em;
 $xl: 70em;
+
+// Typography
+$body: "PT Serif", Helvetica, sans-serif;
+$heading: "Exo", Helvetica, sans-serif;
+
+// Font weights (Exo)
+$std: 400;
+$bold: 800;
 
 // Layout
 $wrapper: rem(1400px);

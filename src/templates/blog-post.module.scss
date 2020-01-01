@@ -1,14 +1,27 @@
 @import "../globals/imports.scss";
 
+.postHeader {
+  margin-bottom: rem(20px);
+
+  @media (min-width: $md) {
+    margin-bottom: rem(40px);
+  }
+}
+
 .src {
-  font-size: 0.8rem;
+  display: block;
+  font-family: $heading;
 }
 
 .postHeading {
-  margin-top: 0;
+  margin: 0;
 
-  @media (min-width: 60em) {
-    font-size: 3rem;
+  @media (min-width: $md) {
+    font-size: rem(40px);
+  }
+
+  @media (min-width: $lg) {
+    font-size: rem(50px);
   }
 }
 
@@ -16,8 +29,14 @@
   margin-bottom: 1rem;
   margin-top: 0;
 
-  @media (min-width: 60em) {
-    font-size: 1.3rem;
+  @media (min-width: $md) {
+    font-size: rem(24px);
+  }
+}
+
+.postHeader {
+  > * + * {
+    margin-top: rem(10px);
   }
 }
 
@@ -48,6 +67,19 @@
 
   * + p {
     margin-top: 1rem;
+  }
+
+  a,
+  link {
+    color: $primary;
+  }
+
+  figure {
+    margin: 0 0 rem(20px) 0;
+  }
+
+  @media (min-width: $md) {
+    font-size: rem(22px);
   }
 }
 

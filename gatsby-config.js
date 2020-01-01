@@ -1,77 +1,71 @@
 module.exports = {
-	siteMetadata: {
-		title: `CSS { In Real Life }`,
-		subheading: `{ In Real Life }`,
-		description: `CSS In Real Life is a blog covering CSS topics and useful snippets on the web’s most beautiful language. Published by Michelle Barker, front end developer at Ordoo and CSS superfan.`,
-		siteUrl: `https://css-irl.info`
-	},
-	plugins: [
-		{
-			resolve: `gatsby-source-filesystem`,
-			options: {
-				name: `src`,
-				path: `${__dirname}/src/`
-			}
-		},
-		{
-			resolve: `gatsby-plugin-manifest`,
-			options: {
-				name: 'CSS {In Real Life}',
-				short_name: 'CSS',
-				start_url: '/',
-				background_color: '#fcfdff',
-				theme_color: '#95e8ed',
-				display: 'minimal-ui',
-				icon: 'src/images/icon_512.png'
-			}
-		},
-		`gatsby-plugin-sharp`,
-		{
-			resolve: `gatsby-transformer-remark`,
-			options: {
-				plugins: [
-					`gatsby-remark-copy-images`,
-					`gatsby-remark-copy-linked-files`,
-					`gatsby-remark-responsive-iframe`,
-					{
-						resolve: `gatsby-remark-images`,
-						options: {
-							maxWidth: 800
-						}
-					},
-					{
-						resolve: `gatsby-remark-prismjs`,
-						options: {
-							classPrefix: 'language-',
-							noInlineHighlight: true
-						}
-					}
-				]
-			}
-		},
-		`gatsby-plugin-sass`,
-		`gatsby-plugin-offline`,
-		`gatsby-plugin-react-helmet`,
-		{
-			resolve: `gatsby-plugin-typography`,
-			options: {
-				pathToConfigModule: `src/utils/typography`
-			}
-		},
-		{
-			resolve: 'gatsby-remark-video',
-			options: {
-				width: '100%',
-				height: 'auto',
-				preload: 'auto',
-				muted: true,
-				autoplay: false
-			}
-		},
-		{
-			resolve: `gatsby-plugin-feed`,
-			options: {
-				query: `
+  siteMetadata: {
+    title: `CSS { In Real Life }`,
+    subheading: `{ In Real Life }`,
+    description: `CSS In Real Life is a blog covering CSS topics and useful snippets on the web’s most beautiful language. Published by Michelle Barker, front end developer at Ordoo and CSS superfan.`,
+    siteUrl: `https://css-irl.info`
+  },
+  plugins: [
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `src`,
+        path: `${__dirname}/src/`
+      }
+    },
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: "CSS {In Real Life}",
+        short_name: "CSS",
+        start_url: "/",
+        background_color: "#fcfdff",
+        theme_color: "#95e8ed",
+        display: "minimal-ui",
+        icon: "src/images/icon_512.png"
+      }
+    },
+    `gatsby-plugin-sharp`,
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        plugins: [
+          `gatsby-remark-copy-images`,
+          `gatsby-remark-copy-linked-files`,
+          `gatsby-remark-responsive-iframe`,
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              maxWidth: 800
+            }
+          },
+          {
+            resolve: `gatsby-remark-prismjs`,
+            options: {
+              classPrefix: "language-",
+              noInlineHighlight: true
+            }
+          }
+        ]
+      }
+    },
+    `gatsby-plugin-sass`,
+    `gatsby-plugin-offline`,
+    `gatsby-plugin-react-helmet`,
+    {
+      resolve: "gatsby-remark-video",
+      options: {
+        width: "100%",
+        height: "auto",
+        preload: "auto",
+        muted: true,
+        autoplay: false
+      }
+    },
+    {
+      resolve: `gatsby-plugin-feed`,
+      options: {
+        query: `
 					{
 						site {
 							siteMetadata {
@@ -83,19 +77,19 @@ module.exports = {
 						}
 					}
 				`,
-				feeds: [
-					{
-						serialize: ({ query: { site, allMarkdownRemark } }) => {
-							return allMarkdownRemark.edges.map(edge => {
-								return Object.assign({}, edge.node.frontmatter, {
-									description: edge.node.excerpt,
-									url: site.siteMetadata.siteUrl + edge.node.fields.slug,
-									guid: site.siteMetadata.siteUrl + edge.node.fields.slug,
-									custom_elements: [{ 'content:encoded': edge.node.html }]
-								})
-							})
-						},
-						query: `
+        feeds: [
+          {
+            serialize: ({ query: { site, allMarkdownRemark } }) => {
+              return allMarkdownRemark.edges.map(edge => {
+                return Object.assign({}, edge.node.frontmatter, {
+                  description: edge.node.excerpt,
+                  url: site.siteMetadata.siteUrl + edge.node.fields.slug,
+                  guid: site.siteMetadata.siteUrl + edge.node.fields.slug,
+                  custom_elements: [{ "content:encoded": edge.node.html }]
+                });
+              });
+            },
+            query: `
 							{
 								allMarkdownRemark(
 									limit: 1000,
@@ -115,27 +109,34 @@ module.exports = {
 								}
 							}
 						`,
-						output: '/rss.xml',
-						title: 'CSS { In Real Life }'
-					}
-				]
-			}
-		},
-		{
-			resolve: `gatsby-plugin-google-analytics`,
-			options: {
-				trackingId: 'UA-150229629-1',
-				// Defines where to place the tracking script - `true` in the head and `false` in the body
-				head: false,
-				// Setting this parameter is optional
-				anonymize: true,
-				// Setting this parameter is also optional
-				respectDNT: true,
-				// Avoids sending pageview hits from custom paths
-				exclude: ['/preview/**', '/do-not-track/me/too/'],
-				// Delays sending pageview hits on route update (in milliseconds)
-				pageTransitionDelay: 0
-			}
-		}
-	]
-}
+            output: "/rss.xml",
+            title: "CSS { In Real Life }"
+          }
+        ]
+      }
+    },
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: "UA-150229629-1",
+        // Defines where to place the tracking script - `true` in the head and `false` in the body
+        head: false,
+        // Setting this parameter is optional
+        anonymize: true,
+        // Setting this parameter is also optional
+        respectDNT: true,
+        // Avoids sending pageview hits from custom paths
+        exclude: ["/preview/**", "/do-not-track/me/too/"],
+        // Delays sending pageview hits on route update (in milliseconds)
+        pageTransitionDelay: 0
+      }
+    },
+    {
+      resolve: `gatsby-plugin-google-fonts`,
+      options: {
+        fonts: [`exo\:400,800`, `pt serif\:400,400i`],
+        display: "swap"
+      }
+    }
+  ]
+};

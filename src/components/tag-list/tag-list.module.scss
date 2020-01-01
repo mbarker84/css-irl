@@ -7,24 +7,43 @@
   @media (min-width: $md) {
     columns: 2;
   }
+
+  @media (min-width: $lg) {
+    columns: 3;
+  }
 }
 
 .tagItem {
   padding: 0;
   display: inline-block;
   width: 100%;
+
+  @media (min-width: $md) {
+    margin: rem(10px) 0;
+  }
 }
 
 .tagName {
-  font-weight: 700;
-  box-shadow: 0 -0.5em 0 inset $primary;
+  font-weight: $bold;
+  color: $black;
+  transition: color 200ms;
+
+  &:hover,
+  &:focus {
+    color: $primary;
+  }
 
   @media (min-width: $md) {
-    font-size: 1.1rem;
+    font-size: rem(22px);
   }
 }
 
 .numberOfPosts {
-  font-size: 0.8rem;
-  margin-left: 0.5rem;
+  font-size: rem(15px);
+  font-family: $heading;
+  margin-left: rem(10px);
+
+  @media (min-width: $md) {
+    font-size: rem(16px);
+  }
 }
