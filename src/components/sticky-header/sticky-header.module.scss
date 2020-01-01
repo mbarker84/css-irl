@@ -1,4 +1,4 @@
-@import '../../globals/variables.scss';
+@import "../../globals/imports.scss";
 
 .header {
   grid-column: wrapper-start / span 1;
@@ -87,4 +87,3 @@ a:hover {
     font-size: 1rem;
   }
 }
-

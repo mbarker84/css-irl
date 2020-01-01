@@ -1,4 +1,4 @@
-@import '../../globals/variables.scss';
+@import "../../globals/imports.scss";
 
 .tagList {
   list-style: none;
@@ -25,9 +25,8 @@
   padding: 0 0.125rem;
 
   &:hover,
-  &:focus{
+  &:focus {
     background-color: lighten($secondary, 10%);
     color: lighten($black, 10%);
   }
 }
-

@@ -1,4 +1,4 @@
-@import "../globals/variables.scss";
+@import "../globals/imports.scss";
 
 figcaption {
   font-weight: 200;
@@ -9,13 +9,13 @@ figcaption {
 .body {
   @media (min-width: $sm) {
     display: grid;
-    grid-template-columns: [start] minmax(1em, 1fr) [wrapper-start header-start] minmax(
-        0,
-        auto
-      ) [header-end] minmax(auto, 1fr) [content-start] repeat(
+    grid-template-columns:
+      [start] minmax(1em, 1fr) [wrapper-start header-start] minmax(0, auto)
+      [header-end] minmax(auto, 1fr) [content-start] repeat(
         7,
         minmax(auto, 1fr)
-      ) [wrapper-end] minmax(1em, 1fr) [end];
+      )
+      [wrapper-end] minmax(1em, 1fr) [end];
     grid-template-rows: minmax(auto, 3rem) auto minmax(50vh, auto) auto;
     grid-gap: 1rem;
   }
