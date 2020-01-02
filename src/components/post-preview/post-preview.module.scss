@@ -3,8 +3,12 @@
 @mixin hoverState {
   &:hover,
   &:focus {
+    .title {
+      color: $primary;
+    }
+
     .title span {
-      border-bottom: rem(2px) solid $black;
+      border-bottom: 0.1em solid $black;
     }
   }
 }
@@ -17,6 +21,7 @@
   margin-bottom: 0.5rem;
   margin-top: 0;
   line-height: 1.4;
+  transition: color 200ms;
 
   span {
     border-bottom: 0.1em solid deeppink;

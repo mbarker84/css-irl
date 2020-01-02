@@ -24,6 +24,7 @@
 }
 
 .tagName {
+  font-family: $heading;
   font-weight: $bold;
   color: $black;
   transition: color 200ms;
@@ -42,6 +43,7 @@
   font-size: rem(15px);
   font-family: $heading;
   margin-left: rem(10px);
+  color: $primary;
 
   @media (min-width: $md) {
     font-size: rem(16px);
