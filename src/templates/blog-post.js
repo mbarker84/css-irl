@@ -5,6 +5,7 @@ import styles from "./blog-post.module.scss";
 import layout from "../layouts/layout.module.scss";
 import { SourceDetails } from "../components/post-source/post-source";
 import { Tags } from "../components/tags/tags";
+import metaImg from "../images/social_1200x630_03.png";
 
 const renderSrc = (srcUrl, source) => {
   if (!srcUrl) return;
@@ -12,10 +13,11 @@ const renderSrc = (srcUrl, source) => {
   return <SourceDetails url={srcUrl} text={source} />;
 };
 
+const img = `https://css-irl.info${metaImg}`;
+
 export default ({ data, location }) => {
   const post = data.markdownRemark;
-  const { series, srcUrl, source } = post.frontmatter;
-  const tags = post.frontmatter.tags;
+  const { series, srcUrl, source, title, tags, date } = post.frontmatter;
 
   const renderSeriesTitle = () => {
     if (series) {
@@ -26,12 +28,11 @@ export default ({ data, location }) => {
   return (
     <Layout>
       <Helmet
-        title={`${data.site.siteMetadata.title} | ${series || ""} ${
-          post.frontmatter.title
-        }`}
+        title={`${data.site.siteMetadata.title} | ${series || ""} ${title}`}
       >
-        <meta property="og:title" content={post.frontmatter.title} />
+        <meta property="og:title" content={title} />
         <meta property="og:description" content={post.excerpt} />
+        <meta property="og:image" content={img} />
         <meta
           property="og:url"
           content={`${data.site.siteMetadata.siteUrl}${location.pathname}`}
@@ -41,13 +42,14 @@ export default ({ data, location }) => {
         <header className={styles.postHeader}>
           <Tags group={tags} className={styles.tagList} />
           {renderSeriesTitle()}
-          <h2 className={styles.postHeading}>{post.frontmatter.title}</h2>
-          <time className={styles.src} dateTime={post.frontmatter.date}>
-            {post.frontmatter.date}
+          <h2 className={styles.postHeading}>{title}</h2>
+          <time className={styles.src} dateTime={date}>
+            {date}
           </time>
           {renderSrc(srcUrl, source)}
         </header>
         <div className={layout.articleBody}>
+          <img src={img} alt="" />
           <article
             dangerouslySetInnerHTML={{ __html: post.html }}
             className={styles.richtext}

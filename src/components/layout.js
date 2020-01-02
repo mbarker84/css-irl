@@ -3,7 +3,7 @@ import Helmet from "react-helmet";
 import styles from "../layouts/styles.module.scss";
 import { StaticQuery, graphql } from "gatsby";
 import StickyHeader from "../components/sticky-header/sticky-header";
-import metaImg from "../images/social_1200x630.png";
+import metaImg from "../images/social_1200x630_02.png";
 
 const img = `https://css-irl.info${metaImg}`;
 
