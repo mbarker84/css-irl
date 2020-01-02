@@ -19,10 +19,10 @@ module.exports = {
         name: "CSS {In Real Life}",
         short_name: "CSS",
         start_url: "/",
-        background_color: "#fcfdff",
-        theme_color: "#95e8ed",
+        background_color: "#1d1d26",
+        theme_color: "#ff1493",
         display: "minimal-ui",
-        icon: "src/images/icon_512.png"
+        icon: "src/images/icon_512_new.png"
       }
     },
     `gatsby-plugin-sharp`,
