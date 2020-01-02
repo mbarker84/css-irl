@@ -5,6 +5,7 @@
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
+  background-color: $bg-dark;
 
   > * {
     margin: rem(10px) 0;
@@ -12,7 +13,7 @@
   }
 
   a {
-    color: $black;
+    color: $white;
     transition: color 200ms;
 
     &:hover,
@@ -22,13 +23,8 @@
   }
 
   @media (min-width: $md) {
-    background-color: $bg-dark;
     position: fixed;
     width: 100%;
     z-index: 1;
-
-    a {
-      color: $white;
-    }
   }
 }

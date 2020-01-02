@@ -47,12 +47,15 @@
   color: $black;
   border-bottom: 2px solid $primary;
   text-decoration: none;
-  font-size: rem(20px);
   transition: color 200ms;
 
   &:hover,
   &:focus {
     color: $primary;
+  }
+
+  @media (min-width: $md) {
+    font-size: rem(20px);
   }
 }
 
@@ -81,15 +84,13 @@
   }
 }
 
-.postItem {
-  &:first-child {
-    @media (min-width: $md) {
-      grid-column: span 2;
-    }
+.postItemFeatured {
+  @media (min-width: $md) {
+    grid-column: span 2;
+  }
 
-    @media (min-width: $lg) {
-      grid-column: span 3;
-    }
+  @media (min-width: $lg) {
+    grid-column: span 3;
   }
 }
 

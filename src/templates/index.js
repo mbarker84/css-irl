@@ -7,6 +7,10 @@ import globals from "../globals/globals.module.scss";
 import layout from "../layouts/layout.module.scss";
 import styles from "./listing-page.module.scss";
 
+const isFeatured = (index, isFirst) => {
+  return index === 0 && isFirst;
+};
+
 export default props => {
   const { data } = props;
   const { currentPage, numPages } = props.pageContext;
@@ -35,7 +39,14 @@ export default props => {
             {data.allMarkdownRemark.edges.map((el, index) => {
               const { node } = el;
               return (
-                <li key={node.id} className={styles.postItem}>
+                <li
+                  key={node.id}
+                  className={
+                    isFeatured(index, isFirst)
+                      ? styles.postItemFeatured
+                      : styles.postItem
+                  }
+                >
                   <PostPreview
                     to={node.fields.slug}
                     title={node.frontmatter.title}
@@ -43,7 +54,7 @@ export default props => {
                     date={node.frontmatter.date}
                     externalLink={node.frontmatter.externalLink}
                     series={node.frontmatter.series}
-                    featured={index === 0}
+                    featured={isFeatured(index, isFirst)}
                   />
                 </li>
               );
