@@ -1,90 +1,30 @@
-@import '../../globals/variables.scss';
+@import "../../globals/imports.scss";
 
 .header {
-  grid-column: wrapper-start / span 1;
-  grid-row: 2;
-  padding: 1em;
-  border-bottom: 2px dashed $bg-light;
-
-  @media (min-width: $sm) {
-    padding: unset;
-    background: unset;
-    border-bottom: none;
-  }
-}
-
-.siteTitle {
-  margin-top: 0;
-  text-align: center;
-  transition: color 200ms ease-in-out;
-  justify-content: center;
-  margin-bottom: 0;
-
-  @media (min-width: $sm) {
-    text-align: left;
-    margin-bottom: 3rem;
-  }
-
-  > span {
-    display: block;
-  }
-}
-
-a:hover {
-  .mainTitle {
-    text-shadow: 0 0 transparent;
-  }
-
-  .siteTitle {
-    color: darken($primary, 40%);
-  }
-}
-
-.homeLink {
-  top: 0;
-  left: 0;
-
-  h3 {
-    margin: 0;
-  }
-}
-
-.subheading {
-  font-size: 0.6em;
-
-  @media (min-width: $sm) {
-    font-size: 3vw;
-  }
-
-  @media (min-width: $xl) {
-    font-size: 2.5vw;
-  }
-}
-
-.mainTitle {
-  font-size: 1.8em;
-  transform: translate3d(-0.3rem, 0, 0);
-  text-shadow: 0.03em -0.04em $secondary, -0.03em 0.04em #f9f32f;
-  transition: text-shadow 200ms ease-in-out;
-
-  @media (min-width: $sm) {
-    font-size: 10vw;
-  }
-
-  @media (min-width: $xl) {
-    font-size: 8vw;
-  }
-}
-
-.link {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  font-size: 0.8rem;
-  transition: transform 200ms ease-in-out;
-  transform-origin: top left;
+  justify-content: space-between;
+  background-color: $bg-dark;
 
-  @media (min-width: $sm) {
-    font-size: 1rem;
+  > * {
+    margin: rem(10px) 0;
+    padding: 0 rem(20px);
+  }
+
+  a {
+    color: $white;
+    transition: color 200ms;
+
+    &:hover,
+    &:focus {
+      color: deeppink;
+    }
+  }
+
+  @media (min-width: $md) {
+    position: fixed;
+    width: 100%;
+    z-index: 1;
   }
 }
-

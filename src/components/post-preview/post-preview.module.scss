@@ -1,24 +1,88 @@
+@import "../../globals/imports.scss";
+
+@mixin hoverState {
+  &:hover,
+  &:focus {
+    .title span {
+      border-bottom: rem(2px) solid $black;
+    }
+  }
+}
+
 .content {
-  font-size: 0.9rem;
+  margin: 0;
 }
 
 .title {
   margin-bottom: 0.5rem;
   margin-top: 0;
+  line-height: 1.4;
+
+  span {
+    border-bottom: 0.1em solid deeppink;
+  }
+
+  svg {
+    display: inline;
+    width: 1rem;
+    margin-left: 1rem;
+  }
 }
 
 .date {
-  margin-bottom: 1rem;
-  display: inline-block;
+  margin: rem(20px) 0 rem(20px);
+  display: block;
   font-size: 0.8rem;
+  font-family: $heading;
+
+  @media (min-width: $md) {
+    font-size: rem(15px);
+  }
 }
 
 .seriesTitle {
   margin: 0 0 0.5rem 0;
 }
 
-svg {
-  display: inline;
-  width: 1rem;
-  margin-left: 1rem;
+.regularPost {
+  @include hoverState;
+}
+
+.featuredPost {
+  @include hoverState;
+  position: relative;
+
+  @media (min-width: $md) {
+    padding: rem(80px) rem(40px) rem(40px) rem(40px);
+    background-color: $bg-light;
+    display: block;
+
+    p {
+      font-size: rem(22px);
+      max-width: 75ch;
+    }
+
+    .title {
+      font-size: rem(40px);
+    }
+
+    .date {
+      font-size: rem(16px);
+    }
+  }
+}
+
+.featured {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: $white;
+  background-color: $primary;
+  padding: rem(5px) rem(5px);
+  margin: 0;
+
+  @media (min-width: $md) {
+    display: block;
+  }
 }

@@ -1,30 +1,61 @@
-@import '../globals/variables.scss';
+@import "../globals/imports.scss";
 
-:root {
-  --gutter: 1rem;
+.mainContent {
+  min-height: calc(100vh - #{rem(100px)});
 }
 
-.postsGrid {
-  list-style: none;
-  max-width: 32em;
-  margin: 3em auto;
-  padding: 1em;
+.pageContent {
+  max-width: $wrapper;
+  padding-left: rem(20px);
+  padding-right: rem(20px);
+  margin: 0 auto;
 
-  @supports (display: grid) {
-    max-width: none;
-    margin: unset;
-    padding: unset;
-  }
-
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  grid-gap: var(--gutter);
-
-  @media (min-width: $sm) {
-    --gutter: 3rem;
+  @media (min-width: $md) {
+    padding-top: rem(100px);
+    padding-left: rem(40px);
+    padding-right: rem(40px);
   }
 }
 
 .postContent {
-  max-width: 65ch;
+  max-width: $wrapper;
+  padding-left: rem(20px);
+  padding-right: rem(20px);
+  margin: 0 auto;
+
+  @media (min-width: $md) {
+    padding-top: rem(100px);
+    padding-left: rem(40px);
+    padding-right: rem(40px);
+  }
+}
+
+.articleBody {
+  max-width: rem(900px);
+  margin: 0 auto;
+}
+
+.postsGrid {
+  list-style: none;
+  margin: rem(20px) auto;
+  padding: rem(20px) 0;
+
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: rem(40px);
+
+  @supports (display: grid) {
+    margin: unset;
+    padding: unset;
+  }
+
+  @media (min-width: $sm) {
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: rem(40px);
+  }
+
+  @media (min-width: $lg) {
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: rem(60px);
+  }
 }
