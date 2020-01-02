@@ -17,11 +17,9 @@ const TagsPage = ({
 }) => (
   <Layout>
     <Helmet title={title} />
-    <div className={layout.mainContent}>
-      <div className={layout.pageContent}>
-        <h1>Tags</h1>
-        <TagList group={group} />
-      </div>
+    <div>
+      <h1>Tags</h1>
+      <TagList group={group} />
     </div>
   </Layout>
 );

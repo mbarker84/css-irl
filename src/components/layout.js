@@ -1,6 +1,7 @@
 import React from "react";
 import Helmet from "react-helmet";
 import styles from "../layouts/styles.module.scss";
+import layout from "../layouts/layout.module.scss";
 import { StaticQuery, graphql } from "gatsby";
 import StickyHeader from "../components/sticky-header/sticky-header";
 import metaImg from "../images/social_1200x630_02.png";
@@ -113,11 +114,12 @@ export default ({ children }) => (
         </Helmet>
 
         <StickyHeader />
-
-        <main className={styles.content}>{children}</main>
-        <footer className={styles.footer}>
-          &copy; Michelle Barker {currentYear}
-        </footer>
+        <div className={layout.mainContent}>
+          <main className={layout.pageContent}>{children}</main>
+          <footer className={styles.footer}>
+            &copy; Michelle Barker {currentYear}
+          </footer>
+        </div>
       </div>
     )}
   />

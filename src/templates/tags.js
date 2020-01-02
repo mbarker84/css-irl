@@ -16,35 +16,33 @@ const Tags = ({ pageContext, data }) => {
 
   return (
     <Layout>
-      <div className={layout.pageContent}>
-        <header className={styles.header}>
-          <div className={styles.searchTags}>
-            <Link to="/tags" className={globals.link}>
-              Search by topic
-            </Link>
-          </div>
-        </header>
-        <div className={layout.mainContent}>
-          <h2 className={styles.resultTitle}>{tagHeader}</h2>
-          <ul className={layout.postsGrid}>
-            {edges.map(({ node }) => {
-              const { slug } = node.fields;
-              const { title, date, externalLink, series } = node.frontmatter;
-              return (
-                <li key={slug} className={styles.listItem}>
-                  <PostPreview
-                    to={slug}
-                    title={title}
-                    excerpt={node.excerpt}
-                    date={date}
-                    externalLink={externalLink}
-                    series={series}
-                  />
-                </li>
-              );
-            })}
-          </ul>
+      <header className={styles.header}>
+        <div className={styles.searchTags}>
+          <Link to="/tags" className={globals.link}>
+            Search by topic
+          </Link>
         </div>
+      </header>
+      <div className={layout.mainContent}>
+        <h2 className={styles.resultTitle}>{tagHeader}</h2>
+        <ul className={layout.postsGrid}>
+          {edges.map(({ node }) => {
+            const { slug } = node.fields;
+            const { title, date, externalLink, series } = node.frontmatter;
+            return (
+              <li key={slug} className={styles.listItem}>
+                <PostPreview
+                  to={slug}
+                  title={title}
+                  excerpt={node.excerpt}
+                  date={date}
+                  externalLink={externalLink}
+                  series={series}
+                />
+              </li>
+            );
+          })}
+        </ul>
       </div>
     </Layout>
   );

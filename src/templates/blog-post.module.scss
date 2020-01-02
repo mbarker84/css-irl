@@ -15,13 +15,15 @@
 
 .postHeading {
   margin: 0;
+  font-size: rem(28px);
+  max-width: rem(1100px);
 
   @media (min-width: $md) {
     font-size: rem(40px);
   }
 
   @media (min-width: $lg) {
-    font-size: rem(50px);
+    font-size: rem(56px);
   }
 }
 

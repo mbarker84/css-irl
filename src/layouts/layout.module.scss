@@ -1,33 +1,33 @@
 @import "../globals/imports.scss";
 
 .mainContent {
-  min-height: calc(100vh - #{rem(100px)});
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 .pageContent {
+  width: 100%;
   max-width: $wrapper;
   padding-left: rem(20px);
   padding-right: rem(20px);
-  margin: 0 auto;
+  padding-top: rem(20px);
+  margin: 0 auto rem(40px) auto;
 
   @media (min-width: $md) {
     padding-top: rem(100px);
     padding-left: rem(40px);
     padding-right: rem(40px);
+  }
+
+  @media (min-width: $lg) {
+    padding-top: rem(150px);
   }
 }
 
 .postContent {
   max-width: $wrapper;
-  padding-left: rem(20px);
-  padding-right: rem(20px);
   margin: 0 auto;
-
-  @media (min-width: $md) {
-    padding-top: rem(100px);
-    padding-left: rem(40px);
-    padding-right: rem(40px);
-  }
 }
 
 .articleBody {

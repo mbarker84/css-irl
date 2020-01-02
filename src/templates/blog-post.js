@@ -49,7 +49,6 @@ export default ({ data, location }) => {
           {renderSrc(srcUrl, source)}
         </header>
         <div className={layout.articleBody}>
-          <img src={img} alt="" />
           <article
             dangerouslySetInnerHTML={{ __html: post.html }}
             className={styles.richtext}

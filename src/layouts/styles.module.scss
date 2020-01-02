@@ -2,20 +2,16 @@
 
 figcaption {
   font-weight: 200;
-  font-size: 0.8rem;
+  font-size: rem(16px);
+  font-family: $heading;
   margin-top: 0.5rem;
 }
 
 .link {
   display: flex;
   align-items: center;
-  font-size: 0.8rem;
   transition: transform 200ms ease-in-out;
   transform-origin: top left;
-
-  @media (min-width: $sm) {
-    font-size: 1rem;
-  }
 }
 
 .linkWithIcon {
@@ -39,6 +35,27 @@ figcaption {
 .footer {
   padding: rem(20px);
   font-family: $heading;
-  margin-top: rem(40px);
+  margin-top: auto;
   background-color: lighten($black, 85%);
+}
+
+.linkWrapper a {
+  display: inline-block;
+  font-family: $heading;
+  font-weight: $bold;
+  color: $black;
+  border-bottom: 2px solid $primary;
+  text-decoration: none;
+  transition: color 200ms;
+  margin-top: rem(60px);
+
+  &:hover,
+  &:focus {
+    color: $primary;
+  }
+
+  @media (min-width: $md) {
+    font-size: rem(20px);
+    margin-top: rem(60px);
+  }
 }
