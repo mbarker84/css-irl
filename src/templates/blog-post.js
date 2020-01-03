@@ -1,6 +1,8 @@
 import React from "react";
 import Helmet from "react-helmet";
+import { Link } from "gatsby";
 import Layout from "../components/layout";
+import PostPaginate from "../components/post-paginate/post-paginate";
 import styles from "./blog-post.module.scss";
 import layout from "../layouts/layout.module.scss";
 import { SourceDetails } from "../components/post-source/post-source";
@@ -15,9 +17,11 @@ const renderSrc = (srcUrl, source) => {
 
 const img = `https://css-irl.info${metaImg}`;
 
-export default ({ data, location }) => {
+export default ({ data, location, pathContext }) => {
+  console.log(pathContext);
   const post = data.markdownRemark;
   const { series, srcUrl, source, title, tags, date } = post.frontmatter;
+  const { next, previous } = pathContext;
 
   const renderSeriesTitle = () => {
     if (series) {
@@ -63,6 +67,7 @@ export default ({ data, location }) => {
               ></script>
             }
           </div>
+          <PostPaginate previous={previous} next={next}></PostPaginate>
         </div>
       </div>
     </Layout>
