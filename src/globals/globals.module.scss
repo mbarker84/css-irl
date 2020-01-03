@@ -35,7 +35,7 @@ blockquote {
 }
 
 code {
-  background: lighten($primary, 15%);
+  background: $bg-light;
   padding: 0.125rem 0.25rem;
   border-radius: 0.2em;
 }
