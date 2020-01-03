@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "gatsby";
-import globals from "../../globals/globals.module.scss";
 import styles from "./post-paginate.module.scss";
 
 const PostPaginate = props => {
