@@ -5,7 +5,8 @@ import { graphql } from "gatsby";
 
 import { TagList } from "../components/tag-list/tag-list";
 import Layout from "../components/layout";
-import layout from "../layouts/layout.module.scss";
+import HomeLink from "../components/home-link/home-link";
+import styles from "../layouts/styles.module.scss";
 
 const TagsPage = ({
   data: {
@@ -20,6 +21,9 @@ const TagsPage = ({
     <div>
       <h1>Tags</h1>
       <TagList group={group} />
+    </div>
+    <div className={styles.bottomNav}>
+      <HomeLink />
     </div>
   </Layout>
 );

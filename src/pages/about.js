@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "gatsby";
 import Layout from "../components/layout";
+import HomeLink from "../components/home-link/home-link";
 import layout from "../layouts/layout.module.scss";
 import styles from "../templates/blog-post.module.scss";
 import globals from "../layouts/styles.module.scss";
@@ -27,10 +28,8 @@ export default ({ data }) => (
           </a>
         </p>
       </div>
-      <div className={globals.linkWrapper}>
-        <Link to={`/`} className={globals.link}>
-          <span>Return to homepage</span>
-        </Link>
+      <div class={globals.bottomNav}>
+        <HomeLink />
       </div>
     </div>
   </Layout>
