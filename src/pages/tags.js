@@ -19,7 +19,7 @@ const TagsPage = ({
   <Layout>
     <Helmet title={title} />
     <div>
-      <h1>Tags</h1>
+      <h1>Topics</h1>
       <TagList group={group} />
     </div>
     <div className={styles.bottomNav}>
