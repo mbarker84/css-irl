@@ -50,12 +50,14 @@ exports.createPages = ({ graphql, actions }) => {
 
         // Listing page (index)
         Array.from({ length: numPages }).forEach((_, i) => {
+          const postsToShow = i === 0 ? 13 : 12;
+          const skip = i === 0 ? 0 : i * postsPerPage + 1;
           createPage({
             path: i === 0 ? `/` : `/${i + 1}`,
             component: blogListingTemplate,
             context: {
-              limit: postsPerPage,
-              skip: i * postsPerPage,
+              limit: postsToShow,
+              skip,
               numPages,
               currentPage: i + 1
             }
