@@ -2,7 +2,7 @@ import React from "react";
 import Helmet from "react-helmet";
 import styles from "../layouts/styles.module.scss";
 import layout from "../layouts/layout.module.scss";
-import "../components/global.css";
+import "./global.css";
 import { StaticQuery, graphql } from "gatsby";
 import StickyHeader from "../components/sticky-header/sticky-header";
 import metaImg from "../images/social_1200x630_02.png";
