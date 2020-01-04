@@ -1,3 +1,16 @@
+@import "../../globals/imports.scss";
+
 .src {
-  font-size: 0.8rem;
+  font-size: rem(16px);
+  font-family: $heading;
+  border-bottom: 0.1em solid $primary;
+  color: $black;
+  text-decoration: none;
+  display: inline-block;
+  margin-top: rem(10px);
+
+  &:hover,
+  &:focus {
+    color: $primary;
+  }
 }
