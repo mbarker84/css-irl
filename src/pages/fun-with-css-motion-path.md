@@ -61,7 +61,7 @@ This also means we have less control over making the animation responsive, as we
 
 ## “Drawing” the path
 
-Not only can we move an element along the path, we can make it look like it’s drawing the path too. We can already “draw” SVG paths using the `stroke-dashoffset` and `stoke-dasharray` properties in CSS – the trick is setting the `stroke-dasharray` value to the length of the path, then animating from that offset value to 0:
+Not only can we move an element along the path, we can make it look like it’s drawing the path too. We can already “draw” SVG paths using the `stroke-dashoffset` and `stroke-dasharray` properties in CSS – the trick is setting the `stroke-dasharray` value to the length of the path, then animating from that offset value to 0:
 
 ```css
 .path {
