@@ -4,6 +4,7 @@ import Layout from "../components/layout";
 import PostPaginate from "../components/post-paginate/post-paginate";
 import styles from "./blog-post.module.scss";
 import layout from "../layouts/layout.module.scss";
+import "../components/global.css"; // Global CSS for ads
 import { SourceDetails } from "../components/post-source/post-source";
 import { Tags } from "../components/tags/tags";
 import metaImg from "../images/social_1200x630_03.png";
@@ -72,7 +73,7 @@ export default ({ data, location, pathContext }) => {
             className={styles.richtext}
           />
           {renderExternalLink(srcUrl)}
-          <div className={styles.ad}>
+          <div>
             {
               <script
                 async
