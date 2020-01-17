@@ -51,6 +51,18 @@
 
 .regularPost {
   @include hoverState;
+
+  .title {
+    @media (min-width: $md) {
+      font-size: rem(28px);
+    }
+  }
+
+  .content {
+    @media (min-width: $xl) {
+      font-size: rem(18px);
+    }
+  }
 }
 
 .featuredPost {
