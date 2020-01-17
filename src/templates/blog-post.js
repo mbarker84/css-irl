@@ -7,6 +7,7 @@ import layout from "../layouts/layout.module.scss";
 import "../components/global.css"; // Global CSS for ads
 import { SourceDetails } from "../components/post-source/post-source";
 import { Tags } from "../components/tags/tags";
+import AdBlock from "../components/ad-block/ad-block";
 import metaImg from "../images/social_1200x630_03.png";
 
 const renderSrc = (srcUrl, source) => {
@@ -72,16 +73,7 @@ export default ({ data, location, pathContext, dangerouslySetInnerHTML }) => {
             className={styles.richtext}
           />
           {renderExternalLink(srcUrl)}
-          <div
-            dangerouslySetInnerHTML={{
-              __html: `<script
-                async
-                type="text/javascript"
-                src="//cdn.carbonads.com/carbon.js?serve=CE7D62J7&placement=css-irlinfo"
-                id="_carbonads_js"
-              ></script>`
-            }}
-          />
+          <AdBlock />
           <PostPaginate previous={previous} next={next}></PostPaginate>
         </div>
       </div>
