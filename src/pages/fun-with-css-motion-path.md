@@ -1,7 +1,7 @@
 ---
 title: "Fun with CSS Motion Path"
 date: "2020-01-06"
-tags: ["animation"]
+tags: ["animation", "svg", "css"]
 ---
 
 <figure>
