@@ -6,7 +6,7 @@ tags: ["svg", "workflow"]
 
 Optimising SVG (scalable vector graphics) for web projects has the dual benefits of reducing the file size _and_ making them easier to work with. But plenty of times I’ve opened up an old web project and found that the SVG code is not optimal. In this article I’ll share my process for optimising SVG assets.
 
-I mainly use Adobe Illustrator for creating and editing my SVGs. Here is a fairly simple icon created in Illustrator:
+Many icon libraries supply SVG assets that are already well-optimised. But if you’re creating your own graphics, or they are supplied by a designer, you might want to run them through a few optimisation steps. I mainly use Adobe Illustrator for creating and editing my SVGs. Here is a fairly simple icon created in Illustrator:
 
 <figure>
   <img src="optimising-svgs-for-the-web_01.png" alt="Black and white CSS IRL logo as SVG">
@@ -78,15 +78,19 @@ Next I convert any strokes to filled paths, where possible. In Illustrator we ca
   <figcaption><em>Fig 04</em></figcaption>
 </figure>
 
-I often do the same with any text in the image, if the text is purely decorative, or the content will be communicated in another way, such as with a heading, button text or `aria-label`. If we take our icon as an example, some of the text here is an SVG `<text>` element, which wouldn’t make much sense on its own, plus I want the text to scale with the rest of the SVG.
-
 You can also use the _Expand_ option in Illustrator to convert areas of the image such as simple patterns into individually-selectable paths. For complex or detailed patterns it may be best to avoid this.
+
+### Convert text to outlines
+
+It is sometimes a good idea to convert text to outlines if the text is purely decorative, or the content will be communicated in another way, such as with a heading, button text or `aria-label`. While it is fine to make use of the SVG `<text>` element, it doesn’t always make sense to do so, particularly if you need to load another web font in order to display your SVG text. We can convert text to paths in Illustrator by selecting it and choosing _Type > Convert to outlines_.
 
 ### Merge paths
 
 Now that everything in our SVG is a path, we can merge them to ensure as few paths are drawn as possible. Take this example of a “close” icon: the two intersecting paths can be merged into one, resulting in a single path.
 
 To merge paths in Illustrator we select them and use the _merge_ option in the _Pathfinder_ menu.
+
+The exception here is if we want to style or animate any paths individually – in that case we should avoid merging them.
 
 ### Delete any extra paths or groups
 
@@ -100,25 +104,30 @@ When I use the SVG icon in my HTML I don’t want to be left with extra space ar
 
 Now we’re ready to save the SVG. In Illustrator we can select _File > Save as_ and select SVG as the format. The next screen will give us some options for the SVG. I usually check “Presentation attributes” for the style options.
 
-Once these steps are complete, the SVG is now ready to run through an optimisation tool. For icons, I can usually get away with checking _most_ of the options in SVGOMG, once I’ve run these manual optimisations. You’ll notice the code is much cleaner and leaner! But even this doesn’t always remove everything it’s possible to remove. In the code below I’m still left with an empty `<defs>` element, so it’s worth doing one final manual clean-up and removing that in my code editor.
+Once these steps are complete, the SVG is now ready to run through an optimisation tool. For icons, I can usually get away with checking _most_ of the options in SVGOMG, once I’ve run these manual optimisations. You’ll notice the code is much cleaner and leaner! But even this doesn’t always remove everything it’s possible to remove. In the code below I’m still left with an empty `<defs>` element, so it’s worth doing one final manual clean-up and removing that in my code editor. Now the SVG is ready to use!
 
 ## Using the SVG
 
-SVGs can be used in a number of ways on the web:
+SVGs can be used in a number of ways on the web, including:
 
 - In an `<img>` tag
 - In the `background-image` CSS property
 - Inline in the HTML
 
-[This article by Sara Soueidan]() goes into detail about the different methods.
-
-For icons in particular, inline SVGs offer the most in terms of performance and flexibility, and best way to use them generally is to create a [sprite](). If you don’t want to do this manually, there are [NPM]() packages available that auto-generate SVG sprites. Then, when it comes to using them, instead of pasting in the whole SVG, we can reference them with the `<use>` element:
+For icons in particular, inline SVGs offer the most in terms of performance and flexibility, and best way to use them generally is to create a [sprite](https://www.webdesignerdepot.com/2017/05/how-to-create-and-manage-svg-sprites/). If you don’t want to do this manually, there are [NPM]() packages available that auto-generate SVG sprites. Then, when it comes to using them, instead of pasting in the whole SVG, we can reference them with the `<use>` element:
 
 ```html
 <svg></svg>
 ```
 
-Because we’re using paths, we can use the following CSS to instruct all SVGs to inherit the current colour, rather than use the `fill` property:
+Because we’re using paths, we can use the following CSS to instruct all SVGs to inherit the current colour, rather than use the `fill` property – which, for an icon system, will help us write less code: An SVG icon used in a button will simply inherit the button’s text colour.
 
 ```css
+svg {
+  fill: currentColor;
+}
 ```
+
+## Resources
+
+[Sara Soueidan]() is a well-known authority on all things SVG-related, and has published many, many articles on working with SVG, which you can find [here](https://www.sarasoueidan.com/tags/svg/).
