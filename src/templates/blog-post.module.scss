@@ -107,6 +107,10 @@ aside {
   h4:first-child {
     margin: 0 0 0.8rem;
   }
+
+  @media (min-width: $md) {
+    font-size: rem(18px);
+  }
 }
 
 .link {

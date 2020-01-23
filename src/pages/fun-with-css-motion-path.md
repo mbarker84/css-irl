@@ -135,6 +135,11 @@ There’s one more little trick to these animations: When building the first exa
 
 At the time of writing, `offset-path` is only supported in Chrome – although it can be enabled in Firefox with the `layout.css.motion-path.enabled` flag, and is set to be supported as standard in the next Firefox release.
 
+<aside>
+  <h4>Update!</h4>
+  <p>As of Firefox version 72, you no longer need to flip the flag, it’s enabled by default 😄</p>
+</aside>
+
 ## Resources
 
 [Dan Wilson](https://twitter.com/dancwilson) has created useful selection of [Codepen demos](https://codepen.io/danwilson/pens/public) that demonstrate the different properties of Motion Path. He’s also just published [an article](http://danielcwilson.com/blog/2020/01/motion-path-quirks/) on it. (Thanks [Adam Kuhn](https://twitter.com/cobra_winfrey) for pointing me in his direction!)
