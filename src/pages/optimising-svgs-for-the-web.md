@@ -4,9 +4,9 @@ date: "2020-01-17"
 tags: ["svg", "workflow"]
 ---
 
-Optimising SVG (scalable vector graphics) for web projects has the dual benefits of reducing the file size _and_ making them easier to work with. But plenty of times I’ve opened up an old web project and found that the SVG code is not optimal. In this article I’ll share my process for optimising SVG assets.
+Optimising SVG (scalable vector graphics) for web projects has the dual benefits of reducing the file size _and_ making them easier to work with. But plenty of times I’ve opened up an old web project and found that the SVG code is messy and sub-optimal. In this article I’ll share my process for optimising SVG assets.
 
-Many icon libraries supply SVG assets that are already well-optimised. But if you’re creating your own graphics, or they are supplied by a designer, you might want to run them through a few optimisation steps. I mainly use Adobe Illustrator for creating and editing my SVGs. Here is a fairly simple icon created in Illustrator:
+Many icon libraries supply SVG assets that are already well-optimised. But if you’re creating your own graphics, or they are supplied by another designer, you might want to run them through a few optimisation steps. I mainly use Adobe Illustrator for creating and editing my SVGs. Here is a fairly simple icon created in Illustrator:
 
 <figure>
   <img src="optimising-svgs-for-the-web_01.png" alt="Black and white CSS IRL logo as SVG">
@@ -41,6 +41,10 @@ We can save this as an SVG in Illustrator. However, if we take a look at the cod
 
 Every graphics program will have its own way of saving SVGs, but regardless of which one you use, they are still likely to contain a lot of extra data if left unoptimised.
 
+## Running a package
+
+There are any number of NPM packages that run an optimisation process on your SVG assets at build time, and it’s absolutely a good idea to make them part of your workflow. But a visual tool often does a better job of removing extra paths and groups, and we can see how the optimisations affect the outcome live in the browser.
+
 ## A quick win with SVGOMG
 
 One way to quickly remove a lot of this extraneous data is to run it through [Jake Archibald](https://twitter.com/jaffathecake)’s tool, [SVGOMG](https://jakearchibald.github.io/svgomg/). You can either upload the SVG file or paste in the code directly and, depending on the options selected, your SVG will be greatly slimmed-down, without adverse visual impact. You might need to play around with the different options to get your desired result, especially if your SVG is quite complex, but I generally find that for simple icons I can check most of the options without adversly affecting the result.
@@ -50,19 +54,28 @@ One way to quickly remove a lot of this extraneous data is to run it through [Ja
   <figcaption><em>Fig 02</em></figcaption>
 </figure>
 
-This is far better than leaving the graphic unoptimised, but if the original SVG contains groups, layers and effects, then there is a limit to how far a tool like SVGOMG will be able to optimise it. Far better if we go back to our graphics program and make some edits _before_ running it through an optimisation tool.
+After running it through SVGOMG, the code looks like this:
+
+```xml
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620.2 606.5">
+  <defs/>
+  <path d="M0 578.5L334 0l48.5 28-334 578.5-48.5-28zM457.6 182.2h70.2l-10.1 88.2 80.7-37 21.8 66.7-87.3 17.6 59.9 65.8-56.4 40.7-43.8-76.8-43.8 76.8-56.4-40.7 59.9-65.8-87.3-17.6 21.8-66.7 80.7 37-9.9-88.2z"/>
+</svg>
+```
+
+This is far better than leaving the graphic unoptimised, but it does contain an extranneous `<defs/>` element. And if the original SVG contains groups, layers and effects, then there is a limit to how far a tool like SVGOMG will be able to optimise it. Far better if we go back to our graphics program and make some edits _before_ running it through an optimisation tool.
 
 ## Editing the SVG
 
 If you know how to write SVG code, then this is likely to produce the cleanest, leanest result. Check out the MDN docs for a [guide to drawing SVG paths](https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Paths), and [this video](https://www.youtube.com/watch?v=1CDTw_UpQoQ) by [Heydon Pickering](https://twitter.com/heydonworks) if you’re interested in learning more about it.
 
-But for the vast majority of us, editing an SVG is only made practical using a visual tool. For this example I’m using Illustrator, but others like Sketch have similar editing capabilities.
+But for the vast majority of us, editing an SVG is only made practical using a visual tool. For this example I’m using Adobe Illustrator, but others like Sketch have similar editing capabilities.
 
 How much you can edit your SVG depends on its complexity, and its use case. The tips that follow generally apply to icons and simple graphics. Complex illustrations often cannot be edited to such a degree without affecting the end result – and, in some cases, may be better off as PNGs or JPGs.
 
 ### Expand groups
 
-The first thing I do when optimising an SVG is remove any hidden layers, and expand all groups, so the file structure is as flat as possible. This removes any `<g>` tags grouping paths in the SVG code. If you need to animate certain groups then you might want to keep these, but generally if I need to do that I prefer to add them in manually. You can expand a group in Illustrator using <kbd>Shift</kbd> + <kbd>CMD</kbd> + <kbd>G</kbd>.
+The first thing I do when optimising an SVG is remove any hidden layers, and expand groups where possible. This removes any `<g>` tags grouping paths in the SVG code. You might want to keep certain groups intact if you plan to style or animate them. You can expand a group in Illustrator using the shortcut <kbd>Shift</kbd> + <kbd>CMD</kbd> + <kbd>G</kbd>.
 
 <figure>
   <img src="optimising-svgs-for-the-web_03.jpg" alt="The layers panel in Illustrator, showing group with two objects">
@@ -71,7 +84,7 @@ The first thing I do when optimising an SVG is remove any hidden layers, and exp
 
 ### Convert to paths
 
-Next I convert any strokes to filled paths, where possible. In Illustrator we can do this using _Object > Expand_. There may be some exceptions: if you’re animating `stroke-dasharray` or `stroke-dashoffset` you’ll need to leave these intact, and likewise if you want to retain the stroke width when scaling the SVG.
+Next I convert any strokes to filled paths, where possible. In Illustrator we can do this using _Object > Expand_. There may be some exceptions: if you’re styling or animating `stroke-dasharray` or `stroke-dashoffset` you’ll need to leave these intact, and likewise if you want to retain the stroke width when scaling the SVG.
 
 <figure>
   <img src="optimising-svgs-for-the-web_04.png" alt="Icons shown before stroke expanded and after">
@@ -114,13 +127,13 @@ SVGs can be used in a number of ways on the web, including:
 - In the `background-image` CSS property
 - Inline in the HTML
 
-For icons in particular, inline SVGs offer the most in terms of performance and flexibility, and best way to use them generally is to create a [sprite](https://www.webdesignerdepot.com/2017/05/how-to-create-and-manage-svg-sprites/). If you don’t want to do this manually, there are [NPM]() packages available that auto-generate SVG sprites. Then, when it comes to using them, instead of pasting in the whole SVG, we can reference them with the `<use>` element:
+For icons in particular, inline SVGs offer the most in terms of performance and flexibility, and best way to use them generally is to create a [sprite](https://www.webdesignerdepot.com/2017/05/how-to-create-and-manage-svg-sprites/). If you don’t want to do this manually, there are NPM packages available that auto-generate SVG sprites. I’m currently using [this one]() for some projects. Then, when it comes to using them, instead of pasting in the whole SVG, we can reference them with the `<use>` element:
 
 ```html
 <svg></svg>
 ```
 
-Because we’re using paths, we can use the following CSS to instruct all SVGs to inherit the current colour, rather than use the `fill` property – which, for an icon system, will help us write less code: An SVG icon used in a button will simply inherit the button’s text colour.
+Because we’re using paths, we can use the following CSS to instruct all SVGs to inherit the current colour, rather than use the `fill` property – which, for an icon system, will help us write less code: An SVG icon used in a button will simply inherit the button’s text colour. (We need to remove the `fill` attribute on the SVG itself in order to style it with CSS.)
 
 ```css
 svg {
