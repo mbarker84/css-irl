@@ -71,6 +71,10 @@
     margin-top: 1rem;
   }
 
+  li + li {
+    margin-top: rem(10px);
+  }
+
   a,
   link {
     color: $primary;
