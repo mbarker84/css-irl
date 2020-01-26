@@ -33,7 +33,7 @@ const renderExternalLink = srcUrl => {
 
 const img = `https://css-irl.info${metaImg}`;
 
-export default ({ data, location, pathContext, dangerouslySetInnerHTML }) => {
+export default ({ data, location, pathContext }) => {
   const post = data.markdownRemark;
   const { series, srcUrl, source, title, tags, date } = post.frontmatter;
   const { next, previous } = pathContext;
