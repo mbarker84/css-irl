@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./ad-block.module.scss";
 
-export default () => {
+export default ({ dangerouslySetInnerHTML }) => {
   return (
     <div className={styles.adBlock}>
       <div

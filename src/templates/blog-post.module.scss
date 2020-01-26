@@ -138,3 +138,13 @@ aside {
     font-size: rem(20px);
   }
 }
+
+.adBlock {
+  display: flex;
+  justify-content: center;
+  margin-top: rem(40px);
+
+  @media (min-width: $md) {
+    font-size: rem(60px);
+  }
+}
