@@ -26,12 +26,12 @@
 .tagName {
   font-family: $heading;
   font-weight: $bold;
-  color: $black;
+  color: var(--textColor);
   transition: color 200ms;
 
   &:hover,
   &:focus {
-    color: $primary;
+    color: var(--primary);
   }
 
   @media (min-width: $md) {
@@ -43,7 +43,7 @@
   font-size: rem(15px);
   font-family: $heading;
   margin-left: rem(10px);
-  color: $primary;
+  color: var(--primary);
 
   @media (min-width: $md) {
     font-size: rem(16px);

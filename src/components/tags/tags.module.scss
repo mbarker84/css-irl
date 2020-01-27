@@ -25,8 +25,8 @@
 
 .tagName {
   display: block;
-  background-color: $primary;
-  color: $white;
+  background-color: var(--primary);
+  color: var(--textColorInverse);
   transition: background-color 200ms, color 200ms;
   padding: 0 rem(5px);
   text-decoration: none;
@@ -34,7 +34,7 @@
 
   &:hover,
   &:focus {
-    color: $primary;
-    background-color: $black;
+    color: var(--primary);
+    background-color: var(--textColor);
   }
 }

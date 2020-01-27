@@ -4,11 +4,7 @@
   &:hover,
   &:focus {
     .title {
-      color: $primary;
-    }
-
-    .title span {
-      border-bottom: 0.1em solid $black;
+      color: var(--primary);
     }
   }
 }
@@ -24,13 +20,14 @@
   transition: color 200ms;
 
   span {
-    border-bottom: 0.1em solid deeppink;
+    border-bottom: 0.1em solid var(--primary);
   }
 
   svg {
     display: inline;
     width: 1rem;
     margin-left: 1rem;
+    fill: var(--textColor);
   }
 }
 
@@ -71,7 +68,7 @@
 
   @media (min-width: $md) {
     padding: rem(80px) rem(40px) rem(40px) rem(40px);
-    background-color: $bg-light;
+    background-color: var(--bgTint);
     display: block;
 
     p {
@@ -94,8 +91,8 @@
   position: absolute;
   top: 0;
   left: 0;
-  color: $white;
-  background-color: $primary;
+  color: var(--textColorInverse);
+  background-color: var(--primary);
   padding: rem(5px) rem(5px);
   margin: 0;
 

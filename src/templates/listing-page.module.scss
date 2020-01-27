@@ -25,15 +25,15 @@
 
 .paginationLinkNext,
 .paginationLinkPrevious {
-  color: $primary;
+  color: var(--primary);
   transition: color 200ms, border 200ms;
   border-bottom: 2px solid transparent;
   text-decoration: none;
 
   &:hover,
   &:focus {
-    color: $black;
-    border-bottom: 2px solid $black;
+    color: var(--textColor);
+    border-bottom: 2px solid var(--textColor);
   }
 }
 
@@ -44,14 +44,14 @@
 .searchTags a {
   font-family: $heading;
   font-weight: $bold;
-  color: $black;
-  border-bottom: 2px solid $primary;
+  color: var(--textColor);
+  border-bottom: 2px solid var(--primary);
   text-decoration: none;
   transition: color 200ms;
 
   &:hover,
   &:focus {
-    color: $primary;
+    color: var(--primary);
   }
 
   @media (min-width: $md) {

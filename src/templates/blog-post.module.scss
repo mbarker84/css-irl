@@ -77,7 +77,7 @@
 
   a,
   link {
-    color: $primary;
+    color: var(--primary);
   }
 
   figure {
@@ -96,13 +96,13 @@ figcaption > * {
 }
 
 blockquote {
-  border-left: 4px solid $primary;
+  border-left: 4px solid var(--primary);
 }
 
 aside {
   padding: 1rem;
   font-size: 0.9rem;
-  background-color: $bg-light;
+  background-color: var(--bgTint);
 
   p:last-child {
     margin: 0;
@@ -121,7 +121,7 @@ aside {
   font-size: rem(18px);
   font-family: $heading;
   font-weight: $bold;
-  border-bottom: 0.1em solid $primary;
+  border-bottom: 0.1em solid var(--primary);
   color: $black;
   text-decoration: none;
   display: inline-block;
@@ -129,7 +129,7 @@ aside {
 
   &:hover,
   &:focus {
-    color: $primary;
+    color: var(--primary);
   }
 
   svg {

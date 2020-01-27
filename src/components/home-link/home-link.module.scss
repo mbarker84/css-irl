@@ -4,18 +4,18 @@
   display: inline-block;
   font-family: $heading;
   font-weight: $bold;
-  color: $black;
+  color: var(--textColor);
   text-decoration: none;
   transition: color 200ms;
   margin-top: rem(20px);
 
   &:hover,
   &:focus {
-    color: $primary;
+    color: var(--primary);
   }
 
   span {
-    border-bottom: 2px solid $primary;
+    border-bottom: 2px solid var(--primary);
   }
 
   @media (min-width: $md) {

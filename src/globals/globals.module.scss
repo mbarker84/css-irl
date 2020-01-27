@@ -1,4 +1,4 @@
-@import "variables.scss";
+@import "imports";
 
 * {
   box-sizing: border-box;
@@ -7,7 +7,7 @@
 body {
   min-height: 100vh;
   margin: 0;
-  background: $white;
+  background: var(--textColorInverse);
   font-family: $body;
 }
 
@@ -23,33 +23,45 @@ p {
   line-height: 1.6;
 }
 
+p a {
+  &:hover,
+  &:focus {
+    color: var(--textColor);
+  }
+}
+
 pre {
   overflow: scroll;
   background-color: $black;
-  color: $white;
+  color: var(--textColorInverse);
   padding: 1rem;
 }
 
 blockquote {
-  border-left: 8px solid lightGrey;
+  padding-left: rem(20px);
+  border-left: 8px solid var(--primary);
+
+  @media (min-width: $md) {
+    padding-left: rem(40px);
+  }
 }
 
 code {
-  background: $bg-light;
+  background: var(--bgTint);
   padding: 0.125rem 0.25rem;
   border-radius: 0.2em;
 }
 
 :global {
   .textPrimary {
-    color: $primary;
+    color: var(--primary);
   }
 }
 
 .hl {
   line-height: 1.2;
   position: relative;
-  box-shadow: 0 -0.5em 0 inset $primary;
+  box-shadow: 0 -0.5em 0 inset var(--primary);
   transition: box-shadow 200ms ease-in-out;
 }
 
@@ -90,6 +102,7 @@ li > h3 {
 }
 
 .searchTags a {
+  color: var(--textColor);
   font-size: 0.9rem;
-  border-bottom: 2px solid $primary;
+  border-bottom: 2px solid var(--primary);
 }

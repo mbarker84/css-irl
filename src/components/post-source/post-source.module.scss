@@ -3,7 +3,7 @@
 .src {
   font-size: rem(16px);
   font-family: $heading;
-  border-bottom: 0.1em solid $primary;
+  border-bottom: 0.1em solid var(--primary);
   color: $black;
   text-decoration: none;
   display: inline-block;
@@ -11,6 +11,6 @@
 
   &:hover,
   &:focus {
-    color: $primary;
+    color: var(--primary);
   }
 }

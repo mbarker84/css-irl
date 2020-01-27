@@ -17,14 +17,14 @@
 
 .paginationLink {
   flex: 1 0 50%;
-  color: $black;
+  color: var(--textColor);
   text-decoration: none;
   transition: color 200ms;
   line-height: 1.5;
 
   &:hover,
   &:focus {
-    color: $primary;
+    color: var(--primary);
   }
 
   @media (min-width: $sm) {
@@ -41,6 +41,6 @@
 
 .linkTitle {
   span {
-    border-bottom: 2px solid $primary;
+    border-bottom: 2px solid var(--primary);
   }
 }

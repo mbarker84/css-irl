@@ -1,5 +1,10 @@
 @import "../globals/imports.scss";
 
+body {
+  background-color: var(--bg);
+  color: var(--textColor);
+}
+
 figcaption {
   font-weight: 200;
   font-size: rem(16px);
@@ -28,7 +33,7 @@ figcaption {
   padding: rem(20px);
   font-family: $heading;
   margin-top: auto;
-  background-color: lighten($black, 85%);
+  background-color: var(--bgGrey);
 }
 
 .bottomNav {
