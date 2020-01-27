@@ -49,7 +49,7 @@ Every graphics program will have its own way of saving SVGs, but regardless of w
 
 ## A quick win with SVGOMG
 
-One way to quickly remove a lot of this extraneous data is to run it through [Jake Archibald](https://twitter.com/jaffathecake)’s tool, [SVGOMG](https://jakearchibald.github.io/svgomg/). You can either upload the SVG file or paste in the code directly and, depending on the options selected, your SVG will be greatly slimmed-down, without adverse visual impact. You might need to play around with the different options to get your desired result, especially if your SVG is quite complex, but I generally find that for simple icons I can check most of the options without adversly affecting the result.
+One way to quickly remove a lot of this extraneous data is to run it through [Jake Archibald](https://twitter.com/jaffathecake)’s tool, [SVGOMG](https://jakearchibald.github.io/svgomg/) (_Fig 02_). You can either upload the SVG file or paste in the code directly and, depending on the options selected, your SVG will be greatly slimmed-down, without adverse visual impact. You might need to play around with the different options to get your desired result, especially if your SVG is quite complex, but I generally find that for simple icons I can check most of the options without adversly affecting the result.
 
 <figure>
   <img src="optimising-svgs-for-the-web_02.jpg" alt="">
@@ -77,16 +77,16 @@ How much code you can strip away by editing your SVG depends on its complexity, 
 
 ### Expand groups
 
-The first thing I do when optimising an SVG is remove any hidden layers, and expand groups where possible. This removes any `<g>` tags grouping paths in the SVG code. You might want to keep certain groups intact if you plan to style or animate them. You can expand a group in Illustrator using the shortcut <kbd>Shift</kbd> + <kbd>CMD</kbd> + <kbd>G</kbd>.
+The first thing I do when optimising an SVG is remove any hidden layers, and expand groups where possible. This removes any `<g>` tags grouping paths in the SVG code. You might want to keep certain groups intact if you plan to style or animate them. You can expand a group in Illustrator using the shortcut <kbd>Shift</kbd> + <kbd>CMD</kbd> + <kbd>G</kbd> (_Fig 03_).
 
 <figure>
-  <img src="optimising-svgs-for-the-web_03.jpg" alt="The layers panel in Illustrator, showing group with two objects">
-  <figcaption><em>Fig 03</em></figcaption>
+  <img src="optimising-svgs-for-the-web_03.jpg" alt="">
+  <figcaption><em>Fig 03</em> The layers panel in Illustrator, showing group with two objects</figcaption>
 </figure>
 
 ### Convert to paths
 
-Next I convert any strokes to filled paths, where possible. In Illustrator we can do this using _Object > Expand_. There may be some exceptions: if you’re styling or animating `stroke-dasharray` or `stroke-dashoffset` you’ll need to leave these intact, and likewise if you want to retain the stroke width when scaling the SVG.
+Next I convert any strokes to filled paths, where possible (_Fig 04_). In Illustrator we can do this using _Object > Expand_. There may be some exceptions: if you’re styling or animating `stroke-dasharray` or `stroke-dashoffset` you’ll need to leave these intact, and likewise if you want to retain the stroke width when scaling the SVG.
 
 <figure>
   <img src="optimising-svgs-for-the-web_04.png" alt="Icons shown before stroke expanded and after">
@@ -101,7 +101,7 @@ It is sometimes a good idea to convert text to outlines if the text is purely de
 
 ### Merge paths
 
-Now that everything in our SVG is a path, we can merge them to ensure as few paths are drawn as possible. Take this example of a “search” icon: the two intersecting paths can be merged into one, resulting in a single path.
+Now that everything in our SVG is a path, we can merge them to ensure as few paths are drawn as possible. Take this example of a “search” icon: the two intersecting paths can be merged into one, resulting in a single path (_Fig 05_).
 
 To merge paths in Illustrator we select them and use the _merge_ option in the _Pathfinder_ menu.
 
@@ -118,7 +118,7 @@ Once the paths are merged I like to do one final check over the layers and remov
 
 ### Fit to artwork bounds
 
-When I use the SVG icon in my HTML I don’t want to be left with extra space around it that I can’t get rid of. This would be the case if the SVG `viewBox` is larger than the contents. In Illustrator, I select _Object > Artboards > Fit to artwork bounds_ to make the `viewBox` dimensions fit the artwork.
+When I use the SVG icon in my HTML I don’t want to be left with extra space around it that I can’t get rid of. This would be the case if the SVG `viewBox` is larger than the contents. In Illustrator, I select _Object > Artboards > Fit to artwork bounds_ to make the `viewBox` dimensions fit the artwork (_Fig 06_).
 
 <figure>
   <img src="optimising-svgs-for-the-web_06.jpg" alt="Search icon shown before and after “Fit to artwork bounds” is selected">
