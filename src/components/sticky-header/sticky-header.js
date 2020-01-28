@@ -8,7 +8,11 @@ const StickyHeader = () => {
   return (
     <header className={styles.header}>
       <div className={styles.headerLeft}>
-        <Link className={styles.homeLink} to={`/`}>
+        <Link
+          className={styles.homeLink}
+          to={`/`}
+          aria-label="CSS IRL homepage"
+        >
           <Logo />
         </Link>
       </div>
