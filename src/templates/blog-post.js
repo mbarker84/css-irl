@@ -32,10 +32,10 @@ const renderExternalLink = srcUrl => {
 
 const img = `https://css-irl.info${metaImg}`;
 
-export default ({ data, location, pathContext }) => {
+export default ({ data, location, pageContext }) => {
   const post = data.markdownRemark;
   const { series, srcUrl, source, title, tags, date } = post.frontmatter;
-  const { next, previous } = pathContext;
+  const { next, previous } = pageContext;
 
   const renderSeriesTitle = () => {
     if (series) {

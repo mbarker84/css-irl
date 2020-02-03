@@ -66,6 +66,10 @@
   @include hoverState;
   position: relative;
 
+  .title {
+    max-width: 35ch;
+  }
+
   @media (min-width: $md) {
     padding: rem(80px) rem(40px) rem(40px) rem(40px);
     background-color: var(--bgTint);
