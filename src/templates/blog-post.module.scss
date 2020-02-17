@@ -82,6 +82,10 @@
 
   figure {
     margin: 0 0 rem(20px) 0;
+
+    @media (min-width: $lg) {
+      margin: 0 0 rem(30px) 0;
+    }
   }
 
   @media (min-width: $md) {
