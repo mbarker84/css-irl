@@ -1,8 +1,12 @@
 ---
 title: "Building an Interactive Timetable"
-date: "2020-02-27"
+date: "2020-03-31"
 tags: ["css", "design", "javascript"]
 ---
+
+<figure>
+  <img src="building-an-interactive-timetable-01a.jpg" alt="Screenshot of the interactive timetable demo">
+</figure>
 
 This week the UK joined many other parts of the world in imposing a lockdown to battle the coronavirus (AKA Covid-19), and so we find ourselves in a pretty weird situation, to say the least. I hope you’re all keeping safe and taking care of yourselves and your loved ones out there. My heart goes out to those who have been personally affected, and to the incredible NHS workers on the frontline, who are fighting daily battles and risking their own health to keep us safe.
 
@@ -26,7 +30,7 @@ Something you should never do is put `display: grid` on a `<table>`. This render
 
 I did, however use Grid for the main layout and activities list, which is perfectly fine.
 
-<aside>If you’d like to learn more about Subgrid, [Rachel Andrew](https://rachelandrew.co.uk) has written and spoken a lot about it. Get started with [this article](https://www.smashingmagazine.com/2018/07/css-grid-2/).</aside>
+<aside>If you’d like to learn more about Subgrid, <a href="https://rachelandrew.co.uk">Rachel Andrew</a> has written and spoken a lot about it. <a href="https://www.smashingmagazine.com/2018/07/css-grid-2">This article</a> is a good place to start.</aside>
 
 ## Structuring the table markup
 
@@ -161,6 +165,13 @@ const clearTimetable = () => {
 };
 ```
 
+Here’s the complete demo:
+
+<iframe height="547" style="width: 100%;" scrolling="no" title="Kids timetable generator" src="https://codepen.io/michellebarker/embed/KKpBbeo?height=547&theme-id=dark&default-tab=result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+  See the Pen <a href='https://codepen.io/michellebarker/pen/KKpBbeo'>Kids timetable generator</a> by Michelle Barker
+  (<a href='https://codepen.io/michellebarker'>@michellebarker</a>) on <a href='https://codepen.io'>CodePen</a>.
+</iframe>
+
 ## Wrapping up
 
-Now we have a basic little interactive timetable. Although I’m planning on creating a real-life version soon (much more enjoyable for little kids, I think!), this one was lots of fun to build and helped me get inspired and motivated. If you’ve read this far, hope you’ve learnt something too.
+Now we have a simple little interactive timetable. Although I’m planning on creating a real-life version soon (much more enjoyable for little kids, I think!), this one was lots of fun to build and helped me get inspired and motivated. If you’ve read this far, hope you’ve learnt something too.
