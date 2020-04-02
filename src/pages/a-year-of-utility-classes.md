@@ -1,8 +1,8 @@
 ---
-title: 'A Year of Utility Classes'
-date: '2019-01-28'
-heroImage: 'a-year-of-utilities-01.svg'
-tags: ['workflow', 'css']
+title: "A Year of Utility Classes"
+date: "2019-01-28"
+heroImage: "a-year-of-utilities-01.svg"
+tags: ["workflow", "css"]
 ---
 
 <figure>
@@ -15,7 +15,7 @@ Sarah Dayan published a great article last year about the [benefits of utility-f
 
 ## What are utility classes?
 
-Utility classes are CSS class names that serve one particular purpose, and are named and are named as such. Typically a class like `.bg-blue` would give you `background-color: blue`, for example. It’s not uncommon to use utility classes within CSS, but on the whole they tend to be used sparingly – at least with well-established methodologies such as BEM and ITCSS.
+Utility classes are CSS class names that serve one particular purpose, and are named as such. Typically a class like `.bg-blue` would give you `background-color: blue`, for example. It’s not uncommon to use utility classes within CSS, but on the whole they tend to be used sparingly – at least with well-established methodologies such as BEM and ITCSS.
 
 The thinking around the rise of utility class frameworks turns this on its head, and advocates developing with utility classes first, with classes that cover virtually any common style you might want to apply to an element. There are many utility class frameworks around ([Tachyons](https://tachyons.io/) is one example), but Tailwind in particular provides simple class names that walk the fine line between brevity and being sufficiently descriptive. It might take a little while to memorize them at first, but most of the class names are fairly intuitive, and I found that after having a window open with the documentation alongside my project for a couple of days, I hardly needed to refer to them at all. (There’s even a [plugin for VS Code](https://github.com/austenc/vscode-tailwind-docs) to access the docs, so you don’t even need to leave your editor! I haven’t used this, so can’t vouch for it.)
 
@@ -23,15 +23,15 @@ A string of classes like `block p-1 mb-1 text-white bg-blue hover:bg-red` would 
 
 ```css
 .some-element {
-	display: block;
-	padding: 0.25rem;
-	margin-bottom: 0.25rem;
-	color: #ffffff;
-	background-color: #3490dc;
+  display: block;
+  padding: 0.25rem;
+  margin-bottom: 0.25rem;
+  color: #ffffff;
+  background-color: #3490dc;
 }
 
 .some-element:hover {
-	background-color: #e3342f;
+  background-color: #e3342f;
 }
 ```
 
@@ -67,7 +67,7 @@ When you have a super long selector string to contend with, Tailwind has another
 
 ```css
 .my-super-class-name {
-	@apply bg-blue text-white font-bold uppercase px-2 py-1 mx-auto mb-1 border-1 w-200;
+  @apply bg-blue text-white font-bold uppercase px-2 py-1 mx-auto mb-1 border-1 w-200;
 }
 ```
 
@@ -83,11 +83,11 @@ Another place where I found Tailwind difficult to work with was with component v
 
 ```html
 <article class="media-object">
-	<h2 class="media-object__heading"></h2>
-	<figure class="media-object__figure">
-		<img class="media-object__image" src="some-image.jpg" />
-	</figure>
-	<div class="media-object__text-block"><p>...</p></div>
+  <h2 class="media-object__heading"></h2>
+  <figure class="media-object__figure">
+    <img class="media-object__image" src="some-image.jpg" />
+  </figure>
+  <div class="media-object__text-block"><p>...</p></div>
 </article>
 ```
 
