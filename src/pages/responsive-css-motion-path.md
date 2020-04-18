@@ -17,7 +17,7 @@ Happily, fellow CodePen enthusiast (and awesome animator) [Jhey Tompkins](https:
 
 ## A transform approach
 
-As Jhey’s demo show’s, we’d also need to do some work to scale the text to get a result that’s useful for us. Sometimes it might make more sense to scale not only the path, but the elements animating on it, when the viewport is resized. I tested a different approach: using [Resize Observer](https://developer.mozilla.org/en-US/docs/Web/API/ResizeObserver) to calculate the transform `scale` value from a parent container. This outputs a custom property value, which is then used in a CSS transform:
+As Jhey’s demo shows, we’d also need to do some work to scale the text to get a result that’s useful for us. Sometimes it might make more sense to scale not only the path, but the elements animating on it, when the viewport is resized. I tested a different approach: using [Resize Observer](https://developer.mozilla.org/en-US/docs/Web/API/ResizeObserver) to calculate the transform `scale` value from a parent container. This outputs a custom property value, which is then used in a CSS transform:
 
 <iframe height="420" style="width: 100%;" scrolling="no" title="Motion path scaling" src="https://codepen.io/michellebarker/embed/zYvOVjo?height=420&theme-id=dark&default-tab=result" frameborder="no" allowtransparency="true" allowfullscreen="true" loading="lazy">
   See the Pen <a href='https://codepen.io/michellebarker/pen/zYvOVjo'>Motion path scaling</a> by Michelle Barker
@@ -31,4 +31,4 @@ This also with other content in the document flow, which I wasn’t sure it woul
   (<a href='https://codepen.io/michellebarker'>@michellebarker</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-Both of these approaches would benefit from more experimentation, and could be useful in different cases. I’m looking forward to working with them a bit more, as being able to scale paths would be a bigger incentive to using Motion Path in production.
+Both of these approaches would benefit from more experimentation, and could be useful in different cases. I’m looking forward to working with them a bit more, as being able to scale paths would be a big incentive to using Motion Path in production.
