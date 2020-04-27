@@ -1,5 +1,6 @@
 import React from "react";
 import Helmet from "react-helmet";
+import Loadable from "@loadable/component";
 import Layout from "../components/layout";
 import PostPaginate from "../components/post-paginate/post-paginate";
 import styles from "./blog-post.module.scss";
@@ -15,7 +16,7 @@ const renderSrc = (srcUrl, source) => {
   return <SourceDetails url={srcUrl} text={source} />;
 };
 
-const renderExternalLink = srcUrl => {
+const renderExternalLink = (srcUrl) => {
   if (!srcUrl) return;
 
   return (
@@ -74,13 +75,15 @@ export default ({ data, location, pageContext }) => {
           {renderExternalLink(srcUrl)}
           <div className={styles.adBlock}>
             <div
+              key={`adblock`}
+              id="___gatsby"
               dangerouslySetInnerHTML={{
                 __html: `<script
-                async
-                type="text/javascript"
-                src="//cdn.carbonads.com/carbon.js?serve=CE7D62J7&placement=css-irlinfo"
-                id="_carbonads_js"
-              ></script>`
+                  async
+                  type="text/javascript"
+                  src="cdn.carbonads.com/carbon.js?serve=CE7D62J7&placement=css-irlinfo"
+                  id="_carbonads_js"
+                ></script>`,
               }}
             />
           </div>
