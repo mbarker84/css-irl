@@ -1,6 +1,5 @@
 import React from "react";
 import Helmet from "react-helmet";
-import Loadable from "@loadable/component";
 import Layout from "../components/layout";
 import PostPaginate from "../components/post-paginate/post-paginate";
 import styles from "./blog-post.module.scss";
