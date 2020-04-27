@@ -1,5 +1,5 @@
 ---
-title: "Video: 90 Seconds on CSS Custom properties"
+title: "Video: 90 Seconds on CSS Custom Properties"
 date: "2020-04-22"
 tags: ["css", "custom properties"]
 ---
