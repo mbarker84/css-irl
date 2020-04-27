@@ -75,8 +75,6 @@ export default ({ data, location, pageContext }) => {
           {renderExternalLink(srcUrl)}
           <div className={styles.adBlock}>
             <div
-              key={`adblock`}
-              id="___gatsby"
               dangerouslySetInnerHTML={{
                 __html: `<script
                   async
