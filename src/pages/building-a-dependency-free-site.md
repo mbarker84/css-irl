@@ -1,7 +1,7 @@
 ---
-title: 'Building a Dependency-free Site in 2019'
-date: '2019-03-22'
-tags: ['workflow']
+title: "Building a Dependency-free Site in 2019"
+date: "2019-03-22"
+tags: ["workflow"]
 ---
 
 <figure>
@@ -66,6 +66,5 @@ I have a couple of freelance clients that need their (small) sites re-built, and
 I’d love to hear if you’ve had any similar thoughts (or if you strongly disagree!), and if you have any recommendations for ways to speed up the development process without adding dependencies. When I tweeted about my site re-build, it became my most popular tweet ever.
 
 <blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">I re-built my personal site using just HTML, CSS and nothing else, just to see if that’s possible in 2019 and it turns out it totally is 🤷‍♀️ <a href="https://t.co/2Hv5qQfw5s">https://t.co/2Hv5qQfw5s</a></p>&mdash; Michelle Barker (@mbarker_84) <a href="https://twitter.com/mbarker_84/status/1107416868711743490?ref_src=twsrc%5Etfw">March 17, 2019</a></blockquote>
-<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 It’s quite something when building a website using the most basic technologies imaginable has somehow become revolutionary.

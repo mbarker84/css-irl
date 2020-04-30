@@ -16,7 +16,7 @@ While these are written with technical content in mind, they could apply to many
 
 [Rachel Andrew](https://twitter.com/rachelandrew) recently tweeted the following advice, and I couldn’t agree more:
 
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr">The best tutorials are very often written by someone who has just learned a thing. It is very easy to forget what it is like to stare at the docs, wondering how on earth you get started, wishing someone would guide you through it.</p>&mdash; Rachel Andrew (@rachelandrew) <a href="https://twitter.com/rachelandrew/status/1250371683233431553?ref_src=twsrc%5Etfw">April 15, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">The best tutorials are very often written by someone who has just learned a thing. It is very easy to forget what it is like to stare at the docs, wondering how on earth you get started, wishing someone would guide you through it.</p>&mdash; Rachel Andrew (@rachelandrew) <a href="https://twitter.com/rachelandrew/status/1250371683233431553?ref_src=twsrc%5Etfw">April 15, 2020</a></blockquote>
 
 Writing that article while the experience is fresh in your mind will no doubt make it all the more relevant to the reader. It also means you’re likely to be more excited by the topic, making it more engaging to read.
 
