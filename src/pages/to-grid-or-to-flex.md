@@ -1,18 +1,21 @@
 ---
-title: "To Grid or to Flex?"
-date: "2019-02-10"
-tags: ["css grid", "flexbox"]
+title: 'To Grid or to Flex?'
+date: '2019-02-10'
+tags: ['css grid', 'flexbox']
 ---
 
 A recent [Twitter thread](https://twitter.com/chriscoyier/status/1088827201468813312) started by Chris Coyier got me thinking about how people in general interpret the use cases for CSS Grid Layout versus flexbox:
 
 <blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">For y&#39;all that have an understand of both CSS grid and flexbox, what&#39;s your favorite way of explaining the difference?</p>&mdash; Chris Coyier (@chriscoyier) <a href="https://twitter.com/chriscoyier/status/1088827201468813312?ref_src=twsrc%5Etfw">January 25, 2019</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 Naturally some of the most insightful replies came from Rachel Andrew and Jen Simmons:
 
 <blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">Flexbox is for one dimensional layout. A row OR a column. Grid is for two dimensional layout. Rows AND columns.</p>&mdash; Rachel Andrew (@rachelandrew) <a href="https://twitter.com/rachelandrew/status/1088827732874747910?ref_src=twsrc%5Etfw">January 25, 2019</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 <blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">Grid makes actual columns and rows. Content will line up from one to the other, as you ask it to. Flexbox doesn’t. Not only in the second dimension (which is easiest to talk about), but also in the first dimension. Flexbox isn’t for most of the things we’ve been using it for.</p>&mdash; Jen Simmons (@jensimmons) <a href="https://twitter.com/jensimmons/status/1089181330133450752?ref_src=twsrc%5Etfw">January 26, 2019</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 However, reading tweets individually doesn’t tell the whole story. In this article I want to unpack when and where you might want to use Grid or flexbox, and some reasons for choosing one or the other.
 
@@ -23,6 +26,7 @@ What surprised me about reading the responses in the thread was the number of pe
 My own contribution to the thread was this:
 
 <blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">If it looks like I’d need to reach for calc() a lot for layout then that’s usually a good sign of when I need Grid over flexbox</p>&mdash; Michelle Barker (@mbarker_84) <a href="https://twitter.com/mbarker_84/status/1089182216020742144?ref_src=twsrc%5Etfw">January 26, 2019</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 Often, if you’re having to use _calc()_ a lot to get precise track sizes (factoring in gutters, for example) then it’s worth considering using Grid, as the _fr_ unit will do the heavy lifting for you and save you any number of headaches. While that’s fine as a general principle, it’s not the whole picture. There are cases when you might need Grid, even though your layout doesn’t require _calc()_. One example might be a fixed-width, two-dimensional layout, where each track is 200px wide - you don’t need _calc()_ to tell you how wide those tracks should be, but you might still want the behaviour of Grid. Likewise, there are cases for using flexbox where you do need _calc()_, so this can only be interpreted as a guideline.
 
@@ -45,11 +49,11 @@ We have a grid of nine items of equal width placed from left to right in rows of
 
 ```css
 .grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-auto-rows: 200px;
-  /* Assuming we want our rows to be a fixed height – could be left as the default `auto` if we want the height to respond to the content */
-  gap: 20px;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-auto-rows: 200px;
+	/* Assuming we want our rows to be a fixed height – could be left as the default `auto` if we want the height to respond to the content */
+	gap: 20px;
 }
 ```
 
@@ -66,16 +70,16 @@ By contrast, if we were to create this layout with flexbox, we would need to sty
 
 ```css
 .grid {
-  display: flex;
-  flex-wrap: wrap;
-  margin: -10px;
-  width: calc(100% + 20px);
+	display: flex;
+	flex-wrap: wrap;
+	margin: -10px;
+	width: calc(100% + 20px);
 }
 
 .item {
-  width: calc((100% / 3) - 20px);
-  flex: 0 0 auto;
-  margin: 0 10px 20px 10px;
+	width: calc((100% / 3) - 20px);
+	flex: 0 0 auto;
+	margin: 0 10px 20px 10px;
 }
 ```
 
@@ -130,16 +134,16 @@ If we’re using Grid, the other issue we need to take into account is browser s
 
 ```css
 .grid {
-  display: flex;
-  flex-wrap: wrap;
-  /* Rest of the fallback layout code */
+	display: flex;
+	flex-wrap: wrap;
+	/* Rest of the fallback layout code */
 }
 
 @supports (display: grid) {
-  .grid {
-    display: grid;
-    /* Rest of the Grid code */
-  }
+	.grid {
+		display: grid;
+		/* Rest of the Grid code */
+	}
 }
 ```
 

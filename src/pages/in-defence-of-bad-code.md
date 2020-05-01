@@ -1,12 +1,13 @@
 ---
-title: "In Defence of Bad Code"
-date: "2018-06-14"
-tags: ["workflow"]
+title: 'In Defence of Bad Code'
+date: '2018-06-14'
+tags: ['workflow']
 ---
 
 I saw a tweet the other day from [Christian Heilmann](https://twitter.com/codepo8) of Microsoft (formerly of Mozilla), a big name in the web industry and tech conference circuit:
 
 <blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">&lt;button class=&quot;button button--primary button--dark button--chromeless button--withIcon button--withSvgIcon u-padding12 u-borderRadius4 u-borderDarker&quot; data-action=&quot;play-audioPlayer&quot;&gt;<br><br>Somewhere along the path, we replaced CSS values with classes.</p>&mdash; Chris Heilmann (@codepo8) <a href="https://twitter.com/codepo8/status/1006765051116695552?ref_src=twsrc%5Etfw">June 13, 2018</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 It wasn’t the tweet itself that rankled – I myself have rolled my eyes at similar chunks of code on occasion, and Christian didn’t explicitly make any further comment on it. It was the replies in the thread below that got to me. Because they were nearly all (at the time of writing), along the lines of “Oh my god, that’s disgusting, how could someone write code like that”, and of course, the sanctimonious “I myself never saw the point in [utility classes, BEM, etc - insert here]”. People seemed to take vindication from the original tweet, as if it proved that they had been right all along, and that it was always inevitable that these new-fangled CSS methodologies were always going to lead straight to hell - and of course, they would never write code like that themselves.
 
