@@ -1,6 +1,6 @@
 ---
 title: "Exciting Things on the Horizon For CSS Layout"
-date: "2020-04-30"
+date: "2020-05-01"
 tags: ["css grid", "flexbox"]
 ---
 
@@ -16,6 +16,8 @@ I’ve long been a fan of Firefox’s Grid inspector. Other browsers just don’
 
 This week Chrome teased us with a sneak-preview of a brand new Grid inspector, which might even rival Firefox’s. No more squinting and counting line numbers – Chrome’s inspector shows them to you! Although I’m a Firefox girl at heart, I’ll still be giving it a whirl – and it’ll certainly make debugging in Chrome easier.
 
+From Twitter:
+
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">It&#39;s almost here: CSS grid tooling! 🤘<br><br>Over the last couple of months, we teamed up with <a href="https://twitter.com/EdgeDevTools?ref_src=twsrc%5Etfw">@EdgeDevTools</a> to work on this highly-requested feature. Here is a sneak preview.<br><br>We have many more ideas on how to make grids easier and more accessible in the future – stay tuned! <a href="https://t.co/b3u4XaEkzv">pic.twitter.com/b3u4XaEkzv</a></p>&mdash; Chrome DevTools (@ChromeDevTools) <a href="https://twitter.com/ChromeDevTools/status/1255481965995851782?ref_src=twsrc%5Etfw">April 29, 2020</a></blockquote>
 
 ## ‘gap’ for flexbox supported in Chrome Canary
@@ -23,6 +25,8 @@ This week Chrome teased us with a sneak-preview of a brand new Grid inspector, w
 Again, Chrome is playing catch-up to Firefox on this one. The `gap` property has been supported in Grid layout for a while (previously `grid-gap`), but now it can be used in flexbox too. This makes building [algorithmic layouts](https://every-layout.dev/blog/algorithmic-design/) a lot easier - no more hacking around with margins.
 
 This is currently behind a flag in Chrome Canary – you’ll need to enable it.
+
+From [Adam Argyle](https://twitter.com/argyleink) on Twitter:
 
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">🎉 flex that gap in the latest release of Chrome Canary 🎉<br><br>```css<br>display: flex; 🦾<br>gap: 1ch; 🔥<br>```<br><br>early adopters:<br>help us test it out won&#39;t ya!? <br><br>note:<br>requires web experiments enabled, visit chrome://flags/<a href="https://twitter.com/hashtag/enable?src=hash&amp;ref_src=twsrc%5Etfw">#enable</a>-experimental-web-platform-features in Canary to enable <a href="https://t.co/lG3WusFA4X">pic.twitter.com/lG3WusFA4X</a></p>&mdash; Adam Argyle (@argyleink) <a href="https://twitter.com/argyleink/status/1254794309263491072?ref_src=twsrc%5Etfw">April 27, 2020</a></blockquote>
 
