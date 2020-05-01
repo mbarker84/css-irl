@@ -42,4 +42,4 @@ It’s still likely to be a long road to widespread browser support – we’re 
 
 It’s great to see the kind of progress being made on CSS layout. Let’s hope these features become mainstream soon!
 
-<aside>You can contribute to the subgrid discussion <a href="https://github.com/w3c/csswg-drafts/issues/4650">on Github</a></aside>
+<aside>You can contribute to the masonry discussion <a href="https://github.com/w3c/csswg-drafts/issues/4650">on Github</a></aside>
