@@ -6,7 +6,7 @@ tags: ["css", "color"]
 
 I recently made [a demo](https://codepen.io/michellebarker/full/mdezJwG) where I needed to list _all_ the CSS named colours as options in a `select` input. I didn’t want to write them all out by hand, but the trouble was I couldn’t find just a list of all 148 colours anywhere as plain text.
 
-What I ended up doing was copying the HTML from [this handy CSS Tricks article](https://css-tricks.com/snippets/css/named-colors-and-hex-equivalents/)(which also includes the corresponding hex codes, and is very useful), then replacing the surrounding table markup with the markup I actually needed. I don’t really want to have to do that again – so I’ve created this [text file on Github](https://gist.github.com/mbarker84/e839c545539a043d2454a5a4fef61acb#file-all-css-named-colors-txt-L24) in case I (or you) ever need a plain text list of all the CSS colours in the future.
+What I ended up doing was copying the HTML from [this handy CSS Tricks article](https://css-tricks.com/snippets/css/named-colors-and-hex-equivalents/) (which also includes the corresponding hex codes, and is very useful), then replacing the surrounding table markup with the markup I actually needed. I don’t really want to have to do that again – so I’ve created this [text file on Github](https://gist.github.com/mbarker84/e839c545539a043d2454a5a4fef61acb#file-all-css-named-colors-txt-L24) in case I (or you) ever need a plain text list of all the CSS colours in the future.
 
 They’re also listed below 🙂
 
