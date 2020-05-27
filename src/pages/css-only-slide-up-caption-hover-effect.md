@@ -10,7 +10,7 @@ Have you ever needed to build a UI where a caption needs to slide over an image 
   <img src="css-only-slide-up-caption-hover-effect-03.jpg" alt="A grid of 4 items, with content revealed on hover">
 </figure>
 
-This is something I’ve been tasked with implementing in various ways throughout me career. It’s not too difficult to do: Use `position: absolute` to position the caption over the image, then transform it down, transitioning it back up on hover – not forgetting `overflow-y: hidden` on the containing element.
+This is something I’ve been tasked with implementing in various ways throughout my career. It’s not too difficult to do: Use `position: absolute` to position the caption over the image, then transform it down, transitioning it back up on hover – not forgetting `overflow-y: hidden` on the containing element.
 
 Here’s a simple implementation:
 
