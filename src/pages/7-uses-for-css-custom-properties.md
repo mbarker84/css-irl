@@ -58,7 +58,9 @@ Suppose we have an element that has a consistent value for its top padding, but 
 }
 
 @media (min-width: 50em) {
-  padding: 150px 60px 60px 60px;
+  .some-element {
+    padding: 150px 60px 60px 60px;
+  }
 }
 ```
 
