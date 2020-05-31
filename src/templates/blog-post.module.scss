@@ -117,6 +117,14 @@ aside {
   }
 }
 
+pre[class*="language-"] {
+  font-size: 1rem;
+
+  @media (min-width: $md) {
+    font-size: 1.15rem;
+  }
+}
+
 .link {
   font-size: rem(18px);
   font-family: $heading;
