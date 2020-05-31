@@ -67,6 +67,10 @@
     }
   }
 
+  li + li {
+    margin-top: calc(var(--vr) / 2);
+  }
+
   > * + h2 {
     margin-top: calc(var(--vr) * 2);
   }
