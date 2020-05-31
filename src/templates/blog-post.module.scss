@@ -43,42 +43,9 @@
 }
 
 .richtext {
-  h2 {
-    margin-bottom: 1.5rem;
-  }
+  --vr: 1rem;
 
-  h3,
-  h4,
-  h5 {
-    margin-bottom: 1.2rem;
-  }
-
-  * + h2 {
-    margin-top: 2.5rem;
-  }
-
-  * + h3,
-  * + h4,
-  * + h5 {
-    margin-top: 2rem;
-  }
-
-  img {
-    margin-bottom: 0;
-  }
-
-  * + p {
-    margin-top: 1rem;
-  }
-
-  li + li {
-    margin-top: rem(10px);
-  }
-
-  a,
-  link {
-    color: var(--primary);
-  }
+  padding-bottom: calc(var(--vr) * 2);
 
   figure {
     margin: 0 0 rem(20px) 0;
@@ -86,6 +53,27 @@
     @media (min-width: $lg) {
       margin: 0 0 rem(30px) 0;
     }
+  }
+
+  > * + * {
+    margin-top: var(--vr, 1rem);
+
+    @media (min-width: $md) {
+      --vr: 2rem;
+    }
+
+    @media (min-width: $lg) {
+      --vr: 2.5rem;
+    }
+  }
+
+  > * + h2 {
+    margin-top: calc(var(--vr) * 2);
+  }
+
+  a,
+  link {
+    color: var(--primary);
   }
 
   @media (min-width: $md) {
