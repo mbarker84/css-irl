@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "gatsby";
+import CarbonAds from "react-carbon-ads";
 import Layout from "../components/layout";
 import { PostPreview } from "../components/post-preview/post-preview";
 
@@ -11,7 +12,7 @@ const isFeatured = (index, isFirst) => {
   return index === 0 && isFirst;
 };
 
-export default props => {
+export default (props) => {
   const { data } = props;
   const { currentPage, numPages } = props.pageContext;
   const isFirst = currentPage === 1;
@@ -76,6 +77,9 @@ export default props => {
           </Link>
         )}
       </nav>
+      <div>
+        <CarbonAds carbonUrl="//cdn.carbonads.com/carbon.js?serve=CE7D62J7&placement=css-irlinfo" />
+      </div>
     </Layout>
   );
 };

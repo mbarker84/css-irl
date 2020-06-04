@@ -1,10 +1,10 @@
 import React from "react";
 import Helmet from "react-helmet";
+import CarbonAds from "react-carbon-ads";
 import Layout from "../components/layout";
 import PostPaginate from "../components/post-paginate/post-paginate";
 import styles from "./blog-post.module.scss";
 import layout from "../layouts/layout.module.scss";
-import "../components/global.css"; // Global CSS for ads
 import { SourceDetails } from "../components/post-source/post-source";
 import { Tags } from "../components/tags/tags";
 import metaImg from "../images/social_1200x630_03.png";
@@ -72,6 +72,11 @@ export default ({ data, location, pageContext }) => {
             className={styles.richtext}
           />
           {renderExternalLink(srcUrl)}
+
+          <div className="styles.adBlock">
+            <CarbonAds carbonUrl="//cdn.carbonads.com/carbon.js?serve=CE7D62J7&placement=css-irlinfo" />
+          </div>
+
           <PostPaginate previous={previous} next={next}></PostPaginate>
         </div>
       </div>
