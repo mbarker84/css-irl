@@ -1,6 +1,6 @@
 import React from "react";
 import Helmet from "react-helmet";
-import CarbonAds from "react-carbon-ads";
+import loadable from "@loadable/component";
 import Layout from "../components/layout";
 import PostPaginate from "../components/post-paginate/post-paginate";
 import styles from "./blog-post.module.scss";
@@ -8,6 +8,10 @@ import layout from "../layouts/layout.module.scss";
 import { SourceDetails } from "../components/post-source/post-source";
 import { Tags } from "../components/tags/tags";
 import metaImg from "../images/social_1200x630_03.png";
+
+const LoadableAdBlock = loadable(() =>
+  import("../components/ad-block/AdBlock")
+);
 
 const renderSrc = (srcUrl, source) => {
   if (!srcUrl) return;
@@ -73,9 +77,7 @@ export default ({ data, location, pageContext }) => {
           />
           {renderExternalLink(srcUrl)}
 
-          <div className="styles.adBlock">
-            <CarbonAds carbonUrl="//cdn.carbonads.com/carbon.js?serve=CE7D62J7&placement=css-irlinfo" />
-          </div>
+          <LoadableAdBlock />
 
           <PostPaginate previous={previous} next={next}></PostPaginate>
         </div>

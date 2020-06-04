@@ -1,12 +1,16 @@
 import React from "react";
 import { Link } from "gatsby";
-import CarbonAds from "react-carbon-ads";
+import loadable from "@loadable/component";
 import Layout from "../components/layout";
 import { PostPreview } from "../components/post-preview/post-preview";
 
 import globals from "../globals/globals.module.scss";
 import layout from "../layouts/layout.module.scss";
 import styles from "./listing-page.module.scss";
+
+const LoadableAdBlock = loadable(() =>
+  import("../components/ad-block/AdBlock")
+);
 
 const isFeatured = (index, isFirst) => {
   return index === 0 && isFirst;
@@ -78,7 +82,7 @@ export default (props) => {
         )}
       </nav>
       <div>
-        <CarbonAds carbonUrl="//cdn.carbonads.com/carbon.js?serve=CE7D62J7&placement=css-irlinfo" />
+        <LoadableAdBlock />
       </div>
     </Layout>
   );
