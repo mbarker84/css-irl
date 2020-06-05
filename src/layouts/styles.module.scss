@@ -1,5 +1,13 @@
 @import "../globals/imports.scss";
 
+.dark {
+  --bg: #161618;
+  --bgTint: #27272c;
+  --textColor: #dbd7db;
+  --bgGrey: #27272c;
+  --textColorInverse: #0e0f0f;
+}
+
 body {
   background-color: var(--bg);
   color: var(--textColor);

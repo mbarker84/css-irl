@@ -1,16 +1,13 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Helmet from "react-helmet";
 import styles from "../layouts/styles.module.scss";
 import layout from "../layouts/layout.module.scss";
 import "./global.css";
 import { StaticQuery, graphql } from "gatsby";
-import StickyHeader from "../components/sticky-header/sticky-header";
+import MainLayout from "../components/main-layout/MainLayout";
 import metaImg from "../images/social_1200x630_02.png";
 
 const img = `https://css-irl.info${metaImg}`;
-
-const d = new Date();
-const currentYear = d.getFullYear();
 
 export default ({ children }) => (
   <StaticQuery
@@ -26,7 +23,7 @@ export default ({ children }) => (
         }
       }
     `}
-    render={data => (
+    render={(data) => (
       <div className={styles.body}>
         <Helmet title={data.site.siteMetadata.title}>
           <html lang="en-gb" />
@@ -114,13 +111,7 @@ export default ({ children }) => (
           <meta name="twitter:card" content="summary_large_image" />
         </Helmet>
 
-        <StickyHeader />
-        <div className={layout.mainContent}>
-          <main className={layout.pageContent}>{children}</main>
-          <footer className={styles.footer}>
-            &copy; Michelle Barker {currentYear}
-          </footer>
-        </div>
+        <MainLayout children={children} />
       </div>
     )}
   />
