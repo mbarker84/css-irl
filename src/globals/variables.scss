@@ -5,24 +5,24 @@ $bg-light: #e1f1f2;
 $white: #fcfdff;
 $light-grey: #e8eaed;
 
-:root {
-  --primary: deepPink;
-  --headerBg: #1d1d26;
-  --textColor: #0e0f0f;
-  --textColorInverse: #fcfdff;
-  --bg: #fcfdff;
-  --bgTint: #dfeded;
-  --bgGrey: #e6e8e8;
-  --white: #fcfdff;
+// :root {
+//   --primary: deepPink;
+//   --headerBg: #1d1d26;
+//   --textColor: #0e0f0f;
+//   --textColorInverse: #fcfdff;
+//   --bg: #fcfdff;
+//   --bgTint: #dfeded;
+//   --bgGrey: #e6e8e8;
+//   --white: #fcfdff;
 
-  @media (prefers-color-scheme: dark) {
-    --bg: #161618;
-    --bgTint: #27272c;
-    --textColor: #dbd7db;
-    --bgGrey: #27272c;
-    --textColorInverse: #0e0f0f;
-  }
-}
+//   // @media (prefers-color-scheme: dark) {
+//   //   --bg: #161618;
+//   //   --bgTint: #27272c;
+//   //   --textColor: #dbd7db;
+//   //   --bgGrey: #27272c;
+//   //   --textColorInverse: #0e0f0f;
+//   // }
+// }
 
 // Breakpoints
 $sm: 42em;

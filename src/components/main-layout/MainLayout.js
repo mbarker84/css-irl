@@ -55,9 +55,25 @@ const styleClass = (theme) => {
 const MainLayout = (props) => {
   const [theme, setTheme] = useState("light");
 
+  const userPrefersDark =
+    window.matchMedia &&
+    window.matchMedia("(prefers-color-scheme: dark)").matches;
+  const userPrefersLight =
+    window.matchMedia &&
+    window.matchMedia("(prefers-color-scheme: light)").matches;
+
   useEffect(() => {
     const localThemePref = localStorage.getItem("theme");
-    setTheme(localThemePref ? localThemePref : "light");
+
+    if (localThemePref) {
+      return setTheme(localThemePref);
+    }
+
+    if (userPrefersDark) {
+      return setTheme("dark");
+    }
+
+    return setTheme("light");
   }, []);
 
   return (

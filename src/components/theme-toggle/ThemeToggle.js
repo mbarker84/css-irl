@@ -2,12 +2,6 @@ import React, { useEffect } from "react";
 import styles from "./theme-toggle.module.scss";
 
 const ThemeToggle = ({ theme, setTheme }) => {
-  useEffect(() => {
-    if (localStorage.getItem("theme") === "dark") {
-      setTheme("dark");
-    }
-  }, []);
-
   return (
     <div className={styles.toggle}>
       <button

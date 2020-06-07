@@ -1,14 +1,47 @@
 @import "../globals/imports.scss";
 
-.dark {
-  --bg: #161618;
-  --bgTint: #27272c;
-  --textColor: #dbd7db;
-  --bgGrey: #27272c;
-  --textColorInverse: #0e0f0f;
+:root {
+  --primary: deepPink;
+  --headerBg: #1d1d26;
+  --textColor: #0e0f0f;
+  --textColorInverse: #fcfdff;
+  --bg: #fcfdff;
+  --bgTint: #dfeded;
+  --bgGrey: #e6e8e8;
+  --white: #fcfdff;
+
+  @media (prefers-color-scheme: dark) {
+    --bg: #161618;
+    --bgTint: #27272c;
+    --textColor: #dbd7db;
+    --bgGrey: #27272c;
+    --textColorInverse: #0e0f0f;
+  }
 }
 
 body {
+  background-color: var(--bg);
+  color: var(--textColor);
+}
+
+.dark {
+  --bg: #161618;
+  --bgTint: #27272c;
+  --bgGrey: #27272c;
+  --textColor: #dbd7db;
+  --textColorInverse: #0e0f0f;
+
+  background-color: var(--bg);
+  color: var(--textColor);
+}
+
+.light {
+  --textColor: #0e0f0f;
+  --textColorInverse: #fcfdff;
+  --bg: #fcfdff;
+  --bgTint: #dfeded;
+  --bgGrey: #e6e8e8;
+
   background-color: var(--bg);
   color: var(--textColor);
 }
