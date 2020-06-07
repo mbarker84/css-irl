@@ -41,26 +41,35 @@ const d = new Date();
 const currentYear = d.getFullYear();
 
 const MainLayout = (props) => {
-  const [darkTheme, setDarkTheme] = useState(false);
+  const localThemePref = localStorage.getItem("theme");
+  const [theme, setTheme] = useState(localThemePref ? localThemePref : "light");
 
-  if (localStorage.getItem("darkTheme") === true) {
-    return setDarkTheme(true);
-  }
+  // if (localStorage.getItem("darkTheme") === true) {
+  //   setDarkTheme(true);
+  //   console.log("dark");
+  // } else {
+  //   setDarkTheme(false);
+  //   console.log("light");
+  // }
 
   useEffect(() => {
-    if (localStorage.getItem("darkTheme") === true) {
-      return setDarkTheme(true);
-    }
-
-    if (localStorage.getItem("darkTheme") === false) {
-      return setDarkTheme(true);
-    }
+    console.log(localStorage.getItem("theme"), theme);
+    // if (localStorage.getItem("darkTheme") === true) {
+    //   setDarkTheme(true);
+    //   console.log("dark");
+    // } else {
+    //   setDarkTheme(false);
+    //   console.log("light");
+    // }
+    // if (localStorage.getItem("darkTheme") === false) {
+    //   return setDarkTheme(true);
+    // }
   }, []);
 
   return (
-    <div className={darkTheme ? styles.dark : styles.light}>
+    <div className={theme === "dark" ? styles.dark : styles.light}>
       <StickyHeader />
-      <ThemeToggle darkTheme={darkTheme} setDarkTheme={setDarkTheme} />
+      <ThemeToggle theme={theme} setTheme={setTheme} />
 
       <div className={layout.mainContent}>
         <main className={layout.pageContent}>{props.children}</main>

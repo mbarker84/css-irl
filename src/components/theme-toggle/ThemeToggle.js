@@ -33,34 +33,29 @@ import styles from "./theme-toggle.module.scss";
   - localStorage = light
 */
 
-const ThemeToggle = ({ darkTheme, setDarkTheme }) => {
+const ThemeToggle = ({ theme, setTheme }) => {
   useEffect(() => {
-    if (localStorage.getItem("darkTheme") === true) {
-      setDarkTheme(true);
+    if (localStorage.getItem("theme") === "dark") {
+      setTheme("dark");
     }
   }, []);
 
   return (
     <div className={styles.toggle}>
-      <label for="theme">
-        Switch to {darkTheme ? "light theme" : "dark theme"}
-      </label>
-      <input
-        type="checkbox"
-        id="theme"
-        checked={darkTheme}
-        name="theme"
-        value={darkTheme}
-        onChange={() => {
-          if (localStorage.getItem("darkTheme") == true) {
-            localStorage.setItem("darkTheme", false);
+      <button
+        onClick={() => {
+          if (localStorage.getItem("theme") === "dark") {
+            localStorage.setItem("theme", "light");
+            setTheme("light");
           } else {
-            localStorage.setItem("darkTheme", true);
+            localStorage.setItem("theme", "dark");
+            setTheme("dark");
           }
-
-          setDarkTheme(!darkTheme);
         }}
-      />
+        className={styles.button}
+      >
+        Switch to {theme == "dark" ? "light theme" : "dark theme"}
+      </button>
     </div>
   );
 };
