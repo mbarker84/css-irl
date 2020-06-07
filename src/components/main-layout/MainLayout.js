@@ -40,34 +40,28 @@ import "../global.css";
 const d = new Date();
 const currentYear = d.getFullYear();
 
-const MainLayout = (props) => {
-  const localThemePref = localStorage.getItem("theme");
-  const [theme, setTheme] = useState(localThemePref ? localThemePref : "light");
+const styleClass = (theme) => {
+  if (!theme) return null;
 
-  // if (localStorage.getItem("darkTheme") === true) {
-  //   setDarkTheme(true);
-  //   console.log("dark");
-  // } else {
-  //   setDarkTheme(false);
-  //   console.log("light");
-  // }
+  if (theme === "dark") {
+    return styles.dark;
+  }
+
+  if (theme === "light") {
+    return styles.light;
+  }
+};
+
+const MainLayout = (props) => {
+  const [theme, setTheme] = useState("light");
 
   useEffect(() => {
-    console.log(localStorage.getItem("theme"), theme);
-    // if (localStorage.getItem("darkTheme") === true) {
-    //   setDarkTheme(true);
-    //   console.log("dark");
-    // } else {
-    //   setDarkTheme(false);
-    //   console.log("light");
-    // }
-    // if (localStorage.getItem("darkTheme") === false) {
-    //   return setDarkTheme(true);
-    // }
+    const localThemePref = localStorage.getItem("theme");
+    setTheme(localThemePref ? localThemePref : "light");
   }, []);
 
   return (
-    <div className={theme === "dark" ? styles.dark : styles.light}>
+    <div className={styleClass(theme)}>
       <StickyHeader />
       <ThemeToggle theme={theme} setTheme={setTheme} />
 
