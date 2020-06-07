@@ -52,15 +52,15 @@ const styleClass = (theme) => {
   }
 };
 
-const MainLayout = (props) => {
-  const [theme, setTheme] = useState("light");
+const userPrefersDark = () =>
+  window.matchMedia &&
+  window.matchMedia("(prefers-color-scheme: dark)").matches;
+const userPrefersLight = () =>
+  window.matchMedia &&
+  window.matchMedia("(prefers-color-scheme: light)").matches;
 
-  const userPrefersDark =
-    window.matchMedia &&
-    window.matchMedia("(prefers-color-scheme: dark)").matches;
-  const userPrefersLight =
-    window.matchMedia &&
-    window.matchMedia("(prefers-color-scheme: light)").matches;
+const MainLayout = (props) => {
+  const [theme, setTheme] = useState(null);
 
   useEffect(() => {
     const localThemePref = localStorage.getItem("theme");
@@ -69,17 +69,23 @@ const MainLayout = (props) => {
       return setTheme(localThemePref);
     }
 
-    if (userPrefersDark) {
-      return setTheme("dark");
-    }
+    // if (userPrefersDark()) {
+    //   return setTheme("dark");
+    // }
 
-    return setTheme("light");
+    // if (userPrefersLight()) {
+    //   return setTheme("light");
+    // }
   }, []);
 
   return (
     <div className={styleClass(theme)}>
       <StickyHeader />
-      <ThemeToggle theme={theme} setTheme={setTheme} />
+      <ThemeToggle
+        theme={theme}
+        setTheme={setTheme}
+        userPrefersDark={userPrefersDark}
+      />
 
       <div className={layout.mainContent}>
         <main className={layout.pageContent}>{props.children}</main>
