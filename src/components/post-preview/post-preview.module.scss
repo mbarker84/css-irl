@@ -3,9 +3,7 @@
 @mixin hoverState {
   &:hover,
   &:focus {
-    .title {
-      color: var(--primary);
-    }
+    color: var(--primary);
   }
 }
 
@@ -47,8 +45,6 @@
 }
 
 .regularPost {
-  @include hoverState;
-
   .title {
     @media (min-width: $md) {
       font-size: rem(28px);
@@ -62,8 +58,17 @@
   }
 }
 
+.postLink {
+  color: inherit;
+  transition: color 200ms;
+
+  &:hover,
+  &:focus {
+    color: var(--primary);
+  }
+}
+
 .featuredPost {
-  @include hoverState;
   position: relative;
 
   .title {
