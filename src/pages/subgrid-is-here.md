@@ -1,7 +1,7 @@
 ---
-title: 'Subgrid is here'
-date: '2019-05-26'
-tags: ['css grid']
+title: "Subgrid is here"
+date: "2019-05-26"
+tags: ["css grid", "layout"]
 ---
 
 <figure>
@@ -23,19 +23,19 @@ Creating a subgrid is pretty simple. A child of a parent grid needs `display: gr
 
 ```css
 .grid {
-	display: grid;
-	grid-template-columns: repeat(3, 1fr);
-	grid-template-rows: repeat(3, 200px);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 200px);
 }
 
 .grid-item {
-	display: grid;
-	grid-template-columns: subgrid;
-	grid-column: 1 / span 2;
+  display: grid;
+  grid-template-columns: subgrid;
+  grid-column: 1 / span 2;
 }
 
 .subgrid-item {
-	grid-column: 2 / 3;
+  grid-column: 2 / 3;
 }
 ```
 

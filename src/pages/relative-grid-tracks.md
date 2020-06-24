@@ -1,7 +1,7 @@
 ---
-title: 'Relative Grid Items with CSS Variables'
-date: '2018-09-13'
-tags: ['css grid', 'custom properties']
+title: "Relative Grid Items with CSS Variables"
+date: "2018-09-13"
+tags: ["css grid", "custom properties", "layout"]
 ---
 
 I was helping my colleague get started with a CSS Grid layout recently and he asked me if there was a way of offsetting grid items relative to one another, e.g “If column 1 ends at line _x_, make column 2 start at line _x + n_”. There isn’t exactly a way of doing this natively with Grid, you would need to explicitly position the items in this case. But it occurred to me that this could be a use case for CSS variables, or custom properties.

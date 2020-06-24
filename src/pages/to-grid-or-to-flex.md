@@ -1,7 +1,7 @@
 ---
-title: 'To Grid or to Flex?'
-date: '2019-02-10'
-tags: ['css grid', 'flexbox']
+title: "To Grid or to Flex?"
+date: "2019-02-10"
+tags: ["css grid", "flexbox", "layout"]
 ---
 
 A recent [Twitter thread](https://twitter.com/chriscoyier/status/1088827201468813312) started by Chris Coyier got me thinking about how people in general interpret the use cases for CSS Grid Layout versus flexbox:
@@ -49,11 +49,11 @@ We have a grid of nine items of equal width placed from left to right in rows of
 
 ```css
 .grid {
-	display: grid;
-	grid-template-columns: repeat(3, 1fr);
-	grid-auto-rows: 200px;
-	/* Assuming we want our rows to be a fixed height – could be left as the default `auto` if we want the height to respond to the content */
-	gap: 20px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 200px;
+  /* Assuming we want our rows to be a fixed height – could be left as the default `auto` if we want the height to respond to the content */
+  gap: 20px;
 }
 ```
 
@@ -70,16 +70,16 @@ By contrast, if we were to create this layout with flexbox, we would need to sty
 
 ```css
 .grid {
-	display: flex;
-	flex-wrap: wrap;
-	margin: -10px;
-	width: calc(100% + 20px);
+  display: flex;
+  flex-wrap: wrap;
+  margin: -10px;
+  width: calc(100% + 20px);
 }
 
 .item {
-	width: calc((100% / 3) - 20px);
-	flex: 0 0 auto;
-	margin: 0 10px 20px 10px;
+  width: calc((100% / 3) - 20px);
+  flex: 0 0 auto;
+  margin: 0 10px 20px 10px;
 }
 ```
 
@@ -134,16 +134,16 @@ If we’re using Grid, the other issue we need to take into account is browser s
 
 ```css
 .grid {
-	display: flex;
-	flex-wrap: wrap;
-	/* Rest of the fallback layout code */
+  display: flex;
+  flex-wrap: wrap;
+  /* Rest of the fallback layout code */
 }
 
 @supports (display: grid) {
-	.grid {
-		display: grid;
-		/* Rest of the Grid code */
-	}
+  .grid {
+    display: grid;
+    /* Rest of the Grid code */
+  }
 }
 ```
 

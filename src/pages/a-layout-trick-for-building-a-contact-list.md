@@ -1,7 +1,7 @@
 ---
 title: "A Layout Trick for Building a Contact List"
 date: "2019-11-16"
-tags: ["css", "css grid"]
+tags: ["css", "css grid", "layout"]
 ---
 
 I recently needed to build a design for a contact list that looks like this:

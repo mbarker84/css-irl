@@ -1,9 +1,9 @@
 ---
-title: 'Super-powered layouts with CSS Variables + CSS Grid'
-date: '2018-03-29'
-source: 'Originally published on Codepen'
-srcUrl: 'https://codepen.io/michellebarker/post/super-powered-layouts-with-css-variables-css-gr'
-tags: ['css grid', 'custom properties']
+title: "Super-powered layouts with CSS Variables + CSS Grid"
+date: "2018-03-29"
+source: "Originally published on Codepen"
+srcUrl: "https://codepen.io/michellebarker/post/super-powered-layouts-with-css-variables-css-gr"
+tags: ["css grid", "custom properties", "layout"]
 ---
 
 We’ve been using CSS Grid in production at [Mud](http://ournameismud.co.uk/) for a few months now and I absolutely love the flexibility it’s giving me when coding layout. For so long we've got along without a true layout solution for the web - hacking it with floats and flexbox was just how we did things. But now, I honestly cannot imagine life without Grid!
