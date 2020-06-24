@@ -48,11 +48,15 @@
   padding-bottom: calc(var(--vr) * 2);
 
   figure {
-    margin: 0 0 rem(20px) 0;
+    margin: calc(var(--vr) * 2) 0;
 
-    @media (min-width: $lg) {
-      margin: 0 0 rem(30px) 0;
+    img {
+      box-shadow: 0 0 1.5rem rgba(0, 0, 0, 0.15) !important;
     }
+  }
+
+  figcaption {
+    margin-top: calc(var(--vr) / 2);
   }
 
   > * + * {
@@ -72,6 +76,10 @@
   }
 
   > * + h2 {
+    margin-top: calc(var(--vr) * 2);
+  }
+
+  > * + h3 {
     margin-top: calc(var(--vr) * 2);
   }
 
@@ -96,7 +104,7 @@ blockquote {
 }
 
 aside {
-  padding: 1rem;
+  padding: var(--vr);
   font-size: 0.9rem;
   background-color: var(--bgTint);
 
