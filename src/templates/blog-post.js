@@ -77,9 +77,8 @@ export default ({ data, location, pageContext }) => {
           />
           {renderExternalLink(srcUrl)}
 
-          <LoadableAdBlock />
-
           <PostPaginate previous={previous} next={next}></PostPaginate>
+          <LoadableAdBlock />
         </div>
       </div>
     </Layout>
