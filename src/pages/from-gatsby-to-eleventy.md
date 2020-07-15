@@ -18,7 +18,7 @@ There have been _so many_ great personal site redesigns recently. [Cassie’s](h
   <figcaption><em>Fig 2</em> The Whimsical Web – a showcase of whimsical websites</figcaption>
 </figure>
 
-All of this has inspired me to do a little redesign of my own. My personal site, which I have previously [written about](), is a very simple HTML and CSS landing page. There’s no build process, and no JS. While it serves its purpose perfectly well, it doesn’t tell the full story of who I am. I’d like my personal site to have more personality, and become a bit of a playground.
+All of this has inspired me to do a little redesign of my own. My personal site, which I have previously [written about](/building-a-dependency-free-site/), is a very simple HTML and CSS landing page. There’s no build process, and no JS. While it serves its purpose perfectly well, it doesn’t tell the full story of who I am. I’d like my personal site to have more personality, and become a bit of a playground.
 
 ## Eleventy vs. Gatsby
 
