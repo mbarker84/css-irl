@@ -19,7 +19,9 @@ h4 {
   font-weight: $bold;
 }
 
-p {
+p,
+ul,
+ol {
   line-height: 1.6;
 }
 
@@ -93,7 +95,7 @@ h3 {
   }
 
   @media (min-width: 50em) {
-    font-size: 1.5rem;
+    font-size: 1.75rem;
   }
 }
 
