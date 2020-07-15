@@ -1,5 +1,5 @@
 ---
-title: "From Gatsby to Eleventy: Static Site Generators and Personal Sites"
+title: "From Gatsby to Eleventy: Choosing a Static Site Generator for a Personal Site"
 date: "2020-07-15"
 tags: ["gatsby", "eleventy"]
 ---
@@ -78,3 +78,7 @@ If you don’t fancy wading through documentation and just want to get up-and-ru
 
 - [Hylia](https://hylia.website/) by Andy Bell – a simple blog starter, utilising Netlify CMS for content
 - [Supermaya](https://supermaya-demo.netlify.app/) by Mike Riethmuller – helps you add rich features, without a complicated build process
+
+## Conclusion
+
+I’m no expert at Eleventy, but if you fancy trying it out then you could do worse than check out some of the resources in this article. Using an SSG is a great choice for developing a personal site, and I hope that in the coming years we’ll see more and more developers leverage Eleventy, Gatsby, and other SSGs to carve out a personal creative niche on the web. Long may the whimsical website revolution continue!
