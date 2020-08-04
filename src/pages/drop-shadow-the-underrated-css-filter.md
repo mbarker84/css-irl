@@ -116,7 +116,7 @@ As mentioned above, `drop-shadow` doesn’t include the `spread` parameter. This
 
 ## Browser support
 
-CSS filters (including `drop-shadow` are supported in all modern browsers). I tend to use it as progressive enhancement, without the need for a workaround for older browsers, as it isn’t normally something that would affect the user experience in any significant way. But if you do need to provide alternative styling for older browsers, you could do so using a feature query, with a `box-shadow` fallback:
+CSS filters (including `drop-shadow`) are supported in all modern browsers. I tend to use it as progressive enhancement, without the need for a workaround for older browsers, as it isn’t normally something that would affect the user experience in any significant way. But if you do need to provide alternative styling for older browsers, you could do so using a feature query, with a `box-shadow` fallback:
 
 ```css
 .my-element > * {
