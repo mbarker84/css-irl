@@ -80,6 +80,9 @@
     padding: rem(80px) rem(40px) rem(40px) rem(40px);
     background-color: var(--bgTint);
     display: block;
+    outline: 0.2rem solid var(--primary);
+    width: calc(100% + #{rem(80px)});
+    margin-left: rem(-40px);
 
     p {
       font-size: rem(22px);
@@ -103,7 +106,7 @@
   left: 0;
   color: var(--textColorInverse);
   background-color: var(--primary);
-  padding: rem(5px) rem(5px);
+  padding: rem(5px) rem(15px);
   margin: 0;
 
   @media (min-width: $md) {

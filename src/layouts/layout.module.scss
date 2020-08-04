@@ -24,6 +24,8 @@
 
   @media (min-width: $lg) {
     padding-top: rem(150px);
+    padding-left: rem(80px);
+    padding-right: rem(80px);
   }
 }
 
@@ -44,7 +46,7 @@
 
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  grid-gap: rem(40px);
+  grid-gap: rem(20px);
 
   @supports (display: grid) {
     margin: unset;
@@ -53,11 +55,11 @@
 
   @media (min-width: $sm) {
     grid-template-columns: repeat(2, 1fr);
-    grid-gap: rem(40px);
+    grid-gap: rem(20px);
   }
 
   @media (min-width: $lg) {
     grid-template-columns: repeat(3, 1fr);
-    grid-gap: rem(60px);
+    grid-gap: rem(60px) rem(40px);
   }
 }
