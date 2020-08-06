@@ -128,7 +128,7 @@ CSS filters (including `drop-shadow`) are supported in all modern browsers. I te
     filter: drop-shadow(0 0.2rem 0.25rem rgba(0, 0, 0, 0.2));
   }
 
-  .my-element {
+  .my-element > * {
     box-shadow: none;
   }
 }
