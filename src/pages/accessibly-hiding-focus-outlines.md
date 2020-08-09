@@ -4,10 +4,6 @@ date: "2020-08-09"
 tags: ["javascript", "accessibility"]
 ---
 
-<figure>
-  <img src="accessibly-hiding-focus-outlines-01.svg" alt="">
-</figure>
-
 By default, browsers provide styling for elements when they receive focus. This varies from browser to browser, but is typically an outline around an element. In Chrome, the focus style manifests as a blue glowing outline. In Firefox it’s a thin dotted outline that inherits the element’s colour.
 
 The focus ring (as it’s commonly known) should be regarded as a feature, not a bug. It’s especially useful if you’re navigating a website using a keyboard rather than a mouse: when tabbing through elements, the user can see exactly where they are on a webpage, and which element is currently in focus. [This article by Eric Bailey](https://css-tricks.com/focusing-on-focus-styles/) does a great job of explaining why focus styles are important. Unfortunately, its benefits are often poorly understood by clients and designers. Developers are frequently asked to remove the focus outline by others who believe it to be unintentional, or unsightly. Personally, I’ve fought this battle many time, and not always successfully.
@@ -68,7 +64,7 @@ The `:focus-visible` CSS pseudo class is, in fact, designed to solve this very p
 
 Finally, I would like to point out that focus styles can be very useful in a number of ways that may not have been considered by a designer or client, even for mouse users, and removing them still might not be the best idea. From the article:
 
-> Another point to consider is that focus styles can be desirable for mouse users. Their presence is a clear and unambiguous indication of interactivity, which is a great affordance for people with low vision conditions, cognitive concerns, and people who are less technologically adept. Extraordinarily technologically adept people, ones who grok that screen readers and keyboard shortcuts are essentially Vim for a GUI, will want the focus state to be apparent as they use the keyboard to dance across the screen.
+> Another point to consider is that focus styles can be desirable for mouse users. Their presence is a clear and unambiguous indication of interactivity, which is a great affordance for people with low vision conditions, cognitive concerns, and people who are less technologically adept.
 
 ## Resources
 
