@@ -22,12 +22,13 @@ input:focus {
 
 ## An accessible alternative with Javascript
 
-Recently, a colleague pointed me to a solution from Spotify developer [José M. Perez](https://jmperezperez.com), which uses Javascript to hide the focus ring initially, then display it only when a user interacts with a key press, by appending a class to the document root:
+Recently, my colleague [Carl Hughes](https://twitter.com/codekipple) pointed me to a solution from Spotify developer [José M. Perez](https://jmperezperez.com), which uses Javascript to hide the focus ring initially, then display it only when a user interacts with a key press, by appending a class to the document root:
 
 ```js
 document.addEventListener("keyup", function (event) {
+  /* if key is tab */
   if (event.which === 9) {
-    /* tab */ document.documentElement.classList.remove("u-no-focus-outline");
+    document.documentElement.classList.remove("u-no-focus-outline");
     document.documentElement.classList.add("u-focus-outline");
   }
 });
@@ -41,6 +42,10 @@ Then we can use CSS to hide the outline is the document has the “no focus” c
 }
 ```
 
+Of course, you might not want to remove the focus ring on _every_ type of element, and you can style specific elements according to preference.
+
+### Improving the accessibility
+
 My colleague modified the code slightly so that the class is added with JS. That way the website will still be accessible if JS fails to load, as the focus styles will remain intact. Additionally, I made a couple of small changes: Switching the deprecated `event.which` property to `event.keyCode`, and appending the class to the `<body>` tag instead of the document root (which is just a personal preference):
 
 ```js
@@ -48,7 +53,7 @@ document.body.classList.add("u-no-focus-outline");
 
 document.addEventListener("keyup", function (event) {
   if (event.keyCode === 9) {
-    /* tab */ document.body.classList.remove("u-no-focus-outline");
+    document.body.classList.remove("u-no-focus-outline");
     document.body.classList.add("u-focus-outline");
   }
 });
@@ -60,11 +65,13 @@ This solution seems to be simple, elegant, and satisfies the client’s requests
 
 ## Future styling with `:focus-visible`
 
-The `:focus-visible` CSS pseudo class is, in fact, designed to solve this very problem. Unfortunately, browser support is currently [very poor](https://caniuse.com/#search=focus-visible). As Eric’s article points out, there is a polyfill, but I would personally favour the above solution over the extra development overhead that a polyfill adds.
+The `:focus-visible` [CSS pseudo class](https://developer.mozilla.org/en-US/docs/Web/CSS/:focus-visible) is, in fact, designed to solve this very problem. We can use it to target only elements that are focused with a keyboard. Unfortunately, browser support is currently [very poor](https://caniuse.com/#search=focus-visible). As Eric’s article points out, there is a [polyfill](https://github.com/WICG/focus-visible), but I would personally favour the above solution over the extra development overhead that a polyfill adds.
 
 Finally, I would like to point out that focus styles can be very useful in a number of ways that may not have been considered by a designer or client, even for mouse users, and removing them still might not be the best idea. From the article:
 
 > Another point to consider is that focus styles can be desirable for mouse users. Their presence is a clear and unambiguous indication of interactivity, which is a great affordance for people with low vision conditions, cognitive concerns, and people who are less technologically adept.
+
+Personally, I find it incredibly useful to have clear focus styles on form inputs, which makes is very obvious which field you’re currently filling in. So think twice before you remove those focus outlines – the browser adds them for a reason!
 
 ## Resources
 
