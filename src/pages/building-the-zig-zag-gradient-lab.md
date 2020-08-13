@@ -21,7 +21,7 @@ You can watch the full talk [here](https://www.youtube.com/watch?v=-7t1pg0ENLY&l
 
 ## Transcript
 
-Hi, I’m Michelle, I’m a front end developer, and my main hobby is messing about with CSS on Codepen and creating pointless demos. I assume that most of you know what Codepen is? It’s a front end playground where you can go all out making fun things without worrying about clients, or browser support, all the things we love about our jobs. Today I want to tell you the story of how I created a recent Codepen demo...and it all starts with gradients.
+Hi, I’m Michelle, I’m a front end developer, and my main hobby is messing about with CSS on Codepen and creating pointless demos. I assume that most of you know what Codepen is, but if you don’t, it’s a front end playground where you can go all out making fun things without worrying about clients, or browser support, all the things we love about our jobs. Today I want to tell you the story of how I created a recent Codepen demo...and it all starts with gradients.
 
 A lot of people have been redesigning their personal websites recently. Cassie is one of them – if you haven’t seen her personal site, it’s incredible, go and check it out. And this inspired me, I started thinking about ways I could redesign my personal site and bring a bit more creativity, a bit more personality. And one of the ways I thought about doing this was using background gradients in CSS to make some geometric patterns.
 
@@ -52,12 +52,14 @@ If we set the `background-size` to a fixed value, then that gradient pattern is 
 	<figcaption><em>Fig 02</em> Gradient with fixed background size</figcaption>
 </figure>
 
-We could do a similar thing with radial gradients to created a spotted pattern. And we could overlay multiple backgrounds [to make more complex patterns]. So you can get really creative and make some cool patterns just with gradients.
+We could do a similar thing with radial gradients to created a spotted pattern. Or we could overlay multiple backgrounds [to make more complex patterns]. This demo uses multiple gradient backgrounds:
 
 <iframe height="427" style="width: 100%;" scrolling="no" title="Multiple CSS gradient example" src="https://codepen.io/michellebarker/embed/wvMYZdN?height=427&theme-id=dark&default-tab=result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
   See the Pen <a href='https://codepen.io/michellebarker/pen/wvMYZdN'>Multiple CSS gradient example</a> by Michelle Barker
   (<a href='https://codepen.io/michellebarker'>@michellebarker</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
+
+So you can get really creative and make some cool patterns just with gradients.
 
 ### Repeating gradients
 
@@ -109,6 +111,8 @@ And [different variations](https://codepen.io/michellebarker/pen/ExPdJqb) in the
 
 So far so good, there are lots of cool ways I can create geometric patterned backgrounds for my personal site. But there’s one thing I’m really good at, and that’s procrastination! I still haven’t even started my personal site. But I thought to myself, “I’d quite like to create a zig-zag background pattern”. And I figured someone, somewhere has already done this, but this is a learning exercise – I wanted to work out how _I_ would do it, and then see if there was a better way. So how would I do it?
 
+### Creating a zig-zag gradient pattern
+
 I started off creating a striped background with a 45 degree angle and a fixed background size, so we get this kind of candy stripe pattern. (Fig 05)
 
 ```css
@@ -131,7 +135,7 @@ I started off creating a striped background with a 45 degree angle and a fixed b
 	<figcaption><em>Fig 05</em> Striped background with repeating linear gradient and fixed size</figcaption>
 </figure>
 
-Then I used an absolute-positioned pseudo element with the same background at the opposite angle. (Fig 06)
+Then I used an absolute-positioned pseudo-element with the same background at the opposite angle. (Fig 06)
 
 <figure>
   <img src="building-the-zig-zag-gradient-lab-06.jpg" alt="The previous gradient with the opposite angle (-45 degrees)">
@@ -166,11 +170,11 @@ This is the actual result. (Fig 08)
 
 ### Alternative solutions
 
-Now, I don’t completely love this solution, as is uses a pseudo element – I kind of wanted this to be possible with a single element background. I did a bit of searching to see if anyone had a solution that was better than mine, and one of the results that came up was Lea Verou’s [CSS Patterns Gallery](https://leaverou.github.io/css3patterns/), from a few years back. Of course, if anyone has a solution to this, it’s Lea Verou. And there _is_ a zig-zag pattern on the site, but with one crucial difference: it’s only two colours. I wanted my pattern to be three or more colours. I searched a bit more, but I couldn’t find an example anywhere that was more than two colours. That’s not to say it isn’t possible, but figuring it out was a bit more than my tiny brain can handle. So I decided to stick with my solution for now.
+Now, I don’t completely love this solution, as is uses a pseudo-element – I kind of wanted this to be possible with a single element background. I did a bit of searching to see if anyone had a solution that was better than mine, and one of the results that came up was Lea Verou’s [CSS Patterns Gallery](https://leaverou.github.io/css3patterns/), from a few years back. Of course, if anyone has a solution to this, it’s Lea Verou. And there _is_ a zig-zag pattern on the site, but with one crucial difference: it’s only two colours. I wanted my pattern to be three or more colours. I searched a bit more, but I couldn’t find an example anywhere that was more than two colours. That’s not to say it isn’t possible, but figuring it out was a bit more than my tiny brain can handle. So I decided to stick with my solution for now.
 
 ### Custom properties
 
-So, once I had my zig-zag gradient, I wanted to experiment a bit with colours, the thickness of the stripes, and the size of the zig-zags. Enter custom properties. CSS custom properties are among my favourite things in CSS – I use them in so many places. They are perfect for when you have a value repeating in a number of places, and you just want to tweak that value and have it update everywhere. So I can replace the gradient stops with a custom property, which represents the thickness of the stripes, and another that represents the background width. I need to do this in the pseudo-element too, but for brevity I’m not showing all the code here.
+So, once I had my zig-zag gradient, I wanted to experiment a bit with colours, the thickness of the stripes, and the size of the zig-zags. Enter [custom properties](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Variables). CSS custom properties are among my favourite things in CSS – I use them in so many places. They are perfect for when you have a value repeating in a number of places, and you just want to tweak that value and have it update everywhere. So I can replace the gradient stops with a custom property, which represents the thickness of the stripes, and another that represents the background width. I need to do this in the pseudo-element too, but for brevity I’m not showing all the code here.
 
 ```css
 .element {
@@ -233,9 +237,9 @@ Well, if we add some inputs and a bit of Javascript, then we can! With these ran
 
 ## Houdini
 
-But, not so fast! We _can_ animate custom properties using Houdini. I always struggle to explain exactly what Houdini is, so I’m going to quote right off MDN:
+But, not so fast! We _can_ animate custom properties using Houdini. I always struggle to explain exactly what Houdini is, so I’m going to quote right off [MDN](https://developer.mozilla.org/en-US/docs/Glossary/Houdini):
 
-> [Houdini is] a set of low-level APIs that exposes parts of the CSS engine, giving developers the power to extend CSS by hooking into the styling and layout process of a browser’s rendering engine
+> Houdini is a set of low-level APIs that exposes parts of the CSS engine, giving developers the power to extend CSS by hooking into the styling and layout process of a browser’s rendering engine
 
 Houdini consists of a bunch of APIs, but the one that’s important for us here is the Properties & Values API. That allows us to register the property in Javascript and then animate or transition that custom property in exactly the same way you would a normal animatable CSS property.
 
@@ -282,7 +286,7 @@ Incidentally, the [colour wheel illustration](https://codepen.io/michellebarker/
 
 ### Storing the values
 
-Lastly, it would be pretty useful if, once we have a gradient we like, it didn’t reset the moment we navigate away from the page, or close our browser window. We can use localStorage to store the values locally in the user’s browser:
+Lastly, it would be pretty useful if, once we have a gradient we like, it didn’t reset the moment we navigate away from the page, or close our browser window. We can use `localStorage` to store the values locally in the user’s browser:
 
 ```js
 localStorage.setItem("angle", "45");
