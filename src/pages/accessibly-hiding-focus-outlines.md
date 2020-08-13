@@ -4,6 +4,8 @@ date: "2020-08-09"
 tags: ["javascript", "accessibility"]
 ---
 
+**This article was updated on 13 August 2020 to include performance considerations with the Javascript solution.**
+
 By default, browsers provide styling for elements when they receive focus. This varies from browser to browser, but is typically an outline around an element. In Chrome, the focus style manifests as a blue glowing outline. In Firefox it’s a thin dotted outline that inherits the element’s colour.
 
 The focus ring (as it’s commonly known) should be regarded as a feature, not a bug. It’s especially useful if you’re navigating a website using a keyboard rather than a mouse: when tabbing through elements, the user can see exactly where they are on a webpage, and which element is currently in focus. [This article by Eric Bailey](https://css-tricks.com/focusing-on-focus-styles/) does a great job of explaining why focus styles are important. Unfortunately, its benefits are often poorly understood by clients and designers. Developers are frequently asked to remove the focus outline by others who believe it to be unintentional, or unsightly. Personally, I’ve fought this battle many time, and not always successfully.
@@ -46,13 +48,13 @@ Of course, you might not want to remove the focus ring on _every_ type of elemen
 
 ### Improving the accessibility
 
-My colleague modified the code slightly so that the class is added with JS. That way the website will still be accessible if JS fails to load, as the focus styles will remain intact. Additionally, I made a couple of small changes: Switching the deprecated `event.which` property to `event.keyCode`, and appending the class to the `<body>` tag instead of the document root (which is just a personal preference):
+My colleague modified the code slightly so that the class is added with JS. That way the website will still be accessible if JS fails to load, as the focus styles will remain intact. Additionally, I made a couple of small changes: Switching the deprecated `event.which` property to `event.code`, and appending the class to the `<body>` tag instead of the document root (which is just a personal preference):
 
 ```js
 document.body.classList.add("u-no-focus-outline");
 
 document.addEventListener("keyup", function (event) {
-  if (event.keyCode === 9) {
+  if (event.code === 9) {
     document.body.classList.remove("u-no-focus-outline");
     document.body.classList.add("u-focus-outline");
   }
@@ -62,6 +64,11 @@ document.addEventListener("keyup", function (event) {
 This solution seems to be simple, elegant, and satisfies the client’s requests, while maintaining accessibility. I’m almost annoyed I never thought of it! It can be coupled with custom CSS styling for your focus states too, so that everyone gets a good experience that’s in keeping with the brand. There may be other issues I haven’t considered, so if you’ve come across any pitfalls with this method I’d love to hear about them. Otherwise, I can see no reason not to use it in production.
 
 [Read the original blog post here.](https://jmperezperez.com/outline-focus-ring-a11y/)
+
+<aside>
+  <h4>Update</h4>
+  <p>You may want to read <a href="https://twitter.com/sigismundf/status/1292785813907025920?s=20">this Twitter thread</a>, which discusses the potential performance impact of ongoing event listening, particularly on mobile devices. If you do need to use the above solution, it might be worth modifying the code to exclude mobile or touch devices.</p>
+</aside>
 
 ## Future styling with `:focus-visible`
 
