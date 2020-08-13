@@ -4,7 +4,9 @@ date: "2020-08-04"
 tags: ["css"]
 ---
 
-If you’re familiar with CSS, you probably know all about the `box-shadow` property. But did you know there is a CSS filter, `drop-shadow`, that [does a something similar](https://developer.mozilla.org/en-US/docs/Web/CSS/filter-function/drop-shadow)? Like `box-shadow`, we can pass in values for x-offset, y-offset, blur radius and colour:
+**This article was updated on 13 August 2020 to include additional reference material.**
+
+If you’re familiar with CSS, you probably know all about the `box-shadow` property. But did you know there is a CSS filter, `drop-shadow`, that [does something similar](https://developer.mozilla.org/en-US/docs/Web/CSS/filter-function/drop-shadow)? Like `box-shadow`, we can pass in values for x-offset, y-offset, blur radius and colour:
 
 ```css
 .my-element {
@@ -108,11 +110,15 @@ Here’s a fun thing: You can use multiple drop shadows for some pretty cool eff
 
 ## Limitations
 
-As mentioned above, `drop-shadow` doesn’t include the `spread` parameter. This means we can’t currently use it to create an outline effect, which I think would be really useful. For example, if it was supported, we could use `drop-shadow` to create an outline on a gradient background, in the way we can with `box-shadow` or `text-shadow` on other elements.
+As mentioned above, `drop-shadow` doesn’t include the `spread` parameter. This means we can’t currently use it to create an outline effect, which I think would be really useful. For example, if it was supported, we could use `drop-shadow` to create an outline on a gradient background, in the way we can with `box-shadow` on other elements.
 
 ## Gotchas
 
 `drop-shadow` doesn’t render the exact same shadow effect as `box-shadow`, even when given the same parameters. `box-shadow` tends to give a darker, heavier shadow than `drop-shadow` when the same values are used. I suspect this is something to do with CSS filters being based on SVG filter primitives. Whatever the case, you’ll likely need to compensate for the difference by adjusting your `drop-shadow` values somewhat.
+
+<aside>
+  <p>If you’re interested in further reading, <a href="https://twitter.com/anatudor">Ana Tudor</a> pointed me to <a href="https://dbaron.org/log/20110225-blur-radius">this article</a> on how blur radius is calculated.</p>
+</aside>
 
 ## Browser support
 
