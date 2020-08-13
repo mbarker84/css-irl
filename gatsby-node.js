@@ -7,6 +7,7 @@ exports.createPages = ({ graphql, actions }) => {
   const blogListingTemplate = path.resolve("src/templates/index.js");
   const blogPostTemplate = path.resolve("src/templates/blog-post.js");
   const tagTemplate = path.resolve("src/templates/tags.js");
+  const aboutTemplate = path.resolve("src/pages/about.js");
 
   return new Promise((resolve, reject) => {
     graphql(`
@@ -26,7 +27,7 @@ exports.createPages = ({ graphql, actions }) => {
           }
         }
       }
-    `).then(result => {
+    `).then((result) => {
       const posts = result.data.allMarkdownRemark.edges;
 
       // Post detail pages
@@ -41,8 +42,8 @@ exports.createPages = ({ graphql, actions }) => {
           context: {
             slug: post.node.fields.slug,
             previous,
-            next
-          }
+            next,
+          },
         });
 
         const postsPerPage = 12;
@@ -59,28 +60,34 @@ exports.createPages = ({ graphql, actions }) => {
               limit: postsToShow,
               skip,
               numPages,
-              currentPage: i + 1
-            }
+              currentPage: i + 1,
+            },
           });
         });
 
         // Tag pages:
         let tags = [];
-        _.each(posts, edge => {
+        _.each(posts, (edge) => {
           if (_.get(edge, "node.frontmatter.tags")) {
             tags = tags.concat(edge.node.frontmatter.tags);
           }
         });
         tags = _.uniq(tags);
 
-        tags.forEach(tag => {
+        tags.forEach((tag) => {
           createPage({
             path: `/tags/${_.kebabCase(tag)}/`,
             component: tagTemplate,
             context: {
-              tag
-            }
+              tag,
+            },
           });
+        });
+
+        createPage({
+          path: `/about/`,
+          component: aboutTemplate,
+          context: {},
         });
       });
       resolve();
@@ -95,7 +102,7 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
     createNodeField({
       node,
       name: `slug`,
-      value: slug
+      value: slug,
     });
   }
 };

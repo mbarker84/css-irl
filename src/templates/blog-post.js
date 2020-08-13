@@ -60,18 +60,18 @@ export default ({ data, location, pageContext }) => {
           content={`${data.site.siteMetadata.siteUrl}${location.pathname}`}
         />
       </Helmet>
-      <div className={layout.postContent}>
+      <article className={layout.postContent}>
         <header className={styles.postHeader}>
           <Tags group={tags} className={styles.tagList} />
           {renderSeriesTitle()}
-          <h2 className={styles.postHeading}>{title}</h2>
+          <h1 className={styles.postHeading}>{title}</h1>
           <time className={styles.src} dateTime={date}>
             {date}
           </time>
           {renderSrc(srcUrl, source)}
         </header>
         <div className={layout.articleBody}>
-          <article
+          <div
             dangerouslySetInnerHTML={{ __html: post.html }}
             className={styles.richtext}
           />
@@ -80,7 +80,7 @@ export default ({ data, location, pageContext }) => {
           <PostPaginate previous={previous} next={next}></PostPaginate>
           <LoadableAdBlock />
         </div>
-      </div>
+      </article>
     </Layout>
   );
 };
