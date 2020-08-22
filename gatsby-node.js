@@ -7,7 +7,22 @@ exports.createPages = ({ graphql, actions }) => {
   const blogListingTemplate = path.resolve("src/templates/index.js");
   const blogPostTemplate = path.resolve("src/templates/blog-post.js");
   const tagTemplate = path.resolve("src/templates/tags.js");
-  const aboutTemplate = path.resolve("src/pages/about.js");
+
+  const testData = [
+    {
+      name: "testing-1",
+    },
+    {
+      name: "testing-2",
+    },
+  ];
+  testData.forEach((item) => {
+    createPage({
+      path: `/${item.name}`,
+      component: require.resolve(`./src/templates/page.js`),
+      context: { item },
+    });
+  });
 
   return new Promise((resolve, reject) => {
     graphql(`
@@ -83,12 +98,6 @@ exports.createPages = ({ graphql, actions }) => {
             },
           });
         });
-
-        createPage({
-          path: `/about/`,
-          component: aboutTemplate,
-          context: {},
-        });
       });
       resolve();
     });
@@ -103,6 +112,13 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
       node,
       name: `slug`,
       value: slug,
+    });
+
+    const infoPageSlug = createFilePath({ node, getNode, basePath: `info` });
+    createNodeField({
+      node,
+      name: `slug`,
+      value: infoPageSlug,
     });
   }
 };
