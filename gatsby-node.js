@@ -113,12 +113,5 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
       name: `slug`,
       value: slug,
     });
-
-    const infoPageSlug = createFilePath({ node, getNode, basePath: `info` });
-    createNodeField({
-      node,
-      name: `slug`,
-      value: infoPageSlug,
-    });
   }
 };
