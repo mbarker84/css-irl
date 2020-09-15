@@ -1,7 +1,7 @@
 ---
 title: "Learning About CSS 3D Transforms and Perspective"
 date: "2020-09-15"
-tags: ["css", "animation", "gradients"]
+tags: ["css", "animation", "transforms"]
 ---
 
 3D transforms, despite being available in CSS for a while, are one area I’ve never understood well. I think if they were new to CSS now, I’d spend a lot more time playing around with them, like I have with Motion Path and some other new CSS features. As things stand, I’ve never had much cause to use them in production (with the odd exception), so I’ve concentrated my time and energy on other things.
