@@ -1,7 +1,7 @@
 ---
-title: 'Controlling Leftover Grid Items with Pseudo-selectors'
-date: '2019-04-13'
-tags: ['css grid']
+title: "Controlling Leftover Grid Items with Pseudo-selectors"
+date: "2019-04-13"
+tags: ["css grid"]
 ---
 
 I recently wrote about [some of the cases where you might want to use Grid instead of flexbox](/to-grid-or-to-flex), and vice-versa. One of the scenarios I pointed out _might_ be a better case for using flexbox is when you want to control the behaviour of any leftover grid items that don’t fill an entire row.
@@ -19,9 +19,9 @@ To my mind, using grid is often the better choice when it comes to defining a fi
 
 ```css
 .grid {
-	display: grid;
-	grid-template-columns: repeat(3, 1fr);
-	grid-gap: 20px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 20px;
 }
 ```
 
@@ -50,7 +50,7 @@ Then we can target that item with our styles, e.g. setting it to span three grid
 
 ```css
 li:last-child:nth-child(3n - 2) {
-	grid-column: span 3;
+  grid-column: span 3;
 }
 ```
 
@@ -66,12 +66,12 @@ In the first of the two examples shown I’m targeting the last child item if it
 ```css
 /* Target the second item on the last row, as long as it is the last item in the grid */
 li:last-child:nth-child(3n - 1) {
-	grid-column: span 2;
+  grid-column: span 2;
 }
 
 /* Target the first item on the last row, if it is the last item */
 li:last-child:nth-child(3n - 2) {
-	grid-column: span 3;
+  grid-column: span 3;
 }
 ```
 
@@ -89,9 +89,9 @@ We can achieve this with grid too – we just need a couple more small steps in 
 
 ```css
 .grid {
-	display: grid;
-	grid-template-columns: repeat(6, 1fr);
-	grid-gap: 20px;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-gap: 20px;
 }
 ```
 
@@ -99,21 +99,27 @@ Then we need to make each item span two columns instead of one:
 
 ```css
 li {
-	grid-column: span 2;
+  grid-column: span 2;
 }
 ```
 
 Using a _span_ value rather than a start or end line number allows us to still take advantage of Grid’s auto-placement – we don’t need to explicitly place the items. We’re telling our grid that they should each span two tracks, but otherwise flow naturally into the available grid cells.
 
-Then we can target the last and last-but-one grid items as before, but instead adjust their `grid-column-start` line instead of their span:
+Then we can target the last and last-but-one grid items as before, but instead adjust their `grid-column-end` line instead of their span:
 
 ```css
+/* Dealing with 2 orphan items */
 li:last-child:nth-child(3n - 1) {
-	grid-column-start: 2;
+  grid-column-end: -2;
 }
 
+li:nth-last-child(2):nth-child(3n + 1) {
+  grid-column-end: 4;
+}
+
+/* Dealing with single orphan */
 li:last-child:nth-child(3n - 2) {
-	grid-column-start: 4;
+  grid-column-end: 5;
 }
 ```
 
