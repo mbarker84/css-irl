@@ -29,7 +29,7 @@
     "gatsby-source-filesystem": "2.1.5",
     "gatsby-transformer-remark": "2.6.45",
     "graphql": "^14.5.8",
-    "prismjs": "^1.21.0",
+    "prismjs": "^1.27.0",
     "react": "^16.12.0",
     "react-carbon-ads": "^1.0.4",
     "react-dom": "^16.12.0",
