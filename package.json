@@ -27,7 +27,7 @@
     "gatsby-remark-responsive-iframe": "^2.2.30",
     "gatsby-remark-video": "^1.2.5",
     "gatsby-source-filesystem": "2.1.5",
-    "gatsby-transformer-remark": "2.6.45",
+    "gatsby-transformer-remark": "5.25.1",
     "graphql": "^14.5.8",
     "prismjs": "^1.21.0",
     "react": "^16.12.0",
